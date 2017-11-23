@@ -1,0 +1,22 @@
+[  
+   {  
+      "Billing_Split__c":"70.0",
+      "Id":null,
+      "type":"DatasiteOne_Company__c",
+      "Billing_Address__r":{  
+         "Id":null,
+         "type":"Billing_Address__c",
+         "Oracle_ID__c":"262342"
+      }
+   },
+   {  
+      "Billing_Split__c":"30.0",
+      "Id":null,
+      "type":"DatasiteOne_Company__c",
+      "Billing_Address__r":{  
+         "Id":null,
+         "type":"Billing_Address__c",
+         "Oracle_ID__c":"1365"
+      }
+   }
+]

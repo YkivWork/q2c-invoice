@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:metadata="http://www.mulesoft.org/schema/mule/metadata" xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw" xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:vm="http://www.mulesoft.org/schema/mule/vm" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
+http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/current/mule-vm.xsd
+http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd">
+    <flow name="extractAriaInvoiceEvent" processingStrategy="synchronous">
+
+        <logger message="Initial Payload: #[payload]" level="DEBUG" category="com.merrillcorp.invoiceEvent" doc:name="[DEBUG]Log Initial Payload"/>
+        <dw:transform-message doc:name="Transform to Merrill Invoice Event">
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/java
+---
+{
+	eventId: payload.apf2doc.event_data.event.event_id,
+	eventLabel: payload.apf2doc.event_data.event.event_label,
+	request: {
+		version: payload.apf2doc.request.version,
+		sender: payload.apf2doc.request.sender,
+		transactionId: payload.apf2doc.request.transaction_id,
+		action: payload.apf2doc.request.action,
+		class: payload.apf2doc.request.class
+	}, 
+	account: {
+		clientNumber: payload.apf2doc.account.client_no,
+		accountNumber: payload.apf2doc.account.acct_no,
+		userId: payload.apf2doc.account.user_id,
+		planInstanceNumber: payload.apf2doc.account.master_plan_instances.master_plan_instance_data.plan_instance_no,
+		clientPlanInstanceId: payload.apf2doc.account.master_plan_instances.master_plan_instance_data.client_plan_instance_id,
+		respLevelCd: payload.apf2doc.account.master_plan_instances.master_plan_instance_data.resp_level_cd
+	
+	},
+	financialTransactionGroup: {
+		objectType: payload.apf2doc.financial_transaction_groups.financial_transaction_group.Object_type,
+		objectNumber: payload.apf2doc.financial_transaction_groups.financial_transaction_group.Object_no,
+		billingGroupNumber: payload.apf2doc.financial_transaction_groups.financial_transaction_group.billing_group_no,
+		billingGroupName: payload.apf2doc.financial_transaction_groups.financial_transaction_group.billing_group_name,
+		clientBillingGroupId: payload.apf2doc.financial_transaction_groups.financial_transaction_group.client_billing_group_id,
+		totalAmount: payload.apf2doc.financial_transaction_groups.financial_transaction_group.total_amount		
+	},
+	financialTransaction: {
+
+		transId: payload.apf2doc.financial_transactions.financial_transaction.financial_trans_id,
+		financialTransGranularId: payload.apf2doc.financial_transactions.financial_transaction.financial_trans_granular_id,
+		financialTransTypeNo: payload.apf2doc.financial_transactions.financial_transaction.financial_trans_type_no,
+		financialTransTypeLabel: payload.apf2doc.financial_transactions.financial_transaction.financial_trans_type_label,
+		financialTransDate: convertFromAriaDateToOracle(payload.apf2doc.financial_transactions.financial_transaction.financial_trans_date),
+		transactionAmount: payload.apf2doc.financial_transactions.financial_transaction.financial_trans_amount,
+		financialTransInvType: payload.apf2doc.financial_transactions.financial_transaction.financial_trans_inv_type_cd
+	
+	
+	}
+}]]></dw:set-payload>
+        </dw:transform-message>
+        <json:object-to-json-transformer mimeType="application/json" doc:name="Object to JSON"/>
+    </flow>
+    <flow name="extractAriaInvoiceVoidEvent" processingStrategy="synchronous">
+
+        <logger message="Initial Payload: #[payload]" level="DEBUG" category="com.merrillcorp.voidInvoiceEvent" doc:name="[DEBUG]Log Initial Payload"/>
+    </flow>
+    <flow name="extractAriaCreditMemoEvent" processingStrategy="synchronous">
+
+        <logger message="Initial Payload: #[payload]" level="DEBUG" category="com.merrillcorp.creditMemoEvent" doc:name="[DEBUG]Log Initial Payload"/>
+    </flow>
+    <flow name="extractAriaCreditMemoVoidEvent" processingStrategy="synchronous">
+
+        <logger message="Initial Payload: #[payload]" level="DEBUG" category="com.merrillcorp.voidCreditMemoEvent" doc:name="[DEBUG]Log Initial Payload"/>
+    </flow>
+</mule>

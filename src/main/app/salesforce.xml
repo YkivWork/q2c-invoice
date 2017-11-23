@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<mule xmlns:metadata="http://www.mulesoft.org/schema/mule/metadata" xmlns:scripting="http://www.mulesoft.org/schema/mule/scripting" xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw" xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:vm="http://www.mulesoft.org/schema/mule/vm" xmlns:sfdc="http://www.mulesoft.org/schema/mule/sfdc" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
+http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/current/mule-vm.xsd
+http://www.mulesoft.org/schema/mule/sfdc http://www.mulesoft.org/schema/mule/sfdc/current/mule-sfdc.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd
+http://www.mulesoft.org/schema/mule/scripting http://www.mulesoft.org/schema/mule/scripting/current/mule-scripting.xsd">
+    <flow name="sf_getSplitBilling" processingStrategy="synchronous">
+
+        <logger message="lastModifiedDate: #[payload]" level="INFO" category="VM_GET_SPLIT_BILLING" doc:name="[DEBUG]Log Initial Payload"/>
+        <sfdc:query config-ref="Salesforce__Basic_Authentication" query="SELECT Billing_Split__c, Billing_Address__r.Oracle_ID__c FROM DatasiteOne_Company__c WHERE DatasiteOne_Project__c = '#[payload]'" doc:name="Salesforce"/>
+        <json:object-to-json-transformer mimeType="application/json" doc:name="Object to JSON"/>
+        <dw:transform-message doc:name="Transform Message">
+            <dw:set-variable variableName="splitBilling"><![CDATA[%dw 1.0
+%output application/java
+---
+payload map  {
+	billingSplit: $.Billing_Split__c,
+	oracleId: $.Billing_Address__r.Oracle_ID__c
+}]]></dw:set-variable>
+        </dw:transform-message>
+    </flow>
+    <sub-flow name="salesforceSub_Flow">
+        <set-payload value="[      {         &quot;Billing_Split__c&quot;:&quot;40&quot;,       &quot;Billing_Address__c&quot;:&quot;BA-001&quot;,       &quot;DatasiteOne_Project__c&quot;:&quot;SFProj01&quot;,       &quot;Oracle_ID__c&quot;:&quot;ORA001&quot;    },     {         &quot;Billing_Split__c&quot;:&quot;60&quot;,       &quot;Billing_Address__c&quot;:&quot;BA-002&quot;,       &quot;DatasiteOne_Project__c&quot;:&quot;SFProj02&quot;,       &quot;Oracle_ID__c&quot;:&quot;ORA002&quot;    }          ]" mimeType="application/json" doc:name="Set Payload"/>
+        <set-variable variableName="opportunitySplits" value="#[payload]" doc:name="Variable"/>
+        <dw:transform-message doc:name="Transform Message">
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/java
+---
+flowVars.opportunitySplits map
+  using (ownerId = $.ownerId)
+  using(theUser = (flowVars.users filter $.id == ownerId)[0])
+{
+  isPrimary: $.isPrimary,
+  splitPercentage: $.splitPercentage,
+  employeeNumber: theUser.employeeNumber,
+  name: theUser.name
+}
+]]></dw:set-payload>
+        </dw:transform-message>
+        <set-variable variableName="users" value="#[payload]" doc:name="Variable"/>
+        <logger message="Looking up SalesReps: #[flowVars.userIds]" level="DEBUG" category="com.merrillcorp.salesRep" doc:name="Logger"/>
+        <dw:transform-message doc:name="Transform Message">
+            <dw:set-variable variableName="userIds"><![CDATA[%dw 1.0
+%output application/java
+---
+payload map ( "'" ++ $.ownerId ++ "'" ) joinBy ","
+]]></dw:set-variable>
+        </dw:transform-message>
+        <sfdc:query config-ref="Salesforce__Basic_Authentication" query="SELECT EmployeeNumber,Name,Id FROM User WHERE Id in (#[flowVars.userIds])" doc:name="Salesforce OpportunitySplit"/>
+        <dw:transform-message doc:name="Transform Message">
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/java
+---
+payload map {
+ name: $.Name,
+ id: $.Id,
+ employeeNumber: $.EmployeeNumber
+}
+]]></dw:set-payload>
+        </dw:transform-message>
+
+    </sub-flow>
+        <flow name="lookupSalesRepFlow">
+        <logger message="Start lookupSalesRepFlow" level="INFO" doc:name="Logger" category="com.merrillcorp.salesRep"/>
+
+        <sfdc:query config-ref="Salesforce__Basic_Authentication" query="SELECT Primary__c, Split__c, UserId FROM OpportunityTeamMember WHERE OutputCommissionFlag__c =  TRUE AND OpportunityId in (SELECT Opportunity__c from DatasiteOne_Project__c where Id = '#[payload]')" doc:name="Salesforce OpportunitySplit"/>
+        <dw:transform-message doc:name="Transform Message">
+            <dw:set-variable variableName="opportunityTeamMember"><![CDATA[%dw 1.0
+%output application/java
+---
+payload map ($ mapObject { ($$): $ } )
+]]></dw:set-variable>
+
+        </dw:transform-message>
+        <scripting:component doc:name="Groovy">
+            <scripting:script engine="Groovy"><![CDATA[def list = message.getInvocationProperty('opportunityTeamMember');
+StringBuffer buff = new StringBuffer();
+buff.append(list.UserId );
+def ids = buff.toString().replace(", ","','").replace("[","'").replace("]","'")
+message.setInvocationProperty("userIds",ids)]]></scripting:script>
+        </scripting:component>
+        <sfdc:query config-ref="Salesforce__Basic_Authentication" query="SELECT Id, EmployeeNumber, FirstName, LastName from User where Id in (#[flowVars.userIds])" doc:name="Salesforce"/>
+        <dw:transform-message doc:name="Transform Message">
+            <dw:set-variable variableName="user"><![CDATA[%dw 1.0
+%output application/json
+---
+payload map ($ mapObject { ($$): $ } ) ]]></dw:set-variable>
+        </dw:transform-message>
+        <dw:transform-message doc:name="Transform Message">
+            <dw:set-variable variableName="splitArray"><![CDATA[%dw 1.0
+%var firstQuery = flowVars.opportunityTeamMember
+%var secondQuery = flowVars.user
+%input firstQuery application/json
+%input secondQuery application/json
+%output application/java
+---
+firstQuery map (first,index) ->
+  using (secondedArrayItem = (secondQuery filter $.Id == first.UserId)[0])
+{
+   firstName: "$(secondedArrayItem.FirstName)|$(secondedArrayItem.EmployeeNumber)|$(first.Primary__c)|$(first.Split__c);",
+   employeeNumber: secondedArrayItem.EmployeeNumber,
+   isPrimary: upper first.Primary__c,
+   splitPercentage: first.Split__c
+}]]></dw:set-variable>
+
+        </dw:transform-message>
+        <scripting:component doc:name="Groovy">
+            <scripting:script engine="Groovy"><![CDATA[def list = message.getInvocationProperty('splitArray');
+StringBuffer buff = new StringBuffer();
+buff.append(list.firstName );
+def ids = buff.toString().replace(", ","").replace("[","").replace(";]","")
+message.setInvocationProperty("testtt",ids)
+return ids]]></scripting:script>
+        </scripting:component>
+<!--
+Down below in the final transform, a "filter" is used in DW. If you do not consume the ConsumingIterator returned from sfdc,
+then the filter works only on the first one and nothing else. Hence for these transforms.
+-->
+
+
+<!--
+I hate this, would love other's input on how to make it better. I can use map and joinBy, but it doesn't look much better
+Ultimately, how can I send in an array for SFDC's "in" predicate expression.
+-->
+
+
+        <logger message="End lookupSalesRepFlow.   #[message.payloadAs(java.lang.String)]" level="INFO" doc:name="Logger" category="com.merrillcorp.salesRep"/>
+    </flow>
+</mule>

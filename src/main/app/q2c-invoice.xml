@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:apikit="http://www.mulesoft.org/schema/mule/apikit" xmlns:context="http://www.springframework.org/schema/context" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:metadata="http://www.mulesoft.org/schema/mule/metadata" xmlns:spring="http://www.springframework.org/schema/beans" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns:vm="http://www.mulesoft.org/schema/mule/vm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/current/mule-vm.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/apikit http://www.mulesoft.org/schema/mule/apikit/current/mule-apikit.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-current.xsd
+http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd">
+    <flow name="q2c-invoice-main">
+        <http:listener config-ref="q2c-invoice-httpListenerConfig" path="/api/*" doc:name="HTTP"/>
+        <apikit:router config-ref="q2c-invoice-config" doc:name="APIkit Router"/>
+    </flow>
+    <flow name="q2c-invoice-console">
+        <http:listener config-ref="q2c-invoice-httpListenerConfig" path="/console/*" doc:name="HTTP"/>
+        <apikit:console config-ref="q2c-invoice-config" doc:name="APIkit Console"/>
+    </flow>
+    <flow name="post:/events:application/xml:q2c-invoice-config">
+
+        <flow-ref name="processEventFlow" doc:name="processEventFlow" />
+        <set-payload value="OK" doc:name="Set Payload To OK" />
+    </flow>
+    <flow name="post:/tests:application/xml:q2c-invoice-config">
+        <logger message="tests1  post payload: #[message.payloadAs(java.lang.String)]" level="INFO" doc:name="Logger" category="com.merrillcorp.event"/>
+        <expression-component doc:name="set Variables"><![CDATA[flowVars.account_no= "2066892";
+flowVars.invoice_no = "10251654";
+flowVars.eventId = "902";
+]]></expression-component>
+        <flow-ref name="CreateTriggerToSendPdfOfStatementToOracle" doc:name="CreateTriggerToSendPdfOfStatementToOracle"/>
+
+        <set-payload value="OK" doc:name="Set Payload To OK" />
+    </flow>
+
+    <flow name="get:/health-check/dso:q2c-invoice-config">
+        <flow-ref name="GET_Health_DSO" doc:name="GET_Health_DSO"/>
+
+    </flow>
+    <flow name="get:/health-check/oracle:q2c-invoice-config">
+        <flow-ref name="GET_Health_Oracle" doc:name="GET_Health_Oracle"/>
+
+    </flow>
+    <flow name="get:/health-check/salesforce:q2c-invoice-config">
+        <flow-ref name="GET_Health_SalesForce" doc:name="GET_Health_SalesForce"/>
+
+    </flow>
+    <flow name="get:/health-check/aria:q2c-invoice-config">
+        <flow-ref name="GET_Health_Aria" doc:name="GET_Health_Aria"/>
+
+    </flow>
+</mule>

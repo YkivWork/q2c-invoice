@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:spring="http://www.springframework.org/schema/beans" xmlns:core="http://www.mulesoft.org/schema/mule/core" xmlns:mock="http://www.mulesoft.org/schema/mule/mock" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/mock http://www.mulesoft.org/schema/mule/mock/current/mule-mock.xsd">
+    <munit:config name="munit" doc:name="MUnit configuration" mock-connectors="false" mock-inbounds="false"/>
+    <spring:beans>
+        <spring:import resource="classpath:sys-aria/*.xml"/>
+        <spring:import resource="classpath:proc-merrillcorp-invoice/*.xml"/>
+        <spring:import resource="classpath:sys-azure/*.xml"/>
+        <spring:import resource="classpath:ux-aria-event/*.xml"/>
+        <spring:import resource="classpath:credit-memo.xml"/>
+        <spring:import resource="classpath:expenditure.xml"/>
+        <spring:import resource="classpath:get-aria.xml"/>
+        <spring:import resource="classpath:get-mdr.xml"/>
+        <spring:import resource="classpath:globals.xml"/>
+        <spring:import resource="classpath:invoice-creation.xml"/>
+        <spring:import resource="classpath:oracle.xml"/>
+        <spring:import resource="classpath:process-event.xml"/>
+        <spring:import resource="classpath:salesforce.xml"/>        
+        <spring:import resource="classpath:sales-rep.xml"/>
+        <spring:import resource="classpath:error-handling.xml"/>
+        <spring:import resource="classpath:html-generate.xml"/>
+        <spring:import resource="classpath:html-process.xml"/>
+        <spring:import resource="classpath:pdf-process.xml"/>
+        <spring:import resource="classpath:pdf-store.xml"/>
+    </spring:beans>
+    <munit:test name="invoice-creation-test-suite-invoice-creationSub_FlowTest" description="Test" ignore="true">
+        <mock:when messageProcessor="mule:sub-flow" doc:name="Mock GetDetailsDataFromAria_Sub_Flow">
+            <mock:with-attributes>
+                <mock:with-attribute name="name" whereValue="#[matchContains('GetDetailsDataFromAria_Sub_Flow')]"/>
+            </mock:with-attributes>
+            <mock:then-return payload="{}" mimeType="application/json"/>
+        </mock:when>
+        <mock:when messageProcessor="mule:sub-flow" doc:name="Mock getXRefFromMDRWithAriaMPISub_Flow">
+            <mock:with-attributes>
+                <mock:with-attribute name="name" whereValue="#[matchContains('getXRefFromMDRWithAriaMPISub_Flow')]"/>
+            </mock:with-attributes>
+            <mock:then-return payload="{}" mimeType="application/json"/>
+        </mock:when>
+        <mock:when messageProcessor="mule:sub-flow" doc:name="MockCreateInvoiceInOracleSub_Flow">
+            <mock:with-attributes>
+                <mock:with-attribute name="name" whereValue="#[matchContains('CreateInvoiceInOracleSub_Flow')]"/>
+            </mock:with-attributes>
+            <mock:then-return payload="{}" mimeType="application/json"/>
+        </mock:when>
+        <set-payload value="#[getResource('examples/event-901-example.xml').asString()]" mimeType="application/xml" doc:name="Set Payload"/>
+        <flow-ref name="invoice-creation_Flow" doc:name="invoice-creation_Flow"/>
+        <mock:verify-call messageProcessor="mule:sub-flow" times="1" doc:name="Verify Call GetDetailsDataFromAria_Sub_Flow">
+            <mock:with-attributes>
+                <mock:with-attribute name="name" whereValue="#[matchContains('GetDetailsDataFromAria_Sub_Flow')]"/>
+            </mock:with-attributes>
+
+        </mock:verify-call>
+        <mock:verify-call messageProcessor="mule:sub-flow" times="1" doc:name="Verify Call getXRefFromMDRWithAriaMPISub_Flow">
+            <mock:with-attributes>
+                <mock:with-attribute name="name" whereValue="#[matchContains('getXRefFromMDRWithAriaMPISub_Flow')]"/>
+            </mock:with-attributes>
+
+        </mock:verify-call>
+        <mock:verify-call messageProcessor="mule:sub-flow" times="1" doc:name="Verify Call CreateInvoiceInOracleSub_Flow">
+            <mock:with-attributes>
+                <mock:with-attribute name="name" whereValue="#[matchContains('CreateInvoiceInOracleSub_Flow')]"/>
+            </mock:with-attributes>
+
+        </mock:verify-call>
+    </munit:test>
+    <munit:test name="invoice-creation-test-suite-GetDetailsDataFromAria_Sub_FlowTest" description="Test" ignore="true">
+        <mock:when messageProcessor="mule:sub-flow" doc:name="Mock  getAccountDetails_Flow">
+            <mock:with-attributes>
+                <mock:with-attribute name="name" whereValue="#[matchContains('getAccountDetails_Flow')]"/>
+            </mock:with-attributes>
+            <mock:then-return payload="{}" mimeType="application/json"/>
+        </mock:when>
+        <mock:when messageProcessor="mule:sub-flow" doc:name="Mock  getInvoiceDetails_Flow">
+            <mock:with-attributes>
+                <mock:with-attribute name="name" whereValue="#[matchContains('getInvoiceDetails_Flow')]"/>
+            </mock:with-attributes>
+            <mock:then-return payload="{}" mimeType="application/json"/>
+        </mock:when>
+        <mock:when messageProcessor="mule:sub-flow" doc:name="MockgetServiceDetails_Flow">
+            <mock:with-attributes>
+                <mock:with-attribute name="name" whereValue="#[matchContains('getServiceDetails_Flow')]"/>
+            </mock:with-attributes>
+            <mock:then-return payload="{}" mimeType="application/json"/>
+        </mock:when>
+        <mock:when messageProcessor="mule:sub-flow" doc:name="Mock getAccountContacts_Flow">
+            <mock:with-attributes>
+                <mock:with-attribute name="name" whereValue="#[matchContains('getAccountContacts_Flow')]"/>
+            </mock:with-attributes>
+            <mock:then-return payload="{}" mimeType="application/json"/>
+        </mock:when>
+       <flow-ref name="GetDetailsDataFromAria_Flow" doc:name="GetDetailsDataFromAria_Flow"/>
+        <mock:verify-call messageProcessor="mule:sub-flow" times="1" doc:name="Verify Call getAccountDetails_Flow">
+            <mock:with-attributes>
+                <mock:with-attribute name="name" whereValue="#[matchContains('getAccountDetails_Flow')]"/>
+            </mock:with-attributes>
+        </mock:verify-call>
+        <mock:verify-call messageProcessor="mule:sub-flow" times="1" doc:name="Verify CallgetInvoiceDetails_Flow">
+            <mock:with-attributes>
+                <mock:with-attribute name="name" whereValue="#[matchContains('getInvoiceDetails_Flow')]"/>
+            </mock:with-attributes>
+        </mock:verify-call>
+        <mock:verify-call messageProcessor="mule:sub-flow" times="1" doc:name="Verify Call getServiceDetails_Flow">
+            <mock:with-attributes>
+                <mock:with-attribute name="name" whereValue="#[matchContains('getServiceDetails_Flow')]"/>
+            </mock:with-attributes>
+        </mock:verify-call>        
+        <mock:verify-call messageProcessor="mule:sub-flow" times="1" doc:name="Verify Call getAccountContacts_Flow">
+            <mock:with-attributes>
+                <mock:with-attribute name="name" whereValue="#[matchContains('getAccountContacts_Flow')]"/>
+            </mock:with-attributes>
+        </mock:verify-call>        
+    </munit:test>
+</mule>

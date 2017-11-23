@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="urn:client:api:wsdl:document/literal_wrapped:vers:11.0:aria_complete_m_api" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<SOAP-ENV:Body>
+		<ns1:get_acct_details_all_mResponseElement>
+			<ns1:acct_no>1250986</ns1:acct_no>
+			<ns1:client_acct_id xsi:nil="true"/>
+			<ns1:userid>123456</ns1:userid>
+			<ns1:first_name>Jesse</ns1:first_name>
+			<ns1:middle_initial xsi:nil="true"/>
+			<ns1:last_name>Fulcher</ns1:last_name>
+			<ns1:company_name>Advanced Technology Group</ns1:company_name>
+			<ns1:address1>1900 Avenue of the Stars</ns1:address1>
+			<ns1:address2>Suite 1200</ns1:address2>
+			<ns1:address3 xsi:nil="true"/>
+			<ns1:city>Los Angeles</ns1:city>
+			<ns1:locality xsi:nil="true"/>
+			<ns1:state_prov>CA</ns1:state_prov>
+			<ns1:country_cd>US</ns1:country_cd>
+			<ns1:postal_cd>90067</ns1:postal_cd>
+			<ns1:phone>406-240-9700</ns1:phone>
+			<ns1:phone_ext xsi:nil="true"/>
+			<ns1:cell_phone xsi:nil="true"/>
+			<ns1:work_phone xsi:nil="true"/>
+			<ns1:work_phone_ext xsi:nil="true"/>
+			<ns1:fax xsi:nil="true"/>
+			<ns1:email>test@test.com</ns1:email>
+			<ns1:birthdate xsi:nil="true"/>
+			<ns1:status_cd>1</ns1:status_cd>
+			<ns1:notify_method>2</ns1:notify_method>
+			<ns1:senior_acct_no xsi:nil="true"/>
+			<ns1:senior_acct_user_id xsi:nil="true"/>
+			<ns1:senior_client_acct_id xsi:nil="true"/>
+			<ns1:test_acct_ind>0</ns1:test_acct_ind>
+			<ns1:taxpayer_id xsi:nil="true"/>
+			<ns1:acct_start_date>2017-04-05</ns1:acct_start_date>
+			<ns1:alt_msg_template_no>60002281</ns1:alt_msg_template_no>
+			<ns1:seq_func_group_no xsi:nil="true"/>
+			<ns1:tax_exemption_level xsi:nil="true"/>
+			<ns1:list_start_master_file xsi:nil="true"/>
+			<ns1:client_alt_msg_template_id>60002281</ns1:client_alt_msg_template_id>
+			<ns1:client_cn_alt_msg_template_id xsi:nil="true"/>
+			<ns1:revrec_profile_no xsi:nil="true"/>
+			<ns1:client_revrec_id xsi:nil="true"/>
+			<ns1:invoice_approval_required>0</ns1:invoice_approval_required>
+			<ns1:functional_acct_group xsi:nil="true"/>
+			<ns1:collection_acct_group xsi:nil="true"/>
+			<ns1:supp_field>
+				<ns1:supp_field_name>INVOICE_FOOTER_LEFT</ns1:supp_field_name>
+				<ns1:supp_field_value>Remit Check Payment to: Merrill Communications LLC CM-9638 St. Paul, MN 55170-9638 PLEASE PAY FROM THIS INVOICE (1.5% SERVICE CHARGE PER MONTH ADDED TO PAST DUE ACCOUNTS)</ns1:supp_field_value>
+			</ns1:supp_field>
+			<ns1:supp_field>
+				<ns1:supp_field_name>INVOICE_FOOTER_RIGHT</ns1:supp_field_name>
+				<ns1:supp_field_value>Remit ACH/FED Wire Payments to: Merrill Communications LLC Account #: 1702-2502-6310 USBank, N.A. 601 Second Avenue South Minneapolis, MN 55402 ABA Routing #: 091 000 022 SWIFT CODE USBKUS44IMT Please reference Merrill invoice number on your payment.</ns1:supp_field_value>
+			</ns1:supp_field>
+			<ns1:supp_field>
+				<ns1:supp_field_name>INVOICE_HEADER_LEFT</ns1:supp_field_name>
+				<ns1:supp_field_value>MERRILL LEGAL ENTITY NAME</ns1:supp_field_value>
+			</ns1:supp_field>
+			<ns1:supp_field>
+				<ns1:supp_field_name>INVOICE_HEADER_RIGHT</ns1:supp_field_name>
+				<ns1:supp_field_value>Merrill Legal Entity Address Details Merrill Legal Entity Phone Number and Email</ns1:supp_field_value>
+			</ns1:supp_field>
+			<ns1:supp_field>
+				<ns1:supp_field_name>INVOICE_TERM_VERBIAGE</ns1:supp_field_name>
+				<ns1:supp_field_value>Terms: Due Upon receipt, CPT client's facility Incoterms 2000 Please reference Merrill invoice number on your payment Electronically supplied services to EU clients are</ns1:supp_field_value>
+			</ns1:supp_field>
+			<ns1:supp_field>
+				<ns1:supp_field_name>LEGAL_ENTITY</ns1:supp_field_name>
+				<ns1:supp_field_value>Test L Entity</ns1:supp_field_value>
+			</ns1:supp_field>
+			<ns1:supp_field>
+				<ns1:supp_field_name>LEGAL_ENTITY_NAME</ns1:supp_field_name>
+				<ns1:supp_field_value>MERRILL LEGAL ENTITY NAME</ns1:supp_field_value>
+			</ns1:supp_field>
+			<ns1:supp_field>
+				<ns1:supp_field_name>ORACLE_ID</ns1:supp_field_name>
+				<ns1:supp_field_value>222</ns1:supp_field_value>
+			</ns1:supp_field>
+			<ns1:supp_field>
+				<ns1:supp_field_name>PAN_TAX_NO</ns1:supp_field_name>
+				<ns1:supp_field_value>111</ns1:supp_field_value>
+			</ns1:supp_field>
+			<ns1:supp_field>
+				<ns1:supp_field_name>SFDC_ID</ns1:supp_field_name>
+				<ns1:supp_field_value>123</ns1:supp_field_value>
+			</ns1:supp_field>
+			<ns1:acct_surcharges_info xsi:nil="true"/>
+			<ns1:acct_currency>usd</ns1:acct_currency>
+			<ns1:acct_balance>107984.84</ns1:acct_balance>
+			<ns1:address_verification_code xsi:nil="true"/>
+			<ns1:address_match_score xsi:nil="true"/>
+			<ns1:acct_create_client_receipt_id xsi:nil="true"/>
+			<ns1:status_client_receipt_id xsi:nil="true"/>
+			<ns1:acct_coupons xsi:nil="true"/>
+			<ns1:po_num xsi:nil="true"/>
+			<ns1:billing_groups_info xsi:nil="true"/>
+			<ns1:payment_methods_info xsi:nil="true"/>
+			<ns1:master_plan_count>1</ns1:master_plan_count>
+			<ns1:supp_plan_count>8</ns1:supp_plan_count>
+			<ns1:master_plans_info>
+				<ns1:master_plan_instance_no>1637147</ns1:master_plan_instance_no>
+				<ns1:client_master_plan_instance_id>1637147</ns1:client_master_plan_instance_id>
+				<ns1:client_master_plan_id>DataSite</ns1:client_master_plan_id>
+				<ns1:master_plan_no>32544</ns1:master_plan_no>
+				<ns1:master_plan_instance_description xsi:nil="true"/>
+				<ns1:dunning_group_no>750319</ns1:dunning_group_no>
+				<ns1:client_dunning_group_id>750319</ns1:client_dunning_group_id>
+				<ns1:dunning_group_name xsi:nil="true"/>
+				<ns1:dunning_group_description xsi:nil="true"/>
+				<ns1:dunning_process_no xsi:nil="true"/>
+				<ns1:client_dunning_process_id xsi:nil="true"/>
+				<ns1:billing_group_no>753618</ns1:billing_group_no>
+				<ns1:client_billing_group_id>753618</ns1:client_billing_group_id>
+				<ns1:master_plan_instance_status>1</ns1:master_plan_instance_status>
+				<ns1:mp_instance_status_label>Active</ns1:mp_instance_status_label>
+				<ns1:master_plan_units>1</ns1:master_plan_units>
+				<ns1:resp_level_cd>1</ns1:resp_level_cd>
+				<ns1:parent_master_plan_inst_no xsi:nil="true"/>
+				<ns1:alt_rate_schedule_no>373351</ns1:alt_rate_schedule_no>
+				<ns1:client_alt_rate_schedule_id>DataSite-MP</ns1:client_alt_rate_schedule_id>
+				<ns1:promo_cd xsi:nil="true"/>
+				<ns1:bill_day>1</ns1:bill_day>
+				<ns1:last_arrears_bill_thru_date>2015-09-30</ns1:last_arrears_bill_thru_date>
+				<ns1:last_bill_date>2017-04-11</ns1:last_bill_date>
+				<ns1:last_bill_thru_date>2015-10-31</ns1:last_bill_thru_date>
+				<ns1:next_bill_date>2015-11-01</ns1:next_bill_date>
+				<ns1:plan_date>2017-04-05</ns1:plan_date>
+				<ns1:status_date>2017-04-06</ns1:status_date>
+				<ns1:master_plan_instance_balance>107984.84</ns1:master_plan_instance_balance>
+				<ns1:status_degrade_date xsi:nil="true"/>
+				<ns1:recurring_billing_interval>1</ns1:recurring_billing_interval>
+				<ns1:usage_billing_interval>1</ns1:usage_billing_interval>
+				<ns1:initial_plan_status>1</ns1:initial_plan_status>
+				<ns1:rollover_plan_status>1</ns1:rollover_plan_status>
+				<ns1:rollover_plan_status_duration xsi:nil="true"/>
+				<ns1:rollover_plan_status_uom_cd>1</ns1:rollover_plan_status_uom_cd>
+				<ns1:init_free_period_duration xsi:nil="true"/>
+				<ns1:init_free_period_uom_cd>1</ns1:init_free_period_uom_cd>
+				<ns1:dunning_state>0</ns1:dunning_state>
+				<ns1:dunning_step xsi:nil="true"/>
+				<ns1:dunning_degrade_date xsi:nil="true"/>
+				<ns1:plan_deprovisioned_date xsi:nil="true"/>
+				<ns1:master_plan_product_fields>
+					<ns1:field_name>ACTIVE_ENTITLEMENTS</ns1:field_name>
+					<ns1:field_value>Active_E</ns1:field_value>
+				</ns1:master_plan_product_fields>
+				<ns1:master_plan_product_fields>
+					<ns1:field_name>PREPARATION_ENTITLEMENTS</ns1:field_name>
+					<ns1:field_value>Prep_E</ns1:field_value>
+				</ns1:master_plan_product_fields>
+				<ns1:master_plan_product_fields>
+					<ns1:field_name>SUSPENDED_ENTITLEMENTS</ns1:field_name>
+					<ns1:field_value>Susp_E</ns1:field_value>
+				</ns1:master_plan_product_fields>
+				<ns1:master_plan_product_fields>
+					<ns1:field_name>PENDING_CLOSE_ENTITLEMENTS</ns1:field_name>
+					<ns1:field_value>Pend_E</ns1:field_value>
+				</ns1:master_plan_product_fields>
+				<ns1:master_plan_product_fields>
+					<ns1:field_name>CLOSED_ENTITLEMENTS</ns1:field_name>
+					<ns1:field_value>Closed_E</ns1:field_value>
+				</ns1:master_plan_product_fields>
+				<ns1:mp_plan_inst_fields>
+					<ns1:plan_instance_field_name>SALESFORCE_PROJECT_ID</ns1:plan_instance_field_name>
+					<ns1:plan_instance_field_value>12G4S6789U12W456J8</ns1:plan_instance_field_value>
+				</ns1:mp_plan_inst_fields>
+				<ns1:mp_plan_inst_fields>
+					<ns1:plan_instance_field_name>SALESFORCE_PROJECT_NAME</ns1:plan_instance_field_name>
+					<ns1:plan_instance_field_value>Project Predator</ns1:plan_instance_field_value>
+				</ns1:mp_plan_inst_fields>
+				<ns1:mp_plan_inst_fields>
+					<ns1:plan_instance_field_name>PRODUCT_TYPE</ns1:plan_instance_field_name>
+					<ns1:plan_instance_field_value>DATASITE</ns1:plan_instance_field_value>
+				</ns1:mp_plan_inst_fields>
+				<ns1:mp_plan_inst_fields>
+					<ns1:plan_instance_field_name>LEGAL_ENTITY</ns1:plan_instance_field_name>
+					<ns1:plan_instance_field_value>MERRILL COMMUNICATIONS LLC</ns1:plan_instance_field_value>
+				</ns1:mp_plan_inst_fields>
+				<ns1:mp_plan_inst_fields>
+					<ns1:plan_instance_field_name>CONTRACT_CUSTOMER</ns1:plan_instance_field_name>
+					<ns1:plan_instance_field_value>test</ns1:plan_instance_field_value>
+				</ns1:mp_plan_inst_fields>
+				<ns1:mp_plan_inst_fields>
+					<ns1:plan_instance_field_name>CONTRACT_CUSTOMER_ADDRESS</ns1:plan_instance_field_name>
+					<ns1:plan_instance_field_value>test</ns1:plan_instance_field_value>
+				</ns1:mp_plan_inst_fields>
+				<ns1:mp_plan_inst_fields>
+					<ns1:plan_instance_field_name>CONTRACT_CUSTOMER_CONTACT</ns1:plan_instance_field_name>
+					<ns1:plan_instance_field_value>test</ns1:plan_instance_field_value>
+				</ns1:mp_plan_inst_fields>
+				<ns1:mp_plan_inst_fields>
+					<ns1:plan_instance_field_name>COUNTRY_OF_ISSUER</ns1:plan_instance_field_name>
+					<ns1:plan_instance_field_value>US</ns1:plan_instance_field_value>
+				</ns1:mp_plan_inst_fields>
+				<ns1:mp_plan_inst_fields>
+					<ns1:plan_instance_field_name>REVENUE_SITE</ns1:plan_instance_field_name>
+					<ns1:plan_instance_field_value>BHL (Bunker Hill)</ns1:plan_instance_field_value>
+				</ns1:mp_plan_inst_fields>
+				<ns1:mp_plan_inst_fields>
+					<ns1:plan_instance_field_name>PRIMARY_SERVICE_SITE</ns1:plan_instance_field_name>
+					<ns1:plan_instance_field_value>STP</ns1:plan_instance_field_value>
+				</ns1:mp_plan_inst_fields>
+				<ns1:mp_plan_inst_fields>
+					<ns1:plan_instance_field_name>BUSINESS_UNIT</ns1:plan_instance_field_name>
+					<ns1:plan_instance_field_value>32</ns1:plan_instance_field_value>
+				</ns1:mp_plan_inst_fields>
+				<ns1:mp_plan_inst_fields>
+					<ns1:plan_instance_field_name>OPERATING_UNIT_NAME</ns1:plan_instance_field_name>
+					<ns1:plan_instance_field_value>US_OU-MERRILL CORPORATION</ns1:plan_instance_field_value>
+				</ns1:mp_plan_inst_fields>
+				<ns1:mp_plan_inst_fields>
+					<ns1:plan_instance_field_name>SALES_REPS</ns1:plan_instance_field_name>
+					<ns1:plan_instance_field_value>John Doe</ns1:plan_instance_field_value>
+				</ns1:mp_plan_inst_fields>
+				<ns1:mp_plan_inst_fields>
+					<ns1:plan_instance_field_name>PRIMARY_REP_ID</ns1:plan_instance_field_name>
+					<ns1:plan_instance_field_value>123</ns1:plan_instance_field_value>
+				</ns1:mp_plan_inst_fields>
+				<ns1:mp_plan_inst_fields>
+					<ns1:plan_instance_field_name>PRIMARY_REP_NAME</ns1:plan_instance_field_name>
+					<ns1:plan_instance_field_value>Phelan, Daniel J</ns1:plan_instance_field_value>
+				</ns1:mp_plan_inst_fields>
+				<ns1:mp_plan_inst_fields>
+					<ns1:plan_instance_field_name>CONTRACT_TERM</ns1:plan_instance_field_name>
+					<ns1:plan_instance_field_value>6</ns1:plan_instance_field_value>
+				</ns1:mp_plan_inst_fields>
+				<ns1:mp_plan_inst_fields>
+					<ns1:plan_instance_field_name>PROJECT_CREATION_DATE</ns1:plan_instance_field_name>
+					<ns1:plan_instance_field_value>2017-02-10</ns1:plan_instance_field_value>
+				</ns1:mp_plan_inst_fields>
+				<ns1:mp_plan_inst_fields>
+					<ns1:plan_instance_field_name>HISTORICAL_EFFECTIVE_DATE</ns1:plan_instance_field_name>
+					<ns1:plan_instance_field_value>2017-03-12</ns1:plan_instance_field_value>
+				</ns1:mp_plan_inst_fields>
+				<ns1:mp_plan_inst_fields>
+					<ns1:plan_instance_field_name>SPLIT_BILLING_ACCOUNTS</ns1:plan_instance_field_name>
+					<ns1:plan_instance_field_value>Acct1_Name-Accct_ID-50%;Acct2_Name-Accct_ID-25%;Acct3_Name-Accct_ID-25%</ns1:plan_instance_field_value>
+				</ns1:mp_plan_inst_fields>
+				<ns1:mp_plan_inst_fields>
+					<ns1:plan_instance_field_name>SPLIT_BILLING_INV_TEXT</ns1:plan_instance_field_name>
+					<ns1:plan_instance_field_value>test</ns1:plan_instance_field_value>
+				</ns1:mp_plan_inst_fields>
+				<ns1:mp_plan_inst_fields>
+					<ns1:plan_instance_field_name>SALESREP_SPLIT_AMOUNT</ns1:plan_instance_field_name>
+					<ns1:plan_instance_field_value>100%</ns1:plan_instance_field_value>
+				</ns1:mp_plan_inst_fields>
+				<ns1:mp_plan_inst_fields>
+					<ns1:plan_instance_field_name>DS_SALES_REPS</ns1:plan_instance_field_name>
+					<ns1:plan_instance_field_value>Phelan, Daniel J</ns1:plan_instance_field_value>
+				</ns1:mp_plan_inst_fields>
+				<ns1:po_num xsi:nil="true"/>
+				<ns1:master_plans_services>
+					<ns1:service_no>11017362</ns1:service_no>
+					<ns1:client_service_id>DataSite</ns1:client_service_id>
+					<ns1:svc_location_no xsi:nil="true"/>
+					<ns1:client_svc_location_id xsi:nil="true"/>
+					<ns1:dest_contact_no xsi:nil="true"/>
+				</ns1:master_plans_services>
+			</ns1:master_plans_info>
+			<ns1:consumer_acct_ind>0</ns1:consumer_acct_ind>
+			<ns1:acct_locale_no>10001</ns1:acct_locale_no>
+			<ns1:acct_locale_name>System_US_English_locale</ns1:acct_locale_name>
+			<ns1:acct_contact_no>3248852</ns1:acct_contact_no>
+			<ns1:other_contact_details>
+				<ns1:other_contact_no>3248855</ns1:other_contact_no>
+			</ns1:other_contact_details>
+			<ns1:other_contact_details>
+				<ns1:other_contact_no>3248854</ns1:other_contact_no>
+			</ns1:other_contact_details>
+			<ns1:other_contact_details>
+				<ns1:other_contact_no>3248853</ns1:other_contact_no>
+			</ns1:other_contact_details>
+			<ns1:error_code>0</ns1:error_code>
+			<ns1:error_msg>OK</ns1:error_msg>
+		</ns1:get_acct_details_all_mResponseElement>
+	</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

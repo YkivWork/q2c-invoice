@@ -1,0 +1,89 @@
+#%RAML 1.0
+title: invoice
+version: 1.0
+baseUri: https://mrll-${mule-env}-q2c-invoice.cloudhub.io/api
+description: This API
+
+/events:
+  post:
+    description: receive an event notification
+    body:
+      application/xml:
+        example: !include examples/event-901-sample-input.xml
+        
+    responses: 
+      201:
+        description: successful posting
+        body:
+          application/xml:
+            example: !include examples/event-response-example.xml
+/tests:
+  post:
+    description: receive an event notification
+    body:
+      application/xml:
+        example: !include examples/event-901-sample-input.xml
+        
+    responses: 
+      201:
+        description: successful posting
+        body:
+          application/xml:
+            example: !include examples/event-response-example.xml
+/health-check:
+  /salesforce:
+    displayName: Health_Check
+    description: Call to Return Health Of Salesforce Connections
+    get:
+      responses:
+        200:
+          body:
+            application/json:
+              example: {"Status": "OK"}
+        400:
+        500:
+          body:
+            application/json:
+              example: {"Status": "FAILURE"}
+  /aria:
+    displayName: Health_Check
+    description: Call to Return Health Of Aria Connections
+    get:
+      responses:
+        200:
+          body:
+            application/json:
+              example: {"Status": "OK"}
+        400:
+        500:
+          body:
+            application/json:
+              example: {"Status": "FAILURE"}
+  /oracle:
+    displayName: Health_Check
+    description: Call to Return Health Of Oracle Connections
+    get:
+      responses:
+        200:
+          body:
+            application/json:
+              example: {"Status": "OK"}
+        400:
+        500:
+          body:
+            application/json:
+              example: {"Status": "FAILURE"}
+  /dso:
+    displayName: Health_Check
+    description: Call to Return Health Of DSO Connections
+    get:
+      responses:
+        200:
+          body:
+            application/json:
+              example: {"Status": "OK"}
+        400:
+        500:
+          body:
+            application/json:
+              example: {"Status": "FAILURE"}

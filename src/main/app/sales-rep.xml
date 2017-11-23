@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mule xmlns:core="http://www.mulesoft.org/schema/mule/core"
+	xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:metadata="http://www.mulesoft.org/schema/mule/metadata"
+	xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:apikit="http://www.mulesoft.org/schema/mule/apikit"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:scripting="http://www.mulesoft.org/schema/mule/scripting"
+	xmlns:spring="http://www.springframework.org/schema/beans" xmlns:tcp="http://www.mulesoft.org/schema/mule/tcp"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/apikit http://www.mulesoft.org/schema/mule/apikit/current/mule-apikit.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-current.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+http://www.mulesoft.org/schema/mule/scripting http://www.mulesoft.org/schema/mule/scripting/current/mule-scripting.xsd
+http://www.mulesoft.org/schema/mule/tcp http://www.mulesoft.org/schema/mule/tcp/current/mule-tcp.xsd
+http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+
+    
+	<flow name="processSalesRepoInfo">
+		<set-variable variableName="employeesInfo" value="#[payload.employeesInfo]"
+			doc:name="employeesInfo" />
+		<set-variable variableName="operationName" value="#[payload.operationName]"
+			doc:name="operationName" />
+		<dw:transform-message doc:name="getSalesRepMap"
+			metadata:id="6e2c6124-b31f-43d1-9129-136291cba5b6">
+			<dw:set-variable variableName="salesRepInfoMap"><![CDATA[%dw 1.0
+%output application/java
+---
+{
+	salesRepMap: getSalesRepresentativeInformationMap(flowVars.employeesInfo,flowVars.operationName)
+}]]></dw:set-variable>
+
+		</dw:transform-message>
+		<set-variable variableName="operationId"
+			value="#[dw(getOperationId(flowVars.operationName))]" doc:name="getOperationId" />
+
+		<logger message="#[payload]" category="com.merrillcorp.salesRep"
+			level="DEBUG" doc:name="logPayloadBeforeSendingToOracle" />
+        <until-successful maxRetries="${oracle.http.max.retries}" millisBetweenRetries="${oracle.http.milliSecondsBetweenRetries}" failureExpression="exception!=null &amp;&amp; (exception.causedBy(java.io.IOException) || exception.causedBy(java.net.ConnectException)  || exception.causedBy(java.net.SocketTimeoutException))" synchronous="true" doc:name="UntilSuccessfulForInvoiceCreation">
+            <http:request config-ref="oracleSysHttpRequestConfiguration" path="${oracle.salesreps.path}?operationId=#[flowVars.operationId]" method="GET" doc:name="getSalesRepIdsFromOracle">
+                <http:success-status-code-validator values="0..599"/>
+            </http:request>
+        </until-successful>
+        <byte-array-to-object-transformer doc:name="Byte Array to Object"/>
+        <json:object-to-json-transformer doc:name="Object to JSON"/>
+
+		<logger message="payload Response from Oracle:  #[payload]" level="DEBUG" doc:name="Logger"
+			category="com.merrillcorp.salesRep" />
+		<set-payload
+			value="#[dw(&quot;getSalesRepresentativeInformationList(flowVars.salesRepInfoMap,payload)&quot;)]"
+			doc:name="salesRepList" />
+		<logger level="DEBUG" doc:name="Logger" category="com.merrillcorp.salesRep"
+			message="cache missed, this payload #[payload] was processed." />
+	</flow>
+
+
+</mule>

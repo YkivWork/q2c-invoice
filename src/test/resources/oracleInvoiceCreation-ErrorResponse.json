@@ -1,0 +1,12 @@
+{
+ "ISGServiceFault" : {
+   "Code" : "ISG_SERVICE_EXECUTION_ERROR",
+   "Message" : "Error occurred while executing the web service request",
+   "Resolution" : "System error, please see service log trace for details.",
+   "ServiceDetails" : {
+     "ServiceName" : "xxbs_invoice_svc",
+     "OperationName" : "create_invoice",
+     "InstanceId" : "0"
+   }
+ }
+}

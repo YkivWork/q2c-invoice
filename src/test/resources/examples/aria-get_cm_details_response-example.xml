@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="urn:client:api:wsdl:document/literal_wrapped:vers:11.0:aria_complete_m_api" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<SOAP-ENV:Body>
+		<ns1:get_cm_details_mResponseElement>
+			<ns1:error_code>0</ns1:error_code>
+			<ns1:error_msg>OK</ns1:error_msg>
+			<ns1:cm_no_out>7054687</ns1:cm_no_out>
+			<ns1:client_cm_seq_id>1000006</ns1:client_cm_seq_id>
+			<ns1:created_by>lmahone.dev (CSR Tools)</ns1:created_by>
+			<ns1:created_date>2017-05-30</ns1:created_date>
+			<ns1:credit_reason_code>1</ns1:credit_reason_code>
+			<ns1:credit_comments>Aria system generated credit memo to close out the rebilled invoice at the time of rebilling.</ns1:credit_comments>
+			<ns1:orig_invoice_no>7051854</ns1:orig_invoice_no>
+			<ns1:cm_total>2200</ns1:cm_total>
+			<ns1:cm_line_details>
+				<ns1:cm_line_no>2</ns1:cm_line_no>
+				<ns1:cm_transaction_id>12619624</ns1:cm_transaction_id>
+				<ns1:cm_void_transaction_id xsi:nil="true"/>
+				<ns1:cm_line_amount>2000</ns1:cm_line_amount>
+			</ns1:cm_line_details>
+			<ns1:cm_line_details>
+				<ns1:cm_line_no>3</ns1:cm_line_no>
+				<ns1:cm_transaction_id>12619625</ns1:cm_transaction_id>
+				<ns1:cm_void_transaction_id xsi:nil="true"/>
+				<ns1:cm_line_amount>125</ns1:cm_line_amount>
+			</ns1:cm_line_details>
+			<ns1:cm_line_details>
+				<ns1:cm_line_no>4</ns1:cm_line_no>
+				<ns1:cm_transaction_id>12619626</ns1:cm_transaction_id>
+				<ns1:cm_void_transaction_id xsi:nil="true"/>
+				<ns1:cm_line_amount>35</ns1:cm_line_amount>
+			</ns1:cm_line_details>
+			<ns1:cm_line_details>
+				<ns1:cm_line_no>5</ns1:cm_line_no>
+				<ns1:cm_transaction_id>12619627</ns1:cm_transaction_id>
+				<ns1:cm_void_transaction_id xsi:nil="true"/>
+				<ns1:cm_line_amount>20</ns1:cm_line_amount>
+			</ns1:cm_line_details>
+			<ns1:cm_line_details>
+				<ns1:cm_line_no>6</ns1:cm_line_no>
+				<ns1:cm_transaction_id>12619628</ns1:cm_transaction_id>
+				<ns1:cm_void_transaction_id xsi:nil="true"/>
+				<ns1:cm_line_amount>20</ns1:cm_line_amount>
+			</ns1:cm_line_details>
+			<ns1:cm_tax_details>
+				<ns1:tax_detail_line>3</ns1:tax_detail_line>
+				<ns1:taxed_cm_line_no>2</ns1:taxed_cm_line_no>
+				<ns1:tax_credit_amount>125</ns1:tax_credit_amount>
+				<ns1:tax_authority_level>1</ns1:tax_authority_level>
+				<ns1:orig_was_tax_inclusive>0</ns1:orig_was_tax_inclusive>
+				<ns1:tax_srv_tax_type_id>SALES</ns1:tax_srv_tax_type_id>
+				<ns1:tax_srv_tax_type_desc>General Sales and Use Tax</ns1:tax_srv_tax_type_desc>
+				<ns1:tax_serv_cat_text>Retailers'/Service Occupation and Use/Service Use Tax</ns1:tax_serv_cat_text>
+			</ns1:cm_tax_details>
+			<ns1:cm_tax_details>
+				<ns1:tax_detail_line>4</ns1:tax_detail_line>
+				<ns1:taxed_cm_line_no>2</ns1:taxed_cm_line_no>
+				<ns1:tax_credit_amount>35</ns1:tax_credit_amount>
+				<ns1:tax_authority_level>2</ns1:tax_authority_level>
+				<ns1:orig_was_tax_inclusive>0</ns1:orig_was_tax_inclusive>
+				<ns1:tax_srv_tax_type_id>SALES</ns1:tax_srv_tax_type_id>
+				<ns1:tax_srv_tax_type_desc>General Sales and Use Tax</ns1:tax_srv_tax_type_desc>
+				<ns1:tax_serv_cat_text>Local Sales and Use Tax</ns1:tax_serv_cat_text>
+			</ns1:cm_tax_details>
+			<ns1:cm_tax_details>
+				<ns1:tax_detail_line>5</ns1:tax_detail_line>
+				<ns1:taxed_cm_line_no>2</ns1:taxed_cm_line_no>
+				<ns1:tax_credit_amount>20</ns1:tax_credit_amount>
+				<ns1:tax_authority_level>3</ns1:tax_authority_level>
+				<ns1:orig_was_tax_inclusive>0</ns1:orig_was_tax_inclusive>
+				<ns1:tax_srv_tax_type_id>SALES</ns1:tax_srv_tax_type_id>
+				<ns1:tax_srv_tax_type_desc>General Sales and Use Tax</ns1:tax_srv_tax_type_desc>
+				<ns1:tax_serv_cat_text>Local Sales Tax</ns1:tax_serv_cat_text>
+			</ns1:cm_tax_details>
+			<ns1:cm_tax_details>
+				<ns1:tax_detail_line>6</ns1:tax_detail_line>
+				<ns1:taxed_cm_line_no>2</ns1:taxed_cm_line_no>
+				<ns1:tax_credit_amount>20</ns1:tax_credit_amount>
+				<ns1:tax_authority_level>5</ns1:tax_authority_level>
+				<ns1:orig_was_tax_inclusive>0</ns1:orig_was_tax_inclusive>
+				<ns1:tax_srv_tax_type_id>SALES</ns1:tax_srv_tax_type_id>
+				<ns1:tax_srv_tax_type_desc>General Sales and Use Tax</ns1:tax_srv_tax_type_desc>
+				<ns1:tax_serv_cat_text>Local Sales and Use Tax</ns1:tax_serv_cat_text>
+			</ns1:cm_tax_details>
+		</ns1:get_cm_details_mResponseElement>
+	</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

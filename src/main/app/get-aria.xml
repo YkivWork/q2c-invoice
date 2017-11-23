@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<mule 
+	xmlns:vm="http://www.mulesoft.org/schema/mule/vm" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:mulexml="http://www.mulesoft.org/schema/mule/xml" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns:metadata="http://www.mulesoft.org/schema/mule/metadata" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw"
+	xmlns:validation="http://www.mulesoft.org/schema/mule/validation" xmlns:scripting="http://www.mulesoft.org/schema/mule/scripting"
+	xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd
+http://www.mulesoft.org/schema/mule/scripting http://www.mulesoft.org/schema/mule/scripting/current/mule-scripting.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/validation http://www.mulesoft.org/schema/mule/validation/current/mule-validation.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
+http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/current/mule-xml.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/current/mule-vm.xsd">
+
+    <flow name="get-SalesRepInfoAndExpOrgId_Flow">
+        <scatter-gather doc:name="Scatter-Gather">
+            <custom-aggregation-strategy class="com.merrillcorp.integration.scatter.CustomAggregationStrategy"/>
+            <processor-chain>
+                <set-payload value="#[['businessUnit': flowVars.ariaAccountDetails.businessUnit,'serviceSite':flowVars.ariaAccountDetails.primaryServiceSite,'teamType':'DATASITE']]" doc:name="Set Payload"/>
+                <flow-ref name="processExpOrgMap" doc:name="processExpOrgMap"/>
+                <set-variable variableName="ExpOrgId" value="#[payload]" doc:name="Variable"/>
+            </processor-chain>
+            <processor-chain>
+                <set-payload value="#[flowVars.ariaAccountDetails.sfdcProjectId]" doc:name="Set Payload"/>
+                <flow-ref name="lookupSalesRepFlow" doc:name="lookupSalesRepFlow"/>
+                <dw:transform-message doc:name="Transform Message">
+                    <dw:set-variable variableName="salesRepSplitAmountString"><![CDATA[%dw 1.0
+%output application/java
+---
+upper payload]]></dw:set-variable>
+                </dw:transform-message>
+                <set-payload value="#[['employeesInfo':flowVars.salesRepSplitAmountString,'operationName':flowVars.ariaAccountDetails.operatingUnitName]]" doc:name="employeeInfo and OperatingUnitName"/>
+                <logger message="(invoiceNumber: #[flowVars.event.financialTransactionGroup.objectNumber]) Before sending to ProcessSalesRepoInfo  : EmployeeInfo: #[payload]" level="DEBUG" category="com.merrillcorp.accountDetails" doc:name="Logger"/>
+                <flow-ref name="processSalesRepoInfo" doc:name="processSalesRepoInfo"/>
+                <set-variable variableName="SalesRepInfo" value="#[payload]" doc:name="Variable"/>
+            </processor-chain>
+        </scatter-gather>
+        <logger message="(invoiceNumber: #[flowVars.event.financialTransactionGroup.objectNumber]) salesRep 0 : #[flowVars.SalesRepInfo]" level="DEBUG" doc:name="Logger" category="com.merrillcorp.accountDetails"/>
+    </flow>
+
+  
+<flow name="extractInvoiceLineDetailsAndTaxes_Flow">
+
+        <logger message="Start extractInvoiceLineDetailsAndTaxesSub_Flow (invoiceNumber: #[flowVars.event.financialTransactionGroup.objectNumber])" level="INFO" doc:name="Logger" category="com.merrillcorp.invoiceDetails"/>
+        <dw:transform-message doc:name="Transform Message">
+
+            <dw:set-variable variableName="invoiceDetailsTemp"><![CDATA[%dw 1.0
+%output application/java
+%namespace env http://schemas.xmlsoap.org/soap/envelope/
+%namespace aria urn:client:api:wsdl:document/literal_wrapped:vers:11.0:aria_complete_m_api
+%var responseElement = payload.env#Envelope.env#Body.aria#get_invoice_details_mResponseElement
+---
+{
+ originalInvoiceNumber: responseElement.orig_invoice_no,
+ invoiceLineDetails: (responseElement.*invoice_line_details filter ($.service_no as :number > 405 or $.service_no as :number == 0) map {
+    id : $ 
+}).*id
+}]]></dw:set-variable>
+        </dw:transform-message>
+
+        <dw:transform-message doc:name="Transform Message">
+
+            <dw:set-variable variableName="invoiceDetailsSummary" resource="classpath:dataweave/extractInvoiceDetailsSummary.dwl"/>
+ 
+        </dw:transform-message>
+        <dw:transform-message doc:name="lineType3Check">
+            <dw:set-variable variableName="equalType"><![CDATA[%dw 1.0
+%output application/java
+---
+flowVars.invoiceDetailsSummary.lines filter ($.lineType == '3') map {
+
+		sourceLineId: $.sourceLineId,
+		serviceNumber: $.serviceNumber,
+		serviceName: $.serviceName,		 
+		lineNumber: $.lineNumber,
+		lineType: $.lineType,
+		quantity: $.quantity,
+		unitRate: $.unitRate,
+		sellAmount: $.sellAmount,
+		itemDescription: $.itemDescription,
+		billToAddress: $.billToAddress,
+		shipToAddress: $.shipToAddress,
+		orderNumber: $.orderNumber,
+		invoiceTransactionId: $.invoiceTransactionId,
+		originalInvoiceNumber: $.originalInvoiceNumber,
+		clientPlanInstanceId: $.clientPlanInstanceId,
+		shipFromLocation: $.shipFromLocation,
+		creditCouponCode: $.creditCouponCode,
+		creditReasonCodeDesc: $.creditReasonCodeDesc,
+		serviceCreditAppliedLineNumber: $.serviceCreditAppliedLineNumber
+	}]]></dw:set-variable>
+            <dw:set-variable variableName="notEqualType"><![CDATA[%dw 1.0
+%output application/java
+---
+flowVars.invoiceDetailsSummary.lines filter ($.lineType != '3') map {
+
+		sourceLineId: $.sourceLineId,
+		serviceNumber: $.serviceNumber,
+		serviceName: $.serviceName,		 
+		lineNumber: $.lineNumber,
+		lineType: $.lineType,
+		quantity: $.quantity,
+		unitRate: $.unitRate,
+		sellAmount: $.sellAmount,
+		itemDescription: $.itemDescription,
+		billToAddress: $.billToAddress,
+		shipToAddress: $.shipToAddress,
+		orderNumber: $.orderNumber,
+		invoiceTransactionId: $.invoiceTransactionId,
+		originalInvoiceNumber: $.originalInvoiceNumber,
+		clientPlanInstanceId: $.clientPlanInstanceId,
+		shipFromLocation: $.shipFromLocation,
+		creditCouponCode: $.creditCouponCode,
+		creditReasonCodeDesc: $.creditReasonCodeDesc,
+		serviceCreditAppliedLineNumber: $.serviceCreditAppliedLineNumber
+	}]]></dw:set-variable>
+        </dw:transform-message>
+        <dw:transform-message doc:name="lineDetailsTemp">
+            <dw:set-variable variableName="lineDetailsTemp"><![CDATA[%dw 1.0
+%output application/java 
+---
+(flowVars.equalType map ((outerInd,outerVal) ->{
+	(flowVars.invoiceDetailsSummary.lines map ((innerInd,innerVal) ->{
+		sourceLineId: outerInd.sourceLineId,
+		serviceNumber: outerInd.serviceNumber,
+		serviceName: outerInd.serviceName,		 
+		lineNumber: outerInd.lineNumber,
+		lineType: outerInd.lineType,
+		quantity: outerInd.quantity,
+		unitRate: outerInd.unitRate,
+		sellAmount: outerInd.sellAmount,
+		itemDescription: outerInd.itemDescription,
+		billToAddress: outerInd.billToAddress,
+		shipToAddress: outerInd.shipToAddress,
+		orderNumber: innerInd.orderNumber,
+		invoiceTransactionId: outerInd.invoiceTransactionId,
+		originalInvoiceNumber: outerInd.originalInvoiceNumber,
+		clientPlanInstanceId: innerInd.clientPlanInstanceId,
+		shipFromLocation: outerInd.shipFromLocation,
+		creditCouponCode: outerInd.creditCouponCode,
+		creditReasonCodeDesc: outerInd.creditReasonCodeDesc,
+		serviceCreditAppliedLineNumber: outerInd.serviceCreditAppliedLineNumber
+	} when (outerInd.serviceCreditAppliedLineNumber) == (innerInd.lineNumber) otherwise {} as :object))
+}))]]></dw:set-variable>
+        </dw:transform-message>
+        <dw:transform-message doc:name="lineDetails">
+            <dw:set-variable variableName="lineDetails"><![CDATA[%dw 1.0
+%output application/java
+---
+flatten (flowVars.notEqualType ++ flowVars.lineDetailsTemp)]]></dw:set-variable>
+        </dw:transform-message>
+
+        <logger message="accountDetails variable(invoiceNumber: #[flowVars.event.financialTransactionGroup.objectNumber]): #[flowVars.invoiceDetailsSummary] " level="DEBUG" category="com.merrillcorp.invoiceDetails" doc:name="Logger"/>
+        <dw:transform-message doc:name="Transform Message">
+            <dw:set-variable variableName="taxes" resource="classpath:dataweave/extractTaxes.dwl"/>
+
+        </dw:transform-message>
+
+
+        <logger message="taxes (invoiceNumber: #[flowVars.event.financialTransactionGroup.objectNumber]): #[flowVars.taxes]" level="DEBUG" doc:name="Logger" category="com.merrillcorp.invoiceDetails"/>
+    </flow>
+
+    <flow name="getInvoiceDetails_Flow">
+        <logger message="(invoiceNumber: #[flowVars.event.financialTransactionGroup.objectNumber]) Start getInvoiceDetails_Flow " level="INFO" doc:name="INFO" category="com.merrillcorp.invoiceDetails"/>
+        <dw:transform-message doc:name="SetupSoapPayloadForInvoiceDetails">
+            <dw:set-payload resource="classpath:dataweave/setupSoapPayloadForInvoiceDetails.dwl"/>
+        </dw:transform-message>
+
+        <object-to-string-transformer doc:name="Object to String"/>
+        <set-variable variableName="payloadBeforeUntillSuccess" value="#[payload]" doc:name="payloadBeforeUntillSuccess"/>
+        
+        <until-successful maxRetries="${aria.http.max.retries}" millisBetweenRetries="${aria.http.milliSecondsBetweenRetries}" failureExpression="exception!=null &amp;&amp; (exception.causedBy(java.io.IOException) || exception.causedBy(java.net.ConnectException)  || exception.causedBy(java.net.SocketTimeoutException))" synchronous="true" doc:name="UntilSuccessfulForInvoiceDetails">
+            <http:request config-ref="HTTP_Aria_Configuration" path="${aria.path}" method="POST" doc:name="GetInvoiceDetailsFromAria">
+                <http:request-builder>
+                    <http:header headerName="SOAPAction" value="&quot;get_invoice_details_m&quot;"/>
+                </http:request-builder>
+                                <http:success-status-code-validator values="0..599"/>
+            </http:request>
+        </until-successful>
+        <byte-array-to-object-transformer doc:name="Byte Array to Object"/>
+        <logger message="(invoiceNumber: #[flowVars.event.financialTransactionGroup.objectNumber]) After geInvoiceDetailsFromAria Call *** #[message.payloadAs(java.lang.String)]" level="DEBUG" doc:name="Logger" category="com.merrillcorp.invoiceDetails"/>
+
+        <flow-ref name="extractInvoiceLineDetailsAndTaxes_Flow" doc:name="extractInvoiceLineDetailsAndTaxes_Flow"/>
+
+
+        <logger message="(invoiceNumber: #[flowVars.event.financialTransactionGroup.objectNumber]) End getInvoiceDetails_Flow " level="INFO" doc:name="Logger" category="com.merrillcorp.invoiceDetails"/>
+    </flow>
+
+
+
+       
+
+    <flow name="getAccountDetails_Flow">
+   
+        <logger message="(invoiceNumber: #[flowVars.event.financialTransactionGroup.objectNumber]) Start getAccountDetails_Flow" level="INFO" doc:name="LogPayload" category="com.merrillcorp.accountDetails"/>
+        <scripting:component doc:name="Script">
+            <scripting:script engine="Groovy"><![CDATA[message.removeProperty('MULE_SESSION',org.mule.api.transport.PropertyScope.INBOUND)
+return payload    
+        ]]></scripting:script>
+        </scripting:component>
+
+         <dw:transform-message doc:name="SetupSOAPPayloadForAccountDetails">
+ 			<dw:set-payload resource="classpath:dataweave/setupSoapPayloadForAccountDetails.dwl"/>
+        </dw:transform-message>
+
+        <object-to-string-transformer doc:name="Object to String"/>
+        <set-variable variableName="payloadBeforeUntillSuccess" value="#[payload]" doc:name="payloadBeforeUntillSuccess"/>
+        
+        <!-- <set-variable value="#[payload]"  variableName="tempPayload" doc:name="Variable" /> -->
+
+        
+        
+       <!--  <set-payload value="#[flowVars.tempPayload]" doc:name="Set Payload"/> -->
+        
+       <until-successful maxRetries="${aria.http.max.retries}" millisBetweenRetries="${aria.http.milliSecondsBetweenRetries}" failureExpression="exception!=null &amp;&amp; (exception.causedBy(java.io.IOException) || exception.causedBy(java.net.ConnectException)  || exception.causedBy(java.net.SocketTimeoutException))" synchronous="true" doc:name="UntilSuccessfulForAccountDetails">
+            <http:request config-ref="HTTP_Aria_Configuration" path="${aria.path}" method="POST" doc:name="GetAccountDetailsFromAria">
+                <http:request-builder>
+                    <http:header headerName="SOAPAction" value="&quot;get_account_details_all_m&quot;"/>
+
+
+                </http:request-builder>
+                <http:success-status-code-validator values="0..599"/>
+            </http:request>
+        </until-successful>
+        <byte-array-to-object-transformer doc:name="Byte Array to Object"/>
+
+        <logger message="(invoiceNumber: #[flowVars.event.financialTransactionGroup.objectNumber]) After getAccounDetails Call *** #[message.payloadAs(java.lang.String)]" level="DEBUG" doc:name="Logger" category="com.merrillcorp.accountDetails"/>
+        <set-variable variableName="ariaAccountDetailsRawXml" value="#[message.payloadAs(java.lang.String)]" doc:name="Set ariaAccountDetailsRawXml"/>
+
+
+        <dw:transform-message metadata:id="b85d2ba9-bacd-458f-8dcb-ff3b19455957" doc:name="extractingAccountDetailsForOracle">
+            <dw:input-payload doc:sample="sample_data\empty_1.xml"/>
+            <dw:set-variable resource="classpath:dataweave/extractAriaAccountDetails.dwl" variableName="ariaAccountDetails"/>
+        </dw:transform-message>
+
+        <flow-ref name="get-SalesRepInfoAndExpOrgId_Flow" doc:name="get-SalesRepInfoAndExpOrgId_Flow"/>
+
+
+        <logger message="(invoiceNumber: #[flowVars.event.financialTransactionGroup.objectNumber]) End of getAccountDetails" level="INFO" doc:name="Logger" category="com.merrillcorp.accountDetails"/>
+
+    </flow>
+
+
+
+    <flow name="GET_ARIA_ACCOUNT_CONTACTS" processingStrategy="synchronous">
+
+
+        <logger message="Initial Payload: #[payload]" level="DEBUG" category="com.merrillcorp.accountContacts" doc:name="Log Initial Payload"/>
+        <dw:transform-message doc:name="Transform to Java Object">
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/java
+---
+payload]]></dw:set-payload>
+        </dw:transform-message>
+        <expression-component doc:name="Initialize Variables"><![CDATA[flowVars.contactNumber=payload;]]></expression-component>
+        <set-payload doc:name="Set Payload" mimeType="application/xml" value="#[flowVars.ariaAccountContactsRawXml]"/>
+
+        <dw:transform-message doc:name="extract From Other Response Payload">
+            <dw:set-payload resource="classpath:dataweave/extractSpecificAriaAccountContact.dwl"/>
+        
+        </dw:transform-message>
+
+        <logger message="(invoiceNumber: #[flowVars.event.financialTransactionGroup.objectNumber]) After getAriaAccountContacts Call *** #[message.payloadAs(java.lang.String)]" level="DEBUG" doc:name="Logger" category="com.merrillcorp.accountContacts"/>
+    </flow>
+ 
+     
+        <flow name="getAccountContacts_Flow">
+        <logger message="(invoiceNumber: #[flowVars.event.financialTransactionGroup.objectNumber]) Start getAccountContacts_Flow" level="INFO" doc:name="INFO" category="com.merrillcorp.accountContacts"/>
+
+                <dw:transform-message doc:name="SetupSOAPPayloadForAccountContacts">
+ 			<dw:set-payload resource="classpath:dataweave/setupSoapPayloadForAccountContacts.dwl"/>
+        </dw:transform-message>
+
+        <object-to-string-transformer doc:name="Object to String"/>
+        <set-variable variableName="payloadBeforeUntillSuccess" value="#[payload]" doc:name="payloadBeforeUntillSuccess"/>
+        <until-successful maxRetries="${aria.http.max.retries}" millisBetweenRetries="${aria.http.milliSecondsBetweenRetries}" failureExpression="exception!=null &amp;&amp; (exception.causedBy(java.io.IOException) || exception.causedBy(java.net.ConnectException)  || exception.causedBy(java.net.SocketTimeoutException))" synchronous="true" doc:name="UntilSuccessfulForAccountContacts">
+            <http:request config-ref="HTTP_Aria_Configuration" path="${aria.path}" method="POST" doc:name="GetAccountContactsFromAria">
+                <http:request-builder>
+                    <http:header headerName="SOAPAction" value="&quot;get_account_contacts_m&quot;"/>
+
+                </http:request-builder>
+                                <http:success-status-code-validator values="0..599"/>
+            </http:request>
+
+        </until-successful>
+        <byte-array-to-object-transformer doc:name="Byte Array to Object"/>
+        <logger message="(invoiceNumber: #[flowVars.event.financialTransactionGroup.objectNumber]) After getAccountContacts Call *** #[message.payloadAs(java.lang.String)]" level="DEBUG" doc:name="Logger" category="com.merrillcorp.accountContacts"/>
+        <set-variable variableName="ariaAccountContactsRawXml" value="#[message.payloadAs(java.lang.String)]" doc:name="set ariaAccountContactsRawXml" mimeType="application/xml"/>
+
+               <dw:transform-message doc:name="Transform Message">
+            <dw:set-variable variableName="billToAddress"><![CDATA[%dw 1.0
+%output application/java
+---
+{
+	billToAddress: flowVars.invoiceDetailsSummary.lines.billToAddress[0]
+}]]></dw:set-variable>
+            <dw:set-variable variableName="ariaStateContactsTemp"><![CDATA[%dw 1.0
+%output application/java
+%namespace env http://schemas.xmlsoap.org/soap/envelope/
+%namespace aria urn:client:api:wsdl:document/literal_wrapped:vers:11.0:aria_complete_m_api
+%var responseElement = payload.env#Envelope.env#Body.aria#get_acct_contacts_mResponseElement
+%var statContact = responseElement.*statement_contacts
+---
+statContact map ((index,value) -> {
+	statementEmail: index.stat_email,
+	statementContactNumber: index.stat_contact_no,
+	statementFirstName: index.stat_first_name,
+	statementLastName: index.stat_last_name
+})]]></dw:set-variable>
+            <dw:set-variable variableName="ariaOtherContactsTemp"><![CDATA[%dw 1.0
+%output application/java
+%namespace env http://schemas.xmlsoap.org/soap/envelope/
+%namespace aria urn:client:api:wsdl:document/literal_wrapped:vers:11.0:aria_complete_m_api
+%var responseElement = payload.env#Envelope.env#Body.aria#get_acct_contacts_mResponseElement
+%var otherContact = responseElement.*other_contacts
+---
+otherContact map ((ind,val) -> {
+	otherEmail: ind.other_email,
+	otherContactNumber: ind.other_contact_no,
+	otherFirstName: ind.other_first_name,
+	otherLastName: ind.other_last_name
+})]]></dw:set-variable>
+        </dw:transform-message>
+        <dw:transform-message doc:name="Transform Message">
+            <dw:set-variable variableName="ariaOtherContacts"><![CDATA[%dw 1.0
+%output application/java 
+---
+flowVars.billToAddress map ((outerInd,outerVal) -> {
+	(flowVars.ariaOtherContactsTemp map ((innerInd,innerVal) -> {
+		(otherEmail: innerInd.otherEmail),		
+		(otherContactNumber: innerInd.otherContactNumber),
+		(otherFirstName: innerInd.otherFirstName),
+		(otherLastName: innerInd.otherLastName)
+	} when (outerInd.billToAddress) == (innerInd.otherContactNumber) otherwise {}))
+})]]></dw:set-variable>
+            <dw:set-variable variableName="ariaStateContacts"><![CDATA[%dw 1.0
+%output application/java 
+---
+flowVars.billToAddress map ((outerInd,outerVal) -> {
+	(flowVars.ariaStateContactsTemp map ((innerInd,innerVal) -> {
+		(statementEmail: innerInd.statementEmail),		
+		(statementContactNumber: innerInd.statementContactNumber),
+		(statementFirstName: innerInd.statementFirstName),
+		(statementLastName: innerInd.statementLastName)
+	} when (outerInd.billToAddress) == (innerInd.statementContactNumber) otherwise {}))
+})]]></dw:set-variable>
+        </dw:transform-message>
+        <logger message="ariaOtherContacts:  #[flowVars.ariaOtherContacts]  ------------------------- ariaStateContacts:  #[flowVars.ariaStateContacts]" level="DEBUG" doc:name="Logger" category="com.merrillcorp.accountContacts"/>
+        <choice doc:name="Choice">
+            <when expression="flowVars.ariaStateContacts.get(0).size() != 0 &amp;&amp; flowVars.ariaOtherContacts.get(0).size() == 0">
+                <dw:transform-message doc:name="Statement Contacts">
+                    <dw:set-payload><![CDATA[%dw 1.0
+%output application/java
+---
+{
+	Email: flowVars.ariaStateContacts.statementEmail[0],
+	ContactNumber: flowVars.ariaStateContacts.statementContactNumber[0],
+	FirstName: flowVars.ariaStateContacts.statementFirstName[0],
+	LastName: flowVars.ariaStateContacts.statementLastName[0]
+}]]></dw:set-payload>
+                </dw:transform-message>
+            </when>
+            <when expression="flowVars.ariaOtherContacts.get(0).size() != 0 &amp;&amp; flowVars.ariaStateContacts.get(0).size() == 0">
+                <dw:transform-message doc:name="Other Contacts">
+                    <dw:set-payload><![CDATA[%dw 1.0
+%output application/java
+---
+{
+	Email: flowVars.ariaOtherContacts.otherEmail[0],
+	ContactNumber: flowVars.ariaOtherContacts.otherContactNumber[0],
+	FirstName: flowVars.ariaOtherContacts.otherFirstName[0],
+	LastName: flowVars.ariaOtherContacts.otherLastName[0]
+}]]></dw:set-payload>
+                </dw:transform-message>
+            </when>
+            <when expression="flowVars.ariaStateContacts.get(0).size() != 0 &amp;&amp; flowVars.ariaOtherContacts.get(0).size() != 0">
+                <dw:transform-message doc:name="Transform Message">
+                    <dw:set-payload><![CDATA[%dw 1.0
+%output application/java
+---
+{
+	Email: flowVars.ariaStateContacts.statementEmail[0],
+	ContactNumber: flowVars.ariaStateContacts.statementContactNumber[0],
+	FirstName: flowVars.ariaStateContacts.statementFirstName[0],
+	LastName: flowVars.ariaStateContacts.statementLastName[0]
+}]]></dw:set-payload>
+                </dw:transform-message>
+            </when>
+            <otherwise>
+                <logger message="No Account matches found" level="INFO" doc:name="Logger" category="com.merrillcorp.accountContacts"/>
+                <dw:transform-message doc:name="Transform Message">
+                    <dw:set-payload><![CDATA[%dw 1.0
+%output application/java
+---
+{
+	Email: null,
+	ContactNumber: null,
+	FirstName: null,
+	LastName: null
+}]]></dw:set-payload>
+                </dw:transform-message>
+            </otherwise>
+        </choice>
+        <dw:transform-message doc:name="extractingAccountContactsForOracle" metadata:id="b85d2ba9-bacd-458f-8dcb-ff3b19455957">
+            <dw:input-payload doc:sample="aria-get-acct-success.xml"/>
+            <dw:set-variable variableName="ariaAccountContacts"><![CDATA[%dw 1.0
+%output application/java
+---
+{
+	email: payload.Email,
+	contactNumber: payload.ContactNumber,
+	firstName: payload.FirstName,
+	lastName:  payload.LastName
+}
+]]></dw:set-variable>
+        </dw:transform-message>
+        <logger message="(invoiceNumber: #[flowVars.event.financialTransactionGroup.objectNumber]) End getAccountContacts_Flow" level="INFO" doc:name="Logger" category="com.merrillcorp.accountContacts"/>
+    </flow>
+  
+  
+          <flow name="getOrder_Flow">
+        <logger message="(invoiceNumber: #[flowVars.event.financialTransactionGroup.objectNumber]) Start getOrder : payload= #[message.payloadAs(java.lang.String)]" level="INFO" doc:name="INFO" category="com.merrillcorp.order"/>
+
+                <dw:transform-message doc:name="SetupSoapPayloadForAriaOrder">
+ 			<dw:set-payload resource="classpath:dataweave/setupSoapPayloadForAriaOrder.dwl"/>
+        </dw:transform-message>
+
+        <object-to-string-transformer doc:name="Object to String"/>
+        <set-variable variableName="payloadBeforeUntillSuccess" value="#[payload]" doc:name="payloadBeforeUntillSuccess"/>
+       <until-successful maxRetries="${aria.http.max.retries}" millisBetweenRetries="${aria.http.milliSecondsBetweenRetries}" failureExpression="exception!=null &amp;&amp; (exception.causedBy(java.io.IOException) || exception.causedBy(java.net.ConnectException)  || exception.causedBy(java.net.SocketTimeoutException))" synchronous="true" doc:name="UntilSuccessfulForOrder">
+            <http:request config-ref="HTTP_Aria_Configuration" path="${aria.path}" method="POST" doc:name="GetOrderCreationDateFromAria">
+                <http:request-builder>
+                    <http:header headerName="SOAPAction" value="&quot;get_order_m&quot;"/>
+
+
+                </http:request-builder>
+                                <http:success-status-code-validator values="0..599"/>
+            </http:request>
+        </until-successful>
+        <byte-array-to-object-transformer doc:name="Byte Array to Object"/>
+        <logger message="(invoiceNumber: #[flowVars.event.financialTransactionGroup.objectNumber]) After getOrderFromAria Call *** #[message.payloadAs(java.lang.String)]" level="DEBUG" doc:name="Logger" category="com.merrillcorp.order"/>
+
+
+
+        <dw:transform-message doc:name="extractingOrderForOracle" metadata:id="b85d2ba9-bacd-458f-8dcb-ff3b19455957">
+            <dw:input-payload doc:sample="aria-get-acct-success.xml"/>
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/java
+%namespace env http://schemas.xmlsoap.org/soap/envelope/
+%namespace aria urn:client:api:wsdl:document/literal_wrapped:vers:11.0:aria_complete_m_api
+%var responseElement = payload.env#Envelope.env#Body.aria#get_order_mResponseElement
+---
+{
+//	orderNumber: responseElement.aria#orders.aria#order_no,
+//	amount: responseElement.aria#orders.aria#amount,
+//	currency: responseElement.aria#orders.aria#currency_cd,
+//	statusLabel: responseElement.aria#orders.aria#status_label,
+//	planInstanceNumber: responseElement.aria#orders.aria#plan_instance_no,
+//	clientPlanInstanceNumber: responseElement.aria#orders.aria#client_plan_instance_no,
+//	invoiceNumber: responseElement.aria#orders.aria#invoice_no,
+//	clientOrderId: responseElement.aria#orders.aria#client_order_id,
+	clientItemServiceLocationId: responseElement.aria#orders.aria#order_items.aria#client_item_svc_location_id,
+	createDate: responseElement.aria#orders.aria#create_date	
+}
+
+]]></dw:set-payload>
+
+        </dw:transform-message>
+        <logger message="(invoiceNumber: #[flowVars.event.financialTransactionGroup.objectNumber]) End getOrder_Flow" level="INFO" doc:name="Logger" category="com.merrillcorp.order"/>
+    </flow>
+
+    <flow name="Get_CM_Details_Flow">
+        <logger message="Initial Payload: #[payload]" level="DEBUG" category="com.merrillcorp.creditMemo" doc:name="Log Initial Payload"/>
+        <dw:transform-message doc:name="SetSOAPPayloadForGettingCreditMemo">
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/xml
+%namespace lit urn:client:api:wsdl:document/literal_wrapped:vers:11.0:aria_complete_m_api
+%namespace soap http://schemas.xmlsoap.org/soap/envelope/
+---
+{
+  soap#Envelope: {
+    soap#Header: {},
+    soap#Body: {
+      lit#get_cm_details_m: {
+        client_no: p('aria.client_no'),
+        auth_key: p('aria.auth_key'),
+        acct_no: flowVars.cmEvent.account.accountNumber,
+        cm_no: flowVars.originalCMNumber
+      }
+    }
+  }
+}]]></dw:set-payload>
+        </dw:transform-message>
+        <object-to-string-transformer doc:name="Object to String"/>
+        <set-variable variableName="payloadBeforeUntillSuccess" value="#[payload]" doc:name="payloadBeforeUntillSuccess"/>
+       <until-successful maxRetries="${aria.http.max.retries}" millisBetweenRetries="${aria.http.milliSecondsBetweenRetries}" failureExpression="exception!=null &amp;&amp; (exception.causedBy(java.io.IOException) || exception.causedBy(java.net.ConnectException)  || exception.causedBy(java.net.SocketTimeoutException))" synchronous="true" doc:name="UntilSuccessfulForServiceDetails">
+            <http:request config-ref="HTTP_Aria_Configuration" path="${aria.path}" method="POST" doc:name="GetCreditMemoFromAria">
+                <http:request-builder>
+                    <http:header headerName="SOAPAction" value="&quot;get_cm_details_m&quot;"/>
+                </http:request-builder>
+                <http:success-status-code-validator values="0..599"/>
+            </http:request>
+
+        </until-successful>
+        <byte-array-to-object-transformer doc:name="Byte Array to Object"/>
+        <logger message="(invoiceNumber: #[flowVars.cmEvent.financialTransactionGroup.objectNumber]) After getCreditMemoFromAria Call *** #[message.payloadAs(java.lang.String)]" level="DEBUG" doc:name="Logger" category="com.merrillcorp.creditMemo"/>
+
+        <dw:transform-message doc:name="Transform Message" metadata:id="b16665df-0d90-4f15-9c48-d1d3105cde3e">
+            <dw:input-payload />
+            <dw:set-variable resource="classpath:dataweave/extractAriaCreditMemoDetails.dwl" variableName="ariaCreditMemoDetails"/>
+
+
+        </dw:transform-message>
+
+        <logger message="(invoiceNumber: #[flowVars.cmEvent.financialTransactionGroup.objectNumber]) End getDataFromAriaFlow Call" level="INFO" doc:name="Logger" category="com.merrillcorp.creditMemo"/>
+        
+    </flow>
+    <flow name="aria_getClientServiceLocationId_Flow">
+
+                <expression-component doc:name="Expression"><![CDATA[	
+               
+    flowVars.clientMasterPlanInstanceId = payload.clientMasterPlanInstanceId; //"2217072";
+	flowVars.clientPlanInstanceId = payload.clientPlanInstanceId;//"2217073";
+	flowVars.serviceNumber= payload.serviceNumber;//"11023549";	 
+	flowVars.accountDetailsRaw = flowVars.ariaAccountDetailsRawXml; // the unit test can not pass a preserve string of xml. payload.accountDetails;
+]]></expression-component>
+ <!--         <set payload="#[flowVars.ariaAccountDetailsRawXml]" mimeType="application/xml" doc:name="Set Message To AccountDetails"/>
+ -->
+        <set-payload value="#[flowVars.accountDetailsRaw]" doc:name="Set Payload" mimeType="application/xml"/>
+        <dw:transform-message doc:name="get ClientServiceLocations">
+            <dw:set-variable variableName="clientServiceLocations"><![CDATA[%dw 1.0
+%output application/java
+%namespace env http://schemas.xmlsoap.org/soap/envelope/
+%namespace aria urn:client:api:wsdl:document/literal_wrapped:vers:11.0:aria_complete_m_api
+%var responseElement = payload.env#Envelope.env#Body.aria#get_acct_details_all_mResponseElement
+---
+{
+  errorMsg: responseElement.error_msg,  
+  masterPlanInfos: responseElement.*master_plans_info  filter ($.client_master_plan_instance_id == flowVars.clientMasterPlanInstanceId) map ((masterPlanInfo,masterPlanInfoIndex) -> {
+  	//clientMasterPlanInstanceId : masterPlanInfo.client_master_plan_instance_id,
+  	suppPlanInfos: masterPlanInfo.*supp_plans_info  filter ($.client_supp_plan_instance_id == flowVars.clientPlanInstanceId) map ((suppPlanInfo,suppPlanInfoIndex) -> {
+		//clientPlanInstanceId: suppPlanInfo.client_supp_plan_instance_id,
+  		//supp_plans_services: suppPlanInfo.supp_plans_services
+		suppPlanServices: suppPlanInfo.*supp_plans_services  filter ($.service_no == flowVars.serviceNumber) map ((suppPlanService,suppPlanServiceIndex) -> {
+			serviceNumber: suppPlanService.service_no,
+			clientServiceId: suppPlanService.client_service_id,
+			serviceLocationNumber: suppPlanService.svc_location_no,
+			clientServiceLocationId: suppPlanService.client_svc_location_id,
+			destinationContactNumber: suppPlanService.dest_contact_no		  		
+		})
+  	})
+  
+  })
+	
+}]]></dw:set-variable>
+
+
+        </dw:transform-message>
+        <set-variable variableName="clientServiceLocationId" value="#[clientServiceLocations.masterPlanInfos[0].suppPlanInfos.size() &lt; 1 ? &quot;NULL&quot; : clientServiceLocations.masterPlanInfos[0].suppPlanInfos[0].suppPlanServices.size() &gt; 0 ? clientServiceLocations.masterPlanInfos[0].suppPlanInfos[0].suppPlanServices[0].clientServiceLocationId : &quot;NULL&quot;]" doc:name="get ClientServiceLocationId"/>
+        <set-payload value="#[flowVars.clientServiceLocationId]" doc:name="Set Payload to clientServiceLocationId"/>
+        <logger message="flow = end = aria_getClientServiceLocationId_Flow" level="INFO" doc:name="Logger" category="com.merrillcorp.clientServiceLocations"/>
+        
+        
+    </flow>
+
+
+    
+    
+
+</mule>

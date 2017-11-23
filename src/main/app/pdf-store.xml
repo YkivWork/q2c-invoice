@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:microsoftservicebus="http://www.mulesoft.org/schema/mule/microsoftservicebus"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/microsoftservicebus http://www.mulesoft.org/schema/mule/microsoftservicebus/current/mule-microsoftservicebus.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
+
+  
+     <flow name="STORE_FINAL_INVOICE" processingStrategy="synchronous">
+
+      <logger message="Start Store Final Invoice" level="INFO" category="com.merrillcorp.storeFinalInvoice" doc:name="Logger" />
+        <dw:transform-message doc:name="Transform Message">
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/json
+---
+payload]]></dw:set-payload>
+        </dw:transform-message>
+        <set-payload value="#[json:body]" mimeType="application/json" doc:name="Set Payload"/>
+        <dw:transform-message doc:name="Transform Message">
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/java
+---
+payload]]></dw:set-payload>
+        </dw:transform-message>
+        <idempotent-message-filter idExpression="#[payload.invoice_no]" doc:name="Idempotent Message">
+            <in-memory-store name="idmpStore" maxEntries="-1" entryTTL="240000"/>
+        </idempotent-message-filter>
+        <set-variable variableName="base64" value="#[payload.htmlbody]" doc:name="Variable"/>
+        <set-variable variableName="invoice_no" value="#[payload.invoice_no]" doc:name="Variable"/>
+      <dw:transform-message doc:name="Transform Message">
+         <dw:set-payload><![CDATA[%dw 1.0
+%output application/json
+---
+{
+    "STORE_FINAL_INVOICE_Input": {
+        "InputParameters": {
+            "P_FILE_CONTENT": flowVars.base64,
+            "P_TRX_NUMBER": flowVars.invoice_no
+        }
+    }
+}]]></dw:set-payload>
+      </dw:transform-message>
+        <logger message="#[payload]" level="DEBUG" category="com.merrillcorp.storeFinalInvoice" doc:name="Logger"/>
+        <set-variable variableName="payloadBeforeUntillSuccess" value="#[payload]" doc:name="Variable"/>
+        <until-successful maxRetries="${oracle.http.max.retries}" millisBetweenRetries="${oracle.http.milliSecondsBetweenRetries}" failureExpression="exception!=null &amp;&amp; (exception.causedBy(java.io.IOException) || exception.causedBy(java.net.ConnectException)  || exception.causedBy(java.net.SocketTimeoutException))" synchronous="true" doc:name="Until Successful">
+            <http:request config-ref="oracleSysHttpRequestConfiguration" path="${oracle.storeinvoice.path}" method="POST" doc:name="HTTP">
+            </http:request>
+        </until-successful>
+        <byte-array-to-object-transformer doc:name="Byte Array to Object"/>
+
+      <logger message="Oracle Store Final Invoice payload: #[message.payloadAs(java.lang.String)]" level="INFO" category="com.merrillcorp.storeFinalInvoice" doc:name="Logger" />
+
+   </flow>
+
+</mule>

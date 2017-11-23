@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<apf2doc>
+    <request>
+        <version>1</version>
+        <sender>A</sender>
+        <transaction_id>25760022</transaction_id>
+        <action>M</action>
+        <class>T</class>
+        <auth_key>R3WSkfamtH9bMUrACMtm7FAtx7u8vYFy</auth_key>
+    </request>
+    <account>
+        <client_no>6000228</client_no>
+        <acct_no>1654200</acct_no>
+        <userid>3863637</userid>
+        <master_plan_instances>
+            <master_plan_instance_data>
+                <plan_instance_no>2217072</plan_instance_no>
+                <client_plan_instance_id>2217072</client_plan_instance_id>
+                <resp_level_cd>1</resp_level_cd>
+            </master_plan_instance_data>
+        </master_plan_instances>
+    </account>
+    <financial_transaction_groups>
+        <financial_transaction_group>
+            <Object_type>Invoice</Object_type>
+            <Object_no>7676379</Object_no>
+            <billing_group_no>1060101</billing_group_no>
+            <billing_group_name>1774-8987-USD</billing_group_name>
+            <client_billing_group_id>1060101</client_billing_group_id>
+            <total_amount>696.91</total_amount>
+        </financial_transaction_group>
+    </financial_transaction_groups>
+    <financial_transactions>
+        <financial_transaction>
+            <financial_trans_id>-1</financial_trans_id>
+            <financial_trans_granular_id>7676379</financial_trans_granular_id>
+            <financial_trans_type_no>0</financial_trans_type_no>
+            <financial_trans_type_label>Invoice Created</financial_trans_type_label>
+            <financial_trans_gl_type>D</financial_trans_gl_type>
+            <financial_trans_date>2017-06-23 19:06:29</financial_trans_date>
+            <financial_trans_amount>696.91</financial_trans_amount>
+            <financial_trans_inv_type_cd>F</financial_trans_inv_type_cd>
+        </financial_transaction>
+    </financial_transactions>
+    <posting_info>
+        <posting_status_cd>1</posting_status_cd>
+        <posting_user>System</posting_user>
+        <posting_date>2017-06-23 19:06:30</posting_date>
+    </posting_info>
+    <event_data>
+        <event>
+            <event_id>901</event_id>
+            <event_label>Invoice Created</event_label>
+        </event>
+    </event_data>
+</apf2doc>	

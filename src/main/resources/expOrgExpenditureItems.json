@@ -1,0 +1,105 @@
+{
+  "OutputParameters": {
+    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+    "@xmlns": "http://xmlns.oracle.com/apps/pa/rest/xxsp_mapping_svc/get_exp_org_mapping/",
+    "X_EXP_ORGS": {
+      "X_EXP_ORGS_ITEM": [
+        {
+          "BUSINESS_UNIT": "DATASITE",
+          "SERVICE_SITE": "CLG",
+          "TEAM_TYPE": "DATASITE",
+          "EXPENDITURE_ORG_ID": "1418",
+          "EXPENDITURE_ORG_NAME": "DATASITE-CALGARY"
+        },
+        {
+          "BUSINESS_UNIT": "DATASITE",
+          "SERVICE_SITE": "FRA",
+          "TEAM_TYPE": "DATASITE",
+          "EXPENDITURE_ORG_ID": "1424",
+          "EXPENDITURE_ORG_NAME": "DATASITE-FRANKFURT"
+        },
+        {
+          "BUSINESS_UNIT": "DATASITE",
+          "SERVICE_SITE": "HKG",
+          "TEAM_TYPE": "DATASITE",
+          "EXPENDITURE_ORG_ID": "2096",
+          "EXPENDITURE_ORG_NAME": "DATASITE-HONG KONG"
+        },
+        {
+          "BUSINESS_UNIT": "DATASITE",
+          "SERVICE_SITE": "LON",
+          "TEAM_TYPE": "DATASITE",
+          "EXPENDITURE_ORG_ID": "1137",
+          "EXPENDITURE_ORG_NAME": "TRL-LONDON"
+        },
+        {
+          "BUSINESS_UNIT": "DATASITE",
+          "SERVICE_SITE": "MTL",
+          "TEAM_TYPE": "DATASITE",
+          "EXPENDITURE_ORG_ID": "1417",
+          "EXPENDITURE_ORG_NAME": "DATASITE-MONTREAL"
+        },
+        {
+          "BUSINESS_UNIT": "DATASITE",
+          "SERVICE_SITE": "NYC",
+          "TEAM_TYPE": "DATASITE",
+          "EXPENDITURE_ORG_ID": "1118",
+          "EXPENDITURE_ORG_NAME": "TRL-NEW YORK 225 VARICK"
+        },
+        {
+          "BUSINESS_UNIT": "DATASITE",
+          "SERVICE_SITE": "POR",
+          "TEAM_TYPE": "DATASITE",
+          "EXPENDITURE_ORG_ID": "1410",
+          "EXPENDITURE_ORG_NAME": "DATASITE-PORTLAND"
+        },
+        {
+          "BUSINESS_UNIT": "DATASITE",
+          "SERVICE_SITE": "PRS",
+          "TEAM_TYPE": "DATASITE",
+          "EXPENDITURE_ORG_ID": "1423",
+          "EXPENDITURE_ORG_NAME": "DATASITE-PARIS"
+        },
+        {
+          "BUSINESS_UNIT": "DATASITE",
+          "SERVICE_SITE": "SDR",
+          "TEAM_TYPE": "DATASITE",
+          "EXPENDITURE_ORG_ID": "1416",
+          "EXPENDITURE_ORG_NAME": "DATASITE-TORONTO"
+        },
+        {
+          "BUSINESS_UNIT": "DATASITE",
+          "SERVICE_SITE": "SNG",
+          "TEAM_TYPE": "DATASITE",
+          "EXPENDITURE_ORG_ID": "2104",
+          "EXPENDITURE_ORG_NAME": "DATASITE-SINGAPORE"
+        },
+        {
+          "BUSINESS_UNIT": "DATASITE",
+          "SERVICE_SITE": "STP",
+          "TEAM_TYPE": "DATASITE",
+          "EXPENDITURE_ORG_ID": "1313",
+          "EXPENDITURE_ORG_NAME": "TRL-ST PAUL"
+        },
+        {
+          "BUSINESS_UNIT": "DATASITE",
+          "SERVICE_SITE": "TOR",
+          "TEAM_TYPE": "DATASITE",
+          "EXPENDITURE_ORG_ID": "1416",
+          "EXPENDITURE_ORG_NAME": "DATASITE-TORONTO"
+        },
+        {
+          "BUSINESS_UNIT": "DATASITE",
+          "SERVICE_SITE": "VAN",
+          "TEAM_TYPE": "DATASITE",
+          "EXPENDITURE_ORG_ID": "1419",
+          "EXPENDITURE_ORG_NAME": "DATASITE-VANCOUVER"
+        }
+      ]
+    },
+    "X_RESULTS": {
+      "STATUS": "S",
+      "MESSAGE": "13 Rows Returned."
+    }
+  }
+}

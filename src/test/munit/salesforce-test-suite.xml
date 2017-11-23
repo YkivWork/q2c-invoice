@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:mock="http://www.mulesoft.org/schema/mule/mock" xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:spring="http://www.springframework.org/schema/beans" xmlns:core="http://www.mulesoft.org/schema/mule/core" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd
+http://www.mulesoft.org/schema/mule/mock http://www.mulesoft.org/schema/mule/mock/current/mule-mock.xsd">
+    <munit:config name="munit" doc:name="MUnit configuration"/>
+    <spring:beans>
+        <spring:import resource="classpath:sys-aria/*.xml"/>
+        <spring:import resource="classpath:proc-merrillcorp-invoice/*.xml"/>
+        <spring:import resource="classpath:sys-azure/*.xml"/>
+        <spring:import resource="classpath:ux-aria-event/*.xml"/>
+        <spring:import resource="classpath:credit-memo.xml"/>
+        <spring:import resource="classpath:expenditure.xml"/>
+        <spring:import resource="classpath:get-aria.xml"/>
+        <spring:import resource="classpath:get-mdr.xml"/>
+        <spring:import resource="classpath:globals.xml"/>
+        <spring:import resource="classpath:invoice-creation.xml"/>
+        <spring:import resource="classpath:oracle.xml"/>
+        <spring:import resource="classpath:process-event.xml"/>
+        <spring:import resource="classpath:salesforce.xml"/>        
+        <spring:import resource="classpath:sales-rep.xml"/>
+        <spring:import resource="classpath:error-handling.xml"/>
+        <spring:import resource="classpath:html-generate.xml"/>
+        <spring:import resource="classpath:html-process.xml"/>
+        <spring:import resource="classpath:pdf-process.xml"/>
+        <spring:import resource="classpath:pdf-store.xml"/>
+    </spring:beans>
+    <munit:test name="salesforce-test-suite-getSplitBillingTest" description="Test">
+        <mock:when messageProcessor=".*:.*" doc:name="Mock Salesforce">
+            <mock:with-attributes>
+                <mock:with-attribute name="doc:name" whereValue="Salesforce"/>
+            </mock:with-attributes>
+            <mock:then-return payload="#[getResource('examples/split-billing.json').asString()]" mimeType="application/json"/>
+        </mock:when>
+        <set-payload value="#['a27c0000005RdbnAAC']" doc:name="Set Payload"/>
+        <flow-ref name="sf_getSplitBilling" doc:name="sf_getSplitBilling"/>
+        <dw:transform-message doc:name="Transform Message">
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/java
+---
+payload]]></dw:set-payload>
+        </dw:transform-message>
+        <munit:assert-on-equals message="failed on billing split 0" expectedValue="#[&quot;70.0&quot;]" actualValue="#[payload[0].Billing_Split__c]" doc:name="Billing Split 0"/>
+        <munit:assert-on-equals message="failed on billing split 1" expectedValue="#[&quot;30.0&quot;]" actualValue="#[payload[1].Billing_Split__c]" doc:name="Billing Split 1"/>
+    </munit:test>
+</mule>

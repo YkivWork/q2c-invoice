@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:mock="http://www.mulesoft.org/schema/mule/mock" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:spring="http://www.springframework.org/schema/beans" xmlns:core="http://www.mulesoft.org/schema/mule/core" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/mock http://www.mulesoft.org/schema/mule/mock/current/mule-mock.xsd">
+    <munit:config name="munit" doc:name="MUnit configuration"/>
+    <spring:beans>
+        <spring:import resource="classpath:sys-aria/*.xml"/>
+        <spring:import resource="classpath:proc-merrillcorp-invoice/*.xml"/>
+        <spring:import resource="classpath:sys-azure/*.xml"/>
+        <spring:import resource="classpath:ux-aria-event/*.xml"/>
+        <spring:import resource="classpath:credit-memo.xml"/>
+        <spring:import resource="classpath:expenditure.xml"/>
+        <spring:import resource="classpath:get-aria.xml"/>
+        <spring:import resource="classpath:get-mdr.xml"/>
+        <spring:import resource="classpath:globals.xml"/>
+        <spring:import resource="classpath:invoice-creation.xml"/>
+        <spring:import resource="classpath:oracle.xml"/>
+        <spring:import resource="classpath:process-event.xml"/>
+        <spring:import resource="classpath:salesforce.xml"/>        
+        <spring:import resource="classpath:sales-rep.xml"/>
+        <spring:import resource="classpath:error-handling.xml"/>
+        <spring:import resource="classpath:html-generate.xml"/>
+        <spring:import resource="classpath:html-process.xml"/>
+        <spring:import resource="classpath:pdf-process.xml"/>
+        <spring:import resource="classpath:pdf-store.xml"/>
+    </spring:beans>
+        <munit:test name="getXRefFromMDRWithAriaMPISub_FlowTest" description="Test">
+        <mock:when messageProcessor="http:request" doc:name="Mock">
+            <mock:then-return payload="#[getResource('associates-get-result-example.json').asString()]" mimeType="application/json"/>
+        </mock:when>
+        <munit:set payload="#[getResource('associates-get-result-example.json').asString()]" mimeType="application/json" doc:name="Set Message"/>
+        <flow-ref name="getXRefFromMDRWithAriaMPI_Flow" doc:name="getXRefFromMDRWithAriaMPI_Flow"/>
+        <munit:assert-on-equals message="failed on SFProjectNumber" expectedValue="a27S0000000t9hmIAA" actualValue="#[flowVars.SFProjectNumber]" doc:name="Assert Equals"/>
+        <munit:assert-on-equals message="failed on Orasite" expectedValue="168698" actualValue="#[flowVars.OraSite]" doc:name="Assert Equals"/>
+    </munit:test>
+    
+    <munit:test name="get-mdr-test-suite-ExtractSFProject-NegativeTest" description="Test">
+        <mock:when messageProcessor="http:request" doc:name="Mock">
+            <mock:then-return payload="[]" mimeType="application/json"/>
+        </mock:when>
+        <set-payload value="[]" mimeType="application/json" doc:name="Set Payload"/>
+        <flow-ref name="ExtractSFProject" doc:name="Flow-ref to ExtractSFProject"/>
+        <munit:assert-on-equals message="failed on SFProjectNumber" expectedValue="NO SFProjectNumber in MDR" actualValue="#[flowVars.SFProjectNumber]" doc:name="Assert Equals"/>
+    </munit:test>
+        <munit:test name="get-mdr-test-suite-ExtractOraSite-NegativeTest" description="Test">
+        <mock:when messageProcessor="http:request" doc:name="Mock">
+            <mock:then-return payload="[]" mimeType="application/json"/>
+        </mock:when>
+        <set-payload value="[]" mimeType="application/json" doc:name="Set Payload"/>
+        <flow-ref name="ExtractOraSite" doc:name="Flow-ref to ExtractOraSite"/>
+        <munit:assert-on-equals message="failed on Orasite" expectedValue="NO ORASITE in MDR" actualValue="#[flowVars.OraSite]" doc:name="Assert Equals"/>
+    </munit:test>
+    
+        <munit:test name="get-mdr-test-suite-ExtractSFProject-PositiveTest" description="Test">
+        <mock:when messageProcessor="http:request" doc:name="Mock">
+            <mock:then-return payload="[]" mimeType="application/json"/>
+        </mock:when>
+        <munit:set payload="#[getResource('associates-get-result-example.json').asString()]" mimeType="application/json" doc:name="Set Message"/>
+        <flow-ref name="ExtractSFProject" doc:name="ExtractSFProject"/>
+        <munit:assert-on-equals message="failed on SFProjectNumber" expectedValue="a27S0000000t9hmIAA" actualValue="#[flowVars.SFProjectNumber]" doc:name="Assert Equals"/>
+    </munit:test>
+        <munit:test name="get-mdr-test-suite-ExtractOraSite-PositiveTest" description="Test">
+        <mock:when messageProcessor="http:request" doc:name="Mock">
+            <mock:then-return payload="[]" mimeType="application/json"/>
+        </mock:when>
+        <munit:set payload="#[getResource('associates-get-result-example.json').asString()]" mimeType="application/json" doc:name="Set Message"/>
+        <flow-ref name="ExtractOraSite" doc:name="ExtractOraSite"/>
+        <munit:assert-on-equals message="failed on Orasite" expectedValue="168698" actualValue="#[flowVars.OraSite]" doc:name="Assert Equals"/>
+    </munit:test>
+</mule>

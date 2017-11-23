@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:metadata="http://www.mulesoft.org/schema/mule/metadata" xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:microsoftservicebus="http://www.mulesoft.org/schema/mule/microsoftservicebus" xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw" xmlns:vm="http://www.mulesoft.org/schema/mule/vm" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
+http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/current/mule-vm.xsd
+http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/microsoftservicebus http://www.mulesoft.org/schema/mule/microsoftservicebus/current/mule-microsoftservicebus.xsd">
+    <sub-flow name="PostEventToRetryDlq">
+        <set-payload value="#[flowVars.event]" doc:name="Set Payload"/>
+        <json:object-to-json-transformer doc:name="Object to JSON"/>
+        <logger message="Flow: PostEventRetryDlq Action=Started Payload=#[message.payloadAs(java.lang.String)]" level="DEBUG" category="com.merrillcorp.retry" doc:name="Log Event Retry Payload"/>
+        <microsoftservicebus:queue-send config-ref="Microsoft_Service_Bus__Azure_Service_Bus" destinationQueue="${queue.ariaeventretrydlq}" doc:name="Microsoft Service Bus"/>
+    </sub-flow>
+    <flow name="processAriaInvoiceEvent" processingStrategy="synchronous">
+
+        <logger message="Initial Payload: #[payload]" level="DEBUG" category="com.merrillcorp.invoiceEventProcess" doc:name="[DEBUG]Log Initial Payload"/>
+        <flow-ref name="extractAriaInvoiceEvent" doc:name="extractAriaInvoiceEvent"/>
+        <flow-ref name="publishMerrillInvoiceEvent" doc:name="publishMerrillInvoiceEvent"/>
+
+    </flow>
+    <flow name="processAriaInvoiceVoidEvent" processingStrategy="synchronous">
+
+        <logger message="Initial Payload: #[payload]" level="DEBUG" category="com.merrillcorp.voidInvoiceEventProcess" doc:name="[DEBUG]Log Initial Payload"/>
+    </flow>
+    <flow name="processAriaCreditMemoEvent" processingStrategy="synchronous">
+
+        <logger message="Initial Payload: #[payload]" level="DEBUG" category="com.merrillcorp.creditMemoEventProcess" doc:name="[DEBUG]Log Initial Payload"/>
+    </flow>
+    <flow name="processAriaCreditMemoVoidEvent" processingStrategy="synchronous">
+
+        <logger message="Initial Payload: #[payload]" level="DEBUG" category="com.merrillcorp.voidCreditMemoEventProcess" doc:name="[DEBUG]Log Initial Payload"/>
+    </flow>
+    <flow name="processMerrillInvoiceEvent" processingStrategy="synchronous">
+
+        <logger message="Initial Payload: #[payload]" level="DEBUG" category="com.merrillcorp.invoiceEventProcess" doc:name="[DEBUG]Log Initial Payload"/>
+        <dw:transform-message doc:name="Transform to Java Object">
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/java
+---
+payload]]></dw:set-payload>
+        </dw:transform-message>
+    </flow>
+ <flow name="processAriaEventRetry" processingStrategy="synchronous">
+ 
+        <logger message="Flow: #[flow.name] Action=Started Payload=#[payload]" level="DEBUG" category="com.merrillcorp.retryEventProcess" doc:name="Log Intial Payload"/> 
+        <dw:transform-message doc:name="Transform to Java Object"> 
+            <dw:set-payload><![CDATA[%dw 1.0 
+%output application/java 
+--- 
+payload]]></dw:set-payload> 
+        </dw:transform-message>
+        <set-variable variableName="event" value="#[payload]" doc:name="Set event flow Variable"/> 
+        <flow-ref name="GetDetailsDataFromAria_Flow" doc:name="GetDetailsDataFromAria_Flow"/> 
+        <flow-ref name="getXRefFromMDRWithAriaMPI_Flow" doc:name="getXRefFromMDRWithAriaMPI_Flow"/> 
+        <flow-ref name="CreateInvoiceInOracle_Flow" doc:name="CreateInvoiceInOracle_Flow"/> 
+        <catch-exception-strategy doc:name="Catch Exception Strategy"> 
+            <logger message="Flow: #[flow.name] Action=LogExceptionSummary ExceptionSummary=#[exception.getSummaryMessage()]" level="ERROR" category="com.merrillcorp.errorHandling" doc:name="Log Exception Summary"/>
+            <flow-ref name="PostEventToRetryDlq" doc:name="PostEventToRetryDlq"/> 
+        </catch-exception-strategy> 
+    </flow>     
+</mule>

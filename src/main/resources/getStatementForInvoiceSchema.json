@@ -1,0 +1,24 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "definitions": {},
+    "id": "http://example.com/example.json",
+    "properties": {
+        "acct_no": {
+            "id": "/properties/acct_no",
+            "type": "string"
+        },
+        "auth_key": {
+            "id": "/properties/auth_key",
+            "type": "string"
+        },
+        "client_no": {
+            "id": "/properties/client_no",
+            "type": "string"
+        },
+        "invoice_no": {
+            "id": "/properties/invoice_no",
+            "type": "string"
+        }
+    },
+    "type": "object"
+}

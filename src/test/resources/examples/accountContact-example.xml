@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="urn:client:api:wsdl:document/literal_wrapped:vers:11.0:aria_complete_m_api" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<SOAP-ENV:Body>
+		<ns1:get_acct_contacts_mResponseElement>
+			<ns1:account_contact>
+				<ns1:contact_no>4623582</ns1:contact_no>
+				<ns1:first_name>Minnesota</ns1:first_name>
+				<ns1:middle_initial xsi:nil="true"/>
+				<ns1:last_name>Lakers</ns1:last_name>
+				<ns1:company_name>D. A. Davidson &amp; Company</ns1:company_name>
+				<ns1:address1 xsi:nil="true"/>
+				<ns1:address2 xsi:nil="true"/>
+				<ns1:address3 xsi:nil="true"/>
+				<ns1:city xsi:nil="true"/>
+				<ns1:locality xsi:nil="true"/>
+				<ns1:state_prov xsi:nil="true"/>
+				<ns1:country_cd>US</ns1:country_cd>
+				<ns1:postal_cd xsi:nil="true"/>
+				<ns1:phone xsi:nil="true"/>
+				<ns1:phone_ext xsi:nil="true"/>
+				<ns1:cell_phone xsi:nil="true"/>
+				<ns1:work_phone xsi:nil="true"/>
+				<ns1:work_phone_ext xsi:nil="true"/>
+				<ns1:fax xsi:nil="true"/>
+				<ns1:email xsi:nil="true"/>
+				<ns1:birthdate xsi:nil="true"/>
+				<ns1:address_verification_code xsi:nil="true"/>
+				<ns1:address_match_score xsi:nil="true"/>
+			</ns1:account_contact>
+			<ns1:billing_contacts xsi:nil="true"/>
+			<ns1:backup_contacts xsi:nil="true"/>
+			<ns1:statement_contacts>
+				<ns1:stat_contact_no>4651238</ns1:stat_contact_no>
+				<ns1:stat_first_name>Kirby</ns1:stat_first_name>
+				<ns1:stat_middle_initial xsi:nil="true"/>
+				<ns1:stat_last_name>Puckett</ns1:stat_last_name>
+				<ns1:stat_company_name>D. A. Davidson &amp; Company</ns1:stat_company_name>
+				<ns1:stat_address1>1600 Broadway, Suite 1100</ns1:stat_address1>
+				<ns1:stat_address2 xsi:nil="true"/>
+				<ns1:stat_address3 xsi:nil="true"/>
+				<ns1:stat_city>Denver</ns1:stat_city>
+				<ns1:stat_locality xsi:nil="true"/>
+				<ns1:stat_state_prov>CO</ns1:stat_state_prov>
+				<ns1:stat_country>US</ns1:stat_country>
+				<ns1:stat_postal_cd>80202</ns1:stat_postal_cd>
+				<ns1:stat_phone xsi:nil="true"/>
+				<ns1:stat_phone_ext xsi:nil="true"/>
+				<ns1:stat_cell_phone xsi:nil="true"/>
+				<ns1:stat_work_phone xsi:nil="true"/>
+				<ns1:stat_work_phone_ext xsi:nil="true"/>
+				<ns1:stat_fax xsi:nil="true"/>
+				<ns1:stat_email>lori.mahoney@merrillcorp.com</ns1:stat_email>
+				<ns1:stat_birthdate xsi:nil="true"/>
+				<ns1:stat_address_verification_code xsi:nil="true"/>
+				<ns1:stat_address_match_score xsi:nil="true"/>
+				<ns1:stat_billing_group_no>1129992</ns1:stat_billing_group_no>
+				<ns1:stat_client_billing_group_id>1129992</ns1:stat_client_billing_group_id>
+			</ns1:statement_contacts>
+			<ns1:other_contacts>
+				<ns1:other_contact_no>4623583</ns1:other_contact_no>
+				<ns1:other_first_name>Lori</ns1:other_first_name>
+				<ns1:other_middle_initial xsi:nil="true"/>
+				<ns1:other_last_name>Mahoney</ns1:other_last_name>
+				<ns1:other_company_name>D. A. Davidson &amp; Company</ns1:other_company_name>
+				<ns1:other_address1>1600 Broadway, Suite 1100</ns1:other_address1>
+				<ns1:other_address2 xsi:nil="true"/>
+				<ns1:other_address3 xsi:nil="true"/>
+				<ns1:other_city>Denver</ns1:other_city>
+				<ns1:other_locality xsi:nil="true"/>
+				<ns1:other_state_prov>CO</ns1:other_state_prov>
+				<ns1:other_country_cd>US</ns1:other_country_cd>
+				<ns1:other_postal_cd>80202</ns1:other_postal_cd>
+				<ns1:other_phone xsi:nil="true"/>
+				<ns1:other_phone_ext xsi:nil="true"/>
+				<ns1:other_cell_phone xsi:nil="true"/>
+				<ns1:other_work_phone xsi:nil="true"/>
+				<ns1:other_work_phone_ext xsi:nil="true"/>
+				<ns1:other_fax xsi:nil="true"/>
+				<ns1:other_email>lori.mahoney@merrillcorp.com</ns1:other_email>
+				<ns1:other_birthdate xsi:nil="true"/>
+				<ns1:other_address_verification_code xsi:nil="true"/>
+				<ns1:other_address_match_score xsi:nil="true"/>
+			</ns1:other_contacts>
+			<ns1:other_contacts>
+				<ns1:other_contact_no>4623728</ns1:other_contact_no>
+				<ns1:other_first_name>TC</ns1:other_first_name>
+				<ns1:other_middle_initial xsi:nil="true"/>
+				<ns1:other_last_name>Bear</ns1:other_last_name>
+				<ns1:other_company_name>Fri Afternoon, inc</ns1:other_company_name>
+				<ns1:other_address1>111 test dr.</ns1:other_address1>
+				<ns1:other_address2 xsi:nil="true"/>
+				<ns1:other_address3 xsi:nil="true"/>
+				<ns1:other_city>St Paul</ns1:other_city>
+				<ns1:other_locality xsi:nil="true"/>
+				<ns1:other_state_prov>MN</ns1:other_state_prov>
+				<ns1:other_country_cd>USA</ns1:other_country_cd>
+				<ns1:other_postal_cd>55108</ns1:other_postal_cd>
+				<ns1:other_phone xsi:nil="true"/>
+				<ns1:other_phone_ext xsi:nil="true"/>
+				<ns1:other_cell_phone xsi:nil="true"/>
+				<ns1:other_work_phone xsi:nil="true"/>
+				<ns1:other_work_phone_ext xsi:nil="true"/>
+				<ns1:other_fax xsi:nil="true"/>
+				<ns1:other_email xsi:nil="true"/>
+				<ns1:other_birthdate xsi:nil="true"/>
+				<ns1:other_address_verification_code xsi:nil="true"/>
+				<ns1:other_address_match_score xsi:nil="true"/>
+			</ns1:other_contacts>
+			<ns1:other_contacts>
+				<ns1:other_contact_no>4651245</ns1:other_contact_no>
+				<ns1:other_first_name xsi:nil="true"/>
+				<ns1:other_middle_initial xsi:nil="true"/>
+				<ns1:other_last_name xsi:nil="true"/>
+				<ns1:other_company_name>Fri Afternoon, inc</ns1:other_company_name>
+				<ns1:other_address1>111 test dr.</ns1:other_address1>
+				<ns1:other_address2 xsi:nil="true"/>
+				<ns1:other_address3 xsi:nil="true"/>
+				<ns1:other_city>St Paul</ns1:other_city>
+				<ns1:other_locality xsi:nil="true"/>
+				<ns1:other_state_prov>MN</ns1:other_state_prov>
+				<ns1:other_country_cd>US</ns1:other_country_cd>
+				<ns1:other_postal_cd>55108</ns1:other_postal_cd>
+				<ns1:other_phone xsi:nil="true"/>
+				<ns1:other_phone_ext xsi:nil="true"/>
+				<ns1:other_cell_phone xsi:nil="true"/>
+				<ns1:other_work_phone xsi:nil="true"/>
+				<ns1:other_work_phone_ext xsi:nil="true"/>
+				<ns1:other_fax xsi:nil="true"/>
+				<ns1:other_email xsi:nil="true"/>
+				<ns1:other_birthdate xsi:nil="true"/>
+				<ns1:other_address_verification_code xsi:nil="true"/>
+				<ns1:other_address_match_score xsi:nil="true"/>
+			</ns1:other_contacts>
+			<ns1:error_code>0</ns1:error_code>
+			<ns1:error_msg>OK</ns1:error_msg>
+		</ns1:get_acct_contacts_mResponseElement>
+	</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns:scripting="http://www.mulesoft.org/schema/mule/scripting"
+	xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw"
+	xmlns:microsoftservicebus="http://www.mulesoft.org/schema/mule/microsoftservicebus"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/scripting http://www.mulesoft.org/schema/mule/scripting/current/mule-scripting.xsd
+http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd
+http://www.mulesoft.org/schema/mule/microsoftservicebus http://www.mulesoft.org/schema/mule/microsoftservicebus/current/mule-microsoftservicebus.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd">
+
+
+    <flow name="generateHtmlAndSend_FLOW" processingStrategy="synchronous">
+        <flow-ref name="GetHtmlStatementForPdf_Flow" doc:name="GetHtmlStatementForPdf_Flow"/>
+        <flow-ref name="SetTransactionNumber_Flow" doc:name="SetTransactionNumber_Flow"/>
+        <flow-ref name="HTML_TO_PDF" doc:name="HTML_TO_PDF"/>
+    </flow>
+    <flow name="GetHtmlStatementForPdf_Flow">
+        <choice doc:name="Choice">
+            <when expression="eventId==&quot;902&quot;">
+                <flow-ref name="GetVoidInvoiceHtmlFlow" doc:name="GetVoidInvoiceHtmlFlow"/>
+            </when>
+            <when expression="eventId==&quot;901&quot;">
+                <flow-ref name="getInvoiceHtml_Flow" doc:name="getInvoiceHtml_Flow"/>
+            </when>
+            <when expression="eventId==&quot;948&quot;">
+                <flow-ref name="GetVoidInvoiceHtmlFlow" doc:name="GetVoidInvoiceHtmlFlow"/>
+            </when>
+            <otherwise>
+                <logger message="Invalid Event" level="ERROR" category="com.merrillcorp.event" doc:name="Logger"/>
+            </otherwise>
+        </choice>
+    </flow>
+    <flow name="getInvoiceHtml_Flow" processingStrategy="synchronous">
+        <logger message="Intial Payload: #[payload]" level="DEBUG" category="com.merrillcorp.html" doc:name="Log Initial Payload"/>
+        <dw:transform-message doc:name="Create Request Payload">
+            <dw:input-payload doc:sample="sample_data\json.json"/>
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/xml
+%namespace lit urn:client:api:wsdl:document/literal_wrapped:vers:11.0:aria_complete_m_api
+%namespace soap http://schemas.xmlsoap.org/soap/envelope/
+---
+{
+  soap#Envelope: {
+    soap#Header: {},
+    soap#Body: {
+      lit#get_statement_for_invoice_m: {
+        client_no: p('aria.client_no'),
+        auth_key: p('aria.auth_key'),
+        acct_no:flowVars.account_no,
+        invoice_no:flowVars.invoice_no
+      }
+    }
+  }
+}]]></dw:set-payload>
+        </dw:transform-message>
+        <object-to-string-transformer doc:name="Object to String"/>
+        <set-variable variableName="payloadBeforeUntillSuccess" value="#[payload]" doc:name="payloadBeforeUntillSuccess"/>
+        <http:request config-ref="HTTP_Aria_Configuration" path="${aria.path}" method="POST" doc:name="GetStatementForInvoice">
+            <http:request-builder>
+                <http:header headerName="SOAPAction" value="&quot;get_statement_for_invoice_m&quot;"/>
+            </http:request-builder>
+        </http:request>
+        <byte-array-to-object-transformer doc:name="Byte Array to Object"/>
+        <logger message="#[message.payloadAs(java.lang.String)]" level="DEBUG" category="com.merrillcorp.html" doc:name="Logger"/>
+        <dw:transform-message doc:name="Transform Message">
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/java
+%namespace env http://schemas.xmlsoap.org/soap/envelope/
+%namespace aria urn:client:api:wsdl:document/literal_wrapped:vers:11.0:aria_complete_m_api
+---
+payload.env#Envelope.env#Body.aria#get_statement_for_invoice_mResponseElement.aria#out_statement]]></dw:set-payload>
+        </dw:transform-message>
+        <logger message="After getStatementForInvoice Call *** #[message.payloadAs(java.lang.String)]" level="DEBUG" category="com.merrillcorp.html" doc:name="Logger"/>
+    </flow>
+    <flow name="GetVoidInvoiceHtmlFlow" processingStrategy="synchronous">
+        <logger message="Start 1- voidInvoiceHtmlFlow" level="INFO" category="com.merrillcorp.html" doc:name="Logger"/>
+        <expression-component doc:name="Wait Expression"><![CDATA[Thread.sleep(90000)]]></expression-component>
+        <http:request config-ref="HTTP_Aria_Html_Request_Configuration" path="${aria.htmlpath}" method="GET" doc:name="Aria Html">
+            <http:request-builder>
+                <http:query-param paramName="FlowId" value="6dd9aea7-9958-11e7-b02d-00155d142d0e"/>
+                <http:query-param paramName="Action" value="api"/>
+                <http:query-param paramName="sessionid" value="NS-f41237b5-1a51-11e7-8db7-00155d142d0e"/>
+                <http:query-param paramName="outputtype" value="XML"/>
+                <http:query-param paramName="AriaAccountNumber" value="#[flowVars.account_no]"/>
+                <http:query-param paramName="InvoiceNumber" value="#[flowVars.invoice_no]"/>
+            </http:request-builder>
+        </http:request>
+        <byte-array-to-object-transformer doc:name="Byte Array to Object"/>
+        <logger message="After Html Call: #[message.payloadAs(java.lang.String)]" level="DEBUG" category="com.merrillcorp.html" doc:name="Logger"/>
+        <scripting:component doc:name="Groovy">
+            <scripting:script engine="Groovy"><![CDATA[def html = payload;
+def removedDone = html.replaceAll(~/<\/?Done>/,"");
+def removedHtmlString = removedDone.replaceAll(~/<\/?HTMLString>/,"");
+def removedXml= removedHtmlString.replaceAll(~/&lt;\?xml version="1.0" encoding="utf-16"\?&gt;/,"&lt;!DOCTYPE html&gt;");
+def replacedLT = removedXml.replaceAll(~/&lt;/,"<");
+def replacedGT = replacedLT.replaceAll(~/&gt;/,">");
+def replacedNBSP = replacedGT.replaceAll(~/&amp;nbsp;/," ");
+return replacedNBSP;
+]]></scripting:script>
+        </scripting:component>
+        <logger message="After Groovy: #[message.payloadAs(java.lang.String)]" level="DEBUG" category="com.merrillcorp.html" doc:name="Logger"/>
+        <logger message="End voidInvoiceHtmlFlow" level="INFO" category="com.merrillcorp.html" doc:name="Logger"/>
+    </flow>
+
+    <flow name="SetTransactionNumber_Flow">
+        <choice doc:name="Choice">
+            <when expression="eventId==&quot;902&quot;">
+                <set-variable variableName="transactionNumber" value="#[flowVars.trans_no + &quot;-CM&quot;]" doc:name="CM"/>
+            </when>
+            <otherwise>
+                <set-variable variableName="transactionNumber" value="#[flowVars.trans_no]" doc:name="Variable"/>
+            </otherwise>
+        </choice>
+    </flow>
+
+
+   
+
+</mule>

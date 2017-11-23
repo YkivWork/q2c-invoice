@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd">
+    <flow name="Create_Credit_Memo_Flow" processingStrategy="synchronous">
+        <logger message="CREATE_CREDIT_MEMO_FLOW" level="INFO" doc:name="Logger" category="com.merrillcorp.creditMemo"/>
+        <flow-ref name="Extract_CM_Event_Flow" doc:name="Extract_CM_Event_Flow"/>
+
+        <flow-ref name="Get_CM_Details_Flow" doc:name="Get_CM_Details_Flow"/>
+        <flow-ref name="Create_Credit_Memo_In_Oracle_Flow" doc:name="Create_Credit_Memo_In_Oracle_Flow"/>
+    </flow>
+    <flow name="Void_Credit_Memo_Flow" processingStrategy="synchronous">
+        <logger message="VOID_CREDIT_MEMO_FLOW" level="INFO" doc:name="Logger" category="com.merrillcorp.voidCreditMemo"/>
+        <flow-ref name="Extract_CM_Event_Flow" doc:name="Extract_CM_Event_Flow"/>
+        <flow-ref name="Get_CM_Details_Flow" doc:name="Get_CM_Details_Flow"/>
+        <flow-ref name="Void_Credit_Memo_In_Oracle_Flow" doc:name="Void_Credit_Memo_In_Oracle_Flow"/>
+    </flow>
+</mule>

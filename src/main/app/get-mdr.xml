@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:metadata="http://www.mulesoft.org/schema/mule/metadata" xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
+
+    <flow name="getXRefFromMDRWithAriaMPI_Flow">
+        <logger message="Start getXRefFromMDRWithAriaMPISub_Flow" level="INFO" doc:name="INFO" category="com.merrillcorp.mdrXref"/>
+        <set-variable variableName="payloadBeforeUntillSuccess" value="#[payload]" doc:name="payloadBeforeUntillSuccess"/>
+     <!-- ***** WARNING From Joko **** aria_mpi and ariaAcct are still hardcoded to get a good result from MDR -->
+	<!-- #[flowVars.event.account.accountNumber]  = 1269552 and #[flowVars.event.account.clientPlanInstanceId]=1681734 -->
+        <until-successful maxRetries="${mdr.http.max.retries}" millisBetweenRetries="${mdr.http.milliSecondsBetweenRetries}" failureExpression="exception!=null &amp;&amp; (exception.causedBy(java.io.IOException) || exception.causedBy(java.net.ConnectException)  || exception.causedBy(java.net.SocketTimeoutException))" synchronous="true" doc:name="UntilSuccessfulForAccountDetails">
+            <http:request config-ref="HTTP_MDR_Configuration" path="${mdr.crossref.path}" method="GET" doc:name="GetXRefFromMDRWithAriaMPI">
+                <http:request-builder>
+                    <http:query-param paramName="entity_type_key" value="PROJ"/>
+                    <http:query-param paramName="id_type_key" value="Aria_MPI"/>
+                    <http:query-param paramName="id_value" value="#[flowVars.event.account.clientPlanInstanceId]"/>
+                    <http:query-param paramName="include_deleted_cross_ref" value="0"/>
+                    <http:query-param paramName="qualifier1_key" value="ARIAACCT"/>
+                    <http:query-param paramName="qualifier1_value" value="#[flowVars.event.account.accountNumber]"/>
+                    <http:header headerName="Proxy-Authorization" value="Basic Y2dvcnNoaTpNaW5pb24qMDIK"/>
+
+                </http:request-builder>
+                                <http:success-status-code-validator values="0..599"/>
+            </http:request>
+        </until-successful>
+        <byte-array-to-object-transformer doc:name="Byte Array to Object"/>
+        <flow-ref name="ExtractSFProject" doc:name="ExtractSFProject"/>
+        <flow-ref name="ExtractOraSite" doc:name="ExtractOraSite"/>
+        <logger message="End getXRefFromMDRWithAriaMPISub_Flow" level="INFO" doc:name="INFO" category="com.merrillcorp.mdrXref"/>
+    </flow>
+
+ 
+     <flow name="ExtractSFProject">
+        <logger message="MDR xref: #[message.payloadAs(java.lang.String)]" level="DEBUG" category="com.merrillcorp.mdrXref" doc:name="Logger"/>
+        <dw:transform-message doc:name="Transform Message">
+
+            <dw:set-variable variableName="SFProjectNumberArray"><![CDATA[%dw 1.0
+%output application/java
+---
+
+(payload filter ($.IdentifierTypeKey == "SF_Proj") map {
+    id : $.IdentifierValue         
+}).*id
+]]></dw:set-variable>
+        </dw:transform-message>
+        <set-variable doc:name="Variable" value="#[flowVars.SFProjectNumberArray == null ? &quot;NO SFProjectNumber in MDR&quot; :flowVars.SFProjectNumberArray[0]]" variableName="SFProjectNumber"/>
+        <logger message="SF_Proj: #[flowVars.SFProjectNumber]" level="DEBUG" doc:name="Logger" category="com.merrillcorp.mdrXref"/>
+    </flow>
+
+
+     <flow name="ExtractOraSite">
+        <logger message="MDR xref: #[message.payloadAs(java.lang.String)]" level="DEBUG" category="com.merrillcorp.mdrXref" doc:name="Logger"/>
+        <dw:transform-message doc:name="Transform Message">
+
+            <dw:set-variable variableName="SFProjectNumberArray"><![CDATA[%dw 1.0
+%output application/java
+---
+
+(payload filter ($.IdentifierTypeKey == "ORA_Site") map {
+    id : $.IdentifierValue         
+}).*id
+]]></dw:set-variable>
+        </dw:transform-message>
+        <set-variable doc:name="Variable" value="#[flowVars.SFProjectNumberArray == null ? &quot;NO ORASITE in MDR&quot; :flowVars.SFProjectNumberArray[0]]" variableName="OraSite"/>
+        <logger message="OraSite: #[flowVars.OraSite]" level="DEBUG" doc:name="Logger" category="com.merrillcorp.mdrXref"/>
+    </flow>
+    
+    
+</mule>

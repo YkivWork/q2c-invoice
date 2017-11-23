@@ -1,0 +1,925 @@
+{
+  "schema": {
+    "-xmlns": "http://www.w3.org/2001/XMLSchema",
+    "-xmlns:db": "http://xmlns.oracle.com/apps/ar/rest/xxbs_invoice_svc/create_invoice/",
+    "-xmlns:head": "http://xmlns.oracle.com/apps/fnd/rest/header",
+    "-xmlns:isgf": "http://xmlns.oracle.com/isg/servicefault",
+    "-targetNamespace": "http://xmlns.oracle.com/apps/ar/rest/xxbs_invoice_svc/create_invoice/",
+    "-elementFormDefault": "qualified",
+    "import": [
+      {
+        "-namespace": "http://xmlns.oracle.com/isg/servicefault",
+        "-schemaLocation": "http://fin-test-www-1.adminsys.mrll.com:8005/webservices/rest/xxbs_invoice_svc/?XSD=ISGServiceFault.xsd"
+      },
+      {
+        "-namespace": "http://xmlns.oracle.com/apps/fnd/rest/header",
+        "-schemaLocation": "http://fin-test-www-1.adminsys.mrll.com:8005/webservices/rest/xxbs_invoice_svc/?XSD=RESTHeader.xsd"
+      }
+    ],
+    "element": [
+      {
+        "-name": "InputParameters",
+        "complexType": {
+          "sequence": {
+            "element": {
+              "-name": "P_INVOICE",
+              "-type": "db:APPS.XXBS_INVOICE_PUBX9572469X3X1",
+              "-db:index": "1",
+              "-db:type": "Struct",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            }
+          }
+        }
+      },
+      {
+        "-name": "OutputParameters",
+        "complexType": {
+          "sequence": {
+            "element": {
+              "-name": "P_RESULTS",
+              "-type": "db:APPS.XXBS_INVOICE_PUX9572469X3X80",
+              "-db:index": "2",
+              "-db:type": "Struct",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            }
+          }
+        }
+      },
+      {
+        "-name": "CREATE_INVOICE_Input",
+        "complexType": {
+          "sequence": {
+            "element": [
+              { "-ref": "head:RESTHeader" },
+              { "-ref": "db:InputParameters" }
+            ]
+          }
+        }
+      },
+      {
+        "-name": "CREATE_INVOICE_Output",
+        "complexType": {
+          "choice": {
+            "element": [
+              { "-ref": "db:OutputParameters" },
+              { "-ref": "isgf:ISGServiceFault" }
+            ]
+          }
+        }
+      }
+    ],
+    "complexType": [
+      {
+        "-name": "APPS.XXBS_INVOICE_PUX9572469X3X26",
+        "sequence": {
+          "element": [
+            {
+              "-name": "SOURCE_LINE_ID",
+              "-type": "db:string15",
+              "-db:type": "VARCHAR2",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "SOURCE_PROJECT_NUMBER",
+              "-type": "db:string25",
+              "-db:type": "VARCHAR2",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "JOB_NUMBER",
+              "-type": "db:string100",
+              "-db:type": "VARCHAR2",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "CYCLE",
+              "-type": "db:string100",
+              "-db:type": "VARCHAR2",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "CLIENT_TURNAROUND",
+              "-type": "db:string240",
+              "-db:type": "VARCHAR2",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "SOURCE_ITEM",
+              "-type": "db:string255",
+              "-db:type": "VARCHAR2",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "EXPENDITURE_ORG_ID",
+              "-type": "decimal",
+              "-db:type": "NUMBER",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "PRODUCT_TYPE",
+              "-type": "db:string30",
+              "-db:type": "VARCHAR2",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "UOFM",
+              "-type": "db:string10",
+              "-db:type": "VARCHAR2",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "UNIT_RATE",
+              "-type": "decimal",
+              "-db:type": "NUMBER",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "QUANTITY",
+              "-type": "decimal",
+              "-db:type": "NUMBER",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "SELL_AMOUNT",
+              "-type": "decimal",
+              "-db:type": "NUMBER",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "ITEM_DESCRIPTION",
+              "-type": "db:string4000",
+              "-db:type": "VARCHAR2",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "REVENUE_DATE",
+              "-type": "dateTime",
+              "-db:type": "DATE",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "PROD_COMMENTS",
+              "-type": "db:string4000",
+              "-db:type": "VARCHAR2",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "QTY_DISTRIBUTED",
+              "-type": "decimal",
+              "-db:type": "NUMBER",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "BILL_TO_CONTACT_NAME",
+              "-type": "db:string60",
+              "-db:type": "VARCHAR2",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "SHIP_TO_CONTACT_NAME",
+              "-type": "db:string60",
+              "-db:type": "VARCHAR2",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "PRODUCTION_DATE_RECEIVED",
+              "-type": "dateTime",
+              "-db:type": "DATE",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "DISTRIBUTIONS",
+              "-type": "db:APPS.XXBS_INVOICE_PUX9572469X3X46",
+              "-db:type": "Array",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            }
+          ]
+        }
+      },
+      {
+        "-name": "APPS.XXBS_INVOICE_PUX9572469X3X83",
+        "sequence": {
+          "element": {
+            "-name": "MESSAGES_ITEM",
+            "-type": "db:APPS.XXBS_INVOICE_PUX9572469X3X84",
+            "-db:type": "Struct",
+            "-minOccurs": "0",
+            "-maxOccurs": "unbounded",
+            "-nillable": "true"
+          }
+        }
+      },
+      {
+        "-name": "APPS.XXBS_INVOICE_PUX9572469X3X80",
+        "sequence": {
+          "element": [
+            {
+              "-name": "TRX_NUMBER",
+              "-type": "db:string20",
+              "-db:type": "VARCHAR2",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "STATUS",
+              "-type": "db:string50",
+              "-db:type": "VARCHAR2",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "MESSAGES",
+              "-type": "db:APPS.XXBS_INVOICE_PUX9572469X3X83",
+              "-db:type": "Array",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            }
+          ]
+        }
+      },
+      {
+        "-name": "APPS.XXBS_INVOICE_PUX9572469X3X46",
+        "sequence": {
+          "element": {
+            "-name": "DISTRIBUTIONS_ITEM",
+            "-type": "db:APPS.XXBS_INVOICE_PUX9572469X3X47",
+            "-db:type": "Struct",
+            "-minOccurs": "0",
+            "-maxOccurs": "unbounded",
+            "-nillable": "true"
+          }
+        }
+      },
+      {
+        "-name": "APPS.XXBS_INVOICE_PUX9572469X3X47",
+        "sequence": {
+          "element": [
+            {
+              "-name": "DIST_LINE_NUMBER",
+              "-type": "decimal",
+              "-db:type": "NUMBER",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "DISTRIBUTION_QTY",
+              "-type": "decimal",
+              "-db:type": "NUMBER",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "DIST_DESCRIPTION",
+              "-type": "db:string240",
+              "-db:type": "VARCHAR2",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "SHIP_DATE",
+              "-type": "dateTime",
+              "-db:type": "DATE",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "DELIVERY_METHOD",
+              "-type": "db:string20",
+              "-db:type": "VARCHAR2",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "LOCATIONS",
+              "-type": "db:APPS.XXBS_INVOICE_PUX9572469X3X53",
+              "-db:type": "Array",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "TAX_DETAILS",
+              "-type": "db:APPS.XXBS_INVOICE_PUX9572469X3X69",
+              "-db:type": "Array",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            }
+          ]
+        }
+      },
+      {
+        "-name": "APPS.XXBS_INVOICE_PUX9572469X3X22",
+        "sequence": {
+          "element": [
+            {
+              "-name": "CUSTOMER_ADDRESS_ID",
+              "-type": "decimal",
+              "-db:type": "NUMBER",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "SPLIT_PERCENTAGE",
+              "-type": "decimal",
+              "-db:type": "NUMBER",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            }
+          ]
+        }
+      },
+      {
+        "-name": "APPS.XXBS_INVOICE_PUX9572469X3X70",
+        "sequence": {
+          "element": [
+            {
+              "-name": "SITUS",
+              "-type": "db:string30",
+              "-db:type": "VARCHAR2",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "JURISDICTION_LEVEL",
+              "-type": "db:string30",
+              "-db:type": "VARCHAR2",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "JURISDICTION_VALUE",
+              "-type": "db:string60",
+              "-db:type": "VARCHAR2",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "SHIP_TO_GEOCODE",
+              "-type": "db:string9",
+              "-db:type": "VARCHAR2",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "SHIP_FROM_GEOCODE",
+              "-type": "db:string9",
+              "-db:type": "VARCHAR2",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "TAX_AMOUNT",
+              "-type": "decimal",
+              "-db:type": "NUMBER",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "TAX_RATE",
+              "-type": "decimal",
+              "-db:type": "NUMBER",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "TAXABLE_AMOUNT",
+              "-type": "decimal",
+              "-db:type": "NUMBER",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "TAX_TYPE",
+              "-type": "db:string20",
+              "-db:type": "VARCHAR2",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            }
+          ]
+        }
+      },
+      {
+        "-name": "APPS.XXBS_INVOICE_PUX9572469X3X84",
+        "sequence": {
+          "element": [
+            {
+              "-name": "SEVERITY_LEVEL",
+              "-type": "db:string10",
+              "-db:type": "VARCHAR2",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "CODE",
+              "-type": "db:string30",
+              "-db:type": "VARCHAR2",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "ENTITY",
+              "-type": "db:string100",
+              "-db:type": "VARCHAR2",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "KEY_MAPPING",
+              "-type": "db:string100",
+              "-db:type": "VARCHAR2",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "KEY_VALUES",
+              "-type": "db:string100",
+              "-db:type": "VARCHAR2",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "INVALID_VALUE",
+              "-type": "db:string1000",
+              "-db:type": "VARCHAR2",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "MESSAGE",
+              "-type": "db:string2000",
+              "-db:type": "VARCHAR2",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            }
+          ]
+        }
+      },
+      {
+        "-name": "APPS.XXBS_INVOICE_PUX9572469X3X25",
+        "sequence": {
+          "element": {
+            "-name": "LINES_ITEM",
+            "-type": "db:APPS.XXBS_INVOICE_PUX9572469X3X26",
+            "-db:type": "Struct",
+            "-minOccurs": "0",
+            "-maxOccurs": "unbounded",
+            "-nillable": "true"
+          }
+        }
+      },
+      {
+        "-name": "APPS.XXBS_INVOICE_PUX9572469X3X16",
+        "sequence": {
+          "element": [
+            {
+              "-name": "SALESREP_ID",
+              "-type": "decimal",
+              "-db:type": "NUMBER",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "SPLIT_PERCENTAGE",
+              "-type": "decimal",
+              "-db:type": "NUMBER",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "PRIMARY",
+              "-type": "db:string1",
+              "-db:type": "VARCHAR2",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "SALESPERSON_TYPE",
+              "-type": "db:string100",
+              "-db:type": "VARCHAR2",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            }
+          ]
+        }
+      },
+      {
+        "-name": "APPS.XXBS_INVOICE_PUX9572469X3X15",
+        "sequence": {
+          "element": {
+            "-name": "SALESREPS_ITEM",
+            "-type": "db:APPS.XXBS_INVOICE_PUX9572469X3X16",
+            "-db:type": "Struct",
+            "-minOccurs": "0",
+            "-maxOccurs": "unbounded",
+            "-nillable": "true"
+          }
+        }
+      },
+      {
+        "-name": "APPS.XXBS_INVOICE_PUBX9572469X3X1",
+        "sequence": {
+          "element": [
+            {
+              "-name": "SOURCE_SYSTEM",
+              "-type": "db:string30",
+              "-db:type": "VARCHAR2",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "SOURCE_INVOICE_NUMBER",
+              "-type": "db:string20",
+              "-db:type": "VARCHAR2",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "PARENT_SOURCE_INVOICE_NUMBER",
+              "-type": "db:string20",
+              "-db:type": "VARCHAR2",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "SOURCE_PROJECT_NUMBER",
+              "-type": "db:string25",
+              "-db:type": "VARCHAR2",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "INVOICE_DESCRIPTION",
+              "-type": "db:string100",
+              "-db:type": "VARCHAR2",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "INVOICE_DATE",
+              "-type": "dateTime",
+              "-db:type": "DATE",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "CONTACT",
+              "-type": "db:string100",
+              "-db:type": "VARCHAR2",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "CUSTOMER_ADDRESS_ID",
+              "-type": "decimal",
+              "-db:type": "NUMBER",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "CURRENCY_CODE",
+              "-type": "db:string15",
+              "-db:type": "VARCHAR2",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "COUNTRY_OF_ISSUER",
+              "-type": "db:string2",
+              "-db:type": "VARCHAR2",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "CONTRACT_TERM",
+              "-type": "decimal",
+              "-db:type": "NUMBER",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "INVOICE_SELL_TOTAL",
+              "-type": "decimal",
+              "-db:type": "NUMBER",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "INVOICE_LINE_COUNT",
+              "-type": "decimal",
+              "-db:type": "NUMBER",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "SALESREPS",
+              "-type": "db:APPS.XXBS_INVOICE_PUX9572469X3X15",
+              "-db:type": "Array",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "SPLIT_BILLING",
+              "-type": "db:APPS.XXBS_INVOICE_PUX9572469X3X21",
+              "-db:type": "Array",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "LINES",
+              "-type": "db:APPS.XXBS_INVOICE_PUX9572469X3X25",
+              "-db:type": "Array",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            }
+          ]
+        }
+      },
+      {
+        "-name": "APPS.XXBS_INVOICE_PUX9572469X3X21",
+        "sequence": {
+          "element": {
+            "-name": "SPLIT_BILLING_ITEM",
+            "-type": "db:APPS.XXBS_INVOICE_PUX9572469X3X22",
+            "-db:type": "Struct",
+            "-minOccurs": "0",
+            "-maxOccurs": "unbounded",
+            "-nillable": "true"
+          }
+        }
+      },
+      {
+        "-name": "APPS.XXBS_INVOICE_PUX9572469X3X54",
+        "sequence": {
+          "element": [
+            {
+              "-name": "LOCATION_TYPE",
+              "-type": "db:string20",
+              "-db:type": "VARCHAR2",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "CUSTOMER_ADDRESS_ID",
+              "-type": "decimal",
+              "-db:type": "NUMBER",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "CONTACT_NAME",
+              "-type": "db:string120",
+              "-db:type": "VARCHAR2",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "COMPANY_NAME",
+              "-type": "db:string120",
+              "-db:type": "VARCHAR2",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "ADDRESS1",
+              "-type": "db:string60",
+              "-db:type": "VARCHAR2",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "ADDRESS2",
+              "-type": "db:string60",
+              "-db:type": "VARCHAR2",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "ADDRESS3",
+              "-type": "db:string60",
+              "-db:type": "VARCHAR2",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "ADDRESS4",
+              "-type": "db:string60",
+              "-db:type": "VARCHAR2",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "CITY",
+              "-type": "db:string60",
+              "-db:type": "VARCHAR2",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "COUNTY",
+              "-type": "db:string60",
+              "-db:type": "VARCHAR2",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "STATE",
+              "-type": "db:string60",
+              "-db:type": "VARCHAR2",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "POSTAL_CODE",
+              "-type": "db:string60",
+              "-db:type": "VARCHAR2",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "PROVINCE",
+              "-type": "db:string60",
+              "-db:type": "VARCHAR2",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            },
+            {
+              "-name": "COUNTRY",
+              "-type": "db:string60",
+              "-db:type": "VARCHAR2",
+              "-minOccurs": "0",
+              "-nillable": "true"
+            }
+          ]
+        }
+      },
+      {
+        "-name": "APPS.XXBS_INVOICE_PUX9572469X3X69",
+        "sequence": {
+          "element": {
+            "-name": "TAX_DETAILS_ITEM",
+            "-type": "db:APPS.XXBS_INVOICE_PUX9572469X3X70",
+            "-db:type": "Struct",
+            "-minOccurs": "0",
+            "-maxOccurs": "unbounded",
+            "-nillable": "true"
+          }
+        }
+      },
+      {
+        "-name": "APPS.XXBS_INVOICE_PUX9572469X3X53",
+        "sequence": {
+          "element": {
+            "-name": "LOCATIONS_ITEM",
+            "-type": "db:APPS.XXBS_INVOICE_PUX9572469X3X54",
+            "-db:type": "Struct",
+            "-minOccurs": "0",
+            "-maxOccurs": "unbounded",
+            "-nillable": "true"
+          }
+        }
+      }
+    ],
+    "simpleType": [
+      {
+        "-name": "string30",
+        "restriction": {
+          "-base": "string",
+          "maxLength": { "-value": "30" }
+        }
+      },
+      {
+        "-name": "string20",
+        "restriction": {
+          "-base": "string",
+          "maxLength": { "-value": "20" }
+        }
+      },
+      {
+        "-name": "string25",
+        "restriction": {
+          "-base": "string",
+          "maxLength": { "-value": "25" }
+        }
+      },
+      {
+        "-name": "string100",
+        "restriction": {
+          "-base": "string",
+          "maxLength": { "-value": "100" }
+        }
+      },
+      {
+        "-name": "string15",
+        "restriction": {
+          "-base": "string",
+          "maxLength": { "-value": "15" }
+        }
+      },
+      {
+        "-name": "string2",
+        "restriction": {
+          "-base": "string",
+          "maxLength": { "-value": "2" }
+        }
+      },
+      {
+        "-name": "string1",
+        "restriction": {
+          "-base": "string",
+          "maxLength": { "-value": "1" }
+        }
+      },
+      {
+        "-name": "string240",
+        "restriction": {
+          "-base": "string",
+          "maxLength": { "-value": "240" }
+        }
+      },
+      {
+        "-name": "string255",
+        "restriction": {
+          "-base": "string",
+          "maxLength": { "-value": "255" }
+        }
+      },
+      {
+        "-name": "string10",
+        "restriction": {
+          "-base": "string",
+          "maxLength": { "-value": "10" }
+        }
+      },
+      {
+        "-name": "string4000",
+        "restriction": {
+          "-base": "string",
+          "maxLength": { "-value": "4000" }
+        }
+      },
+      {
+        "-name": "string60",
+        "restriction": {
+          "-base": "string",
+          "maxLength": { "-value": "60" }
+        }
+      },
+      {
+        "-name": "string120",
+        "restriction": {
+          "-base": "string",
+          "maxLength": { "-value": "120" }
+        }
+      },
+      {
+        "-name": "string9",
+        "restriction": {
+          "-base": "string",
+          "maxLength": { "-value": "9" }
+        }
+      },
+      {
+        "-name": "string50",
+        "restriction": {
+          "-base": "string",
+          "maxLength": { "-value": "50" }
+        }
+      },
+      {
+        "-name": "string1000",
+        "restriction": {
+          "-base": "string",
+          "maxLength": { "-value": "1000" }
+        }
+      },
+      {
+        "-name": "string2000",
+        "restriction": {
+          "-base": "string",
+          "maxLength": { "-value": "2000" }
+        }
+      }
+    ]
+  }
+}

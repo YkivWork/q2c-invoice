@@ -1,0 +1,6 @@
+<event-response>
+  <client_no>6000228</client_no>
+  <event_id>901</event_id>
+  <status>SUCCESS</status>
+  <message>Event has been queued</message>
+</event-response>

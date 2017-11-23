@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:spring="http://www.springframework.org/schema/beans" xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw" xmlns:core="http://www.mulesoft.org/schema/mule/core" xmlns:mock="http://www.mulesoft.org/schema/mule/mock" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/mock http://www.mulesoft.org/schema/mule/mock/current/mule-mock.xsd">
+    <munit:config name="munit" doc:name="MUnit configuration"/>
+    <spring:beans>
+        <spring:import resource="classpath:sys-aria/*.xml"/>
+        <spring:import resource="classpath:proc-merrillcorp-invoice/*.xml"/>
+        <spring:import resource="classpath:sys-azure/*.xml"/>
+        <spring:import resource="classpath:ux-aria-event/*.xml"/>
+        <spring:import resource="classpath:credit-memo.xml"/>
+        <spring:import resource="classpath:expenditure.xml"/>
+        <spring:import resource="classpath:get-aria.xml"/>
+        <spring:import resource="classpath:get-mdr.xml"/>
+        <spring:import resource="classpath:globals.xml"/>
+        <spring:import resource="classpath:invoice-creation.xml"/>
+        <spring:import resource="classpath:oracle.xml"/>
+        <spring:import resource="classpath:process-event.xml"/>
+        <spring:import resource="classpath:salesforce.xml"/>
+        <spring:import resource="classpath:sales-rep.xml"/>
+        <spring:import resource="classpath:error-handling.xml"/>
+        <spring:import resource="classpath:html-generate.xml"/>
+        <spring:import resource="classpath:html-process.xml"/>
+        <spring:import resource="classpath:pdf-process.xml"/>
+        <spring:import resource="classpath:pdf-store.xml"/>
+    </spring:beans>
+    <munit:test name="get-aria-test-suite-extractInvoiceLineDetailsAndTaxesSub_FlowTest" description="Test" ignore="true">
+        <munit:set payload="#[getResource('examples/event-901-example.xml').asString()]" mimeType="application/xml" doc:name="Set Message To event"/>
+        <dw:transform-message doc:name="extractEvent">
+            <dw:set-variable resource="classpath:dataweave/extractAriaEvent.dwl" variableName="event"/>
+        </dw:transform-message>
+        <munit:set payload="#[getResource('InvoiceDetailsExample.xml').asString()]" mimeType="application/xml" doc:name="Set Message To Sample Invoice"/>
+        <flow-ref name="extractInvoiceLineDetailsAndTaxes_Flow" doc:name="extractInvoiceLineDetailsAndTaxes_Flow"/>
+        <munit:assert-on-equals message="failed on invoiceSellTotal on extractInvoiceLineDetailsAndTaxes" expectedValue="#[7603.42]" actualValue="#[flowVars.invoiceDetailsSummary.invoiceSellTotal]" doc:name="Assert Equals InvoiceSellTotal"/>
+        <munit:assert-on-equals message="failed on invoiceLineCount on extractInvoiceLineDetailsAndTaxes" expectedValue="#[33]" actualValue="#[flowVars.invoiceDetailsSummary.invoiceLineCount]" doc:name="Assert Equals InvoiceLineCount"/>
+        <munit:assert-on-equals message="failed on invoiceTaxDetails on extractInvoiceLineDetailsAndTaxes" expectedValue="#[66]" actualValue="#[flowVars.taxes.taxDetails.size()]" doc:name="Assert Equals TaxDetailsLineCount"/>
+    </munit:test>
+    <munit:test name="get-aria-test-suite-getInvoiceDetails_FlowTest" description="Test" >
+        <mock:when messageProcessor="http:request" doc:name="Mock">
+            <mock:then-return payload="#[getResource('InvoiceDetailsExample.xml').asString()]" mimeType="application/xml"/>
+
+        </mock:when>
+        <munit:set payload="#[getResource('examples/event-901-example.xml').asString()]" mimeType="application/xml" doc:name="Set Message To event"/>
+        <dw:transform-message doc:name="extractEvent">
+            <dw:set-variable resource="classpath:dataweave/extractAriaEvent.dwl" variableName="event"/>
+        </dw:transform-message>
+        <flow-ref name="getInvoiceDetails_Flow" doc:name="getInvoiceDetails_Flow"/>
+        <munit:assert-on-equals message="failed on invoiceSellTotal on extractInvoiceLineDetailsAndTaxes" expectedValue="#[7603.42]" actualValue="#[flowVars.invoiceDetailsSummary.invoiceSellTotal]" doc:name="Assert Equals InvoiceSellTotal"/>
+        <munit:assert-on-equals message="failed on invoiceLineCount on extractInvoiceLineDetailsAndTaxes" expectedValue="#[33]" actualValue="#[flowVars.invoiceDetailsSummary.invoiceLineCount]" doc:name="Assert Equals InvoiceLineCount"/>
+        <munit:assert-on-equals message="failed on invoiceTaxDetails on extractInvoiceLineDetailsAndTaxes" expectedValue="#[66]" actualValue="#[flowVars.taxes.taxDetails.size()]" doc:name="Assert Equals TaxDetailsLineCount"/>
+    </munit:test>
+    <munit:test name="get-aria-test-suite-getAccountDetails_FlowTest" description="Test" ignore="true">
+        <mock:when messageProcessor="http:request" doc:name="Mock">
+            <mock:then-return payload="#[getResource('AccountDetailsExample.xml').asString()]" mimeType="application/xml"/>
+        </mock:when>
+        <mock:when messageProcessor="mule:sub-flow" doc:name="Mock call to get-SalesRepInfoAndExpOrgId_Sub_Flow">
+            <mock:with-attributes>
+                <mock:with-attribute name="name" whereValue="#[matchContains('get-SalesRepInfoAndExpOrgId_Sub_Flow')]"/>
+            </mock:with-attributes>
+            <mock:then-return payload="{}" mimeType="application/json"/>
+        </mock:when>
+        <mock:when messageProcessor=".*:.*" doc:name="Mock Script">
+            <mock:with-attributes>
+                <mock:with-attribute name="doc:name" whereValue="Script"/>
+            </mock:with-attributes>
+            <mock:then-return payload="asaffd" mimeType="application/xml"/>
+        </mock:when>
+        <munit:set payload="#[getResource('examples/event-901-example.xml').asString()]" mimeType="application/xml" doc:name="Set Message To event"/>
+        <dw:transform-message doc:name="extractEvent">
+            <dw:set-variable resource="classpath:dataweave/extractAriaEvent.dwl" variableName="event"/>
+        </dw:transform-message>
+        <munit:set payload="sdsd" mimeType="text/plain" doc:name="Set Message">
+            <munit:inbound-properties>
+                <munit:inbound-property key="MULE_SESSION" value="asda" mimeType="text/plain"/>
+            </munit:inbound-properties>
+        </munit:set>
+        <flow-ref name="getAccountDetails_Flow" doc:name="getAccountDetails_Flow"/>
+        <munit:assert-on-equals message="failed on size on getAccountDetails" expectedValue="#[20]" actualValue="#[flowVars.ariaAccountDetails.size()]" doc:name="Assert Equals on AriaAccountDetauls size"/>
+        <munit:assert-on-equals message="failed on account number on getAccountDetails" expectedValue="1250986" actualValue="#[flowVars.ariaAccountDetails.accountNumber]" doc:name="Assert Equals on accountNumber"/>
+        <munit:assert-on-equals message="failed on sfdc project number on getAccountDetails" expectedValue="12G4S6789U12W456J8" actualValue="#[flowVars.ariaAccountDetails.sfdcProjectId]" doc:name="Assert Equals on sfdcProjectId"/>
+    </munit:test>
+    <munit:test name="get-aria-test-suite-getAccountContacts_FlowTest" description="Test" ignore="true">
+        <mock:when messageProcessor="http:request" doc:name="Mock">
+            <mock:then-return payload="#[getResource('AccountContactsExample.xml').asString()]" mimeType="application/xml"/>
+
+        </mock:when>
+        <munit:set payload="#[getResource('examples/event-901-example.xml').asString()]" mimeType="application/xml" doc:name="Set Message To event"/>
+        <dw:transform-message doc:name="extractEvent">
+            <dw:set-variable resource="classpath:dataweave/extractAriaEvent.dwl" variableName="event"/>
+        </dw:transform-message>
+        <flow-ref name="getAccountContacts_Flow" doc:name="getAccountContacts_Flow"/>
+        <munit:assert-on-equals message="failed on statement contact number  on getAccountContact" expectedValue="3254673" actualValue="#[flowVars.ariaAccountContacts.contactNumber]" doc:name="Assert Equals on Statement Contact Number"/>
+        <munit:assert-on-equals message="failed on invoiceNumber on getAccountContact" expectedValue="Alan" actualValue="#[flowVars.ariaAccountContacts.firstName]" doc:name="Assert Equals on statement first name"/>
+        <munit:assert-on-equals message="failed on invoiceNumber on getAccountContact" expectedValue="Auerbach" actualValue="#[flowVars.ariaAccountContacts.lastName]" doc:name="Assert Equals on statement last name"/>
+    </munit:test>
+    <munit:test name="get-aria-test-suite-getOrder_FlowTest" description="Test" >
+        <mock:when messageProcessor="http:request" doc:name="Mock">
+            <mock:then-return payload="#[getResource('OrderExample.xml').asString()]" mimeType="application/xml"/>
+
+        </mock:when>
+        <munit:set payload="#[getResource('examples/event-901-example.xml').asString()]" mimeType="application/xml" doc:name="Set Message To event"/>
+        <dw:transform-message doc:name="extractEvent">
+            <dw:set-variable resource="classpath:dataweave/extractAriaEvent.dwl" variableName="event"/>
+        </dw:transform-message>
+        <set-payload value="{ &quot;accountNumber&quot; : &quot;1868075&quot; ,&quot;orderNumber&quot; : &quot;467500&quot;}" mimeType="application/json" doc:name="Set Payload"/>
+        <flow-ref name="getOrder_Flow" doc:name="getOrder_Flow"/>
+        <munit:assert-on-equals message="failed on orderCreationDate on getOrder" expectedValue="2017-03-28" actualValue="#[payload.createDate]" doc:name="Assert Equals on Order Number"/>
+    </munit:test>
+    <munit:test name="get-aria-test-suite-GET_CM_DETAILS_SUB_FLOWTest" description="Test" ignore="true">
+        <mock:when messageProcessor="http:request" doc:name="Mock Aria Get CreditMemo Details">
+            <mock:then-return payload="#[getResource('examples/aria-get_cm_details_response-example.xml').asString()]" mimeType="application/xml"/>
+        </mock:when>
+        <munit:set payload="#[getResource('examples/event-948-Credit-Memo-Created-Example.xml').asString()]" mimeType="application/xml" doc:name="Set Message To event"/>
+        <dw:transform-message doc:name="extractEvent">
+            <dw:set-variable resource="classpath:dataweave/extractAriaEvent.dwl" variableName="event"/>
+        </dw:transform-message>
+        <flow-ref name="Get_CM_Details_Flow" doc:name="Get_CM_Details_Flow"/>
+        <munit:assert-on-equals message="a mismatch on originalInvoiceNumber" expectedValue="#[&quot;7051854&quot;]" actualValue="#[flowVars.ariaCreditMemoDetails.originalInvoiceNumber]" doc:name="Assert Equals"/>
+    </munit:test>
+    <munit:test name="get-aria-test-suite-aria_getClientServiceLocationId_FlowTest" description="Test" ignore="true">
+        <expression-component doc:name="Expression"><![CDATA[	flowVars.clientMasterPlanInstanceId ="2217072";
+	flowVars.clientPlanInstanceId = "2217074";
+	flowVars.serviceNumber= "11017363";//"11023548";	
+]]></expression-component>
+        <munit:set payload="#[getResource('examples/accountDetailsForClientServiceLocationId-example.xml').asString()]" mimeType="application/xml" doc:name="Set Message To AccountDetails"/>
+        <set-variable variableName="ariaAccountDetailsRawXml" value="#[getResource('examples/accountDetailsForClientServiceLocationId-example.xml').asString()]" mimeType="application/xml" doc:name="Variable"/>
+        <dw:transform-message doc:name="Transform Message">
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/java
+---
+{
+
+	(using (clientServiceLocationId=lookup('aria_getClientServiceLocationId_Flow', {    clientMasterPlanInstanceId: flowVars.clientMasterPlanInstanceId, clientPlanInstanceId: flowVars.clientPlanInstanceId, serviceNumber: flowVars.serviceNumber })){
+                           "LOCATION_TYPE": "SHIP_FROM",
+                          "SERVICE_LOCATION": clientServiceLocationId,
+                          "CONTACT_NAME": clientServiceLocationId,
+                          "COMPANY_NAME": clientServiceLocationId                      	
+                        })
+}]]></dw:set-payload>
+        </dw:transform-message>
+        <munit:assert-on-equals message="failed on getClientServiceLocationId" expectedValue="JKT" actualValue="#[payload.SERVICE_LOCATION]" doc:name="Assert Equals"/>
+    </munit:test>
+    <munit:test name="get-aria-test-suite-aria_getAriaAccountContactFromOther_FlowTest" description="Test">
+        <mock:when messageProcessor="http:request" doc:name="Mock Aria Get Contacts">
+            <mock:then-return payload="#[getResource('examples/accountContact-example.xml').asString()]" mimeType="application/xml"/>
+
+        </mock:when>
+        <munit:set payload="#[getResource('examples/event-901-example.xml').asString()]" mimeType="application/xml" doc:name="Set Message To event"/>
+        <dw:transform-message doc:name="extractEvent">
+            <dw:set-variable resource="classpath:dataweave/extractAriaEvent.dwl" variableName="event"/>
+        </dw:transform-message>
+        <set-payload value="#[getResource('examples/accountContact-example.xml').asString()]" mimeType="application/xml" doc:name="Set Payload"/>
+        <set-variable variableName="ariaAccountContactsRawXml" value="#[#[getResource('examples/accountContact-example.xml').asString()]]" doc:name="Variable"/>
+        <dw:transform-message doc:name="Transform Message">
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/java
+---
+{
+
+	//4623582
+			(using (acctContacts=lookup("GET_ARIA_ACCOUNT_CONTACTS","4623728")) 
+				{"SHIP_TO_CONTACT_NAME": "NULL" when acctContacts ==  null or acctContacts.firstName == null otherwise 
+				   "$(acctContacts.firstName) $(acctContacts.lastName)",
+				   "COUNTRY": acctContacts.country})
+}]]></dw:set-payload>
+        </dw:transform-message>
+        <munit:assert-on-equals message="failed on bill to contact name" expectedValue="#[&quot;TC Bear&quot;]" actualValue="#[payload.SHIP_TO_CONTACT_NAME]" doc:name="Assert Equals"/>
+        <munit:assert-on-equals message="failed on country" expectedValue="#[&quot;USA&quot;]" actualValue="#[payload.COUNTRY]" doc:name="Assert Equals"/>
+    </munit:test>
+    <munit:test name="get-aria-test-suite-aria_getAriaAccountContactFromStatement_FlowTest" description="Test">
+        <mock:when messageProcessor="http:request" doc:name="Mock Aria Get Contacts">
+            <mock:then-return payload="#[getResource('examples/accountContact-example.xml').asString()]" mimeType="application/xml"/>
+
+        </mock:when>
+        <munit:set payload="#[getResource('examples/event-901-example.xml').asString()]" mimeType="application/xml" doc:name="Set Message To event"/>
+        <dw:transform-message doc:name="extractEvent">
+            <dw:set-variable resource="classpath:dataweave/extractAriaEvent.dwl" variableName="event"/>
+        </dw:transform-message>
+        <set-payload value="#[getResource('examples/accountContact-example.xml').asString()]" mimeType="application/xml" doc:name="Set Payload"/>
+        <set-variable variableName="ariaAccountContactsRawXml" value="#[#[getResource('examples/accountContact-example.xml').asString()]]" doc:name="Variable"/>
+        <dw:transform-message doc:name="Transform Message">
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/java
+---
+{
+
+	//4623582
+			(using (acctContacts=lookup("GET_ARIA_ACCOUNT_CONTACTS","4651238"))//"4623728")) 
+				{"SHIP_TO_CONTACT_NAME": "NULL" when acctContacts ==  null or acctContacts.firstName == null otherwise 
+				   "$(acctContacts.firstName) $(acctContacts.lastName)",
+				 "COUNTRY": acctContacts.country})
+}]]></dw:set-payload>
+        </dw:transform-message>
+        <munit:assert-on-equals message="failed on bill to contact name" expectedValue="#[&quot;Kirby Puckett&quot;]" actualValue="#[payload.SHIP_TO_CONTACT_NAME]" doc:name="Assert Equals"/>
+        <munit:assert-on-equals message="failed on country" expectedValue="#[&quot;US&quot;]" actualValue="#[payload.COUNTRY]" doc:name="Assert Equals"/>
+    </munit:test>
+    <munit:test name="get-aria-test-suite-aria_getAriaAccountContactFromAccount_FlowTest" description="Test" ignore="true">
+        <mock:when messageProcessor="http:request" doc:name="Mock Aria Get Contacts">
+            <mock:then-return payload="#[getResource('examples/accountContact-example.xml').asString()]" mimeType="application/xml"/>
+
+
+        </mock:when>
+        <munit:set payload="#[getResource('examples/event-901-example.xml').asString()]" mimeType="application/xml" doc:name="Set Message To event"/>
+        <dw:transform-message doc:name="extractEvent">
+            <dw:set-variable resource="classpath:dataweave/extractAriaEvent.dwl" variableName="event"/>
+        </dw:transform-message>
+        <set-payload value="#[getResource('examples/accountContact-example.xml').asString()]" mimeType="application/xml" doc:name="Set Payload"/>
+        <set-variable variableName="ariaAccountContactsRawXml" value="#[#[getResource('examples/accountContact-example.xml').asString()]]" doc:name="Variable"/>
+        <dw:transform-message doc:name="Transform Message">
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/java
+---
+{
+
+	//4623582
+			(using (acctContacts=lookup("GET_ARIA_ACCOUNT_CONTACTS","4623582"))//"4623728")) 
+				"SHIP_TO_CONTACT_NAME": "NULL" when acctContacts ==  null or acctContacts.firstName == null otherwise 
+				   "$(acctContacts.firstName) $(acctContacts.lastName)")
+}]]></dw:set-payload>
+        </dw:transform-message>
+        <munit:assert-on-equals message="failed on bill to contact name" expectedValue="#[&quot;Minnesota Lakers&quot;]" actualValue="#[payload.SHIP_TO_CONTACT_NAME]" doc:name="Assert Equals"/>
+    </munit:test>
+    <munit:test name="get-aria-test-suite-aria_getCustomerAddressId_FlowTest" description="Test" ignore="true">
+        <munit:set payload="#[getResource('examples/event-901-example.xml').asString()]" mimeType="application/xml" doc:name="Set Message To event"/>
+        <dw:transform-message doc:name="extractEvent">
+            <dw:set-variable resource="classpath:dataweave/extractAriaEvent.dwl" variableName="event"/>
+        </dw:transform-message>
+        <set-payload value="#[getResource('examples/ariaAccountDetailsWithTwoMPI-example.xml').asString()]" mimeType="application/xml" doc:name="Set Payload"/>
+
+        <munit:assert-on-equals message="a" expectedValue="#[&quot;179400&quot;]" actualValue="#[flowVars.ariaCustomerAddressId]" doc:name="Assert Equals"/>
+    </munit:test>
+    
+</mule>

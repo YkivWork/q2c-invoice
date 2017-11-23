@@ -1,0 +1,15 @@
+{"applicationProperties":{},
+"header":{
+    "durable":true,
+    "priority":4,
+    "ttl":null,
+    "deliveryCount":0
+    },
+"properties":{
+    "messageId":"1a088353-7388-43a4-bb07-1e1e5d146a57",
+    "contentType":"application/x-java-serialized-object",
+    "correlationId":null,"to":"/oracleinvoicepdf_dev",
+    "replyTo":null,
+    "userId":null,
+    "subject":null},
+    "body":["1654200","7676379"]}

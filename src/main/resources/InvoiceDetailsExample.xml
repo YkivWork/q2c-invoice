@@ -1,0 +1,2837 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="urn:client:api:wsdl:document/literal_wrapped:vers:11.0:aria_complete_m_api" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<SOAP-ENV:Body>
+		<ns1:get_invoice_details_mResponseElement>
+			<ns1:error_code>0</ns1:error_code>
+			<ns1:error_msg>OK</ns1:error_msg>
+			<ns1:invoice_line_details>
+				<ns1:line_no>1</ns1:line_no>
+				<ns1:service_no>11017363</ns1:service_no>
+				<ns1:service_name>PgUploaded</ns1:service_name>
+				<ns1:units>1901</ns1:units>
+				<ns1:rate_per_unit>0.08</ns1:rate_per_unit>
+				<ns1:amount>152.08</ns1:amount>
+				<ns1:description>PgUploaded (1,901 pages @ $.08)</ns1:description>
+				<ns1:date_range_start>2017-04-01</ns1:date_range_start>
+				<ns1:date_range_end>2017-04-24</ns1:date_range_end>
+				<ns1:usage_type_no>10025872</ns1:usage_type_no>
+				<ns1:plan_no>38778</ns1:plan_no>
+				<ns1:plan_name>Pages Uploaded</ns1:plan_name>
+				<ns1:credit_reason_cd xsi:nil="true"/>
+				<ns1:credit_reason_code_description xsi:nil="true"/>
+				<ns1:csr_comments xsi:nil="true"/>
+				<ns1:client_sku xsi:nil="true"/>
+				<ns1:order_no xsi:nil="true"/>
+				<ns1:item_no xsi:nil="true"/>
+				<ns1:client_service_id>PgUploaded</ns1:client_service_id>
+				<ns1:usage_type_cd>Pages Uploaded</ns1:usage_type_cd>
+				<ns1:client_plan_id>Pages_Uploaded</ns1:client_plan_id>
+				<ns1:client_item_id xsi:nil="true"/>
+				<ns1:base_plan_units xsi:nil="true"/>
+				<ns1:proration_factor xsi:nil="true"/>
+				<ns1:proration_text xsi:nil="true"/>
+				<ns1:adv_billing_period_total_days xsi:nil="true"/>
+				<ns1:proration_remaining_days xsi:nil="true"/>
+				<ns1:proration_description xsi:nil="true"/>
+				<ns1:line_type>6</ns1:line_type>
+				<ns1:rate_schedule_no xsi:nil="true"/>
+				<ns1:client_rate_schedule_id xsi:nil="true"/>
+				<ns1:rate_schedule_tier_no>4</ns1:rate_schedule_tier_no>
+				<ns1:credit_coupon_code xsi:nil="true"/>
+				<ns1:plan_instance_no>1733464</ns1:plan_instance_no>
+				<ns1:client_plan_instance_id>1733464</ns1:client_plan_instance_id>
+				<ns1:tax_related_ind>0</ns1:tax_related_ind>
+				<ns1:svc_credit_source_invoice_no xsi:nil="true"/>
+				<ns1:svc_credit_source_line_no xsi:nil="true"/>
+				<ns1:svc_credit_source_trans_id xsi:nil="true"/>
+				<ns1:svc_credit_applied_line_no xsi:nil="true"/>
+				<ns1:svc_credit_applied_trans_id xsi:nil="true"/>
+				<ns1:client_acct_id xsi:nil="true"/>
+				<ns1:master_plan_instance_no>1733462</ns1:master_plan_instance_no>
+				<ns1:client_mp_instance_id>1733462</ns1:client_mp_instance_id>
+				<ns1:invoice_transaction_id>9842355</ns1:invoice_transaction_id>
+				<ns1:po_num xsi:nil="true"/>
+				<ns1:bill_from_location_no>763</ns1:bill_from_location_no>
+				<ns1:ship_from_location_no>763</ns1:ship_from_location_no>
+				<ns1:bill_to_address_seq>3332302</ns1:bill_to_address_seq>
+				<ns1:ship_to_address_seq>3332302</ns1:ship_to_address_seq>
+				<ns1:rb_excluded xsi:nil="true"/>
+				<ns1:rb_line_comments xsi:nil="true"/>
+			</ns1:invoice_line_details>
+			<ns1:invoice_line_details>
+				<ns1:line_no>2</ns1:line_no>
+				<ns1:service_no>11023545</ns1:service_no>
+				<ns1:service_name>PgMinimumFee</ns1:service_name>
+				<ns1:units>1</ns1:units>
+				<ns1:rate_per_unit>1847.92</ns1:rate_per_unit>
+				<ns1:amount>1847.92</ns1:amount>
+				<ns1:description>Monthly Minimum Fee</ns1:description>
+				<ns1:date_range_start>2017-05-01</ns1:date_range_start>
+				<ns1:date_range_end>2017-05-31</ns1:date_range_end>
+				<ns1:usage_type_no xsi:nil="true"/>
+				<ns1:plan_no>38778</ns1:plan_no>
+				<ns1:plan_name>Pages Uploaded</ns1:plan_name>
+				<ns1:credit_reason_cd xsi:nil="true"/>
+				<ns1:credit_reason_code_description xsi:nil="true"/>
+				<ns1:csr_comments xsi:nil="true"/>
+				<ns1:client_sku xsi:nil="true"/>
+				<ns1:order_no xsi:nil="true"/>
+				<ns1:item_no xsi:nil="true"/>
+				<ns1:client_service_id>PgMinimumFee</ns1:client_service_id>
+				<ns1:usage_type_cd xsi:nil="true"/>
+				<ns1:client_plan_id>Pages_Uploaded</ns1:client_plan_id>
+				<ns1:client_item_id xsi:nil="true"/>
+				<ns1:base_plan_units xsi:nil="true"/>
+				<ns1:proration_factor xsi:nil="true"/>
+				<ns1:proration_text xsi:nil="true"/>
+				<ns1:adv_billing_period_total_days xsi:nil="true"/>
+				<ns1:proration_remaining_days xsi:nil="true"/>
+				<ns1:proration_description xsi:nil="true"/>
+				<ns1:line_type>1</ns1:line_type>
+				<ns1:rate_schedule_no xsi:nil="true"/>
+				<ns1:client_rate_schedule_id xsi:nil="true"/>
+				<ns1:rate_schedule_tier_no xsi:nil="true"/>
+				<ns1:credit_coupon_code xsi:nil="true"/>
+				<ns1:plan_instance_no>1733464</ns1:plan_instance_no>
+				<ns1:client_plan_instance_id>1733464</ns1:client_plan_instance_id>
+				<ns1:tax_related_ind>0</ns1:tax_related_ind>
+				<ns1:svc_credit_source_invoice_no xsi:nil="true"/>
+				<ns1:svc_credit_source_line_no xsi:nil="true"/>
+				<ns1:svc_credit_source_trans_id xsi:nil="true"/>
+				<ns1:svc_credit_applied_line_no xsi:nil="true"/>
+				<ns1:svc_credit_applied_trans_id xsi:nil="true"/>
+				<ns1:client_acct_id xsi:nil="true"/>
+				<ns1:master_plan_instance_no>1733462</ns1:master_plan_instance_no>
+				<ns1:client_mp_instance_id>1733462</ns1:client_mp_instance_id>
+				<ns1:invoice_transaction_id>9842356</ns1:invoice_transaction_id>
+				<ns1:po_num xsi:nil="true"/>
+				<ns1:bill_from_location_no>763</ns1:bill_from_location_no>
+				<ns1:ship_from_location_no>763</ns1:ship_from_location_no>
+				<ns1:bill_to_address_seq>3332302</ns1:bill_to_address_seq>
+				<ns1:ship_to_address_seq>3332302</ns1:ship_to_address_seq>
+				<ns1:rb_excluded xsi:nil="true"/>
+				<ns1:rb_line_comments xsi:nil="true"/>
+			</ns1:invoice_line_details>
+			<ns1:invoice_line_details>
+				<ns1:line_no>3</ns1:line_no>
+				<ns1:service_no>11023550</ns1:service_no>
+				<ns1:service_name>Document Scanning</ns1:service_name>
+				<ns1:units>10</ns1:units>
+				<ns1:rate_per_unit>50</ns1:rate_per_unit>
+				<ns1:amount>500</ns1:amount>
+				<ns1:description>Document Scanning (order # 394197)</ns1:description>
+				<ns1:date_range_start>2017-04-21</ns1:date_range_start>
+				<ns1:date_range_end>2017-04-21</ns1:date_range_end>
+				<ns1:usage_type_no xsi:nil="true"/>
+				<ns1:plan_no xsi:nil="true"/>
+				<ns1:plan_name xsi:nil="true"/>
+				<ns1:credit_reason_cd xsi:nil="true"/>
+				<ns1:credit_reason_code_description xsi:nil="true"/>
+				<ns1:csr_comments xsi:nil="true"/>
+				<ns1:client_sku>2237</ns1:client_sku>
+				<ns1:order_no>394197</ns1:order_no>
+				<ns1:item_no>2237</ns1:item_no>
+				<ns1:client_service_id>Document_Scanning</ns1:client_service_id>
+				<ns1:usage_type_cd xsi:nil="true"/>
+				<ns1:client_plan_id xsi:nil="true"/>
+				<ns1:client_item_id>Document_Scanning</ns1:client_item_id>
+				<ns1:base_plan_units xsi:nil="true"/>
+				<ns1:proration_factor xsi:nil="true"/>
+				<ns1:proration_text xsi:nil="true"/>
+				<ns1:adv_billing_period_total_days xsi:nil="true"/>
+				<ns1:proration_remaining_days xsi:nil="true"/>
+				<ns1:proration_description xsi:nil="true"/>
+				<ns1:line_type>1</ns1:line_type>
+				<ns1:rate_schedule_no xsi:nil="true"/>
+				<ns1:client_rate_schedule_id xsi:nil="true"/>
+				<ns1:rate_schedule_tier_no xsi:nil="true"/>
+				<ns1:credit_coupon_code xsi:nil="true"/>
+				<ns1:plan_instance_no xsi:nil="true"/>
+				<ns1:client_plan_instance_id xsi:nil="true"/>
+				<ns1:tax_related_ind>0</ns1:tax_related_ind>
+				<ns1:svc_credit_source_invoice_no xsi:nil="true"/>
+				<ns1:svc_credit_source_line_no xsi:nil="true"/>
+				<ns1:svc_credit_source_trans_id xsi:nil="true"/>
+				<ns1:svc_credit_applied_line_no xsi:nil="true"/>
+				<ns1:svc_credit_applied_trans_id xsi:nil="true"/>
+				<ns1:client_acct_id xsi:nil="true"/>
+				<ns1:master_plan_instance_no>1733462</ns1:master_plan_instance_no>
+				<ns1:client_mp_instance_id>1733462</ns1:client_mp_instance_id>
+				<ns1:invoice_transaction_id>9842357</ns1:invoice_transaction_id>
+				<ns1:po_num xsi:nil="true"/>
+				<ns1:bill_from_location_no>763</ns1:bill_from_location_no>
+				<ns1:ship_from_location_no>763</ns1:ship_from_location_no>
+				<ns1:bill_to_address_seq>3332302</ns1:bill_to_address_seq>
+				<ns1:ship_to_address_seq>3332302</ns1:ship_to_address_seq>
+				<ns1:rb_excluded xsi:nil="true"/>
+				<ns1:rb_line_comments xsi:nil="true"/>
+			</ns1:invoice_line_details>
+			<ns1:invoice_line_details>
+				<ns1:line_no>4</ns1:line_no>
+				<ns1:service_no>11023550</ns1:service_no>
+				<ns1:service_name>Document Scanning</ns1:service_name>
+				<ns1:units>10</ns1:units>
+				<ns1:rate_per_unit>50</ns1:rate_per_unit>
+				<ns1:amount>500</ns1:amount>
+				<ns1:description>Document Scanning (order # 394204)</ns1:description>
+				<ns1:date_range_start>2017-04-21</ns1:date_range_start>
+				<ns1:date_range_end>2017-04-21</ns1:date_range_end>
+				<ns1:usage_type_no xsi:nil="true"/>
+				<ns1:plan_no xsi:nil="true"/>
+				<ns1:plan_name xsi:nil="true"/>
+				<ns1:credit_reason_cd xsi:nil="true"/>
+				<ns1:credit_reason_code_description xsi:nil="true"/>
+				<ns1:csr_comments xsi:nil="true"/>
+				<ns1:client_sku>2237</ns1:client_sku>
+				<ns1:order_no>394204</ns1:order_no>
+				<ns1:item_no>2237</ns1:item_no>
+				<ns1:client_service_id>Document_Scanning</ns1:client_service_id>
+				<ns1:usage_type_cd xsi:nil="true"/>
+				<ns1:client_plan_id xsi:nil="true"/>
+				<ns1:client_item_id>Document_Scanning</ns1:client_item_id>
+				<ns1:base_plan_units xsi:nil="true"/>
+				<ns1:proration_factor xsi:nil="true"/>
+				<ns1:proration_text xsi:nil="true"/>
+				<ns1:adv_billing_period_total_days xsi:nil="true"/>
+				<ns1:proration_remaining_days xsi:nil="true"/>
+				<ns1:proration_description xsi:nil="true"/>
+				<ns1:line_type>1</ns1:line_type>
+				<ns1:rate_schedule_no xsi:nil="true"/>
+				<ns1:client_rate_schedule_id xsi:nil="true"/>
+				<ns1:rate_schedule_tier_no xsi:nil="true"/>
+				<ns1:credit_coupon_code xsi:nil="true"/>
+				<ns1:plan_instance_no xsi:nil="true"/>
+				<ns1:client_plan_instance_id xsi:nil="true"/>
+				<ns1:tax_related_ind>0</ns1:tax_related_ind>
+				<ns1:svc_credit_source_invoice_no xsi:nil="true"/>
+				<ns1:svc_credit_source_line_no xsi:nil="true"/>
+				<ns1:svc_credit_source_trans_id xsi:nil="true"/>
+				<ns1:svc_credit_applied_line_no xsi:nil="true"/>
+				<ns1:svc_credit_applied_trans_id xsi:nil="true"/>
+				<ns1:client_acct_id xsi:nil="true"/>
+				<ns1:master_plan_instance_no>1733462</ns1:master_plan_instance_no>
+				<ns1:client_mp_instance_id>1733462</ns1:client_mp_instance_id>
+				<ns1:invoice_transaction_id>9842358</ns1:invoice_transaction_id>
+				<ns1:po_num xsi:nil="true"/>
+				<ns1:bill_from_location_no>763</ns1:bill_from_location_no>
+				<ns1:ship_from_location_no>763</ns1:ship_from_location_no>
+				<ns1:bill_to_address_seq>3332302</ns1:bill_to_address_seq>
+				<ns1:ship_to_address_seq>3332302</ns1:ship_to_address_seq>
+				<ns1:rb_excluded xsi:nil="true"/>
+				<ns1:rb_line_comments xsi:nil="true"/>
+			</ns1:invoice_line_details>
+			<ns1:invoice_line_details>
+				<ns1:line_no>5</ns1:line_no>
+				<ns1:service_no>11023550</ns1:service_no>
+				<ns1:service_name>Document Scanning</ns1:service_name>
+				<ns1:units>10</ns1:units>
+				<ns1:rate_per_unit>50</ns1:rate_per_unit>
+				<ns1:amount>500</ns1:amount>
+				<ns1:description>Document Scanning (order # 394207)</ns1:description>
+				<ns1:date_range_start>2017-04-21</ns1:date_range_start>
+				<ns1:date_range_end>2017-04-21</ns1:date_range_end>
+				<ns1:usage_type_no xsi:nil="true"/>
+				<ns1:plan_no xsi:nil="true"/>
+				<ns1:plan_name xsi:nil="true"/>
+				<ns1:credit_reason_cd xsi:nil="true"/>
+				<ns1:credit_reason_code_description xsi:nil="true"/>
+				<ns1:csr_comments xsi:nil="true"/>
+				<ns1:client_sku>2237</ns1:client_sku>
+				<ns1:order_no>394207</ns1:order_no>
+				<ns1:item_no>2237</ns1:item_no>
+				<ns1:client_service_id>Document_Scanning</ns1:client_service_id>
+				<ns1:usage_type_cd xsi:nil="true"/>
+				<ns1:client_plan_id xsi:nil="true"/>
+				<ns1:client_item_id>Document_Scanning</ns1:client_item_id>
+				<ns1:base_plan_units xsi:nil="true"/>
+				<ns1:proration_factor xsi:nil="true"/>
+				<ns1:proration_text xsi:nil="true"/>
+				<ns1:adv_billing_period_total_days xsi:nil="true"/>
+				<ns1:proration_remaining_days xsi:nil="true"/>
+				<ns1:proration_description xsi:nil="true"/>
+				<ns1:line_type>1</ns1:line_type>
+				<ns1:rate_schedule_no xsi:nil="true"/>
+				<ns1:client_rate_schedule_id xsi:nil="true"/>
+				<ns1:rate_schedule_tier_no xsi:nil="true"/>
+				<ns1:credit_coupon_code xsi:nil="true"/>
+				<ns1:plan_instance_no xsi:nil="true"/>
+				<ns1:client_plan_instance_id xsi:nil="true"/>
+				<ns1:tax_related_ind>0</ns1:tax_related_ind>
+				<ns1:svc_credit_source_invoice_no xsi:nil="true"/>
+				<ns1:svc_credit_source_line_no xsi:nil="true"/>
+				<ns1:svc_credit_source_trans_id xsi:nil="true"/>
+				<ns1:svc_credit_applied_line_no xsi:nil="true"/>
+				<ns1:svc_credit_applied_trans_id xsi:nil="true"/>
+				<ns1:client_acct_id xsi:nil="true"/>
+				<ns1:master_plan_instance_no>1733462</ns1:master_plan_instance_no>
+				<ns1:client_mp_instance_id>1733462</ns1:client_mp_instance_id>
+				<ns1:invoice_transaction_id>9842359</ns1:invoice_transaction_id>
+				<ns1:po_num xsi:nil="true"/>
+				<ns1:bill_from_location_no>763</ns1:bill_from_location_no>
+				<ns1:ship_from_location_no>763</ns1:ship_from_location_no>
+				<ns1:bill_to_address_seq>3332302</ns1:bill_to_address_seq>
+				<ns1:ship_to_address_seq>3332302</ns1:ship_to_address_seq>
+				<ns1:rb_excluded xsi:nil="true"/>
+				<ns1:rb_line_comments xsi:nil="true"/>
+			</ns1:invoice_line_details>
+			<ns1:invoice_line_details>
+				<ns1:line_no>6</ns1:line_no>
+				<ns1:service_no>11023550</ns1:service_no>
+				<ns1:service_name>Document Scanning</ns1:service_name>
+				<ns1:units>10</ns1:units>
+				<ns1:rate_per_unit>5</ns1:rate_per_unit>
+				<ns1:amount>50</ns1:amount>
+				<ns1:description>Document Scanning (order # 394211)</ns1:description>
+				<ns1:date_range_start>2017-04-21</ns1:date_range_start>
+				<ns1:date_range_end>2017-04-21</ns1:date_range_end>
+				<ns1:usage_type_no xsi:nil="true"/>
+				<ns1:plan_no xsi:nil="true"/>
+				<ns1:plan_name xsi:nil="true"/>
+				<ns1:credit_reason_cd xsi:nil="true"/>
+				<ns1:credit_reason_code_description xsi:nil="true"/>
+				<ns1:csr_comments xsi:nil="true"/>
+				<ns1:client_sku>2237</ns1:client_sku>
+				<ns1:order_no>394211</ns1:order_no>
+				<ns1:item_no>2237</ns1:item_no>
+				<ns1:client_service_id>Document_Scanning</ns1:client_service_id>
+				<ns1:usage_type_cd xsi:nil="true"/>
+				<ns1:client_plan_id xsi:nil="true"/>
+				<ns1:client_item_id>Document_Scanning</ns1:client_item_id>
+				<ns1:base_plan_units xsi:nil="true"/>
+				<ns1:proration_factor xsi:nil="true"/>
+				<ns1:proration_text xsi:nil="true"/>
+				<ns1:adv_billing_period_total_days xsi:nil="true"/>
+				<ns1:proration_remaining_days xsi:nil="true"/>
+				<ns1:proration_description xsi:nil="true"/>
+				<ns1:line_type>1</ns1:line_type>
+				<ns1:rate_schedule_no xsi:nil="true"/>
+				<ns1:client_rate_schedule_id xsi:nil="true"/>
+				<ns1:rate_schedule_tier_no xsi:nil="true"/>
+				<ns1:credit_coupon_code xsi:nil="true"/>
+				<ns1:plan_instance_no xsi:nil="true"/>
+				<ns1:client_plan_instance_id xsi:nil="true"/>
+				<ns1:tax_related_ind>0</ns1:tax_related_ind>
+				<ns1:svc_credit_source_invoice_no xsi:nil="true"/>
+				<ns1:svc_credit_source_line_no xsi:nil="true"/>
+				<ns1:svc_credit_source_trans_id xsi:nil="true"/>
+				<ns1:svc_credit_applied_line_no xsi:nil="true"/>
+				<ns1:svc_credit_applied_trans_id xsi:nil="true"/>
+				<ns1:client_acct_id xsi:nil="true"/>
+				<ns1:master_plan_instance_no>1733462</ns1:master_plan_instance_no>
+				<ns1:client_mp_instance_id>1733462</ns1:client_mp_instance_id>
+				<ns1:invoice_transaction_id>9842360</ns1:invoice_transaction_id>
+				<ns1:po_num xsi:nil="true"/>
+				<ns1:bill_from_location_no>763</ns1:bill_from_location_no>
+				<ns1:ship_from_location_no>763</ns1:ship_from_location_no>
+				<ns1:bill_to_address_seq>3332302</ns1:bill_to_address_seq>
+				<ns1:ship_to_address_seq>3332302</ns1:ship_to_address_seq>
+				<ns1:rb_excluded xsi:nil="true"/>
+				<ns1:rb_line_comments xsi:nil="true"/>
+			</ns1:invoice_line_details>
+			<ns1:invoice_line_details>
+				<ns1:line_no>7</ns1:line_no>
+				<ns1:service_no>11023550</ns1:service_no>
+				<ns1:service_name>Document Scanning</ns1:service_name>
+				<ns1:units>10</ns1:units>
+				<ns1:rate_per_unit>5</ns1:rate_per_unit>
+				<ns1:amount>50</ns1:amount>
+				<ns1:description>Document Scanning (order # 394265)</ns1:description>
+				<ns1:date_range_start>2017-04-21</ns1:date_range_start>
+				<ns1:date_range_end>2017-04-21</ns1:date_range_end>
+				<ns1:usage_type_no xsi:nil="true"/>
+				<ns1:plan_no xsi:nil="true"/>
+				<ns1:plan_name xsi:nil="true"/>
+				<ns1:credit_reason_cd xsi:nil="true"/>
+				<ns1:credit_reason_code_description xsi:nil="true"/>
+				<ns1:csr_comments xsi:nil="true"/>
+				<ns1:client_sku>2237</ns1:client_sku>
+				<ns1:order_no>394265</ns1:order_no>
+				<ns1:item_no>2237</ns1:item_no>
+				<ns1:client_service_id>Document_Scanning</ns1:client_service_id>
+				<ns1:usage_type_cd xsi:nil="true"/>
+				<ns1:client_plan_id xsi:nil="true"/>
+				<ns1:client_item_id>Document_Scanning</ns1:client_item_id>
+				<ns1:base_plan_units xsi:nil="true"/>
+				<ns1:proration_factor xsi:nil="true"/>
+				<ns1:proration_text xsi:nil="true"/>
+				<ns1:adv_billing_period_total_days xsi:nil="true"/>
+				<ns1:proration_remaining_days xsi:nil="true"/>
+				<ns1:proration_description xsi:nil="true"/>
+				<ns1:line_type>1</ns1:line_type>
+				<ns1:rate_schedule_no xsi:nil="true"/>
+				<ns1:client_rate_schedule_id xsi:nil="true"/>
+				<ns1:rate_schedule_tier_no xsi:nil="true"/>
+				<ns1:credit_coupon_code xsi:nil="true"/>
+				<ns1:plan_instance_no xsi:nil="true"/>
+				<ns1:client_plan_instance_id xsi:nil="true"/>
+				<ns1:tax_related_ind>0</ns1:tax_related_ind>
+				<ns1:svc_credit_source_invoice_no xsi:nil="true"/>
+				<ns1:svc_credit_source_line_no xsi:nil="true"/>
+				<ns1:svc_credit_source_trans_id xsi:nil="true"/>
+				<ns1:svc_credit_applied_line_no xsi:nil="true"/>
+				<ns1:svc_credit_applied_trans_id xsi:nil="true"/>
+				<ns1:client_acct_id xsi:nil="true"/>
+				<ns1:master_plan_instance_no>1733462</ns1:master_plan_instance_no>
+				<ns1:client_mp_instance_id>1733462</ns1:client_mp_instance_id>
+				<ns1:invoice_transaction_id>9842361</ns1:invoice_transaction_id>
+				<ns1:po_num xsi:nil="true"/>
+				<ns1:bill_from_location_no>763</ns1:bill_from_location_no>
+				<ns1:ship_from_location_no>763</ns1:ship_from_location_no>
+				<ns1:bill_to_address_seq>3332302</ns1:bill_to_address_seq>
+				<ns1:ship_to_address_seq>3332302</ns1:ship_to_address_seq>
+				<ns1:rb_excluded xsi:nil="true"/>
+				<ns1:rb_line_comments xsi:nil="true"/>
+			</ns1:invoice_line_details>
+			<ns1:invoice_line_details>
+				<ns1:line_no>8</ns1:line_no>
+				<ns1:service_no>11023550</ns1:service_no>
+				<ns1:service_name>Document Scanning</ns1:service_name>
+				<ns1:units>2</ns1:units>
+				<ns1:rate_per_unit>5</ns1:rate_per_unit>
+				<ns1:amount>10</ns1:amount>
+				<ns1:description>Document Scanning (order # 394266)</ns1:description>
+				<ns1:date_range_start>2017-04-21</ns1:date_range_start>
+				<ns1:date_range_end>2017-04-21</ns1:date_range_end>
+				<ns1:usage_type_no xsi:nil="true"/>
+				<ns1:plan_no xsi:nil="true"/>
+				<ns1:plan_name xsi:nil="true"/>
+				<ns1:credit_reason_cd xsi:nil="true"/>
+				<ns1:credit_reason_code_description xsi:nil="true"/>
+				<ns1:csr_comments xsi:nil="true"/>
+				<ns1:client_sku>2237</ns1:client_sku>
+				<ns1:order_no>394266</ns1:order_no>
+				<ns1:item_no>2237</ns1:item_no>
+				<ns1:client_service_id>Document_Scanning</ns1:client_service_id>
+				<ns1:usage_type_cd xsi:nil="true"/>
+				<ns1:client_plan_id xsi:nil="true"/>
+				<ns1:client_item_id>Document_Scanning</ns1:client_item_id>
+				<ns1:base_plan_units xsi:nil="true"/>
+				<ns1:proration_factor xsi:nil="true"/>
+				<ns1:proration_text xsi:nil="true"/>
+				<ns1:adv_billing_period_total_days xsi:nil="true"/>
+				<ns1:proration_remaining_days xsi:nil="true"/>
+				<ns1:proration_description xsi:nil="true"/>
+				<ns1:line_type>1</ns1:line_type>
+				<ns1:rate_schedule_no xsi:nil="true"/>
+				<ns1:client_rate_schedule_id xsi:nil="true"/>
+				<ns1:rate_schedule_tier_no xsi:nil="true"/>
+				<ns1:credit_coupon_code xsi:nil="true"/>
+				<ns1:plan_instance_no xsi:nil="true"/>
+				<ns1:client_plan_instance_id xsi:nil="true"/>
+				<ns1:tax_related_ind>0</ns1:tax_related_ind>
+				<ns1:svc_credit_source_invoice_no xsi:nil="true"/>
+				<ns1:svc_credit_source_line_no xsi:nil="true"/>
+				<ns1:svc_credit_source_trans_id xsi:nil="true"/>
+				<ns1:svc_credit_applied_line_no xsi:nil="true"/>
+				<ns1:svc_credit_applied_trans_id xsi:nil="true"/>
+				<ns1:client_acct_id xsi:nil="true"/>
+				<ns1:master_plan_instance_no>1733462</ns1:master_plan_instance_no>
+				<ns1:client_mp_instance_id>1733462</ns1:client_mp_instance_id>
+				<ns1:invoice_transaction_id>9842362</ns1:invoice_transaction_id>
+				<ns1:po_num xsi:nil="true"/>
+				<ns1:bill_from_location_no>763</ns1:bill_from_location_no>
+				<ns1:ship_from_location_no>763</ns1:ship_from_location_no>
+				<ns1:bill_to_address_seq>3332302</ns1:bill_to_address_seq>
+				<ns1:ship_to_address_seq>3332302</ns1:ship_to_address_seq>
+				<ns1:rb_excluded xsi:nil="true"/>
+				<ns1:rb_line_comments xsi:nil="true"/>
+			</ns1:invoice_line_details>
+			<ns1:invoice_line_details>
+				<ns1:line_no>9</ns1:line_no>
+				<ns1:service_no>11023553</ns1:service_no>
+				<ns1:service_name>Freight Charges</ns1:service_name>
+				<ns1:units>1</ns1:units>
+				<ns1:rate_per_unit>19</ns1:rate_per_unit>
+				<ns1:amount>19</ns1:amount>
+				<ns1:description>Freight Charges (order # 394268)</ns1:description>
+				<ns1:date_range_start>2017-04-21</ns1:date_range_start>
+				<ns1:date_range_end>2017-04-21</ns1:date_range_end>
+				<ns1:usage_type_no xsi:nil="true"/>
+				<ns1:plan_no xsi:nil="true"/>
+				<ns1:plan_name xsi:nil="true"/>
+				<ns1:credit_reason_cd xsi:nil="true"/>
+				<ns1:credit_reason_code_description xsi:nil="true"/>
+				<ns1:csr_comments xsi:nil="true"/>
+				<ns1:client_sku>2240</ns1:client_sku>
+				<ns1:order_no>394268</ns1:order_no>
+				<ns1:item_no>2240</ns1:item_no>
+				<ns1:client_service_id>Freight_Charges</ns1:client_service_id>
+				<ns1:usage_type_cd xsi:nil="true"/>
+				<ns1:client_plan_id xsi:nil="true"/>
+				<ns1:client_item_id>Freight_Charges</ns1:client_item_id>
+				<ns1:base_plan_units xsi:nil="true"/>
+				<ns1:proration_factor xsi:nil="true"/>
+				<ns1:proration_text xsi:nil="true"/>
+				<ns1:adv_billing_period_total_days xsi:nil="true"/>
+				<ns1:proration_remaining_days xsi:nil="true"/>
+				<ns1:proration_description xsi:nil="true"/>
+				<ns1:line_type>1</ns1:line_type>
+				<ns1:rate_schedule_no xsi:nil="true"/>
+				<ns1:client_rate_schedule_id xsi:nil="true"/>
+				<ns1:rate_schedule_tier_no xsi:nil="true"/>
+				<ns1:credit_coupon_code xsi:nil="true"/>
+				<ns1:plan_instance_no xsi:nil="true"/>
+				<ns1:client_plan_instance_id xsi:nil="true"/>
+				<ns1:tax_related_ind>0</ns1:tax_related_ind>
+				<ns1:svc_credit_source_invoice_no xsi:nil="true"/>
+				<ns1:svc_credit_source_line_no xsi:nil="true"/>
+				<ns1:svc_credit_source_trans_id xsi:nil="true"/>
+				<ns1:svc_credit_applied_line_no xsi:nil="true"/>
+				<ns1:svc_credit_applied_trans_id xsi:nil="true"/>
+				<ns1:client_acct_id xsi:nil="true"/>
+				<ns1:master_plan_instance_no>1733462</ns1:master_plan_instance_no>
+				<ns1:client_mp_instance_id>1733462</ns1:client_mp_instance_id>
+				<ns1:invoice_transaction_id>9842363</ns1:invoice_transaction_id>
+				<ns1:po_num xsi:nil="true"/>
+				<ns1:bill_from_location_no>763</ns1:bill_from_location_no>
+				<ns1:ship_from_location_no>763</ns1:ship_from_location_no>
+				<ns1:bill_to_address_seq>3332302</ns1:bill_to_address_seq>
+				<ns1:ship_to_address_seq>3332302</ns1:ship_to_address_seq>
+				<ns1:rb_excluded xsi:nil="true"/>
+				<ns1:rb_line_comments xsi:nil="true"/>
+			</ns1:invoice_line_details>
+			<ns1:invoice_line_details>
+				<ns1:line_no>10</ns1:line_no>
+				<ns1:service_no>11023553</ns1:service_no>
+				<ns1:service_name>Freight Charges</ns1:service_name>
+				<ns1:units>1</ns1:units>
+				<ns1:rate_per_unit>16.8</ns1:rate_per_unit>
+				<ns1:amount>16.8</ns1:amount>
+				<ns1:description>Freight Charges (order # 394270)</ns1:description>
+				<ns1:date_range_start>2017-04-21</ns1:date_range_start>
+				<ns1:date_range_end>2017-04-21</ns1:date_range_end>
+				<ns1:usage_type_no xsi:nil="true"/>
+				<ns1:plan_no xsi:nil="true"/>
+				<ns1:plan_name xsi:nil="true"/>
+				<ns1:credit_reason_cd xsi:nil="true"/>
+				<ns1:credit_reason_code_description xsi:nil="true"/>
+				<ns1:csr_comments xsi:nil="true"/>
+				<ns1:client_sku>2240</ns1:client_sku>
+				<ns1:order_no>394270</ns1:order_no>
+				<ns1:item_no>2240</ns1:item_no>
+				<ns1:client_service_id>Freight_Charges</ns1:client_service_id>
+				<ns1:usage_type_cd xsi:nil="true"/>
+				<ns1:client_plan_id xsi:nil="true"/>
+				<ns1:client_item_id>Freight_Charges</ns1:client_item_id>
+				<ns1:base_plan_units xsi:nil="true"/>
+				<ns1:proration_factor xsi:nil="true"/>
+				<ns1:proration_text xsi:nil="true"/>
+				<ns1:adv_billing_period_total_days xsi:nil="true"/>
+				<ns1:proration_remaining_days xsi:nil="true"/>
+				<ns1:proration_description xsi:nil="true"/>
+				<ns1:line_type>1</ns1:line_type>
+				<ns1:rate_schedule_no xsi:nil="true"/>
+				<ns1:client_rate_schedule_id xsi:nil="true"/>
+				<ns1:rate_schedule_tier_no xsi:nil="true"/>
+				<ns1:credit_coupon_code xsi:nil="true"/>
+				<ns1:plan_instance_no xsi:nil="true"/>
+				<ns1:client_plan_instance_id xsi:nil="true"/>
+				<ns1:tax_related_ind>0</ns1:tax_related_ind>
+				<ns1:svc_credit_source_invoice_no xsi:nil="true"/>
+				<ns1:svc_credit_source_line_no xsi:nil="true"/>
+				<ns1:svc_credit_source_trans_id xsi:nil="true"/>
+				<ns1:svc_credit_applied_line_no xsi:nil="true"/>
+				<ns1:svc_credit_applied_trans_id xsi:nil="true"/>
+				<ns1:client_acct_id xsi:nil="true"/>
+				<ns1:master_plan_instance_no>1733462</ns1:master_plan_instance_no>
+				<ns1:client_mp_instance_id>1733462</ns1:client_mp_instance_id>
+				<ns1:invoice_transaction_id>9842364</ns1:invoice_transaction_id>
+				<ns1:po_num xsi:nil="true"/>
+				<ns1:bill_from_location_no>763</ns1:bill_from_location_no>
+				<ns1:ship_from_location_no>763</ns1:ship_from_location_no>
+				<ns1:bill_to_address_seq>3332302</ns1:bill_to_address_seq>
+				<ns1:ship_to_address_seq>3332302</ns1:ship_to_address_seq>
+				<ns1:rb_excluded xsi:nil="true"/>
+				<ns1:rb_line_comments xsi:nil="true"/>
+			</ns1:invoice_line_details>
+			<ns1:invoice_line_details>
+				<ns1:line_no>11</ns1:line_no>
+				<ns1:service_no>11023550</ns1:service_no>
+				<ns1:service_name>Document Scanning</ns1:service_name>
+				<ns1:units>3</ns1:units>
+				<ns1:rate_per_unit>7.5</ns1:rate_per_unit>
+				<ns1:amount>22.5</ns1:amount>
+				<ns1:description>Document Scanning (order # 394293)</ns1:description>
+				<ns1:date_range_start>2017-04-21</ns1:date_range_start>
+				<ns1:date_range_end>2017-04-21</ns1:date_range_end>
+				<ns1:usage_type_no xsi:nil="true"/>
+				<ns1:plan_no xsi:nil="true"/>
+				<ns1:plan_name xsi:nil="true"/>
+				<ns1:credit_reason_cd xsi:nil="true"/>
+				<ns1:credit_reason_code_description xsi:nil="true"/>
+				<ns1:csr_comments xsi:nil="true"/>
+				<ns1:client_sku>2237</ns1:client_sku>
+				<ns1:order_no>394293</ns1:order_no>
+				<ns1:item_no>2237</ns1:item_no>
+				<ns1:client_service_id>Document_Scanning</ns1:client_service_id>
+				<ns1:usage_type_cd xsi:nil="true"/>
+				<ns1:client_plan_id xsi:nil="true"/>
+				<ns1:client_item_id>Document_Scanning</ns1:client_item_id>
+				<ns1:base_plan_units xsi:nil="true"/>
+				<ns1:proration_factor xsi:nil="true"/>
+				<ns1:proration_text xsi:nil="true"/>
+				<ns1:adv_billing_period_total_days xsi:nil="true"/>
+				<ns1:proration_remaining_days xsi:nil="true"/>
+				<ns1:proration_description xsi:nil="true"/>
+				<ns1:line_type>1</ns1:line_type>
+				<ns1:rate_schedule_no xsi:nil="true"/>
+				<ns1:client_rate_schedule_id xsi:nil="true"/>
+				<ns1:rate_schedule_tier_no xsi:nil="true"/>
+				<ns1:credit_coupon_code xsi:nil="true"/>
+				<ns1:plan_instance_no xsi:nil="true"/>
+				<ns1:client_plan_instance_id xsi:nil="true"/>
+				<ns1:tax_related_ind>0</ns1:tax_related_ind>
+				<ns1:svc_credit_source_invoice_no xsi:nil="true"/>
+				<ns1:svc_credit_source_line_no xsi:nil="true"/>
+				<ns1:svc_credit_source_trans_id xsi:nil="true"/>
+				<ns1:svc_credit_applied_line_no xsi:nil="true"/>
+				<ns1:svc_credit_applied_trans_id xsi:nil="true"/>
+				<ns1:client_acct_id xsi:nil="true"/>
+				<ns1:master_plan_instance_no>1733462</ns1:master_plan_instance_no>
+				<ns1:client_mp_instance_id>1733462</ns1:client_mp_instance_id>
+				<ns1:invoice_transaction_id>9842365</ns1:invoice_transaction_id>
+				<ns1:po_num xsi:nil="true"/>
+				<ns1:bill_from_location_no>763</ns1:bill_from_location_no>
+				<ns1:ship_from_location_no>763</ns1:ship_from_location_no>
+				<ns1:bill_to_address_seq>3332302</ns1:bill_to_address_seq>
+				<ns1:ship_to_address_seq>3332302</ns1:ship_to_address_seq>
+				<ns1:rb_excluded xsi:nil="true"/>
+				<ns1:rb_line_comments xsi:nil="true"/>
+			</ns1:invoice_line_details>
+			<ns1:invoice_line_details>
+				<ns1:line_no>12</ns1:line_no>
+				<ns1:service_no>11023553</ns1:service_no>
+				<ns1:service_name>Freight Charges</ns1:service_name>
+				<ns1:units>1</ns1:units>
+				<ns1:rate_per_unit>19.91</ns1:rate_per_unit>
+				<ns1:amount>19.91</ns1:amount>
+				<ns1:description>Freight Charges (order # 394294)</ns1:description>
+				<ns1:date_range_start>2017-04-21</ns1:date_range_start>
+				<ns1:date_range_end>2017-04-21</ns1:date_range_end>
+				<ns1:usage_type_no xsi:nil="true"/>
+				<ns1:plan_no xsi:nil="true"/>
+				<ns1:plan_name xsi:nil="true"/>
+				<ns1:credit_reason_cd xsi:nil="true"/>
+				<ns1:credit_reason_code_description xsi:nil="true"/>
+				<ns1:csr_comments xsi:nil="true"/>
+				<ns1:client_sku>2240</ns1:client_sku>
+				<ns1:order_no>394294</ns1:order_no>
+				<ns1:item_no>2240</ns1:item_no>
+				<ns1:client_service_id>Freight_Charges</ns1:client_service_id>
+				<ns1:usage_type_cd xsi:nil="true"/>
+				<ns1:client_plan_id xsi:nil="true"/>
+				<ns1:client_item_id>Freight_Charges</ns1:client_item_id>
+				<ns1:base_plan_units xsi:nil="true"/>
+				<ns1:proration_factor xsi:nil="true"/>
+				<ns1:proration_text xsi:nil="true"/>
+				<ns1:adv_billing_period_total_days xsi:nil="true"/>
+				<ns1:proration_remaining_days xsi:nil="true"/>
+				<ns1:proration_description xsi:nil="true"/>
+				<ns1:line_type>1</ns1:line_type>
+				<ns1:rate_schedule_no xsi:nil="true"/>
+				<ns1:client_rate_schedule_id xsi:nil="true"/>
+				<ns1:rate_schedule_tier_no xsi:nil="true"/>
+				<ns1:credit_coupon_code xsi:nil="true"/>
+				<ns1:plan_instance_no xsi:nil="true"/>
+				<ns1:client_plan_instance_id xsi:nil="true"/>
+				<ns1:tax_related_ind>0</ns1:tax_related_ind>
+				<ns1:svc_credit_source_invoice_no xsi:nil="true"/>
+				<ns1:svc_credit_source_line_no xsi:nil="true"/>
+				<ns1:svc_credit_source_trans_id xsi:nil="true"/>
+				<ns1:svc_credit_applied_line_no xsi:nil="true"/>
+				<ns1:svc_credit_applied_trans_id xsi:nil="true"/>
+				<ns1:client_acct_id xsi:nil="true"/>
+				<ns1:master_plan_instance_no>1733462</ns1:master_plan_instance_no>
+				<ns1:client_mp_instance_id>1733462</ns1:client_mp_instance_id>
+				<ns1:invoice_transaction_id>9842366</ns1:invoice_transaction_id>
+				<ns1:po_num xsi:nil="true"/>
+				<ns1:bill_from_location_no>763</ns1:bill_from_location_no>
+				<ns1:ship_from_location_no>763</ns1:ship_from_location_no>
+				<ns1:bill_to_address_seq>3332302</ns1:bill_to_address_seq>
+				<ns1:ship_to_address_seq>3332302</ns1:ship_to_address_seq>
+				<ns1:rb_excluded xsi:nil="true"/>
+				<ns1:rb_line_comments xsi:nil="true"/>
+			</ns1:invoice_line_details>
+			<ns1:invoice_line_details>
+				<ns1:line_no>13</ns1:line_no>
+				<ns1:service_no>11023550</ns1:service_no>
+				<ns1:service_name>Document Scanning</ns1:service_name>
+				<ns1:units>10</ns1:units>
+				<ns1:rate_per_unit>50</ns1:rate_per_unit>
+				<ns1:amount>500</ns1:amount>
+				<ns1:description>Document Scanning (order # 394202)</ns1:description>
+				<ns1:date_range_start>2017-04-21</ns1:date_range_start>
+				<ns1:date_range_end>2017-04-21</ns1:date_range_end>
+				<ns1:usage_type_no xsi:nil="true"/>
+				<ns1:plan_no xsi:nil="true"/>
+				<ns1:plan_name xsi:nil="true"/>
+				<ns1:credit_reason_cd xsi:nil="true"/>
+				<ns1:credit_reason_code_description xsi:nil="true"/>
+				<ns1:csr_comments xsi:nil="true"/>
+				<ns1:client_sku>2237</ns1:client_sku>
+				<ns1:order_no>394202</ns1:order_no>
+				<ns1:item_no>2237</ns1:item_no>
+				<ns1:client_service_id>Document_Scanning</ns1:client_service_id>
+				<ns1:usage_type_cd xsi:nil="true"/>
+				<ns1:client_plan_id xsi:nil="true"/>
+				<ns1:client_item_id>Document_Scanning</ns1:client_item_id>
+				<ns1:base_plan_units xsi:nil="true"/>
+				<ns1:proration_factor xsi:nil="true"/>
+				<ns1:proration_text xsi:nil="true"/>
+				<ns1:adv_billing_period_total_days xsi:nil="true"/>
+				<ns1:proration_remaining_days xsi:nil="true"/>
+				<ns1:proration_description xsi:nil="true"/>
+				<ns1:line_type>1</ns1:line_type>
+				<ns1:rate_schedule_no xsi:nil="true"/>
+				<ns1:client_rate_schedule_id xsi:nil="true"/>
+				<ns1:rate_schedule_tier_no xsi:nil="true"/>
+				<ns1:credit_coupon_code xsi:nil="true"/>
+				<ns1:plan_instance_no xsi:nil="true"/>
+				<ns1:client_plan_instance_id xsi:nil="true"/>
+				<ns1:tax_related_ind>0</ns1:tax_related_ind>
+				<ns1:svc_credit_source_invoice_no xsi:nil="true"/>
+				<ns1:svc_credit_source_line_no xsi:nil="true"/>
+				<ns1:svc_credit_source_trans_id xsi:nil="true"/>
+				<ns1:svc_credit_applied_line_no xsi:nil="true"/>
+				<ns1:svc_credit_applied_trans_id xsi:nil="true"/>
+				<ns1:client_acct_id xsi:nil="true"/>
+				<ns1:master_plan_instance_no>1733462</ns1:master_plan_instance_no>
+				<ns1:client_mp_instance_id>1733462</ns1:client_mp_instance_id>
+				<ns1:invoice_transaction_id>9842367</ns1:invoice_transaction_id>
+				<ns1:po_num xsi:nil="true"/>
+				<ns1:bill_from_location_no>763</ns1:bill_from_location_no>
+				<ns1:ship_from_location_no>763</ns1:ship_from_location_no>
+				<ns1:bill_to_address_seq>3332302</ns1:bill_to_address_seq>
+				<ns1:ship_to_address_seq>3332302</ns1:ship_to_address_seq>
+				<ns1:rb_excluded xsi:nil="true"/>
+				<ns1:rb_line_comments xsi:nil="true"/>
+			</ns1:invoice_line_details>
+			<ns1:invoice_line_details>
+				<ns1:line_no>14</ns1:line_no>
+				<ns1:service_no>11023550</ns1:service_no>
+				<ns1:service_name>Document Scanning</ns1:service_name>
+				<ns1:units>10</ns1:units>
+				<ns1:rate_per_unit>50</ns1:rate_per_unit>
+				<ns1:amount>500</ns1:amount>
+				<ns1:description>Document Scanning (order # 394203)</ns1:description>
+				<ns1:date_range_start>2017-04-21</ns1:date_range_start>
+				<ns1:date_range_end>2017-04-21</ns1:date_range_end>
+				<ns1:usage_type_no xsi:nil="true"/>
+				<ns1:plan_no xsi:nil="true"/>
+				<ns1:plan_name xsi:nil="true"/>
+				<ns1:credit_reason_cd xsi:nil="true"/>
+				<ns1:credit_reason_code_description xsi:nil="true"/>
+				<ns1:csr_comments xsi:nil="true"/>
+				<ns1:client_sku>2237</ns1:client_sku>
+				<ns1:order_no>394203</ns1:order_no>
+				<ns1:item_no>2237</ns1:item_no>
+				<ns1:client_service_id>Document_Scanning</ns1:client_service_id>
+				<ns1:usage_type_cd xsi:nil="true"/>
+				<ns1:client_plan_id xsi:nil="true"/>
+				<ns1:client_item_id>Document_Scanning</ns1:client_item_id>
+				<ns1:base_plan_units xsi:nil="true"/>
+				<ns1:proration_factor xsi:nil="true"/>
+				<ns1:proration_text xsi:nil="true"/>
+				<ns1:adv_billing_period_total_days xsi:nil="true"/>
+				<ns1:proration_remaining_days xsi:nil="true"/>
+				<ns1:proration_description xsi:nil="true"/>
+				<ns1:line_type>1</ns1:line_type>
+				<ns1:rate_schedule_no xsi:nil="true"/>
+				<ns1:client_rate_schedule_id xsi:nil="true"/>
+				<ns1:rate_schedule_tier_no xsi:nil="true"/>
+				<ns1:credit_coupon_code xsi:nil="true"/>
+				<ns1:plan_instance_no xsi:nil="true"/>
+				<ns1:client_plan_instance_id xsi:nil="true"/>
+				<ns1:tax_related_ind>0</ns1:tax_related_ind>
+				<ns1:svc_credit_source_invoice_no xsi:nil="true"/>
+				<ns1:svc_credit_source_line_no xsi:nil="true"/>
+				<ns1:svc_credit_source_trans_id xsi:nil="true"/>
+				<ns1:svc_credit_applied_line_no xsi:nil="true"/>
+				<ns1:svc_credit_applied_trans_id xsi:nil="true"/>
+				<ns1:client_acct_id xsi:nil="true"/>
+				<ns1:master_plan_instance_no>1733462</ns1:master_plan_instance_no>
+				<ns1:client_mp_instance_id>1733462</ns1:client_mp_instance_id>
+				<ns1:invoice_transaction_id>9842368</ns1:invoice_transaction_id>
+				<ns1:po_num xsi:nil="true"/>
+				<ns1:bill_from_location_no>763</ns1:bill_from_location_no>
+				<ns1:ship_from_location_no>763</ns1:ship_from_location_no>
+				<ns1:bill_to_address_seq>3332302</ns1:bill_to_address_seq>
+				<ns1:ship_to_address_seq>3332302</ns1:ship_to_address_seq>
+				<ns1:rb_excluded xsi:nil="true"/>
+				<ns1:rb_line_comments xsi:nil="true"/>
+			</ns1:invoice_line_details>
+			<ns1:invoice_line_details>
+				<ns1:line_no>15</ns1:line_no>
+				<ns1:service_no>11023550</ns1:service_no>
+				<ns1:service_name>Document Scanning</ns1:service_name>
+				<ns1:units>10</ns1:units>
+				<ns1:rate_per_unit>50</ns1:rate_per_unit>
+				<ns1:amount>500</ns1:amount>
+				<ns1:description>Document Scanning (order # 394206)</ns1:description>
+				<ns1:date_range_start>2017-04-21</ns1:date_range_start>
+				<ns1:date_range_end>2017-04-21</ns1:date_range_end>
+				<ns1:usage_type_no xsi:nil="true"/>
+				<ns1:plan_no xsi:nil="true"/>
+				<ns1:plan_name xsi:nil="true"/>
+				<ns1:credit_reason_cd xsi:nil="true"/>
+				<ns1:credit_reason_code_description xsi:nil="true"/>
+				<ns1:csr_comments xsi:nil="true"/>
+				<ns1:client_sku>2237</ns1:client_sku>
+				<ns1:order_no>394206</ns1:order_no>
+				<ns1:item_no>2237</ns1:item_no>
+				<ns1:client_service_id>Document_Scanning</ns1:client_service_id>
+				<ns1:usage_type_cd xsi:nil="true"/>
+				<ns1:client_plan_id xsi:nil="true"/>
+				<ns1:client_item_id>Document_Scanning</ns1:client_item_id>
+				<ns1:base_plan_units xsi:nil="true"/>
+				<ns1:proration_factor xsi:nil="true"/>
+				<ns1:proration_text xsi:nil="true"/>
+				<ns1:adv_billing_period_total_days xsi:nil="true"/>
+				<ns1:proration_remaining_days xsi:nil="true"/>
+				<ns1:proration_description xsi:nil="true"/>
+				<ns1:line_type>1</ns1:line_type>
+				<ns1:rate_schedule_no xsi:nil="true"/>
+				<ns1:client_rate_schedule_id xsi:nil="true"/>
+				<ns1:rate_schedule_tier_no xsi:nil="true"/>
+				<ns1:credit_coupon_code xsi:nil="true"/>
+				<ns1:plan_instance_no xsi:nil="true"/>
+				<ns1:client_plan_instance_id xsi:nil="true"/>
+				<ns1:tax_related_ind>0</ns1:tax_related_ind>
+				<ns1:svc_credit_source_invoice_no xsi:nil="true"/>
+				<ns1:svc_credit_source_line_no xsi:nil="true"/>
+				<ns1:svc_credit_source_trans_id xsi:nil="true"/>
+				<ns1:svc_credit_applied_line_no xsi:nil="true"/>
+				<ns1:svc_credit_applied_trans_id xsi:nil="true"/>
+				<ns1:client_acct_id xsi:nil="true"/>
+				<ns1:master_plan_instance_no>1733462</ns1:master_plan_instance_no>
+				<ns1:client_mp_instance_id>1733462</ns1:client_mp_instance_id>
+				<ns1:invoice_transaction_id>9842369</ns1:invoice_transaction_id>
+				<ns1:po_num xsi:nil="true"/>
+				<ns1:bill_from_location_no>763</ns1:bill_from_location_no>
+				<ns1:ship_from_location_no>763</ns1:ship_from_location_no>
+				<ns1:bill_to_address_seq>3332302</ns1:bill_to_address_seq>
+				<ns1:ship_to_address_seq>3332302</ns1:ship_to_address_seq>
+				<ns1:rb_excluded xsi:nil="true"/>
+				<ns1:rb_line_comments xsi:nil="true"/>
+			</ns1:invoice_line_details>
+			<ns1:invoice_line_details>
+				<ns1:line_no>16</ns1:line_no>
+				<ns1:service_no>11023550</ns1:service_no>
+				<ns1:service_name>Document Scanning</ns1:service_name>
+				<ns1:units>10</ns1:units>
+				<ns1:rate_per_unit>5</ns1:rate_per_unit>
+				<ns1:amount>50</ns1:amount>
+				<ns1:description>Document Scanning (order # 394219)</ns1:description>
+				<ns1:date_range_start>2017-04-21</ns1:date_range_start>
+				<ns1:date_range_end>2017-04-21</ns1:date_range_end>
+				<ns1:usage_type_no xsi:nil="true"/>
+				<ns1:plan_no xsi:nil="true"/>
+				<ns1:plan_name xsi:nil="true"/>
+				<ns1:credit_reason_cd xsi:nil="true"/>
+				<ns1:credit_reason_code_description xsi:nil="true"/>
+				<ns1:csr_comments xsi:nil="true"/>
+				<ns1:client_sku>2237</ns1:client_sku>
+				<ns1:order_no>394219</ns1:order_no>
+				<ns1:item_no>2237</ns1:item_no>
+				<ns1:client_service_id>Document_Scanning</ns1:client_service_id>
+				<ns1:usage_type_cd xsi:nil="true"/>
+				<ns1:client_plan_id xsi:nil="true"/>
+				<ns1:client_item_id>Document_Scanning</ns1:client_item_id>
+				<ns1:base_plan_units xsi:nil="true"/>
+				<ns1:proration_factor xsi:nil="true"/>
+				<ns1:proration_text xsi:nil="true"/>
+				<ns1:adv_billing_period_total_days xsi:nil="true"/>
+				<ns1:proration_remaining_days xsi:nil="true"/>
+				<ns1:proration_description xsi:nil="true"/>
+				<ns1:line_type>1</ns1:line_type>
+				<ns1:rate_schedule_no xsi:nil="true"/>
+				<ns1:client_rate_schedule_id xsi:nil="true"/>
+				<ns1:rate_schedule_tier_no xsi:nil="true"/>
+				<ns1:credit_coupon_code xsi:nil="true"/>
+				<ns1:plan_instance_no xsi:nil="true"/>
+				<ns1:client_plan_instance_id xsi:nil="true"/>
+				<ns1:tax_related_ind>0</ns1:tax_related_ind>
+				<ns1:svc_credit_source_invoice_no xsi:nil="true"/>
+				<ns1:svc_credit_source_line_no xsi:nil="true"/>
+				<ns1:svc_credit_source_trans_id xsi:nil="true"/>
+				<ns1:svc_credit_applied_line_no xsi:nil="true"/>
+				<ns1:svc_credit_applied_trans_id xsi:nil="true"/>
+				<ns1:client_acct_id xsi:nil="true"/>
+				<ns1:master_plan_instance_no>1733462</ns1:master_plan_instance_no>
+				<ns1:client_mp_instance_id>1733462</ns1:client_mp_instance_id>
+				<ns1:invoice_transaction_id>9842370</ns1:invoice_transaction_id>
+				<ns1:po_num xsi:nil="true"/>
+				<ns1:bill_from_location_no>763</ns1:bill_from_location_no>
+				<ns1:ship_from_location_no>763</ns1:ship_from_location_no>
+				<ns1:bill_to_address_seq>3332302</ns1:bill_to_address_seq>
+				<ns1:ship_to_address_seq>3332302</ns1:ship_to_address_seq>
+				<ns1:rb_excluded xsi:nil="true"/>
+				<ns1:rb_line_comments xsi:nil="true"/>
+			</ns1:invoice_line_details>
+			<ns1:invoice_line_details>
+				<ns1:line_no>17</ns1:line_no>
+				<ns1:service_no>11023553</ns1:service_no>
+				<ns1:service_name>Freight Charges</ns1:service_name>
+				<ns1:units>1</ns1:units>
+				<ns1:rate_per_unit>135</ns1:rate_per_unit>
+				<ns1:amount>135</ns1:amount>
+				<ns1:description>Freight Charges (order # 394220)</ns1:description>
+				<ns1:date_range_start>2017-04-21</ns1:date_range_start>
+				<ns1:date_range_end>2017-04-21</ns1:date_range_end>
+				<ns1:usage_type_no xsi:nil="true"/>
+				<ns1:plan_no xsi:nil="true"/>
+				<ns1:plan_name xsi:nil="true"/>
+				<ns1:credit_reason_cd xsi:nil="true"/>
+				<ns1:credit_reason_code_description xsi:nil="true"/>
+				<ns1:csr_comments xsi:nil="true"/>
+				<ns1:client_sku>2240</ns1:client_sku>
+				<ns1:order_no>394220</ns1:order_no>
+				<ns1:item_no>2240</ns1:item_no>
+				<ns1:client_service_id>Freight_Charges</ns1:client_service_id>
+				<ns1:usage_type_cd xsi:nil="true"/>
+				<ns1:client_plan_id xsi:nil="true"/>
+				<ns1:client_item_id>Freight_Charges</ns1:client_item_id>
+				<ns1:base_plan_units xsi:nil="true"/>
+				<ns1:proration_factor xsi:nil="true"/>
+				<ns1:proration_text xsi:nil="true"/>
+				<ns1:adv_billing_period_total_days xsi:nil="true"/>
+				<ns1:proration_remaining_days xsi:nil="true"/>
+				<ns1:proration_description xsi:nil="true"/>
+				<ns1:line_type>1</ns1:line_type>
+				<ns1:rate_schedule_no xsi:nil="true"/>
+				<ns1:client_rate_schedule_id xsi:nil="true"/>
+				<ns1:rate_schedule_tier_no xsi:nil="true"/>
+				<ns1:credit_coupon_code xsi:nil="true"/>
+				<ns1:plan_instance_no xsi:nil="true"/>
+				<ns1:client_plan_instance_id xsi:nil="true"/>
+				<ns1:tax_related_ind>0</ns1:tax_related_ind>
+				<ns1:svc_credit_source_invoice_no xsi:nil="true"/>
+				<ns1:svc_credit_source_line_no xsi:nil="true"/>
+				<ns1:svc_credit_source_trans_id xsi:nil="true"/>
+				<ns1:svc_credit_applied_line_no xsi:nil="true"/>
+				<ns1:svc_credit_applied_trans_id xsi:nil="true"/>
+				<ns1:client_acct_id xsi:nil="true"/>
+				<ns1:master_plan_instance_no>1733462</ns1:master_plan_instance_no>
+				<ns1:client_mp_instance_id>1733462</ns1:client_mp_instance_id>
+				<ns1:invoice_transaction_id>9842371</ns1:invoice_transaction_id>
+				<ns1:po_num xsi:nil="true"/>
+				<ns1:bill_from_location_no>763</ns1:bill_from_location_no>
+				<ns1:ship_from_location_no>763</ns1:ship_from_location_no>
+				<ns1:bill_to_address_seq>3332302</ns1:bill_to_address_seq>
+				<ns1:ship_to_address_seq>3332302</ns1:ship_to_address_seq>
+				<ns1:rb_excluded xsi:nil="true"/>
+				<ns1:rb_line_comments xsi:nil="true"/>
+			</ns1:invoice_line_details>
+			<ns1:invoice_line_details>
+				<ns1:line_no>18</ns1:line_no>
+				<ns1:service_no>11023553</ns1:service_no>
+				<ns1:service_name>Freight Charges</ns1:service_name>
+				<ns1:units>1</ns1:units>
+				<ns1:rate_per_unit>19</ns1:rate_per_unit>
+				<ns1:amount>19</ns1:amount>
+				<ns1:description>Freight Charges (order # 394262)</ns1:description>
+				<ns1:date_range_start>2017-04-21</ns1:date_range_start>
+				<ns1:date_range_end>2017-04-21</ns1:date_range_end>
+				<ns1:usage_type_no xsi:nil="true"/>
+				<ns1:plan_no xsi:nil="true"/>
+				<ns1:plan_name xsi:nil="true"/>
+				<ns1:credit_reason_cd xsi:nil="true"/>
+				<ns1:credit_reason_code_description xsi:nil="true"/>
+				<ns1:csr_comments xsi:nil="true"/>
+				<ns1:client_sku>2240</ns1:client_sku>
+				<ns1:order_no>394262</ns1:order_no>
+				<ns1:item_no>2240</ns1:item_no>
+				<ns1:client_service_id>Freight_Charges</ns1:client_service_id>
+				<ns1:usage_type_cd xsi:nil="true"/>
+				<ns1:client_plan_id xsi:nil="true"/>
+				<ns1:client_item_id>Freight_Charges</ns1:client_item_id>
+				<ns1:base_plan_units xsi:nil="true"/>
+				<ns1:proration_factor xsi:nil="true"/>
+				<ns1:proration_text xsi:nil="true"/>
+				<ns1:adv_billing_period_total_days xsi:nil="true"/>
+				<ns1:proration_remaining_days xsi:nil="true"/>
+				<ns1:proration_description xsi:nil="true"/>
+				<ns1:line_type>1</ns1:line_type>
+				<ns1:rate_schedule_no xsi:nil="true"/>
+				<ns1:client_rate_schedule_id xsi:nil="true"/>
+				<ns1:rate_schedule_tier_no xsi:nil="true"/>
+				<ns1:credit_coupon_code xsi:nil="true"/>
+				<ns1:plan_instance_no xsi:nil="true"/>
+				<ns1:client_plan_instance_id xsi:nil="true"/>
+				<ns1:tax_related_ind>0</ns1:tax_related_ind>
+				<ns1:svc_credit_source_invoice_no xsi:nil="true"/>
+				<ns1:svc_credit_source_line_no xsi:nil="true"/>
+				<ns1:svc_credit_source_trans_id xsi:nil="true"/>
+				<ns1:svc_credit_applied_line_no xsi:nil="true"/>
+				<ns1:svc_credit_applied_trans_id xsi:nil="true"/>
+				<ns1:client_acct_id xsi:nil="true"/>
+				<ns1:master_plan_instance_no>1733462</ns1:master_plan_instance_no>
+				<ns1:client_mp_instance_id>1733462</ns1:client_mp_instance_id>
+				<ns1:invoice_transaction_id>9842372</ns1:invoice_transaction_id>
+				<ns1:po_num xsi:nil="true"/>
+				<ns1:bill_from_location_no>763</ns1:bill_from_location_no>
+				<ns1:ship_from_location_no>763</ns1:ship_from_location_no>
+				<ns1:bill_to_address_seq>3332302</ns1:bill_to_address_seq>
+				<ns1:ship_to_address_seq>3332302</ns1:ship_to_address_seq>
+				<ns1:rb_excluded xsi:nil="true"/>
+				<ns1:rb_line_comments xsi:nil="true"/>
+			</ns1:invoice_line_details>
+			<ns1:invoice_line_details>
+				<ns1:line_no>19</ns1:line_no>
+				<ns1:service_no>11023553</ns1:service_no>
+				<ns1:service_name>Freight Charges</ns1:service_name>
+				<ns1:units>1</ns1:units>
+				<ns1:rate_per_unit>135</ns1:rate_per_unit>
+				<ns1:amount>135</ns1:amount>
+				<ns1:description>Freight Charges (order # 394264)</ns1:description>
+				<ns1:date_range_start>2017-04-21</ns1:date_range_start>
+				<ns1:date_range_end>2017-04-21</ns1:date_range_end>
+				<ns1:usage_type_no xsi:nil="true"/>
+				<ns1:plan_no xsi:nil="true"/>
+				<ns1:plan_name xsi:nil="true"/>
+				<ns1:credit_reason_cd xsi:nil="true"/>
+				<ns1:credit_reason_code_description xsi:nil="true"/>
+				<ns1:csr_comments xsi:nil="true"/>
+				<ns1:client_sku>2240</ns1:client_sku>
+				<ns1:order_no>394264</ns1:order_no>
+				<ns1:item_no>2240</ns1:item_no>
+				<ns1:client_service_id>Freight_Charges</ns1:client_service_id>
+				<ns1:usage_type_cd xsi:nil="true"/>
+				<ns1:client_plan_id xsi:nil="true"/>
+				<ns1:client_item_id>Freight_Charges</ns1:client_item_id>
+				<ns1:base_plan_units xsi:nil="true"/>
+				<ns1:proration_factor xsi:nil="true"/>
+				<ns1:proration_text xsi:nil="true"/>
+				<ns1:adv_billing_period_total_days xsi:nil="true"/>
+				<ns1:proration_remaining_days xsi:nil="true"/>
+				<ns1:proration_description xsi:nil="true"/>
+				<ns1:line_type>1</ns1:line_type>
+				<ns1:rate_schedule_no xsi:nil="true"/>
+				<ns1:client_rate_schedule_id xsi:nil="true"/>
+				<ns1:rate_schedule_tier_no xsi:nil="true"/>
+				<ns1:credit_coupon_code xsi:nil="true"/>
+				<ns1:plan_instance_no xsi:nil="true"/>
+				<ns1:client_plan_instance_id xsi:nil="true"/>
+				<ns1:tax_related_ind>0</ns1:tax_related_ind>
+				<ns1:svc_credit_source_invoice_no xsi:nil="true"/>
+				<ns1:svc_credit_source_line_no xsi:nil="true"/>
+				<ns1:svc_credit_source_trans_id xsi:nil="true"/>
+				<ns1:svc_credit_applied_line_no xsi:nil="true"/>
+				<ns1:svc_credit_applied_trans_id xsi:nil="true"/>
+				<ns1:client_acct_id xsi:nil="true"/>
+				<ns1:master_plan_instance_no>1733462</ns1:master_plan_instance_no>
+				<ns1:client_mp_instance_id>1733462</ns1:client_mp_instance_id>
+				<ns1:invoice_transaction_id>9842373</ns1:invoice_transaction_id>
+				<ns1:po_num xsi:nil="true"/>
+				<ns1:bill_from_location_no>763</ns1:bill_from_location_no>
+				<ns1:ship_from_location_no>763</ns1:ship_from_location_no>
+				<ns1:bill_to_address_seq>3332302</ns1:bill_to_address_seq>
+				<ns1:ship_to_address_seq>3332302</ns1:ship_to_address_seq>
+				<ns1:rb_excluded xsi:nil="true"/>
+				<ns1:rb_line_comments xsi:nil="true"/>
+			</ns1:invoice_line_details>
+			<ns1:invoice_line_details>
+				<ns1:line_no>20</ns1:line_no>
+				<ns1:service_no>11023550</ns1:service_no>
+				<ns1:service_name>Document Scanning</ns1:service_name>
+				<ns1:units>10</ns1:units>
+				<ns1:rate_per_unit>50</ns1:rate_per_unit>
+				<ns1:amount>500</ns1:amount>
+				<ns1:description>Document Scanning (order # 394198)</ns1:description>
+				<ns1:date_range_start>2017-04-21</ns1:date_range_start>
+				<ns1:date_range_end>2017-04-21</ns1:date_range_end>
+				<ns1:usage_type_no xsi:nil="true"/>
+				<ns1:plan_no xsi:nil="true"/>
+				<ns1:plan_name xsi:nil="true"/>
+				<ns1:credit_reason_cd xsi:nil="true"/>
+				<ns1:credit_reason_code_description xsi:nil="true"/>
+				<ns1:csr_comments xsi:nil="true"/>
+				<ns1:client_sku>2237</ns1:client_sku>
+				<ns1:order_no>394198</ns1:order_no>
+				<ns1:item_no>2237</ns1:item_no>
+				<ns1:client_service_id>Document_Scanning</ns1:client_service_id>
+				<ns1:usage_type_cd xsi:nil="true"/>
+				<ns1:client_plan_id xsi:nil="true"/>
+				<ns1:client_item_id>Document_Scanning</ns1:client_item_id>
+				<ns1:base_plan_units xsi:nil="true"/>
+				<ns1:proration_factor xsi:nil="true"/>
+				<ns1:proration_text xsi:nil="true"/>
+				<ns1:adv_billing_period_total_days xsi:nil="true"/>
+				<ns1:proration_remaining_days xsi:nil="true"/>
+				<ns1:proration_description xsi:nil="true"/>
+				<ns1:line_type>1</ns1:line_type>
+				<ns1:rate_schedule_no xsi:nil="true"/>
+				<ns1:client_rate_schedule_id xsi:nil="true"/>
+				<ns1:rate_schedule_tier_no xsi:nil="true"/>
+				<ns1:credit_coupon_code xsi:nil="true"/>
+				<ns1:plan_instance_no xsi:nil="true"/>
+				<ns1:client_plan_instance_id xsi:nil="true"/>
+				<ns1:tax_related_ind>0</ns1:tax_related_ind>
+				<ns1:svc_credit_source_invoice_no xsi:nil="true"/>
+				<ns1:svc_credit_source_line_no xsi:nil="true"/>
+				<ns1:svc_credit_source_trans_id xsi:nil="true"/>
+				<ns1:svc_credit_applied_line_no xsi:nil="true"/>
+				<ns1:svc_credit_applied_trans_id xsi:nil="true"/>
+				<ns1:client_acct_id xsi:nil="true"/>
+				<ns1:master_plan_instance_no>1733462</ns1:master_plan_instance_no>
+				<ns1:client_mp_instance_id>1733462</ns1:client_mp_instance_id>
+				<ns1:invoice_transaction_id>9842374</ns1:invoice_transaction_id>
+				<ns1:po_num xsi:nil="true"/>
+				<ns1:bill_from_location_no>763</ns1:bill_from_location_no>
+				<ns1:ship_from_location_no>763</ns1:ship_from_location_no>
+				<ns1:bill_to_address_seq>3332302</ns1:bill_to_address_seq>
+				<ns1:ship_to_address_seq>3332302</ns1:ship_to_address_seq>
+				<ns1:rb_excluded xsi:nil="true"/>
+				<ns1:rb_line_comments xsi:nil="true"/>
+			</ns1:invoice_line_details>
+			<ns1:invoice_line_details>
+				<ns1:line_no>21</ns1:line_no>
+				<ns1:service_no>11023553</ns1:service_no>
+				<ns1:service_name>Freight Charges</ns1:service_name>
+				<ns1:units>1</ns1:units>
+				<ns1:rate_per_unit>135</ns1:rate_per_unit>
+				<ns1:amount>135</ns1:amount>
+				<ns1:description>Freight Charges (order # 394215)</ns1:description>
+				<ns1:date_range_start>2017-04-21</ns1:date_range_start>
+				<ns1:date_range_end>2017-04-21</ns1:date_range_end>
+				<ns1:usage_type_no xsi:nil="true"/>
+				<ns1:plan_no xsi:nil="true"/>
+				<ns1:plan_name xsi:nil="true"/>
+				<ns1:credit_reason_cd xsi:nil="true"/>
+				<ns1:credit_reason_code_description xsi:nil="true"/>
+				<ns1:csr_comments xsi:nil="true"/>
+				<ns1:client_sku>2240</ns1:client_sku>
+				<ns1:order_no>394215</ns1:order_no>
+				<ns1:item_no>2240</ns1:item_no>
+				<ns1:client_service_id>Freight_Charges</ns1:client_service_id>
+				<ns1:usage_type_cd xsi:nil="true"/>
+				<ns1:client_plan_id xsi:nil="true"/>
+				<ns1:client_item_id>Freight_Charges</ns1:client_item_id>
+				<ns1:base_plan_units xsi:nil="true"/>
+				<ns1:proration_factor xsi:nil="true"/>
+				<ns1:proration_text xsi:nil="true"/>
+				<ns1:adv_billing_period_total_days xsi:nil="true"/>
+				<ns1:proration_remaining_days xsi:nil="true"/>
+				<ns1:proration_description xsi:nil="true"/>
+				<ns1:line_type>1</ns1:line_type>
+				<ns1:rate_schedule_no xsi:nil="true"/>
+				<ns1:client_rate_schedule_id xsi:nil="true"/>
+				<ns1:rate_schedule_tier_no xsi:nil="true"/>
+				<ns1:credit_coupon_code xsi:nil="true"/>
+				<ns1:plan_instance_no xsi:nil="true"/>
+				<ns1:client_plan_instance_id xsi:nil="true"/>
+				<ns1:tax_related_ind>0</ns1:tax_related_ind>
+				<ns1:svc_credit_source_invoice_no xsi:nil="true"/>
+				<ns1:svc_credit_source_line_no xsi:nil="true"/>
+				<ns1:svc_credit_source_trans_id xsi:nil="true"/>
+				<ns1:svc_credit_applied_line_no xsi:nil="true"/>
+				<ns1:svc_credit_applied_trans_id xsi:nil="true"/>
+				<ns1:client_acct_id xsi:nil="true"/>
+				<ns1:master_plan_instance_no>1733462</ns1:master_plan_instance_no>
+				<ns1:client_mp_instance_id>1733462</ns1:client_mp_instance_id>
+				<ns1:invoice_transaction_id>9842375</ns1:invoice_transaction_id>
+				<ns1:po_num xsi:nil="true"/>
+				<ns1:bill_from_location_no>763</ns1:bill_from_location_no>
+				<ns1:ship_from_location_no>763</ns1:ship_from_location_no>
+				<ns1:bill_to_address_seq>3332302</ns1:bill_to_address_seq>
+				<ns1:ship_to_address_seq>3332302</ns1:ship_to_address_seq>
+				<ns1:rb_excluded xsi:nil="true"/>
+				<ns1:rb_line_comments xsi:nil="true"/>
+			</ns1:invoice_line_details>
+			<ns1:invoice_line_details>
+				<ns1:line_no>22</ns1:line_no>
+				<ns1:service_no>11023553</ns1:service_no>
+				<ns1:service_name>Freight Charges</ns1:service_name>
+				<ns1:units>1</ns1:units>
+				<ns1:rate_per_unit>135</ns1:rate_per_unit>
+				<ns1:amount>135</ns1:amount>
+				<ns1:description>Freight Charges (order # 394218)</ns1:description>
+				<ns1:date_range_start>2017-04-21</ns1:date_range_start>
+				<ns1:date_range_end>2017-04-21</ns1:date_range_end>
+				<ns1:usage_type_no xsi:nil="true"/>
+				<ns1:plan_no xsi:nil="true"/>
+				<ns1:plan_name xsi:nil="true"/>
+				<ns1:credit_reason_cd xsi:nil="true"/>
+				<ns1:credit_reason_code_description xsi:nil="true"/>
+				<ns1:csr_comments xsi:nil="true"/>
+				<ns1:client_sku>2240</ns1:client_sku>
+				<ns1:order_no>394218</ns1:order_no>
+				<ns1:item_no>2240</ns1:item_no>
+				<ns1:client_service_id>Freight_Charges</ns1:client_service_id>
+				<ns1:usage_type_cd xsi:nil="true"/>
+				<ns1:client_plan_id xsi:nil="true"/>
+				<ns1:client_item_id>Freight_Charges</ns1:client_item_id>
+				<ns1:base_plan_units xsi:nil="true"/>
+				<ns1:proration_factor xsi:nil="true"/>
+				<ns1:proration_text xsi:nil="true"/>
+				<ns1:adv_billing_period_total_days xsi:nil="true"/>
+				<ns1:proration_remaining_days xsi:nil="true"/>
+				<ns1:proration_description xsi:nil="true"/>
+				<ns1:line_type>1</ns1:line_type>
+				<ns1:rate_schedule_no xsi:nil="true"/>
+				<ns1:client_rate_schedule_id xsi:nil="true"/>
+				<ns1:rate_schedule_tier_no xsi:nil="true"/>
+				<ns1:credit_coupon_code xsi:nil="true"/>
+				<ns1:plan_instance_no xsi:nil="true"/>
+				<ns1:client_plan_instance_id xsi:nil="true"/>
+				<ns1:tax_related_ind>0</ns1:tax_related_ind>
+				<ns1:svc_credit_source_invoice_no xsi:nil="true"/>
+				<ns1:svc_credit_source_line_no xsi:nil="true"/>
+				<ns1:svc_credit_source_trans_id xsi:nil="true"/>
+				<ns1:svc_credit_applied_line_no xsi:nil="true"/>
+				<ns1:svc_credit_applied_trans_id xsi:nil="true"/>
+				<ns1:client_acct_id xsi:nil="true"/>
+				<ns1:master_plan_instance_no>1733462</ns1:master_plan_instance_no>
+				<ns1:client_mp_instance_id>1733462</ns1:client_mp_instance_id>
+				<ns1:invoice_transaction_id>9842376</ns1:invoice_transaction_id>
+				<ns1:po_num xsi:nil="true"/>
+				<ns1:bill_from_location_no>763</ns1:bill_from_location_no>
+				<ns1:ship_from_location_no>763</ns1:ship_from_location_no>
+				<ns1:bill_to_address_seq>3332302</ns1:bill_to_address_seq>
+				<ns1:ship_to_address_seq>3332302</ns1:ship_to_address_seq>
+				<ns1:rb_excluded xsi:nil="true"/>
+				<ns1:rb_line_comments xsi:nil="true"/>
+			</ns1:invoice_line_details>
+			<ns1:invoice_line_details>
+				<ns1:line_no>23</ns1:line_no>
+				<ns1:service_no>11023550</ns1:service_no>
+				<ns1:service_name>Document Scanning</ns1:service_name>
+				<ns1:units>10</ns1:units>
+				<ns1:rate_per_unit>5</ns1:rate_per_unit>
+				<ns1:amount>50</ns1:amount>
+				<ns1:description>Document Scanning (order # 394221)</ns1:description>
+				<ns1:date_range_start>2017-04-21</ns1:date_range_start>
+				<ns1:date_range_end>2017-04-21</ns1:date_range_end>
+				<ns1:usage_type_no xsi:nil="true"/>
+				<ns1:plan_no xsi:nil="true"/>
+				<ns1:plan_name xsi:nil="true"/>
+				<ns1:credit_reason_cd xsi:nil="true"/>
+				<ns1:credit_reason_code_description xsi:nil="true"/>
+				<ns1:csr_comments xsi:nil="true"/>
+				<ns1:client_sku>2237</ns1:client_sku>
+				<ns1:order_no>394221</ns1:order_no>
+				<ns1:item_no>2237</ns1:item_no>
+				<ns1:client_service_id>Document_Scanning</ns1:client_service_id>
+				<ns1:usage_type_cd xsi:nil="true"/>
+				<ns1:client_plan_id xsi:nil="true"/>
+				<ns1:client_item_id>Document_Scanning</ns1:client_item_id>
+				<ns1:base_plan_units xsi:nil="true"/>
+				<ns1:proration_factor xsi:nil="true"/>
+				<ns1:proration_text xsi:nil="true"/>
+				<ns1:adv_billing_period_total_days xsi:nil="true"/>
+				<ns1:proration_remaining_days xsi:nil="true"/>
+				<ns1:proration_description xsi:nil="true"/>
+				<ns1:line_type>1</ns1:line_type>
+				<ns1:rate_schedule_no xsi:nil="true"/>
+				<ns1:client_rate_schedule_id xsi:nil="true"/>
+				<ns1:rate_schedule_tier_no xsi:nil="true"/>
+				<ns1:credit_coupon_code xsi:nil="true"/>
+				<ns1:plan_instance_no xsi:nil="true"/>
+				<ns1:client_plan_instance_id xsi:nil="true"/>
+				<ns1:tax_related_ind>0</ns1:tax_related_ind>
+				<ns1:svc_credit_source_invoice_no xsi:nil="true"/>
+				<ns1:svc_credit_source_line_no xsi:nil="true"/>
+				<ns1:svc_credit_source_trans_id xsi:nil="true"/>
+				<ns1:svc_credit_applied_line_no xsi:nil="true"/>
+				<ns1:svc_credit_applied_trans_id xsi:nil="true"/>
+				<ns1:client_acct_id xsi:nil="true"/>
+				<ns1:master_plan_instance_no>1733462</ns1:master_plan_instance_no>
+				<ns1:client_mp_instance_id>1733462</ns1:client_mp_instance_id>
+				<ns1:invoice_transaction_id>9842377</ns1:invoice_transaction_id>
+				<ns1:po_num xsi:nil="true"/>
+				<ns1:bill_from_location_no>763</ns1:bill_from_location_no>
+				<ns1:ship_from_location_no>763</ns1:ship_from_location_no>
+				<ns1:bill_to_address_seq>3332302</ns1:bill_to_address_seq>
+				<ns1:ship_to_address_seq>3332302</ns1:ship_to_address_seq>
+				<ns1:rb_excluded xsi:nil="true"/>
+				<ns1:rb_line_comments xsi:nil="true"/>
+			</ns1:invoice_line_details>
+			<ns1:invoice_line_details>
+				<ns1:line_no>24</ns1:line_no>
+				<ns1:service_no>11023553</ns1:service_no>
+				<ns1:service_name>Freight Charges</ns1:service_name>
+				<ns1:units>1</ns1:units>
+				<ns1:rate_per_unit>19.91</ns1:rate_per_unit>
+				<ns1:amount>19.91</ns1:amount>
+				<ns1:description>Freight Charges (order # 394273)</ns1:description>
+				<ns1:date_range_start>2017-04-21</ns1:date_range_start>
+				<ns1:date_range_end>2017-04-21</ns1:date_range_end>
+				<ns1:usage_type_no xsi:nil="true"/>
+				<ns1:plan_no xsi:nil="true"/>
+				<ns1:plan_name xsi:nil="true"/>
+				<ns1:credit_reason_cd xsi:nil="true"/>
+				<ns1:credit_reason_code_description xsi:nil="true"/>
+				<ns1:csr_comments xsi:nil="true"/>
+				<ns1:client_sku>2240</ns1:client_sku>
+				<ns1:order_no>394273</ns1:order_no>
+				<ns1:item_no>2240</ns1:item_no>
+				<ns1:client_service_id>Freight_Charges</ns1:client_service_id>
+				<ns1:usage_type_cd xsi:nil="true"/>
+				<ns1:client_plan_id xsi:nil="true"/>
+				<ns1:client_item_id>Freight_Charges</ns1:client_item_id>
+				<ns1:base_plan_units xsi:nil="true"/>
+				<ns1:proration_factor xsi:nil="true"/>
+				<ns1:proration_text xsi:nil="true"/>
+				<ns1:adv_billing_period_total_days xsi:nil="true"/>
+				<ns1:proration_remaining_days xsi:nil="true"/>
+				<ns1:proration_description xsi:nil="true"/>
+				<ns1:line_type>1</ns1:line_type>
+				<ns1:rate_schedule_no xsi:nil="true"/>
+				<ns1:client_rate_schedule_id xsi:nil="true"/>
+				<ns1:rate_schedule_tier_no xsi:nil="true"/>
+				<ns1:credit_coupon_code xsi:nil="true"/>
+				<ns1:plan_instance_no xsi:nil="true"/>
+				<ns1:client_plan_instance_id xsi:nil="true"/>
+				<ns1:tax_related_ind>0</ns1:tax_related_ind>
+				<ns1:svc_credit_source_invoice_no xsi:nil="true"/>
+				<ns1:svc_credit_source_line_no xsi:nil="true"/>
+				<ns1:svc_credit_source_trans_id xsi:nil="true"/>
+				<ns1:svc_credit_applied_line_no xsi:nil="true"/>
+				<ns1:svc_credit_applied_trans_id xsi:nil="true"/>
+				<ns1:client_acct_id xsi:nil="true"/>
+				<ns1:master_plan_instance_no>1733462</ns1:master_plan_instance_no>
+				<ns1:client_mp_instance_id>1733462</ns1:client_mp_instance_id>
+				<ns1:invoice_transaction_id>9842378</ns1:invoice_transaction_id>
+				<ns1:po_num xsi:nil="true"/>
+				<ns1:bill_from_location_no>763</ns1:bill_from_location_no>
+				<ns1:ship_from_location_no>763</ns1:ship_from_location_no>
+				<ns1:bill_to_address_seq>3332302</ns1:bill_to_address_seq>
+				<ns1:ship_to_address_seq>3332302</ns1:ship_to_address_seq>
+				<ns1:rb_excluded xsi:nil="true"/>
+				<ns1:rb_line_comments xsi:nil="true"/>
+			</ns1:invoice_line_details>
+			<ns1:invoice_line_details>
+				<ns1:line_no>25</ns1:line_no>
+				<ns1:service_no>11023553</ns1:service_no>
+				<ns1:service_name>Freight Charges</ns1:service_name>
+				<ns1:units>1</ns1:units>
+				<ns1:rate_per_unit>16.8</ns1:rate_per_unit>
+				<ns1:amount>16.8</ns1:amount>
+				<ns1:description>Freight Charges (order # 394292)</ns1:description>
+				<ns1:date_range_start>2017-04-21</ns1:date_range_start>
+				<ns1:date_range_end>2017-04-21</ns1:date_range_end>
+				<ns1:usage_type_no xsi:nil="true"/>
+				<ns1:plan_no xsi:nil="true"/>
+				<ns1:plan_name xsi:nil="true"/>
+				<ns1:credit_reason_cd xsi:nil="true"/>
+				<ns1:credit_reason_code_description xsi:nil="true"/>
+				<ns1:csr_comments xsi:nil="true"/>
+				<ns1:client_sku>2240</ns1:client_sku>
+				<ns1:order_no>394292</ns1:order_no>
+				<ns1:item_no>2240</ns1:item_no>
+				<ns1:client_service_id>Freight_Charges</ns1:client_service_id>
+				<ns1:usage_type_cd xsi:nil="true"/>
+				<ns1:client_plan_id xsi:nil="true"/>
+				<ns1:client_item_id>Freight_Charges</ns1:client_item_id>
+				<ns1:base_plan_units xsi:nil="true"/>
+				<ns1:proration_factor xsi:nil="true"/>
+				<ns1:proration_text xsi:nil="true"/>
+				<ns1:adv_billing_period_total_days xsi:nil="true"/>
+				<ns1:proration_remaining_days xsi:nil="true"/>
+				<ns1:proration_description xsi:nil="true"/>
+				<ns1:line_type>1</ns1:line_type>
+				<ns1:rate_schedule_no xsi:nil="true"/>
+				<ns1:client_rate_schedule_id xsi:nil="true"/>
+				<ns1:rate_schedule_tier_no xsi:nil="true"/>
+				<ns1:credit_coupon_code xsi:nil="true"/>
+				<ns1:plan_instance_no xsi:nil="true"/>
+				<ns1:client_plan_instance_id xsi:nil="true"/>
+				<ns1:tax_related_ind>0</ns1:tax_related_ind>
+				<ns1:svc_credit_source_invoice_no xsi:nil="true"/>
+				<ns1:svc_credit_source_line_no xsi:nil="true"/>
+				<ns1:svc_credit_source_trans_id xsi:nil="true"/>
+				<ns1:svc_credit_applied_line_no xsi:nil="true"/>
+				<ns1:svc_credit_applied_trans_id xsi:nil="true"/>
+				<ns1:client_acct_id xsi:nil="true"/>
+				<ns1:master_plan_instance_no>1733462</ns1:master_plan_instance_no>
+				<ns1:client_mp_instance_id>1733462</ns1:client_mp_instance_id>
+				<ns1:invoice_transaction_id>9842379</ns1:invoice_transaction_id>
+				<ns1:po_num xsi:nil="true"/>
+				<ns1:bill_from_location_no>763</ns1:bill_from_location_no>
+				<ns1:ship_from_location_no>763</ns1:ship_from_location_no>
+				<ns1:bill_to_address_seq>3332302</ns1:bill_to_address_seq>
+				<ns1:ship_to_address_seq>3332302</ns1:ship_to_address_seq>
+				<ns1:rb_excluded xsi:nil="true"/>
+				<ns1:rb_line_comments xsi:nil="true"/>
+			</ns1:invoice_line_details>
+			<ns1:invoice_line_details>
+				<ns1:line_no>26</ns1:line_no>
+				<ns1:service_no>11023550</ns1:service_no>
+				<ns1:service_name>Document Scanning</ns1:service_name>
+				<ns1:units>10</ns1:units>
+				<ns1:rate_per_unit>50</ns1:rate_per_unit>
+				<ns1:amount>500</ns1:amount>
+				<ns1:description>Document Scanning (order # 394200)</ns1:description>
+				<ns1:date_range_start>2017-04-21</ns1:date_range_start>
+				<ns1:date_range_end>2017-04-21</ns1:date_range_end>
+				<ns1:usage_type_no xsi:nil="true"/>
+				<ns1:plan_no xsi:nil="true"/>
+				<ns1:plan_name xsi:nil="true"/>
+				<ns1:credit_reason_cd xsi:nil="true"/>
+				<ns1:credit_reason_code_description xsi:nil="true"/>
+				<ns1:csr_comments xsi:nil="true"/>
+				<ns1:client_sku>2237</ns1:client_sku>
+				<ns1:order_no>394200</ns1:order_no>
+				<ns1:item_no>2237</ns1:item_no>
+				<ns1:client_service_id>Document_Scanning</ns1:client_service_id>
+				<ns1:usage_type_cd xsi:nil="true"/>
+				<ns1:client_plan_id xsi:nil="true"/>
+				<ns1:client_item_id>Document_Scanning</ns1:client_item_id>
+				<ns1:base_plan_units xsi:nil="true"/>
+				<ns1:proration_factor xsi:nil="true"/>
+				<ns1:proration_text xsi:nil="true"/>
+				<ns1:adv_billing_period_total_days xsi:nil="true"/>
+				<ns1:proration_remaining_days xsi:nil="true"/>
+				<ns1:proration_description xsi:nil="true"/>
+				<ns1:line_type>1</ns1:line_type>
+				<ns1:rate_schedule_no xsi:nil="true"/>
+				<ns1:client_rate_schedule_id xsi:nil="true"/>
+				<ns1:rate_schedule_tier_no xsi:nil="true"/>
+				<ns1:credit_coupon_code xsi:nil="true"/>
+				<ns1:plan_instance_no xsi:nil="true"/>
+				<ns1:client_plan_instance_id xsi:nil="true"/>
+				<ns1:tax_related_ind>0</ns1:tax_related_ind>
+				<ns1:svc_credit_source_invoice_no xsi:nil="true"/>
+				<ns1:svc_credit_source_line_no xsi:nil="true"/>
+				<ns1:svc_credit_source_trans_id xsi:nil="true"/>
+				<ns1:svc_credit_applied_line_no xsi:nil="true"/>
+				<ns1:svc_credit_applied_trans_id xsi:nil="true"/>
+				<ns1:client_acct_id xsi:nil="true"/>
+				<ns1:master_plan_instance_no>1733462</ns1:master_plan_instance_no>
+				<ns1:client_mp_instance_id>1733462</ns1:client_mp_instance_id>
+				<ns1:invoice_transaction_id>9842380</ns1:invoice_transaction_id>
+				<ns1:po_num xsi:nil="true"/>
+				<ns1:bill_from_location_no>763</ns1:bill_from_location_no>
+				<ns1:ship_from_location_no>763</ns1:ship_from_location_no>
+				<ns1:bill_to_address_seq>3332302</ns1:bill_to_address_seq>
+				<ns1:ship_to_address_seq>3332302</ns1:ship_to_address_seq>
+				<ns1:rb_excluded xsi:nil="true"/>
+				<ns1:rb_line_comments xsi:nil="true"/>
+			</ns1:invoice_line_details>
+			<ns1:invoice_line_details>
+				<ns1:line_no>27</ns1:line_no>
+				<ns1:service_no>11023550</ns1:service_no>
+				<ns1:service_name>Document Scanning</ns1:service_name>
+				<ns1:units>10</ns1:units>
+				<ns1:rate_per_unit>5</ns1:rate_per_unit>
+				<ns1:amount>50</ns1:amount>
+				<ns1:description>Document Scanning (order # 394216)</ns1:description>
+				<ns1:date_range_start>2017-04-21</ns1:date_range_start>
+				<ns1:date_range_end>2017-04-21</ns1:date_range_end>
+				<ns1:usage_type_no xsi:nil="true"/>
+				<ns1:plan_no xsi:nil="true"/>
+				<ns1:plan_name xsi:nil="true"/>
+				<ns1:credit_reason_cd xsi:nil="true"/>
+				<ns1:credit_reason_code_description xsi:nil="true"/>
+				<ns1:csr_comments xsi:nil="true"/>
+				<ns1:client_sku>2237</ns1:client_sku>
+				<ns1:order_no>394216</ns1:order_no>
+				<ns1:item_no>2237</ns1:item_no>
+				<ns1:client_service_id>Document_Scanning</ns1:client_service_id>
+				<ns1:usage_type_cd xsi:nil="true"/>
+				<ns1:client_plan_id xsi:nil="true"/>
+				<ns1:client_item_id>Document_Scanning</ns1:client_item_id>
+				<ns1:base_plan_units xsi:nil="true"/>
+				<ns1:proration_factor xsi:nil="true"/>
+				<ns1:proration_text xsi:nil="true"/>
+				<ns1:adv_billing_period_total_days xsi:nil="true"/>
+				<ns1:proration_remaining_days xsi:nil="true"/>
+				<ns1:proration_description xsi:nil="true"/>
+				<ns1:line_type>1</ns1:line_type>
+				<ns1:rate_schedule_no xsi:nil="true"/>
+				<ns1:client_rate_schedule_id xsi:nil="true"/>
+				<ns1:rate_schedule_tier_no xsi:nil="true"/>
+				<ns1:credit_coupon_code xsi:nil="true"/>
+				<ns1:plan_instance_no xsi:nil="true"/>
+				<ns1:client_plan_instance_id xsi:nil="true"/>
+				<ns1:tax_related_ind>0</ns1:tax_related_ind>
+				<ns1:svc_credit_source_invoice_no xsi:nil="true"/>
+				<ns1:svc_credit_source_line_no xsi:nil="true"/>
+				<ns1:svc_credit_source_trans_id xsi:nil="true"/>
+				<ns1:svc_credit_applied_line_no xsi:nil="true"/>
+				<ns1:svc_credit_applied_trans_id xsi:nil="true"/>
+				<ns1:client_acct_id xsi:nil="true"/>
+				<ns1:master_plan_instance_no>1733462</ns1:master_plan_instance_no>
+				<ns1:client_mp_instance_id>1733462</ns1:client_mp_instance_id>
+				<ns1:invoice_transaction_id>9842381</ns1:invoice_transaction_id>
+				<ns1:po_num xsi:nil="true"/>
+				<ns1:bill_from_location_no>763</ns1:bill_from_location_no>
+				<ns1:ship_from_location_no>763</ns1:ship_from_location_no>
+				<ns1:bill_to_address_seq>3332302</ns1:bill_to_address_seq>
+				<ns1:ship_to_address_seq>3332302</ns1:ship_to_address_seq>
+				<ns1:rb_excluded xsi:nil="true"/>
+				<ns1:rb_line_comments xsi:nil="true"/>
+			</ns1:invoice_line_details>
+			<ns1:invoice_line_details>
+				<ns1:line_no>28</ns1:line_no>
+				<ns1:service_no>11023550</ns1:service_no>
+				<ns1:service_name>Document Scanning</ns1:service_name>
+				<ns1:units>2</ns1:units>
+				<ns1:rate_per_unit>5</ns1:rate_per_unit>
+				<ns1:amount>10</ns1:amount>
+				<ns1:description>Document Scanning (order # 394247)</ns1:description>
+				<ns1:date_range_start>2017-04-21</ns1:date_range_start>
+				<ns1:date_range_end>2017-04-21</ns1:date_range_end>
+				<ns1:usage_type_no xsi:nil="true"/>
+				<ns1:plan_no xsi:nil="true"/>
+				<ns1:plan_name xsi:nil="true"/>
+				<ns1:credit_reason_cd xsi:nil="true"/>
+				<ns1:credit_reason_code_description xsi:nil="true"/>
+				<ns1:csr_comments xsi:nil="true"/>
+				<ns1:client_sku>2237</ns1:client_sku>
+				<ns1:order_no>394247</ns1:order_no>
+				<ns1:item_no>2237</ns1:item_no>
+				<ns1:client_service_id>Document_Scanning</ns1:client_service_id>
+				<ns1:usage_type_cd xsi:nil="true"/>
+				<ns1:client_plan_id xsi:nil="true"/>
+				<ns1:client_item_id>Document_Scanning</ns1:client_item_id>
+				<ns1:base_plan_units xsi:nil="true"/>
+				<ns1:proration_factor xsi:nil="true"/>
+				<ns1:proration_text xsi:nil="true"/>
+				<ns1:adv_billing_period_total_days xsi:nil="true"/>
+				<ns1:proration_remaining_days xsi:nil="true"/>
+				<ns1:proration_description xsi:nil="true"/>
+				<ns1:line_type>1</ns1:line_type>
+				<ns1:rate_schedule_no xsi:nil="true"/>
+				<ns1:client_rate_schedule_id xsi:nil="true"/>
+				<ns1:rate_schedule_tier_no xsi:nil="true"/>
+				<ns1:credit_coupon_code xsi:nil="true"/>
+				<ns1:plan_instance_no xsi:nil="true"/>
+				<ns1:client_plan_instance_id xsi:nil="true"/>
+				<ns1:tax_related_ind>0</ns1:tax_related_ind>
+				<ns1:svc_credit_source_invoice_no xsi:nil="true"/>
+				<ns1:svc_credit_source_line_no xsi:nil="true"/>
+				<ns1:svc_credit_source_trans_id xsi:nil="true"/>
+				<ns1:svc_credit_applied_line_no xsi:nil="true"/>
+				<ns1:svc_credit_applied_trans_id xsi:nil="true"/>
+				<ns1:client_acct_id xsi:nil="true"/>
+				<ns1:master_plan_instance_no>1733462</ns1:master_plan_instance_no>
+				<ns1:client_mp_instance_id>1733462</ns1:client_mp_instance_id>
+				<ns1:invoice_transaction_id>9842382</ns1:invoice_transaction_id>
+				<ns1:po_num xsi:nil="true"/>
+				<ns1:bill_from_location_no>763</ns1:bill_from_location_no>
+				<ns1:ship_from_location_no>763</ns1:ship_from_location_no>
+				<ns1:bill_to_address_seq>3332302</ns1:bill_to_address_seq>
+				<ns1:ship_to_address_seq>3332302</ns1:ship_to_address_seq>
+				<ns1:rb_excluded xsi:nil="true"/>
+				<ns1:rb_line_comments xsi:nil="true"/>
+			</ns1:invoice_line_details>
+			<ns1:invoice_line_details>
+				<ns1:line_no>29</ns1:line_no>
+				<ns1:service_no>11023550</ns1:service_no>
+				<ns1:service_name>Document Scanning</ns1:service_name>
+				<ns1:units>3</ns1:units>
+				<ns1:rate_per_unit>7.5</ns1:rate_per_unit>
+				<ns1:amount>22.5</ns1:amount>
+				<ns1:description>Document Scanning (order # 394272)</ns1:description>
+				<ns1:date_range_start>2017-04-21</ns1:date_range_start>
+				<ns1:date_range_end>2017-04-21</ns1:date_range_end>
+				<ns1:usage_type_no xsi:nil="true"/>
+				<ns1:plan_no xsi:nil="true"/>
+				<ns1:plan_name xsi:nil="true"/>
+				<ns1:credit_reason_cd xsi:nil="true"/>
+				<ns1:credit_reason_code_description xsi:nil="true"/>
+				<ns1:csr_comments xsi:nil="true"/>
+				<ns1:client_sku>2237</ns1:client_sku>
+				<ns1:order_no>394272</ns1:order_no>
+				<ns1:item_no>2237</ns1:item_no>
+				<ns1:client_service_id>Document_Scanning</ns1:client_service_id>
+				<ns1:usage_type_cd xsi:nil="true"/>
+				<ns1:client_plan_id xsi:nil="true"/>
+				<ns1:client_item_id>Document_Scanning</ns1:client_item_id>
+				<ns1:base_plan_units xsi:nil="true"/>
+				<ns1:proration_factor xsi:nil="true"/>
+				<ns1:proration_text xsi:nil="true"/>
+				<ns1:adv_billing_period_total_days xsi:nil="true"/>
+				<ns1:proration_remaining_days xsi:nil="true"/>
+				<ns1:proration_description xsi:nil="true"/>
+				<ns1:line_type>1</ns1:line_type>
+				<ns1:rate_schedule_no xsi:nil="true"/>
+				<ns1:client_rate_schedule_id xsi:nil="true"/>
+				<ns1:rate_schedule_tier_no xsi:nil="true"/>
+				<ns1:credit_coupon_code xsi:nil="true"/>
+				<ns1:plan_instance_no xsi:nil="true"/>
+				<ns1:client_plan_instance_id xsi:nil="true"/>
+				<ns1:tax_related_ind>0</ns1:tax_related_ind>
+				<ns1:svc_credit_source_invoice_no xsi:nil="true"/>
+				<ns1:svc_credit_source_line_no xsi:nil="true"/>
+				<ns1:svc_credit_source_trans_id xsi:nil="true"/>
+				<ns1:svc_credit_applied_line_no xsi:nil="true"/>
+				<ns1:svc_credit_applied_trans_id xsi:nil="true"/>
+				<ns1:client_acct_id xsi:nil="true"/>
+				<ns1:master_plan_instance_no>1733462</ns1:master_plan_instance_no>
+				<ns1:client_mp_instance_id>1733462</ns1:client_mp_instance_id>
+				<ns1:invoice_transaction_id>9842383</ns1:invoice_transaction_id>
+				<ns1:po_num xsi:nil="true"/>
+				<ns1:bill_from_location_no>763</ns1:bill_from_location_no>
+				<ns1:ship_from_location_no>763</ns1:ship_from_location_no>
+				<ns1:bill_to_address_seq>3332302</ns1:bill_to_address_seq>
+				<ns1:ship_to_address_seq>3332302</ns1:ship_to_address_seq>
+				<ns1:rb_excluded xsi:nil="true"/>
+				<ns1:rb_line_comments xsi:nil="true"/>
+			</ns1:invoice_line_details>
+			<ns1:invoice_line_details>
+				<ns1:line_no>30</ns1:line_no>
+				<ns1:service_no>11023550</ns1:service_no>
+				<ns1:service_name>Document Scanning</ns1:service_name>
+				<ns1:units>10</ns1:units>
+				<ns1:rate_per_unit>50</ns1:rate_per_unit>
+				<ns1:amount>500</ns1:amount>
+				<ns1:description>Document Scanning (order # 394201)</ns1:description>
+				<ns1:date_range_start>2017-04-21</ns1:date_range_start>
+				<ns1:date_range_end>2017-04-21</ns1:date_range_end>
+				<ns1:usage_type_no xsi:nil="true"/>
+				<ns1:plan_no xsi:nil="true"/>
+				<ns1:plan_name xsi:nil="true"/>
+				<ns1:credit_reason_cd xsi:nil="true"/>
+				<ns1:credit_reason_code_description xsi:nil="true"/>
+				<ns1:csr_comments xsi:nil="true"/>
+				<ns1:client_sku>2237</ns1:client_sku>
+				<ns1:order_no>394201</ns1:order_no>
+				<ns1:item_no>2237</ns1:item_no>
+				<ns1:client_service_id>Document_Scanning</ns1:client_service_id>
+				<ns1:usage_type_cd xsi:nil="true"/>
+				<ns1:client_plan_id xsi:nil="true"/>
+				<ns1:client_item_id>Document_Scanning</ns1:client_item_id>
+				<ns1:base_plan_units xsi:nil="true"/>
+				<ns1:proration_factor xsi:nil="true"/>
+				<ns1:proration_text xsi:nil="true"/>
+				<ns1:adv_billing_period_total_days xsi:nil="true"/>
+				<ns1:proration_remaining_days xsi:nil="true"/>
+				<ns1:proration_description xsi:nil="true"/>
+				<ns1:line_type>1</ns1:line_type>
+				<ns1:rate_schedule_no xsi:nil="true"/>
+				<ns1:client_rate_schedule_id xsi:nil="true"/>
+				<ns1:rate_schedule_tier_no xsi:nil="true"/>
+				<ns1:credit_coupon_code xsi:nil="true"/>
+				<ns1:plan_instance_no xsi:nil="true"/>
+				<ns1:client_plan_instance_id xsi:nil="true"/>
+				<ns1:tax_related_ind>0</ns1:tax_related_ind>
+				<ns1:svc_credit_source_invoice_no xsi:nil="true"/>
+				<ns1:svc_credit_source_line_no xsi:nil="true"/>
+				<ns1:svc_credit_source_trans_id xsi:nil="true"/>
+				<ns1:svc_credit_applied_line_no xsi:nil="true"/>
+				<ns1:svc_credit_applied_trans_id xsi:nil="true"/>
+				<ns1:client_acct_id xsi:nil="true"/>
+				<ns1:master_plan_instance_no>1733462</ns1:master_plan_instance_no>
+				<ns1:client_mp_instance_id>1733462</ns1:client_mp_instance_id>
+				<ns1:invoice_transaction_id>9842384</ns1:invoice_transaction_id>
+				<ns1:po_num xsi:nil="true"/>
+				<ns1:bill_from_location_no>763</ns1:bill_from_location_no>
+				<ns1:ship_from_location_no>763</ns1:ship_from_location_no>
+				<ns1:bill_to_address_seq>3332302</ns1:bill_to_address_seq>
+				<ns1:ship_to_address_seq>3332302</ns1:ship_to_address_seq>
+				<ns1:rb_excluded xsi:nil="true"/>
+				<ns1:rb_line_comments xsi:nil="true"/>
+			</ns1:invoice_line_details>
+			<ns1:invoice_line_details>
+				<ns1:line_no>31</ns1:line_no>
+				<ns1:service_no>11023553</ns1:service_no>
+				<ns1:service_name>Freight Charges</ns1:service_name>
+				<ns1:units>1</ns1:units>
+				<ns1:rate_per_unit>1</ns1:rate_per_unit>
+				<ns1:amount>1</ns1:amount>
+				<ns1:description>Freight Charges (order # 394267)</ns1:description>
+				<ns1:date_range_start>2017-04-21</ns1:date_range_start>
+				<ns1:date_range_end>2017-04-21</ns1:date_range_end>
+				<ns1:usage_type_no xsi:nil="true"/>
+				<ns1:plan_no xsi:nil="true"/>
+				<ns1:plan_name xsi:nil="true"/>
+				<ns1:credit_reason_cd xsi:nil="true"/>
+				<ns1:credit_reason_code_description xsi:nil="true"/>
+				<ns1:csr_comments xsi:nil="true"/>
+				<ns1:client_sku>2240</ns1:client_sku>
+				<ns1:order_no>394267</ns1:order_no>
+				<ns1:item_no>2240</ns1:item_no>
+				<ns1:client_service_id>Freight_Charges</ns1:client_service_id>
+				<ns1:usage_type_cd xsi:nil="true"/>
+				<ns1:client_plan_id xsi:nil="true"/>
+				<ns1:client_item_id>Freight_Charges</ns1:client_item_id>
+				<ns1:base_plan_units xsi:nil="true"/>
+				<ns1:proration_factor xsi:nil="true"/>
+				<ns1:proration_text xsi:nil="true"/>
+				<ns1:adv_billing_period_total_days xsi:nil="true"/>
+				<ns1:proration_remaining_days xsi:nil="true"/>
+				<ns1:proration_description xsi:nil="true"/>
+				<ns1:line_type>1</ns1:line_type>
+				<ns1:rate_schedule_no xsi:nil="true"/>
+				<ns1:client_rate_schedule_id xsi:nil="true"/>
+				<ns1:rate_schedule_tier_no xsi:nil="true"/>
+				<ns1:credit_coupon_code xsi:nil="true"/>
+				<ns1:plan_instance_no xsi:nil="true"/>
+				<ns1:client_plan_instance_id xsi:nil="true"/>
+				<ns1:tax_related_ind>0</ns1:tax_related_ind>
+				<ns1:svc_credit_source_invoice_no xsi:nil="true"/>
+				<ns1:svc_credit_source_line_no xsi:nil="true"/>
+				<ns1:svc_credit_source_trans_id xsi:nil="true"/>
+				<ns1:svc_credit_applied_line_no xsi:nil="true"/>
+				<ns1:svc_credit_applied_trans_id xsi:nil="true"/>
+				<ns1:client_acct_id xsi:nil="true"/>
+				<ns1:master_plan_instance_no>1733462</ns1:master_plan_instance_no>
+				<ns1:client_mp_instance_id>1733462</ns1:client_mp_instance_id>
+				<ns1:invoice_transaction_id>9842385</ns1:invoice_transaction_id>
+				<ns1:po_num xsi:nil="true"/>
+				<ns1:bill_from_location_no>763</ns1:bill_from_location_no>
+				<ns1:ship_from_location_no>763</ns1:ship_from_location_no>
+				<ns1:bill_to_address_seq>3332302</ns1:bill_to_address_seq>
+				<ns1:ship_to_address_seq>3332302</ns1:ship_to_address_seq>
+				<ns1:rb_excluded xsi:nil="true"/>
+				<ns1:rb_line_comments xsi:nil="true"/>
+			</ns1:invoice_line_details>
+			<ns1:invoice_line_details>
+				<ns1:line_no>32</ns1:line_no>
+				<ns1:service_no>11023553</ns1:service_no>
+				<ns1:service_name>Freight Charges</ns1:service_name>
+				<ns1:units>1</ns1:units>
+				<ns1:rate_per_unit>1</ns1:rate_per_unit>
+				<ns1:amount>1</ns1:amount>
+				<ns1:description>Freight Charges (order # 394252)</ns1:description>
+				<ns1:date_range_start>2017-04-21</ns1:date_range_start>
+				<ns1:date_range_end>2017-04-21</ns1:date_range_end>
+				<ns1:usage_type_no xsi:nil="true"/>
+				<ns1:plan_no xsi:nil="true"/>
+				<ns1:plan_name xsi:nil="true"/>
+				<ns1:credit_reason_cd xsi:nil="true"/>
+				<ns1:credit_reason_code_description xsi:nil="true"/>
+				<ns1:csr_comments xsi:nil="true"/>
+				<ns1:client_sku>2240</ns1:client_sku>
+				<ns1:order_no>394252</ns1:order_no>
+				<ns1:item_no>2240</ns1:item_no>
+				<ns1:client_service_id>Freight_Charges</ns1:client_service_id>
+				<ns1:usage_type_cd xsi:nil="true"/>
+				<ns1:client_plan_id xsi:nil="true"/>
+				<ns1:client_item_id>Freight_Charges</ns1:client_item_id>
+				<ns1:base_plan_units xsi:nil="true"/>
+				<ns1:proration_factor xsi:nil="true"/>
+				<ns1:proration_text xsi:nil="true"/>
+				<ns1:adv_billing_period_total_days xsi:nil="true"/>
+				<ns1:proration_remaining_days xsi:nil="true"/>
+				<ns1:proration_description xsi:nil="true"/>
+				<ns1:line_type>1</ns1:line_type>
+				<ns1:rate_schedule_no xsi:nil="true"/>
+				<ns1:client_rate_schedule_id xsi:nil="true"/>
+				<ns1:rate_schedule_tier_no xsi:nil="true"/>
+				<ns1:credit_coupon_code xsi:nil="true"/>
+				<ns1:plan_instance_no xsi:nil="true"/>
+				<ns1:client_plan_instance_id xsi:nil="true"/>
+				<ns1:tax_related_ind>0</ns1:tax_related_ind>
+				<ns1:svc_credit_source_invoice_no xsi:nil="true"/>
+				<ns1:svc_credit_source_line_no xsi:nil="true"/>
+				<ns1:svc_credit_source_trans_id xsi:nil="true"/>
+				<ns1:svc_credit_applied_line_no xsi:nil="true"/>
+				<ns1:svc_credit_applied_trans_id xsi:nil="true"/>
+				<ns1:client_acct_id xsi:nil="true"/>
+				<ns1:master_plan_instance_no>1733462</ns1:master_plan_instance_no>
+				<ns1:client_mp_instance_id>1733462</ns1:client_mp_instance_id>
+				<ns1:invoice_transaction_id>9842386</ns1:invoice_transaction_id>
+				<ns1:po_num xsi:nil="true"/>
+				<ns1:bill_from_location_no>763</ns1:bill_from_location_no>
+				<ns1:ship_from_location_no>763</ns1:ship_from_location_no>
+				<ns1:bill_to_address_seq>3332302</ns1:bill_to_address_seq>
+				<ns1:ship_to_address_seq>3332302</ns1:ship_to_address_seq>
+				<ns1:rb_excluded xsi:nil="true"/>
+				<ns1:rb_line_comments xsi:nil="true"/>
+			</ns1:invoice_line_details>
+			<ns1:invoice_line_details>
+				<ns1:line_no>33</ns1:line_no>
+				<ns1:service_no>11023553</ns1:service_no>
+				<ns1:service_name>Freight Charges</ns1:service_name>
+				<ns1:units>1</ns1:units>
+				<ns1:rate_per_unit>135</ns1:rate_per_unit>
+				<ns1:amount>135</ns1:amount>
+				<ns1:description>Freight Charges (order # 394210)</ns1:description>
+				<ns1:date_range_start>2017-04-21</ns1:date_range_start>
+				<ns1:date_range_end>2017-04-21</ns1:date_range_end>
+				<ns1:usage_type_no xsi:nil="true"/>
+				<ns1:plan_no xsi:nil="true"/>
+				<ns1:plan_name xsi:nil="true"/>
+				<ns1:credit_reason_cd xsi:nil="true"/>
+				<ns1:credit_reason_code_description xsi:nil="true"/>
+				<ns1:csr_comments xsi:nil="true"/>
+				<ns1:client_sku>2240</ns1:client_sku>
+				<ns1:order_no>394210</ns1:order_no>
+				<ns1:item_no>2240</ns1:item_no>
+				<ns1:client_service_id>Freight_Charges</ns1:client_service_id>
+				<ns1:usage_type_cd xsi:nil="true"/>
+				<ns1:client_plan_id xsi:nil="true"/>
+				<ns1:client_item_id>Freight_Charges</ns1:client_item_id>
+				<ns1:base_plan_units xsi:nil="true"/>
+				<ns1:proration_factor xsi:nil="true"/>
+				<ns1:proration_text xsi:nil="true"/>
+				<ns1:adv_billing_period_total_days xsi:nil="true"/>
+				<ns1:proration_remaining_days xsi:nil="true"/>
+				<ns1:proration_description xsi:nil="true"/>
+				<ns1:line_type>1</ns1:line_type>
+				<ns1:rate_schedule_no xsi:nil="true"/>
+				<ns1:client_rate_schedule_id xsi:nil="true"/>
+				<ns1:rate_schedule_tier_no xsi:nil="true"/>
+				<ns1:credit_coupon_code xsi:nil="true"/>
+				<ns1:plan_instance_no xsi:nil="true"/>
+				<ns1:client_plan_instance_id xsi:nil="true"/>
+				<ns1:tax_related_ind>0</ns1:tax_related_ind>
+				<ns1:svc_credit_source_invoice_no xsi:nil="true"/>
+				<ns1:svc_credit_source_line_no xsi:nil="true"/>
+				<ns1:svc_credit_source_trans_id xsi:nil="true"/>
+				<ns1:svc_credit_applied_line_no xsi:nil="true"/>
+				<ns1:svc_credit_applied_trans_id xsi:nil="true"/>
+				<ns1:client_acct_id xsi:nil="true"/>
+				<ns1:master_plan_instance_no>1733462</ns1:master_plan_instance_no>
+				<ns1:client_mp_instance_id>1733462</ns1:client_mp_instance_id>
+				<ns1:invoice_transaction_id>9842387</ns1:invoice_transaction_id>
+				<ns1:po_num xsi:nil="true"/>
+				<ns1:bill_from_location_no>763</ns1:bill_from_location_no>
+				<ns1:ship_from_location_no>763</ns1:ship_from_location_no>
+				<ns1:bill_to_address_seq>3332302</ns1:bill_to_address_seq>
+				<ns1:ship_to_address_seq>3332302</ns1:ship_to_address_seq>
+				<ns1:rb_excluded xsi:nil="true"/>
+				<ns1:rb_line_comments xsi:nil="true"/>
+			</ns1:invoice_line_details>
+			<ns1:invoice_line_details>
+				<ns1:line_no>34</ns1:line_no>
+				<ns1:service_no>405</ns1:service_no>
+				<ns1:service_name xsi:nil="true"/>
+				<ns1:units xsi:nil="true"/>
+				<ns1:rate_per_unit xsi:nil="true"/>
+				<ns1:amount>1.97</ns1:amount>
+				<ns1:description>District Taxes</ns1:description>
+				<ns1:date_range_start xsi:nil="true"/>
+				<ns1:date_range_end xsi:nil="true"/>
+				<ns1:usage_type_no xsi:nil="true"/>
+				<ns1:plan_no xsi:nil="true"/>
+				<ns1:plan_name xsi:nil="true"/>
+				<ns1:credit_reason_cd xsi:nil="true"/>
+				<ns1:credit_reason_code_description xsi:nil="true"/>
+				<ns1:csr_comments xsi:nil="true"/>
+				<ns1:client_sku xsi:nil="true"/>
+				<ns1:order_no xsi:nil="true"/>
+				<ns1:item_no xsi:nil="true"/>
+				<ns1:client_service_id>405</ns1:client_service_id>
+				<ns1:usage_type_cd xsi:nil="true"/>
+				<ns1:client_plan_id xsi:nil="true"/>
+				<ns1:client_item_id xsi:nil="true"/>
+				<ns1:base_plan_units xsi:nil="true"/>
+				<ns1:proration_factor xsi:nil="true"/>
+				<ns1:proration_text xsi:nil="true"/>
+				<ns1:adv_billing_period_total_days xsi:nil="true"/>
+				<ns1:proration_remaining_days xsi:nil="true"/>
+				<ns1:proration_description xsi:nil="true"/>
+				<ns1:line_type>2</ns1:line_type>
+				<ns1:rate_schedule_no xsi:nil="true"/>
+				<ns1:client_rate_schedule_id xsi:nil="true"/>
+				<ns1:rate_schedule_tier_no xsi:nil="true"/>
+				<ns1:credit_coupon_code xsi:nil="true"/>
+				<ns1:plan_instance_no xsi:nil="true"/>
+				<ns1:client_plan_instance_id xsi:nil="true"/>
+				<ns1:tax_related_ind>1</ns1:tax_related_ind>
+				<ns1:svc_credit_source_invoice_no xsi:nil="true"/>
+				<ns1:svc_credit_source_line_no xsi:nil="true"/>
+				<ns1:svc_credit_source_trans_id xsi:nil="true"/>
+				<ns1:svc_credit_applied_line_no xsi:nil="true"/>
+				<ns1:svc_credit_applied_trans_id xsi:nil="true"/>
+				<ns1:client_acct_id xsi:nil="true"/>
+				<ns1:master_plan_instance_no>1733462</ns1:master_plan_instance_no>
+				<ns1:client_mp_instance_id>1733462</ns1:client_mp_instance_id>
+				<ns1:invoice_transaction_id>9842388</ns1:invoice_transaction_id>
+				<ns1:po_num xsi:nil="true"/>
+				<ns1:bill_from_location_no xsi:nil="true"/>
+				<ns1:ship_from_location_no xsi:nil="true"/>
+				<ns1:bill_to_address_seq xsi:nil="true"/>
+				<ns1:ship_to_address_seq xsi:nil="true"/>
+				<ns1:rb_excluded xsi:nil="true"/>
+				<ns1:rb_line_comments xsi:nil="true"/>
+			</ns1:invoice_line_details>
+			<ns1:invoice_line_details>
+				<ns1:line_no>35</ns1:line_no>
+				<ns1:service_no>401</ns1:service_no>
+				<ns1:service_name xsi:nil="true"/>
+				<ns1:units xsi:nil="true"/>
+				<ns1:rate_per_unit xsi:nil="true"/>
+				<ns1:amount>54.2</ns1:amount>
+				<ns1:description>State Taxes</ns1:description>
+				<ns1:date_range_start xsi:nil="true"/>
+				<ns1:date_range_end xsi:nil="true"/>
+				<ns1:usage_type_no xsi:nil="true"/>
+				<ns1:plan_no xsi:nil="true"/>
+				<ns1:plan_name xsi:nil="true"/>
+				<ns1:credit_reason_cd xsi:nil="true"/>
+				<ns1:credit_reason_code_description xsi:nil="true"/>
+				<ns1:csr_comments xsi:nil="true"/>
+				<ns1:client_sku xsi:nil="true"/>
+				<ns1:order_no xsi:nil="true"/>
+				<ns1:item_no xsi:nil="true"/>
+				<ns1:client_service_id>401</ns1:client_service_id>
+				<ns1:usage_type_cd xsi:nil="true"/>
+				<ns1:client_plan_id xsi:nil="true"/>
+				<ns1:client_item_id xsi:nil="true"/>
+				<ns1:base_plan_units xsi:nil="true"/>
+				<ns1:proration_factor xsi:nil="true"/>
+				<ns1:proration_text xsi:nil="true"/>
+				<ns1:adv_billing_period_total_days xsi:nil="true"/>
+				<ns1:proration_remaining_days xsi:nil="true"/>
+				<ns1:proration_description xsi:nil="true"/>
+				<ns1:line_type>2</ns1:line_type>
+				<ns1:rate_schedule_no xsi:nil="true"/>
+				<ns1:client_rate_schedule_id xsi:nil="true"/>
+				<ns1:rate_schedule_tier_no xsi:nil="true"/>
+				<ns1:credit_coupon_code xsi:nil="true"/>
+				<ns1:plan_instance_no xsi:nil="true"/>
+				<ns1:client_plan_instance_id xsi:nil="true"/>
+				<ns1:tax_related_ind>1</ns1:tax_related_ind>
+				<ns1:svc_credit_source_invoice_no xsi:nil="true"/>
+				<ns1:svc_credit_source_line_no xsi:nil="true"/>
+				<ns1:svc_credit_source_trans_id xsi:nil="true"/>
+				<ns1:svc_credit_applied_line_no xsi:nil="true"/>
+				<ns1:svc_credit_applied_trans_id xsi:nil="true"/>
+				<ns1:client_acct_id xsi:nil="true"/>
+				<ns1:master_plan_instance_no>1733462</ns1:master_plan_instance_no>
+				<ns1:client_mp_instance_id>1733462</ns1:client_mp_instance_id>
+				<ns1:invoice_transaction_id>9842389</ns1:invoice_transaction_id>
+				<ns1:po_num xsi:nil="true"/>
+				<ns1:bill_from_location_no xsi:nil="true"/>
+				<ns1:ship_from_location_no xsi:nil="true"/>
+				<ns1:bill_to_address_seq xsi:nil="true"/>
+				<ns1:ship_to_address_seq xsi:nil="true"/>
+				<ns1:rb_excluded xsi:nil="true"/>
+				<ns1:rb_line_comments xsi:nil="true"/>
+			</ns1:invoice_line_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>2</ns1:tax_detail_line>
+				<ns1:seq_num>34</ns1:seq_num>
+				<ns1:taxed_seq_num>1</ns1:taxed_seq_num>
+				<ns1:debit>0</ns1:debit>
+				<ns1:tax_authority_level>5</ns1:tax_authority_level>
+				<ns1:tax_rate>0</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_desc xsi:nil="true"/>
+				<ns1:tax_srv_cat_text>Local Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>TRANSIT TAX AREA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>1</ns1:tax_detail_line>
+				<ns1:seq_num>34</ns1:seq_num>
+				<ns1:taxed_seq_num>1</ns1:taxed_seq_num>
+				<ns1:debit>0</ns1:debit>
+				<ns1:tax_authority_level>5</ns1:tax_authority_level>
+				<ns1:tax_rate>0</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_desc xsi:nil="true"/>
+				<ns1:tax_srv_cat_text>General Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>MINNESOTA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>3</ns1:tax_detail_line>
+				<ns1:seq_num>34</ns1:seq_num>
+				<ns1:taxed_seq_num>2</ns1:taxed_seq_num>
+				<ns1:debit>0</ns1:debit>
+				<ns1:tax_authority_level>5</ns1:tax_authority_level>
+				<ns1:tax_rate>0</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_desc xsi:nil="true"/>
+				<ns1:tax_srv_cat_text>General Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>MINNESOTA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>4</ns1:tax_detail_line>
+				<ns1:seq_num>34</ns1:seq_num>
+				<ns1:taxed_seq_num>2</ns1:taxed_seq_num>
+				<ns1:debit>0</ns1:debit>
+				<ns1:tax_authority_level>5</ns1:tax_authority_level>
+				<ns1:tax_rate>0</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_desc xsi:nil="true"/>
+				<ns1:tax_srv_cat_text>Local Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>TRANSIT TAX AREA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>5</ns1:tax_detail_line>
+				<ns1:seq_num>34</ns1:seq_num>
+				<ns1:taxed_seq_num>3</ns1:taxed_seq_num>
+				<ns1:debit>0</ns1:debit>
+				<ns1:tax_authority_level>5</ns1:tax_authority_level>
+				<ns1:tax_rate>0</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_desc xsi:nil="true"/>
+				<ns1:tax_srv_cat_text>General Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>MINNESOTA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>6</ns1:tax_detail_line>
+				<ns1:seq_num>34</ns1:seq_num>
+				<ns1:taxed_seq_num>3</ns1:taxed_seq_num>
+				<ns1:debit>0</ns1:debit>
+				<ns1:tax_authority_level>5</ns1:tax_authority_level>
+				<ns1:tax_rate>0</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_desc xsi:nil="true"/>
+				<ns1:tax_srv_cat_text>Local Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>TRANSIT TAX AREA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>7</ns1:tax_detail_line>
+				<ns1:seq_num>34</ns1:seq_num>
+				<ns1:taxed_seq_num>4</ns1:taxed_seq_num>
+				<ns1:debit>0</ns1:debit>
+				<ns1:tax_authority_level>5</ns1:tax_authority_level>
+				<ns1:tax_rate>0</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_desc xsi:nil="true"/>
+				<ns1:tax_srv_cat_text>General Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>MINNESOTA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>8</ns1:tax_detail_line>
+				<ns1:seq_num>34</ns1:seq_num>
+				<ns1:taxed_seq_num>4</ns1:taxed_seq_num>
+				<ns1:debit>0</ns1:debit>
+				<ns1:tax_authority_level>5</ns1:tax_authority_level>
+				<ns1:tax_rate>0</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_desc xsi:nil="true"/>
+				<ns1:tax_srv_cat_text>Local Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>TRANSIT TAX AREA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>9</ns1:tax_detail_line>
+				<ns1:seq_num>34</ns1:seq_num>
+				<ns1:taxed_seq_num>5</ns1:taxed_seq_num>
+				<ns1:debit>0</ns1:debit>
+				<ns1:tax_authority_level>5</ns1:tax_authority_level>
+				<ns1:tax_rate>0</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_desc xsi:nil="true"/>
+				<ns1:tax_srv_cat_text>General Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>MINNESOTA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>10</ns1:tax_detail_line>
+				<ns1:seq_num>34</ns1:seq_num>
+				<ns1:taxed_seq_num>5</ns1:taxed_seq_num>
+				<ns1:debit>0</ns1:debit>
+				<ns1:tax_authority_level>5</ns1:tax_authority_level>
+				<ns1:tax_rate>0</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_desc xsi:nil="true"/>
+				<ns1:tax_srv_cat_text>Local Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>TRANSIT TAX AREA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>11</ns1:tax_detail_line>
+				<ns1:seq_num>34</ns1:seq_num>
+				<ns1:taxed_seq_num>6</ns1:taxed_seq_num>
+				<ns1:debit>0</ns1:debit>
+				<ns1:tax_authority_level>5</ns1:tax_authority_level>
+				<ns1:tax_rate>0</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_desc xsi:nil="true"/>
+				<ns1:tax_srv_cat_text>General Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>MINNESOTA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>12</ns1:tax_detail_line>
+				<ns1:seq_num>34</ns1:seq_num>
+				<ns1:taxed_seq_num>6</ns1:taxed_seq_num>
+				<ns1:debit>0</ns1:debit>
+				<ns1:tax_authority_level>5</ns1:tax_authority_level>
+				<ns1:tax_rate>0</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_desc xsi:nil="true"/>
+				<ns1:tax_srv_cat_text>Local Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>TRANSIT TAX AREA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>13</ns1:tax_detail_line>
+				<ns1:seq_num>34</ns1:seq_num>
+				<ns1:taxed_seq_num>7</ns1:taxed_seq_num>
+				<ns1:debit>0</ns1:debit>
+				<ns1:tax_authority_level>5</ns1:tax_authority_level>
+				<ns1:tax_rate>0</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_desc xsi:nil="true"/>
+				<ns1:tax_srv_cat_text>General Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>MINNESOTA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>14</ns1:tax_detail_line>
+				<ns1:seq_num>34</ns1:seq_num>
+				<ns1:taxed_seq_num>7</ns1:taxed_seq_num>
+				<ns1:debit>0</ns1:debit>
+				<ns1:tax_authority_level>5</ns1:tax_authority_level>
+				<ns1:tax_rate>0</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_desc xsi:nil="true"/>
+				<ns1:tax_srv_cat_text>Local Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>TRANSIT TAX AREA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>15</ns1:tax_detail_line>
+				<ns1:seq_num>34</ns1:seq_num>
+				<ns1:taxed_seq_num>8</ns1:taxed_seq_num>
+				<ns1:debit>0</ns1:debit>
+				<ns1:tax_authority_level>5</ns1:tax_authority_level>
+				<ns1:tax_rate>0</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_desc xsi:nil="true"/>
+				<ns1:tax_srv_cat_text>General Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>MINNESOTA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>16</ns1:tax_detail_line>
+				<ns1:seq_num>34</ns1:seq_num>
+				<ns1:taxed_seq_num>8</ns1:taxed_seq_num>
+				<ns1:debit>0</ns1:debit>
+				<ns1:tax_authority_level>5</ns1:tax_authority_level>
+				<ns1:tax_rate>0</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_desc xsi:nil="true"/>
+				<ns1:tax_srv_cat_text>Local Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>TRANSIT TAX AREA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>18</ns1:tax_detail_line>
+				<ns1:seq_num>34</ns1:seq_num>
+				<ns1:taxed_seq_num>9</ns1:taxed_seq_num>
+				<ns1:debit>0.04</ns1:debit>
+				<ns1:tax_authority_level>5</ns1:tax_authority_level>
+				<ns1:tax_rate>0.0025</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id>SALES</ns1:tax_srv_tax_type_id>
+				<ns1:tax_srv_tax_type_desc>General Sales and Use Tax</ns1:tax_srv_tax_type_desc>
+				<ns1:tax_srv_cat_text>Local Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>TRANSIT TAX AREA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>20</ns1:tax_detail_line>
+				<ns1:seq_num>34</ns1:seq_num>
+				<ns1:taxed_seq_num>10</ns1:taxed_seq_num>
+				<ns1:debit>0.04</ns1:debit>
+				<ns1:tax_authority_level>5</ns1:tax_authority_level>
+				<ns1:tax_rate>0.0025</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id>SALES</ns1:tax_srv_tax_type_id>
+				<ns1:tax_srv_tax_type_desc>General Sales and Use Tax</ns1:tax_srv_tax_type_desc>
+				<ns1:tax_srv_cat_text>Local Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>TRANSIT TAX AREA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>21</ns1:tax_detail_line>
+				<ns1:seq_num>34</ns1:seq_num>
+				<ns1:taxed_seq_num>11</ns1:taxed_seq_num>
+				<ns1:debit>0</ns1:debit>
+				<ns1:tax_authority_level>5</ns1:tax_authority_level>
+				<ns1:tax_rate>0</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_desc xsi:nil="true"/>
+				<ns1:tax_srv_cat_text>General Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>MINNESOTA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>22</ns1:tax_detail_line>
+				<ns1:seq_num>34</ns1:seq_num>
+				<ns1:taxed_seq_num>11</ns1:taxed_seq_num>
+				<ns1:debit>0</ns1:debit>
+				<ns1:tax_authority_level>5</ns1:tax_authority_level>
+				<ns1:tax_rate>0</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_desc xsi:nil="true"/>
+				<ns1:tax_srv_cat_text>Local Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>TRANSIT TAX AREA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>24</ns1:tax_detail_line>
+				<ns1:seq_num>34</ns1:seq_num>
+				<ns1:taxed_seq_num>12</ns1:taxed_seq_num>
+				<ns1:debit>0.05</ns1:debit>
+				<ns1:tax_authority_level>5</ns1:tax_authority_level>
+				<ns1:tax_rate>0.0025</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id>SALES</ns1:tax_srv_tax_type_id>
+				<ns1:tax_srv_tax_type_desc>General Sales and Use Tax</ns1:tax_srv_tax_type_desc>
+				<ns1:tax_srv_cat_text>Local Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>TRANSIT TAX AREA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>25</ns1:tax_detail_line>
+				<ns1:seq_num>34</ns1:seq_num>
+				<ns1:taxed_seq_num>13</ns1:taxed_seq_num>
+				<ns1:debit>0</ns1:debit>
+				<ns1:tax_authority_level>5</ns1:tax_authority_level>
+				<ns1:tax_rate>0</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_desc xsi:nil="true"/>
+				<ns1:tax_srv_cat_text>General Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>MINNESOTA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>26</ns1:tax_detail_line>
+				<ns1:seq_num>34</ns1:seq_num>
+				<ns1:taxed_seq_num>13</ns1:taxed_seq_num>
+				<ns1:debit>0</ns1:debit>
+				<ns1:tax_authority_level>5</ns1:tax_authority_level>
+				<ns1:tax_rate>0</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_desc xsi:nil="true"/>
+				<ns1:tax_srv_cat_text>Local Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>TRANSIT TAX AREA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>27</ns1:tax_detail_line>
+				<ns1:seq_num>34</ns1:seq_num>
+				<ns1:taxed_seq_num>14</ns1:taxed_seq_num>
+				<ns1:debit>0</ns1:debit>
+				<ns1:tax_authority_level>5</ns1:tax_authority_level>
+				<ns1:tax_rate>0</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_desc xsi:nil="true"/>
+				<ns1:tax_srv_cat_text>General Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>MINNESOTA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>28</ns1:tax_detail_line>
+				<ns1:seq_num>34</ns1:seq_num>
+				<ns1:taxed_seq_num>14</ns1:taxed_seq_num>
+				<ns1:debit>0</ns1:debit>
+				<ns1:tax_authority_level>5</ns1:tax_authority_level>
+				<ns1:tax_rate>0</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_desc xsi:nil="true"/>
+				<ns1:tax_srv_cat_text>Local Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>TRANSIT TAX AREA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>30</ns1:tax_detail_line>
+				<ns1:seq_num>34</ns1:seq_num>
+				<ns1:taxed_seq_num>15</ns1:taxed_seq_num>
+				<ns1:debit>0</ns1:debit>
+				<ns1:tax_authority_level>5</ns1:tax_authority_level>
+				<ns1:tax_rate>0</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_desc xsi:nil="true"/>
+				<ns1:tax_srv_cat_text>Local Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>TRANSIT TAX AREA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>29</ns1:tax_detail_line>
+				<ns1:seq_num>34</ns1:seq_num>
+				<ns1:taxed_seq_num>15</ns1:taxed_seq_num>
+				<ns1:debit>0</ns1:debit>
+				<ns1:tax_authority_level>5</ns1:tax_authority_level>
+				<ns1:tax_rate>0</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_desc xsi:nil="true"/>
+				<ns1:tax_srv_cat_text>General Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>MINNESOTA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>31</ns1:tax_detail_line>
+				<ns1:seq_num>34</ns1:seq_num>
+				<ns1:taxed_seq_num>16</ns1:taxed_seq_num>
+				<ns1:debit>0</ns1:debit>
+				<ns1:tax_authority_level>5</ns1:tax_authority_level>
+				<ns1:tax_rate>0</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_desc xsi:nil="true"/>
+				<ns1:tax_srv_cat_text>General Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>MINNESOTA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>32</ns1:tax_detail_line>
+				<ns1:seq_num>34</ns1:seq_num>
+				<ns1:taxed_seq_num>16</ns1:taxed_seq_num>
+				<ns1:debit>0</ns1:debit>
+				<ns1:tax_authority_level>5</ns1:tax_authority_level>
+				<ns1:tax_rate>0</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_desc xsi:nil="true"/>
+				<ns1:tax_srv_cat_text>Local Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>TRANSIT TAX AREA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>34</ns1:tax_detail_line>
+				<ns1:seq_num>34</ns1:seq_num>
+				<ns1:taxed_seq_num>17</ns1:taxed_seq_num>
+				<ns1:debit>0.34</ns1:debit>
+				<ns1:tax_authority_level>5</ns1:tax_authority_level>
+				<ns1:tax_rate>0.0025</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id>SALES</ns1:tax_srv_tax_type_id>
+				<ns1:tax_srv_tax_type_desc>General Sales and Use Tax</ns1:tax_srv_tax_type_desc>
+				<ns1:tax_srv_cat_text>Local Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>TRANSIT TAX AREA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>36</ns1:tax_detail_line>
+				<ns1:seq_num>34</ns1:seq_num>
+				<ns1:taxed_seq_num>18</ns1:taxed_seq_num>
+				<ns1:debit>0.05</ns1:debit>
+				<ns1:tax_authority_level>5</ns1:tax_authority_level>
+				<ns1:tax_rate>0.0025</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id>SALES</ns1:tax_srv_tax_type_id>
+				<ns1:tax_srv_tax_type_desc>General Sales and Use Tax</ns1:tax_srv_tax_type_desc>
+				<ns1:tax_srv_cat_text>Local Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>TRANSIT TAX AREA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>38</ns1:tax_detail_line>
+				<ns1:seq_num>34</ns1:seq_num>
+				<ns1:taxed_seq_num>19</ns1:taxed_seq_num>
+				<ns1:debit>0.34</ns1:debit>
+				<ns1:tax_authority_level>5</ns1:tax_authority_level>
+				<ns1:tax_rate>0.0025</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id>SALES</ns1:tax_srv_tax_type_id>
+				<ns1:tax_srv_tax_type_desc>General Sales and Use Tax</ns1:tax_srv_tax_type_desc>
+				<ns1:tax_srv_cat_text>Local Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>TRANSIT TAX AREA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>39</ns1:tax_detail_line>
+				<ns1:seq_num>34</ns1:seq_num>
+				<ns1:taxed_seq_num>20</ns1:taxed_seq_num>
+				<ns1:debit>0</ns1:debit>
+				<ns1:tax_authority_level>5</ns1:tax_authority_level>
+				<ns1:tax_rate>0</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_desc xsi:nil="true"/>
+				<ns1:tax_srv_cat_text>General Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>MINNESOTA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>40</ns1:tax_detail_line>
+				<ns1:seq_num>34</ns1:seq_num>
+				<ns1:taxed_seq_num>20</ns1:taxed_seq_num>
+				<ns1:debit>0</ns1:debit>
+				<ns1:tax_authority_level>5</ns1:tax_authority_level>
+				<ns1:tax_rate>0</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_desc xsi:nil="true"/>
+				<ns1:tax_srv_cat_text>Local Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>TRANSIT TAX AREA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>42</ns1:tax_detail_line>
+				<ns1:seq_num>34</ns1:seq_num>
+				<ns1:taxed_seq_num>21</ns1:taxed_seq_num>
+				<ns1:debit>0.34</ns1:debit>
+				<ns1:tax_authority_level>5</ns1:tax_authority_level>
+				<ns1:tax_rate>0.0025</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id>SALES</ns1:tax_srv_tax_type_id>
+				<ns1:tax_srv_tax_type_desc>General Sales and Use Tax</ns1:tax_srv_tax_type_desc>
+				<ns1:tax_srv_cat_text>Local Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>TRANSIT TAX AREA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>44</ns1:tax_detail_line>
+				<ns1:seq_num>34</ns1:seq_num>
+				<ns1:taxed_seq_num>22</ns1:taxed_seq_num>
+				<ns1:debit>0.34</ns1:debit>
+				<ns1:tax_authority_level>5</ns1:tax_authority_level>
+				<ns1:tax_rate>0.0025</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id>SALES</ns1:tax_srv_tax_type_id>
+				<ns1:tax_srv_tax_type_desc>General Sales and Use Tax</ns1:tax_srv_tax_type_desc>
+				<ns1:tax_srv_cat_text>Local Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>TRANSIT TAX AREA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>45</ns1:tax_detail_line>
+				<ns1:seq_num>34</ns1:seq_num>
+				<ns1:taxed_seq_num>23</ns1:taxed_seq_num>
+				<ns1:debit>0</ns1:debit>
+				<ns1:tax_authority_level>5</ns1:tax_authority_level>
+				<ns1:tax_rate>0</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_desc xsi:nil="true"/>
+				<ns1:tax_srv_cat_text>General Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>MINNESOTA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>46</ns1:tax_detail_line>
+				<ns1:seq_num>34</ns1:seq_num>
+				<ns1:taxed_seq_num>23</ns1:taxed_seq_num>
+				<ns1:debit>0</ns1:debit>
+				<ns1:tax_authority_level>5</ns1:tax_authority_level>
+				<ns1:tax_rate>0</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_desc xsi:nil="true"/>
+				<ns1:tax_srv_cat_text>Local Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>TRANSIT TAX AREA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>48</ns1:tax_detail_line>
+				<ns1:seq_num>34</ns1:seq_num>
+				<ns1:taxed_seq_num>24</ns1:taxed_seq_num>
+				<ns1:debit>0.05</ns1:debit>
+				<ns1:tax_authority_level>5</ns1:tax_authority_level>
+				<ns1:tax_rate>0.0025</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id>SALES</ns1:tax_srv_tax_type_id>
+				<ns1:tax_srv_tax_type_desc>General Sales and Use Tax</ns1:tax_srv_tax_type_desc>
+				<ns1:tax_srv_cat_text>Local Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>TRANSIT TAX AREA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>50</ns1:tax_detail_line>
+				<ns1:seq_num>34</ns1:seq_num>
+				<ns1:taxed_seq_num>25</ns1:taxed_seq_num>
+				<ns1:debit>0.04</ns1:debit>
+				<ns1:tax_authority_level>5</ns1:tax_authority_level>
+				<ns1:tax_rate>0.0025</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id>SALES</ns1:tax_srv_tax_type_id>
+				<ns1:tax_srv_tax_type_desc>General Sales and Use Tax</ns1:tax_srv_tax_type_desc>
+				<ns1:tax_srv_cat_text>Local Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>TRANSIT TAX AREA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>51</ns1:tax_detail_line>
+				<ns1:seq_num>34</ns1:seq_num>
+				<ns1:taxed_seq_num>26</ns1:taxed_seq_num>
+				<ns1:debit>0</ns1:debit>
+				<ns1:tax_authority_level>5</ns1:tax_authority_level>
+				<ns1:tax_rate>0</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_desc xsi:nil="true"/>
+				<ns1:tax_srv_cat_text>General Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>MINNESOTA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>52</ns1:tax_detail_line>
+				<ns1:seq_num>34</ns1:seq_num>
+				<ns1:taxed_seq_num>26</ns1:taxed_seq_num>
+				<ns1:debit>0</ns1:debit>
+				<ns1:tax_authority_level>5</ns1:tax_authority_level>
+				<ns1:tax_rate>0</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_desc xsi:nil="true"/>
+				<ns1:tax_srv_cat_text>Local Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>TRANSIT TAX AREA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>53</ns1:tax_detail_line>
+				<ns1:seq_num>34</ns1:seq_num>
+				<ns1:taxed_seq_num>27</ns1:taxed_seq_num>
+				<ns1:debit>0</ns1:debit>
+				<ns1:tax_authority_level>5</ns1:tax_authority_level>
+				<ns1:tax_rate>0</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_desc xsi:nil="true"/>
+				<ns1:tax_srv_cat_text>General Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>MINNESOTA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>54</ns1:tax_detail_line>
+				<ns1:seq_num>34</ns1:seq_num>
+				<ns1:taxed_seq_num>27</ns1:taxed_seq_num>
+				<ns1:debit>0</ns1:debit>
+				<ns1:tax_authority_level>5</ns1:tax_authority_level>
+				<ns1:tax_rate>0</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_desc xsi:nil="true"/>
+				<ns1:tax_srv_cat_text>Local Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>TRANSIT TAX AREA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>55</ns1:tax_detail_line>
+				<ns1:seq_num>34</ns1:seq_num>
+				<ns1:taxed_seq_num>28</ns1:taxed_seq_num>
+				<ns1:debit>0</ns1:debit>
+				<ns1:tax_authority_level>5</ns1:tax_authority_level>
+				<ns1:tax_rate>0</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_desc xsi:nil="true"/>
+				<ns1:tax_srv_cat_text>General Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>MINNESOTA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>56</ns1:tax_detail_line>
+				<ns1:seq_num>34</ns1:seq_num>
+				<ns1:taxed_seq_num>28</ns1:taxed_seq_num>
+				<ns1:debit>0</ns1:debit>
+				<ns1:tax_authority_level>5</ns1:tax_authority_level>
+				<ns1:tax_rate>0</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_desc xsi:nil="true"/>
+				<ns1:tax_srv_cat_text>Local Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>TRANSIT TAX AREA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>57</ns1:tax_detail_line>
+				<ns1:seq_num>34</ns1:seq_num>
+				<ns1:taxed_seq_num>29</ns1:taxed_seq_num>
+				<ns1:debit>0</ns1:debit>
+				<ns1:tax_authority_level>5</ns1:tax_authority_level>
+				<ns1:tax_rate>0</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_desc xsi:nil="true"/>
+				<ns1:tax_srv_cat_text>General Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>MINNESOTA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>58</ns1:tax_detail_line>
+				<ns1:seq_num>34</ns1:seq_num>
+				<ns1:taxed_seq_num>29</ns1:taxed_seq_num>
+				<ns1:debit>0</ns1:debit>
+				<ns1:tax_authority_level>5</ns1:tax_authority_level>
+				<ns1:tax_rate>0</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_desc xsi:nil="true"/>
+				<ns1:tax_srv_cat_text>Local Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>TRANSIT TAX AREA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>59</ns1:tax_detail_line>
+				<ns1:seq_num>34</ns1:seq_num>
+				<ns1:taxed_seq_num>30</ns1:taxed_seq_num>
+				<ns1:debit>0</ns1:debit>
+				<ns1:tax_authority_level>5</ns1:tax_authority_level>
+				<ns1:tax_rate>0</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_desc xsi:nil="true"/>
+				<ns1:tax_srv_cat_text>General Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>MINNESOTA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>60</ns1:tax_detail_line>
+				<ns1:seq_num>34</ns1:seq_num>
+				<ns1:taxed_seq_num>30</ns1:taxed_seq_num>
+				<ns1:debit>0</ns1:debit>
+				<ns1:tax_authority_level>5</ns1:tax_authority_level>
+				<ns1:tax_rate>0</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_desc xsi:nil="true"/>
+				<ns1:tax_srv_cat_text>Local Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>TRANSIT TAX AREA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>62</ns1:tax_detail_line>
+				<ns1:seq_num>34</ns1:seq_num>
+				<ns1:taxed_seq_num>31</ns1:taxed_seq_num>
+				<ns1:debit>0</ns1:debit>
+				<ns1:tax_authority_level>5</ns1:tax_authority_level>
+				<ns1:tax_rate>0</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_desc xsi:nil="true"/>
+				<ns1:tax_srv_cat_text>Local Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>TRANSIT TAX AREA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>64</ns1:tax_detail_line>
+				<ns1:seq_num>34</ns1:seq_num>
+				<ns1:taxed_seq_num>32</ns1:taxed_seq_num>
+				<ns1:debit>0</ns1:debit>
+				<ns1:tax_authority_level>5</ns1:tax_authority_level>
+				<ns1:tax_rate>0</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_desc xsi:nil="true"/>
+				<ns1:tax_srv_cat_text>Local Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>TRANSIT TAX AREA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>66</ns1:tax_detail_line>
+				<ns1:seq_num>34</ns1:seq_num>
+				<ns1:taxed_seq_num>33</ns1:taxed_seq_num>
+				<ns1:debit>0.34</ns1:debit>
+				<ns1:tax_authority_level>5</ns1:tax_authority_level>
+				<ns1:tax_rate>0.0025</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id>SALES</ns1:tax_srv_tax_type_id>
+				<ns1:tax_srv_tax_type_desc>General Sales and Use Tax</ns1:tax_srv_tax_type_desc>
+				<ns1:tax_srv_cat_text>Local Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>TRANSIT TAX AREA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>17</ns1:tax_detail_line>
+				<ns1:seq_num>35</ns1:seq_num>
+				<ns1:taxed_seq_num>9</ns1:taxed_seq_num>
+				<ns1:debit>1.31</ns1:debit>
+				<ns1:tax_authority_level>1</ns1:tax_authority_level>
+				<ns1:tax_rate>0.06875</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id>SALES</ns1:tax_srv_tax_type_id>
+				<ns1:tax_srv_tax_type_desc>General Sales and Use Tax</ns1:tax_srv_tax_type_desc>
+				<ns1:tax_srv_cat_text>General Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>MINNESOTA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>19</ns1:tax_detail_line>
+				<ns1:seq_num>35</ns1:seq_num>
+				<ns1:taxed_seq_num>10</ns1:taxed_seq_num>
+				<ns1:debit>1.15</ns1:debit>
+				<ns1:tax_authority_level>1</ns1:tax_authority_level>
+				<ns1:tax_rate>0.06875</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id>SALES</ns1:tax_srv_tax_type_id>
+				<ns1:tax_srv_tax_type_desc>General Sales and Use Tax</ns1:tax_srv_tax_type_desc>
+				<ns1:tax_srv_cat_text>General Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>MINNESOTA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>23</ns1:tax_detail_line>
+				<ns1:seq_num>35</ns1:seq_num>
+				<ns1:taxed_seq_num>12</ns1:taxed_seq_num>
+				<ns1:debit>1.37</ns1:debit>
+				<ns1:tax_authority_level>1</ns1:tax_authority_level>
+				<ns1:tax_rate>0.06875</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id>SALES</ns1:tax_srv_tax_type_id>
+				<ns1:tax_srv_tax_type_desc>General Sales and Use Tax</ns1:tax_srv_tax_type_desc>
+				<ns1:tax_srv_cat_text>General Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>MINNESOTA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>33</ns1:tax_detail_line>
+				<ns1:seq_num>35</ns1:seq_num>
+				<ns1:taxed_seq_num>17</ns1:taxed_seq_num>
+				<ns1:debit>9.28</ns1:debit>
+				<ns1:tax_authority_level>1</ns1:tax_authority_level>
+				<ns1:tax_rate>0.06875</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id>SALES</ns1:tax_srv_tax_type_id>
+				<ns1:tax_srv_tax_type_desc>General Sales and Use Tax</ns1:tax_srv_tax_type_desc>
+				<ns1:tax_srv_cat_text>General Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>MINNESOTA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>35</ns1:tax_detail_line>
+				<ns1:seq_num>35</ns1:seq_num>
+				<ns1:taxed_seq_num>18</ns1:taxed_seq_num>
+				<ns1:debit>1.31</ns1:debit>
+				<ns1:tax_authority_level>1</ns1:tax_authority_level>
+				<ns1:tax_rate>0.06875</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id>SALES</ns1:tax_srv_tax_type_id>
+				<ns1:tax_srv_tax_type_desc>General Sales and Use Tax</ns1:tax_srv_tax_type_desc>
+				<ns1:tax_srv_cat_text>General Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>MINNESOTA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>37</ns1:tax_detail_line>
+				<ns1:seq_num>35</ns1:seq_num>
+				<ns1:taxed_seq_num>19</ns1:taxed_seq_num>
+				<ns1:debit>9.28</ns1:debit>
+				<ns1:tax_authority_level>1</ns1:tax_authority_level>
+				<ns1:tax_rate>0.06875</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id>SALES</ns1:tax_srv_tax_type_id>
+				<ns1:tax_srv_tax_type_desc>General Sales and Use Tax</ns1:tax_srv_tax_type_desc>
+				<ns1:tax_srv_cat_text>General Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>MINNESOTA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>65</ns1:tax_detail_line>
+				<ns1:seq_num>35</ns1:seq_num>
+				<ns1:taxed_seq_num>33</ns1:taxed_seq_num>
+				<ns1:debit>9.28</ns1:debit>
+				<ns1:tax_authority_level>1</ns1:tax_authority_level>
+				<ns1:tax_rate>0.06875</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id>SALES</ns1:tax_srv_tax_type_id>
+				<ns1:tax_srv_tax_type_desc>General Sales and Use Tax</ns1:tax_srv_tax_type_desc>
+				<ns1:tax_srv_cat_text>General Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>MINNESOTA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>43</ns1:tax_detail_line>
+				<ns1:seq_num>35</ns1:seq_num>
+				<ns1:taxed_seq_num>22</ns1:taxed_seq_num>
+				<ns1:debit>9.28</ns1:debit>
+				<ns1:tax_authority_level>1</ns1:tax_authority_level>
+				<ns1:tax_rate>0.06875</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id>SALES</ns1:tax_srv_tax_type_id>
+				<ns1:tax_srv_tax_type_desc>General Sales and Use Tax</ns1:tax_srv_tax_type_desc>
+				<ns1:tax_srv_cat_text>General Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>MINNESOTA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>47</ns1:tax_detail_line>
+				<ns1:seq_num>35</ns1:seq_num>
+				<ns1:taxed_seq_num>24</ns1:taxed_seq_num>
+				<ns1:debit>1.37</ns1:debit>
+				<ns1:tax_authority_level>1</ns1:tax_authority_level>
+				<ns1:tax_rate>0.06875</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id>SALES</ns1:tax_srv_tax_type_id>
+				<ns1:tax_srv_tax_type_desc>General Sales and Use Tax</ns1:tax_srv_tax_type_desc>
+				<ns1:tax_srv_cat_text>General Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>MINNESOTA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>49</ns1:tax_detail_line>
+				<ns1:seq_num>35</ns1:seq_num>
+				<ns1:taxed_seq_num>25</ns1:taxed_seq_num>
+				<ns1:debit>1.15</ns1:debit>
+				<ns1:tax_authority_level>1</ns1:tax_authority_level>
+				<ns1:tax_rate>0.06875</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id>SALES</ns1:tax_srv_tax_type_id>
+				<ns1:tax_srv_tax_type_desc>General Sales and Use Tax</ns1:tax_srv_tax_type_desc>
+				<ns1:tax_srv_cat_text>General Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>MINNESOTA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>61</ns1:tax_detail_line>
+				<ns1:seq_num>35</ns1:seq_num>
+				<ns1:taxed_seq_num>31</ns1:taxed_seq_num>
+				<ns1:debit>0.07</ns1:debit>
+				<ns1:tax_authority_level>1</ns1:tax_authority_level>
+				<ns1:tax_rate>0.06875</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id>SALES</ns1:tax_srv_tax_type_id>
+				<ns1:tax_srv_tax_type_desc>General Sales and Use Tax</ns1:tax_srv_tax_type_desc>
+				<ns1:tax_srv_cat_text>General Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>MINNESOTA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>63</ns1:tax_detail_line>
+				<ns1:seq_num>35</ns1:seq_num>
+				<ns1:taxed_seq_num>32</ns1:taxed_seq_num>
+				<ns1:debit>0.07</ns1:debit>
+				<ns1:tax_authority_level>1</ns1:tax_authority_level>
+				<ns1:tax_rate>0.06875</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id>SALES</ns1:tax_srv_tax_type_id>
+				<ns1:tax_srv_tax_type_desc>General Sales and Use Tax</ns1:tax_srv_tax_type_desc>
+				<ns1:tax_srv_cat_text>General Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>MINNESOTA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:tax_details>
+				<ns1:tax_detail_line>41</ns1:tax_detail_line>
+				<ns1:seq_num>35</ns1:seq_num>
+				<ns1:taxed_seq_num>21</ns1:taxed_seq_num>
+				<ns1:debit>9.28</ns1:debit>
+				<ns1:tax_authority_level>1</ns1:tax_authority_level>
+				<ns1:tax_rate>0.06875</ns1:tax_rate>
+				<ns1:orig_was_tax_inclusive xsi:nil="true"/>
+				<ns1:tax_srv_tax_type_id>SALES</ns1:tax_srv_tax_type_id>
+				<ns1:tax_srv_tax_type_desc>General Sales and Use Tax</ns1:tax_srv_tax_type_desc>
+				<ns1:tax_srv_cat_text>General Sales and Use Tax</ns1:tax_srv_cat_text>
+				<ns1:tax_srv_juris_nm>MINNESOTA</ns1:tax_srv_juris_nm>
+				<ns1:tax_srv_tax_sum_text xsi:nil="true"/>
+			</ns1:tax_details>
+			<ns1:is_pending_ind>0</ns1:is_pending_ind>
+			<ns1:custom_status_label xsi:nil="true"/>
+			<ns1:custom_status_desc xsi:nil="true"/>
+			<ns1:client_notes xsi:nil="true"/>
+			<ns1:invoice_type_cd>F</ns1:invoice_type_cd>
+			<ns1:from_date>2017-05-01</ns1:from_date>
+			<ns1:to_date>2017-05-31</ns1:to_date>
+			<ns1:billing_group_no>781000</ns1:billing_group_no>
+			<ns1:client_billing_group_no>781000</ns1:client_billing_group_no>
+			<ns1:acct_locale_no>10001</ns1:acct_locale_no>
+			<ns1:acct_locale_name>System_US_English_locale</ns1:acct_locale_name>
+			<ns1:rb_flag xsi:nil="true"/>
+			<ns1:rb_status>False</ns1:rb_status>
+			<ns1:orig_invoice_no xsi:nil="true"/>
+		</ns1:get_invoice_details_mResponseElement>
+	</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="urn:client:api:wsdl:document/literal_wrapped:vers:11.0:aria_complete_m_api" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<SOAP-ENV:Body>
+		<ns1:get_order_mResponseElement>
+			<ns1:error_code>0</ns1:error_code>
+			<ns1:error_msg>OK</ns1:error_msg>
+			<ns1:orders>
+				<ns1:order_no>373383</ns1:order_no>
+				<ns1:amount>87.87</ns1:amount>
+				<ns1:currency_cd>usd</ns1:currency_cd>
+				<ns1:status_label>Order Billed</ns1:status_label>
+				<ns1:plan_instance_no>1371174</ns1:plan_instance_no>
+				<ns1:client_plan_instance_id>1371174</ns1:client_plan_instance_id>
+				<ns1:invoice_no>5822074</ns1:invoice_no>
+				<ns1:create_date>2017-03-28</ns1:create_date>
+				<ns1:update_date>2017-03-30</ns1:update_date>
+				<ns1:comments>Example Description</ns1:comments>
+				<ns1:client_order_id>WO-99</ns1:client_order_id>
+				<ns1:transaction_id xsi:nil="true"/>
+				<ns1:order_create_client_receipt_id xsi:nil="true"/>
+				<ns1:order_status_client_receipt_id xsi:nil="true"/>
+				<ns1:statement_message xsi:nil="true"/>
+				<ns1:po_num xsi:nil="true"/>
+			</ns1:orders>
+		</ns1:get_order_mResponseElement>
+	</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

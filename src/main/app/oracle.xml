@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mule xmlns:mulexml="http://www.mulesoft.org/schema/mule/xml" xmlns:jms="http://www.mulesoft.org/schema/mule/jms" xmlns:wmq="http://www.mulesoft.org/schema/mule/ee/wmq" xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:microsoftservicebus="http://www.mulesoft.org/schema/mule/microsoftservicebus" xmlns:mulerequester="http://www.mulesoft.org/schema/mule/mulerequester" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns:vm="http://www.mulesoft.org/schema/mule/vm" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns:metadata="http://www.mulesoft.org/schema/mule/metadata"
+xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw"
+xmlns:http="http://www.mulesoft.org/schema/mule/http"
+xmlns="http://www.mulesoft.org/schema/mule/core"
+xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+xmlns:spring="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd
+http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/current/mule-vm.xsd
+http://www.mulesoft.org/schema/mule/mulerequester http://www.mulesoft.org/schema/mule/mulerequester/current/mule-mulerequester.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
+http://www.mulesoft.org/schema/mule/microsoftservicebus http://www.mulesoft.org/schema/mule/microsoftservicebus/current/mule-microsoftservicebus.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/jms http://www.mulesoft.org/schema/mule/jms/current/mule-jms.xsd
+http://www.mulesoft.org/schema/mule/ee/wmq http://www.mulesoft.org/schema/mule/ee/wmq/current/mule-wmq-ee.xsd
+http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/current/mule-xml.xsd">
+    <sub-flow name="PrepareInvoiceForOracle_Sub_Flow">
+        <dw:transform-message doc:name="TableForJurisdiction">
+            <dw:set-variable variableName="jurisdictionTable"><![CDATA[%dw 1.0
+%output application/java
+---
+[
+	"COUNTRY",
+	"STATE",
+	"COUNTY",
+	"CITY",
+	"NONE",
+	"DISTRICT"
+]]]></dw:set-variable>
+        </dw:transform-message>
+        <logger message="salesRep 1: #[flowVars.SalesRepInfo]" level="DEBUG" doc:name="Logger" category="com.merrillcorp.invoice"/>
+<!--          <set-payload value="#[['businessUnit': flowVars.ariaAccountDetails.businessUnit,'serviceSite':flowVars.ariaAccountDetails.primaryServiceSite,'teamType':'DATASITE']]" doc:name="Set Payload"/>
+        <flow-ref name="processExpOrgMap" doc:name="processExpOrgMap"/>
+        <set-variable variableName="ExpOrgId" value="#[payload]" doc:name="Variable"/>
+        <set-payload value="#[['employeesInfo':flowVars.ariaAccountDetails.salesRepSplitAmountString,'operationName':flowVars.ariaAccountDetails.operatingUnitName]]" doc:name="employeeInfo and OperatingUnitName"/>
+        <ee:cache cachingStrategy-ref="ExpirableCachingStrategy" doc:name="Cache">
+            <flow-ref name="processSalesRepoInfo" doc:name="processSalesRepoInfo"/>
+        </ee:cache>
+        
+        -->
+        
+        <dw:transform-message doc:name="BuildInvoiceInputForOracle">
+            <dw:set-payload resource="classpath:dataweave/BuildInvoiceForOracle.dwl"/>
+        </dw:transform-message>
+    </sub-flow>
+
+    <flow name="CreateInvoiceInOracle_Flow">
+        <logger message="Start createInvoiceInOracleSub_Flow" level="INFO" doc:name="INFO" category="com.merrillcorp.invoice"/>
+        <flow-ref name="PrepareInvoiceForOracle_Sub_Flow" doc:name="PrepareInvoiceForOracle_Sub_Flow"/>
+        <logger message="Payload: #[payload]" level="DEBUG" doc:name="Logger" category="com.merrillcorp.invoice"/>
+        <set-variable variableName="payloadBeforeUntillSuccess" value="#[payload]" doc:name="payloadBeforeUntillSuccess"/>
+        <set-variable variableName="createInvoiceData" value="#[payload]" doc:name="createInvoiceData"/>
+        <flow-ref name="CreateInvoiceCall_Flow" doc:name="CreateInvoiceCall_Flow"/>
+    </flow>
+
+
+
+    <flow name="CreateInvoiceCall_Flow" processingStrategy="synchronous">
+        <until-successful maxRetries="${oracle.http.max.retries}" millisBetweenRetries="${oracle.http.milliSecondsBetweenRetries}" failureExpression="exception!=null &amp;&amp; (exception.causedBy(java.io.IOException) || exception.causedBy(java.net.ConnectException)  || exception.causedBy(java.net.SocketTimeoutException))" synchronous="true" doc:name="UntilSuccessfulForInvoiceCreation">
+            <http:request config-ref="oracleSysHttpRequestConfiguration" path="${oracle.invoice.path}" method="POST" doc:name="SendInvoiceToOracle">
+            </http:request>
+        </until-successful>
+        <byte-array-to-string-transformer doc:name="Byte Array to String"/>
+        <logger message="After posting to Oracle, the returned payload: #[message.payloadAs(java.lang.String)]" level="INFO" doc:name="Logger with Payload" category="com.merrillcorp.invoice"/>
+       <!--  <set-variable variableName="extractMsg" value="#[json:OutputParameters/P_RESULTS/STATUS]" doc:name="extractStatusMsg"/> -->
+        <dw:transform-message doc:name="Transform Message">
+            <dw:input-payload doc:sample="sample_data\empty_1.xml"/>
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/json
+---
+payload]]></dw:set-payload>
+            <dw:set-variable variableName="extractMsg"><![CDATA[%dw 1.0
+%output application/java
+---
+payload.OutputParameters.P_RESULTS.STATUS as :string when (payload.OutputParameters.P_RESULTS? and payload.OutputParameters.P_RESULTS is :object) otherwise "success" as :string
+
+]]></dw:set-variable>
+        </dw:transform-message>
+        <logger message="The returned status: #[flowVars.extractMsg]" level="DEBUG" doc:name="Logger" category="com.merrillcorp.invoice"/>
+
+        <choice doc:name="Choice">
+            <when expression="#[flowVars.extractMsg == 'S']">
+                <flow-ref name="CreateTriggerToSendPdfOfStatementToOracle" doc:name="CreateTriggerToSendPdfOfStatementToOracle"/>
+
+
+            </when>
+            <when expression="#[flowVars.extractMsg == 'E']">
+                <logger message="Failed Response Received" level="INFO" doc:name="Logger" category="com.merrillcorp.invoice"/>
+                <logger message="Commented code for retry--&gt; check QTC 674 in configuration xml and uncomment it to enable retry." level="DEBUG" doc:name="Logger" category="com.merrillcorp.invoice"/>
+                <!--QTC 674 Uncomment these lines to enable retry -->
+                <!-- <set-payload value="#[flowVars.event]" doc:name="Set Payload"/>
+                <json:object-to-json-transformer mimeType="application/json" doc:name="Object to JSON"/>
+                <logger message="Storing Data in queue: #[payload]" level="INFO" doc:name="Logger"/>
+                <microsoftservicebus:queue-send config-ref="Microsoft_Service_Bus__Azure_Service_Bus" destinationQueue="${queue.ariaeventretry}" doc:name="Microsoft Service Bus"/> -->
+            </when>
+            <otherwise >
+                <logger level="WARN" doc:name="Log Issue with Oracle Reponse" message="***Oracle Response not an E or an S" category="com.merrillcorp.invoice"/>
+                <set-payload value="#[flowVars.event]" doc:name="Set Payload"/>
+                <microsoftservicebus:queue-send config-ref="Microsoft_Service_Bus__Azure_Service_Bus" doc:name="Microsoft Service Bus" destinationQueue="${queue.oracleinvoiceerror}"/>
+
+            </otherwise>
+        </choice>
+        <logger message="End Create Invoice" level="INFO" category="com.merrillcorp.invoice" doc:name="Logger"/>
+    </flow>
+<!--     <flow name="createInvoiceEventResendFlow" initialState="stopped">
+        <microsoftservicebus:queue-receive config-ref="Microsoft_Service_Bus__Azure_Service_Bus" sourceQueue="${queue.createinv}" doc:name="Microsoft Service Bus (Streaming)"/>
+        <dw:transform-message doc:name="Transform Message">
+            <dw:set-payload resource="classpath:event_resend.dwl"/>
+        </dw:transform-message>
+        <set-payload value="#[json:body]" doc:name="Set Payload" mimeType="application/json"/>
+        <logger message="The payload that was stored, gets to send back: #[payload]" level="INFO" doc:name="Logger" category="com.merrillcorp.invoice"/>
+        <choice doc:name="Choice">
+            <when expression="#[payload == null]">
+                <logger message="No Error Message in the Queue to Resend" level="INFO" doc:name="Logger" category="com.merrillcorp.invoice"/>
+            </when>
+            <otherwise>
+                <enricher target="#[variable:oracleAuth]" doc:name="Message Enricher">
+                    <flow-ref name="getAuth" doc:name="getAuth"/>
+                </enricher>
+                <set-variable variableName="vmInvoice" value="#[payload]" doc:name="createVariable"/>
+                <logger message="Oracle Invoice:   Cookie: #[flowVars.oracleAuth.tokenName + '=' + flowVars.oracleAuth.accessToken]   Payload: #[message.payloadAs(java.lang.String)]" level="INFO" doc:name="Logger" category="com.merrillcorp.invoice"/>
+                <flow-ref name="CreateInvoiceCallSub_Flow" doc:name="CreateInvoiceCallSub_Flow"/>
+                <logger message="Polling at #[server.dateTime.getTime()]" level="INFO" doc:name="Logger" category="com.merrillcorp.invoice"/>
+            </otherwise>
+        </choice>
+        <logger message="Failed Event Sent back to Oracle" level="INFO" doc:name="Logger" category="com.merrillcorp.invoice"/>
+    </flow> -->
+
+
+    <flow name="Void_Invoice_In_Oracle_Flow">
+        <logger message="Start Void_Invoice_In_Oracle_Sub_Flow" level="INFO" doc:name="INFO" category="com.merrillcorp.voidInvoice"/>
+        <dw:transform-message doc:name="Prepare Void Invoice For Oracle">
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/java
+---
+{
+originalVoidNumber: flowVars.originalVoidNumber
+}]]></dw:set-payload>
+        </dw:transform-message>
+        <logger message="Oracle Void Invoice:   Cookie: #[flowVars.oracleAuth.tokenName + '=' + flowVars.oracleAuth.accessToken]   Payload: #[message.payloadAs(java.lang.String)]" level="DEBUG" doc:name="Logger" category="com.merrillcorp.voidInvoice"/>
+        <set-variable variableName="payloadBeforeUntillSuccess" value="#[payload]" doc:name="payloadBeforeUntillSuccess"/>
+        <set-variable variableName="voidInvoiceData" value="#[payload]" doc:name="voidInvoiceData"/>
+        <flow-ref name="VoidInvoiceCall_Flow" doc:name="VoidInvoiceCall_Flow"/>
+    </flow>
+    <flow name="VoidInvoiceCall_Flow" processingStrategy="synchronous">
+        <until-successful maxRetries="${oracle.http.max.retries}" millisBetweenRetries="${oracle.http.milliSecondsBetweenRetries}" failureExpression="exception!=null &amp;&amp; (exception.causedBy(java.io.IOException) || exception.causedBy(java.net.ConnectException)  || exception.causedBy(java.net.SocketTimeoutException))" synchronous="true" doc:name="UntilSuccessfulForInvoiceCreation">
+            <http:request config-ref="oracleSysHttpRequestConfiguration" path="${oracle.reverseInvoice.path}?originalVoidNumber=#[payload.originalVoidNumber]" method="GET" doc:name="SendVoidInvoiceToOracle">
+                <http:success-status-code-validator values="0..599"/>
+            </http:request>
+        </until-successful>
+        <byte-array-to-string-transformer doc:name="Byte Array to String"/>
+        <logger message="After posting to Oracle, the returned payload: #[message.payloadAs(java.lang.String)]" level="INFO" doc:name="Logger with Payload" category="com.merrillcorp.voidInvoice"/>
+        <dw:transform-message doc:name="Transform Message">
+            <dw:input-payload doc:sample="sample_data\empty_1.xml"/>
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/json
+---
+payload]]></dw:set-payload>
+            <dw:set-variable variableName="extractMsg"><![CDATA[%dw 1.0
+%output application/java
+---
+payload.OutputParameters.P_RESULTS.STATUS as :string when (payload.OutputParameters.P_RESULTS? and payload.OutputParameters.P_RESULTS is :object) otherwise "success" as :string
+
+]]></dw:set-variable>
+        </dw:transform-message>
+
+        <logger message="The returned status: #[flowVars.extractMsg]" level="DEBUG" doc:name="Logger" category="com.merrillcorp.voidInvoice"/>
+        <choice doc:name="Choice">
+            <when expression="#[flowVars.extractMsg == 'S']">
+                <flow-ref name="VoidInvTriggerToSendPdfToOracle" doc:name="VoidInvTriggerToSendPdfToOracle"/>
+            </when>
+            <otherwise>
+                <logger message="Failed Response Received" level="INFO" doc:name="Logger" category="com.merrillcorp.voidInvoice"/>
+                <logger message="Commented code for retry, check 'disabled retry' in config xml to uncomment" level="DEBUG" doc:name="Logger" category="com.merrillcorp.voidInvoice"/>
+ <!--                <'disabled retry' uncomment below to enable> -->
+<!--                 <set-payload value="#[flowVars.voidInvoiceData == null ? flowVars.vmvoidInvoice:flowVars.voidInvoiceData]" doc:name="Set Payload"/>
+                <logger level="INFO" doc:name="Logger" message="Storing Data in queue: #[payload]"/>
+                <microsoftservicebus:queue-send config-ref="Microsoft_Service_Bus__Azure_Service_Bus" destinationQueue="${queue.voidinv}" doc:name="Microsoft Service Bus"/> -->
+            </otherwise>
+        </choice>
+        <logger message="End Void Invoice" level="INFO" doc:name="Logger" category="com.merrillcorp.voidInvoice"/>
+    </flow>
+<!--     <flow name="voidInvoiceEventResendFlow">
+        <microsoftservicebus:queue-receive config-ref="Microsoft_Service_Bus__Azure_Service_Bus" sourceQueue="${queue.voidinv}" doc:name="Microsoft Service Bus (Streaming)"/>
+        <dw:transform-message doc:name="Transform Message">
+            <dw:set-payload resource="classpath:event_resend.dwl"/>
+        </dw:transform-message>
+        <set-payload value="#[json:body]" doc:name="Set Payload" mimeType="application/json"/>
+        <logger message="The payload that stored, gets to send back: #[payload]" level="INFO" doc:name="Logger" category="com.merrillcorp.voidInvoice"/>
+        <choice doc:name="Choice">
+            <when expression="#[payload == null]">
+                <logger message="No Error Message in the Queue to Resend" level="INFO" doc:name="Logger" category="com.merrillcorp.voidInvoice"/>
+            </when>
+            <otherwise>
+                <enricher target="#[variable:oracleAuth]" doc:name="Message Enricher">
+                    <flow-ref name="getAuth" doc:name="getAuth"/>
+                </enricher>
+                <set-variable variableName="vmvoidInvoice" value="#[payload]" doc:name="voidVariable"/>
+                <logger message="Oracle Void Invoice:   Cookie: #[flowVars.oracleAuth.tokenName + '=' + flowVars.oracleAuth.accessToken]   Payload: #[message.payloadAs(java.lang.String)]" level="INFO" doc:name="Logger" category="com.merrillcorp.voidInvoice"/>
+                <flow-ref name="VoidInvoiceCallSub_Flow" doc:name="VoidInvoiceCallSub_Flow"/>
+                <logger message="Polling at #[server.dateTime.getTime()]" level="INFO" doc:name="Logger" category="com.merrillcorp.voidInvoice"/>
+            </otherwise>
+        </choice>
+        <logger message="Failed Event Sent back to Oracle" level="INFO" doc:name="Logger" category="com.merrillcorp.voidInvoice"/>
+    </flow> -->
+    
+    
+     <flow name="Create_Credit_Memo_In_Oracle_Flow">
+        <logger message="Start Create_Credit_Memo_In_Oracle_Sub_Flow" level="INFO" doc:name="INFO" category="com.merrillcorp.creditMemo"/>
+        <dw:transform-message doc:name="Prepare Credit Memo Creation Payload For Oracle">
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/java
+---
+{
+        originalInvoiceNumber: flowVars.ariaCreditMemoDetails.originalInvoiceNumber,
+        originalCMNumber: flowVars.originalCMNumber
+}]]></dw:set-payload>
+        </dw:transform-message>
+        <logger message="OracleCreate Credit Memo:  Cookie: #[flowVars.oracleAuth.tokenName + '=' + flowVars.oracleAuth.accessToken]   Payload:#[message.payloadAs(java.lang.String)] " level="DEBUG" doc:name="Logger" category="com.merrillcorp.creditMemo"/>
+        <set-variable variableName="payloadBeforeUntillSuccess" value="#[payload]" doc:name="payloadBeforeUntillSuccess"/>
+        <set-variable variableName="CreateCreditMemData" value="#[payload]" doc:name="CreateCreditMemData"/>
+        <flow-ref name="CreateCreditMemoCall_Flow" doc:name="CreateCreditMemoCall_Flow"/>
+    </flow>
+    <flow name="CreateCreditMemoCall_Flow" processingStrategy="synchronous">
+        <until-successful maxRetries="${oracle.http.max.retries}" millisBetweenRetries="${oracle.http.milliSecondsBetweenRetries}" failureExpression="exception!=null &amp;&amp; (exception.causedBy(java.io.IOException) || exception.causedBy(java.net.ConnectException)  || exception.causedBy(java.net.SocketTimeoutException))" synchronous="true" doc:name="UntilSuccessfulForInvoiceCreation">
+            <http:request config-ref="oracleSysHttpRequestConfiguration" path="${oracle.creditMemo.path}?originalInvoiceNumber=#[payload.originalInvoiceNumber]&amp;originalCMNumber=#[payload.originalCMNumber]" method="GET" doc:name="SendCreateCreditMemoToOracle">
+                <http:success-status-code-validator values="0..599"/>
+            </http:request>
+        </until-successful>
+        <byte-array-to-string-transformer doc:name="Byte Array to String"/>
+        <logger message="After posting to Oracle, the returned payload: #[message.payloadAs(java.lang.String)]" level="INFO" doc:name="Logger with Payload" category="com.merrillcorp.creditMemo"/>
+        <dw:transform-message doc:name="Transform Message">
+            <dw:input-payload doc:sample="sample_data\empty_1.xml"/>
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/json
+---
+payload]]></dw:set-payload>
+            <dw:set-variable variableName="extractMsg"><![CDATA[%dw 1.0
+%output application/java
+---
+payload.OutputParameters.P_RESULTS.STATUS as :string when (payload.OutputParameters.P_RESULTS? and payload.OutputParameters.P_RESULTS is :object) otherwise "success" as :string
+
+]]></dw:set-variable>
+        </dw:transform-message>
+        <set-variable variableName="originalInvoiceNumber" value="#[flowVars.ariaCreditMemoDetails.originalInvoiceNumber]" doc:name="originalInvoiceNumber"/>
+
+        <logger message="The returned status: #[flowVars.extractMsg]" level="DEBUG" doc:name="Logger" category="com.merrillcorp.creditMemo"/>
+        <choice doc:name="Choice">
+            <when expression="#[flowVars.extractMsg == 'S']">
+                <flow-ref name="CMTriggerToSendPdfToOracle" doc:name="CMTriggerToSendPdfToOracle"/>
+            </when>
+            <otherwise>
+                <logger message="Failed Response Received" level="INFO" doc:name="Logger" category="com.merrillcorp.creditMemo"/>
+                <logger message="Commented code for retry, check 'disabled retry' in config xml to uncomment" level="DEBUG" doc:name="Logger" category="com.merrillcorp.creditMemo"/>
+ <!--                <'disabled retry' uncomment below to enable> -->
+<!--                 <set-payload value="#[flowVars.CreateCreditMemData == null ? flowVars.vmCreateCreditMem:flowVars.CreateCreditMemData]" doc:name="Set Payload"/>
+                <logger level="INFO" doc:name="Logger" message="Storing Data in queue: #[payload]"/>
+                <microsoftservicebus:queue-send config-ref="Microsoft_Service_Bus__Azure_Service_Bus" destinationQueue="${queue.creatememo}" doc:name="Microsoft Service Bus"/> -->
+            </otherwise>
+        </choice>
+        <logger message="End Create Credit Memo" level="INFO" doc:name="Logger" category="com.merrillcorp.creditMemo"/>
+    </flow>
+<!--     <flow name="createCreditMemoEventResendFlow">
+        <microsoftservicebus:queue-receive config-ref="Microsoft_Service_Bus__Azure_Service_Bus" sourceQueue="${queue.creatememo}" doc:name="Microsoft Service Bus (Streaming)"/>
+        <dw:transform-message doc:name="Transform Message">
+            <dw:set-payload resource="classpath:event_resend.dwl"/>
+        </dw:transform-message>
+        <set-payload value="#[json:body]" doc:name="Set Payload" mimeType="application/json"/>
+        <logger message="The payload that stored, gets to send back: #[payload]" level="INFO" doc:name="Logger" category="com.merrillcorp.creditMemo"/>
+        <choice doc:name="Choice">
+            <when expression="#[payload == null]">
+                <logger message="No Error Message in the Queue to Resend" level="INFO" doc:name="Logger" category="com.merrillcorp.creditMemo"/>
+            </when>
+            <otherwise>
+                <enricher target="#[variable:oracleAuth]" doc:name="Message Enricher">
+                    <flow-ref name="getAuth" doc:name="getAuth"/>
+                </enricher>
+                <set-variable variableName="vmCreateCreditMem" value="#[payload]" doc:name="Variable"/>
+                <logger message="OracleCreate Credit Memo:  Cookie: #[flowVars.oracleAuth.tokenName + '=' + flowVars.oracleAuth.accessToken]   Payload:#[message.payloadAs(java.lang.String)] " level="INFO" doc:name="Logger" category="com.merrillcorp.creditMemo"/>
+                <flow-ref name="CreateCreditMemoCallSub_Flow" doc:name="CreateCreditMemoCallSub_Flow"/>
+                <logger message="Polling at #[server.dateTime.getTime()]" level="INFO" doc:name="Logger" category="com.merrillcorp.creditMemo"/>
+            </otherwise>
+        </choice>
+        <logger message="Failed Event Sent back to Oracle" level="INFO" doc:name="Logger" category="com.merrillcorp.creditMemo"/>
+    </flow> -->
+    
+    
+        
+     <flow name="Void_Credit_Memo_In_Oracle_Flow">
+        <logger message="Start Void_Credit_Memo_In_Oracle_Sub_Flow" level="INFO" doc:name="INFO" category="com.merrillcorp.voidCreditMemo"/>
+        <dw:transform-message doc:name="Prepare Void Credit Memo For Oracle">
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/java
+---
+{
+        originalInvoiceNumber: flowVars.ariaCreditMemoDetails.originalInvoiceNumber
+}
+]]></dw:set-payload>
+        </dw:transform-message>
+        <logger message="Oracle Void Credit Memo:   Cookie: #[flowVars.oracleAuth.tokenName + '=' + flowVars.oracleAuth.accessToken]   Payload: #[message.payloadAs(java.lang.String)]" level="DEBUG" doc:name="Logger" category="com.merrillcorp.voidCreditMemo"/>
+        <set-variable variableName="payloadBeforeUntillSuccess" value="#[payload]" doc:name="payloadBeforeUntillSuccess"/>
+        <set-variable variableName="VoidCreditMemData" value="#[payload]" doc:name="VoidCreditMemData"/>
+        <flow-ref name="VoidCreditMemoCall_Flow" doc:name="VoidCreditMemoCall_Flow"/>
+    </flow>
+    
+    <flow name="VoidCreditMemoCall_Flow" processingStrategy="synchronous">
+        <until-successful maxRetries="${oracle.http.max.retries}" millisBetweenRetries="${oracle.http.milliSecondsBetweenRetries}" failureExpression="exception!=null &amp;&amp; (exception.causedBy(java.io.IOException) || exception.causedBy(java.net.ConnectException)  || exception.causedBy(java.net.SocketTimeoutException))" synchronous="true" doc:name="UntilSuccessfulForInvoiceCreation">
+            <http:request config-ref="oracleSysHttpRequestConfiguration" path="${oracle.voidCreditMemo.path}?originalInvoiceNumber=#[payload.originalInvoiceNumber]" method="GET" doc:name="SendVoidCreditMemoToOracle">
+                <http:success-status-code-validator values="0..599"/>
+            </http:request>
+        </until-successful>
+        <byte-array-to-string-transformer doc:name="Byte Array to String"/>
+        <logger message="After posting to Oracle, the returned payload: #[message.payloadAs(java.lang.String)]" level="INFO" doc:name="Logger with Payload" category="com.merrillcorp.voidCreditMemo"/>
+        <dw:transform-message doc:name="Transform Message">
+            <dw:input-payload doc:sample="sample_data\empty_1.xml"/>
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/json
+---
+payload]]></dw:set-payload>
+            <dw:set-variable variableName="extractMsg"><![CDATA[%dw 1.0
+%output application/java
+---
+payload.OutputParameters.P_RESULTS.STATUS as :string when (payload.OutputParameters.P_RESULTS? and payload.OutputParameters.P_RESULTS is :object) otherwise "success" as :string
+
+]]></dw:set-variable>
+        </dw:transform-message>
+        <logger message="The returned status: #[flowVars.extractMsg]" level="DEBUG" doc:name="Logger" category="com.merrillcorp.voidCreditMemo"/>
+        <choice doc:name="Choice">
+            <when expression="#[flowVars.extractMsg == 'S']">
+                <logger message="Success response message for Void Credit Memo Event Received" level="INFO" doc:name="Logger" category="com.merrillcorp.voidCreditMemo"/>
+            </when>
+            <otherwise>
+                <logger message="Failed Response Received" level="INFO" doc:name="Logger" category="com.merrillcorp.voidCreditMemo"/>
+                <logger message="Commented code for retry, check 'disabled retry' in config xml to uncomment" level="DEBUG" doc:name="Logger" category="com.merrillcorp.voidCreditMemo"/>
+ <!--                <'disabled retry' uncomment below to enable> -->
+<!--                 <set-payload value="#[flowVars.VoidCreditMemData == null ? flowVars.vmVoidCreditMem:flowVars.VoidCreditMemData]" doc:name="Set Payload"/>
+                <logger level="INFO" doc:name="Logger" message="Storing Data in queue: #[payload]"/>
+                <microsoftservicebus:queue-send config-ref="Microsoft_Service_Bus__Azure_Service_Bus" destinationQueue="${queue.voidmemo}" doc:name="Microsoft Service Bus"/> -->
+            </otherwise>
+        </choice>
+        <logger message="End Void Credit Memo" level="INFO" doc:name="Logger" category="com.merrillcorp.voidCreditMemo"/>
+    </flow>
+<!--     <flow name="voidCreditMemoEventResendFlow">
+        <microsoftservicebus:queue-receive config-ref="Microsoft_Service_Bus__Azure_Service_Bus" sourceQueue="${queue.voidmemo}" doc:name="Microsoft Service Bus (Streaming)"/>
+        <dw:transform-message doc:name="Transform Message">
+            <dw:set-payload resource="classpath:event_resend.dwl"/>
+        </dw:transform-message>
+        <set-payload value="#[json:body]" doc:name="Set Payload" mimeType="application/json"/>
+        <logger message="The payload that stored, gets to send back: #[payload]" level="INFO" doc:name="Logger" category="com.merrillcorp.voidCreditMemo"/>
+        <choice doc:name="Choice">
+            <when expression="#[payload == null]">
+                <logger message="No Error Message in the Queue to Resend" level="INFO" doc:name="Logger" category="com.merrillcorp.voidCreditMemo"/>
+            </when>
+            <otherwise>
+                <enricher target="#[variable:oracleAuth]" doc:name="Message Enricher">
+                    <flow-ref name="getAuth" doc:name="getAuth"/>
+                </enricher>
+                <set-variable variableName="vmVoidCreditMem" value="#[payload]" doc:name="Variable"/>
+                <logger message="Oracle Void Credit Memo:   Cookie: #[flowVars.oracleAuth.tokenName + '=' + flowVars.oracleAuth.accessToken]   Payload: #[message.payloadAs(java.lang.String)]" level="INFO" doc:name="Logger" category="com.merrillcorp.voidCreditMemo"/>
+                <flow-ref name="VoidCreditMemoCallSub_Flow" doc:name="VoidCreditMemoCallSub_Flow"/>
+                <logger message="Polling at #[server.dateTime.getTime()]" level="INFO" doc:name="Logger" category="com.merrillcorp.voidCreditMemo"/>
+            </otherwise>
+        </choice>
+        <logger message="Failed Event Sent back to Oracle" level="INFO" doc:name="Logger"/>
+    </flow> -->
+    
+    
+</mule>

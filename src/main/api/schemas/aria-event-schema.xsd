@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+   <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+         <!-- XML Schema Generated from XML Document on Mon Apr 10 2017 16:15:03 GMT-0500 (Central Daylight Time) -->
+         <!-- with XmlGrid.net Free Online Service http://xmlgrid.net -->
+         <xs:element name="apf2doc">
+               <xs:complexType>
+                     <xs:sequence>
+                           <xs:element name="request">
+                                 <xs:complexType>
+                                       <xs:sequence>
+                                             <xs:element name="version" type="xs:int"></xs:element>
+                                             <xs:element name="sender" type="xs:string"></xs:element>
+                                             <xs:element name="transaction_id" type="xs:int"></xs:element>
+                                             <xs:element name="action" type="xs:string"></xs:element>
+                                             <xs:element name="class" type="xs:string"></xs:element>
+                                       </xs:sequence>
+                                 </xs:complexType>
+                           </xs:element>
+                           <xs:element name="account">
+                                 <xs:complexType>
+                                       <xs:sequence>
+                                             <xs:element name="client_no" type="xs:int"></xs:element>
+                                             <xs:element name="acct_no" type="xs:int"></xs:element>
+                                             <xs:element name="userid" type="xs:int"></xs:element>
+                                             <xs:element name="master_plan_instances">
+                                                   <xs:complexType>
+                                                         <xs:sequence>
+                                                               <xs:element name="master_plan_instance_data">
+                                                                     <xs:complexType>
+                                                                           <xs:sequence>
+                                                                                 <xs:element name="plan_instance_no" type="xs:int"></xs:element>
+                                                                                 <xs:element name="client_plan_instance_id" type="xs:int"></xs:element>
+                                                                                 <xs:element name="resp_level_cd" type="xs:int"></xs:element>
+                                                                           </xs:sequence>
+                                                                     </xs:complexType>
+                                                               </xs:element>
+                                                         </xs:sequence>
+                                                   </xs:complexType>
+                                             </xs:element>
+                                       </xs:sequence>
+                                 </xs:complexType>
+                           </xs:element>
+                           <xs:element name="financial_transaction">
+                                 <xs:complexType>
+                                       <xs:sequence>
+                                             <xs:element name="financial_trans_id" type="xs:int"></xs:element>
+                                             <xs:element name="financial_trans_granular_id" type="xs:int"></xs:element>
+                                             <xs:element name="financial_trans_type_no" type="xs:int"></xs:element>
+                                             <xs:element name="financial_trans_type_label" type="xs:string"></xs:element>
+                                             <xs:element name="financial_trans_date" type="xs:string"></xs:element>
+                                       </xs:sequence>
+                                 </xs:complexType>
+                           </xs:element>
+                           <xs:element name="event_data">
+                                 <xs:complexType>
+                                       <xs:sequence>
+                                             <xs:element name="event">
+                                                   <xs:complexType>
+                                                         <xs:sequence>
+                                                               <xs:element name="event_id" type="xs:int"></xs:element>
+                                                               <xs:element name="event_label" type="xs:string"></xs:element>
+                                                         </xs:sequence>
+                                                   </xs:complexType>
+                                             </xs:element>
+                                       </xs:sequence>
+                                 </xs:complexType>
+                           </xs:element>
+                     </xs:sequence>
+               </xs:complexType>
+         </xs:element>
+   </xs:schema>

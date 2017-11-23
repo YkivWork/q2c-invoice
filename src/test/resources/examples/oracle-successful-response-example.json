@@ -1,0 +1,23 @@
+{
+  "OutputParameters" : {
+    "@xmlns:xsi" : "http://www.w3.org/2001/XMLSchema-instance",
+    "@xmlns" : "http://xmlns.oracle.com/apps/ar/rest/xxbs_invoice_svc/reverse_invoice/",
+    "P_RESULTS" : {
+      "TRX_NUMBER" : "7386906",
+      "STATUS" : "S",
+      "MESSAGES" : {
+        "MESSAGES_ITEM" : {
+          "SEVERITY_LEVEL" : "INFO",
+          "CODE" : "0",
+          "ENTITY" : "INVOICE",
+          "KEY_MAPPING" : "InvNum",
+          "KEY_VALUES" : "7386906",
+          "INVALID_VALUE" : {
+            "@xsi:nil" : "true"
+          },
+          "MESSAGE" : "Successfully completed"
+        }
+      }
+    }
+  }
+}

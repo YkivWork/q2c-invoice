@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Code push change 8/10/17 -->
+<mule xmlns:cluster="http://www.mulesoft.org/schema/mule/ee/cluster" xmlns:secure-property-placeholder="http://www.mulesoft.org/schema/mule/secure-property-placeholder"
+	xmlns:sfdc="http://www.mulesoft.org/schema/mule/sfdc"
+	xmlns:api-platform-gw="http://www.mulesoft.org/schema/mule/api-platform-gw" xmlns:tls="http://www.mulesoft.org/schema/mule/tls" xmlns:microsoftservicebus="http://www.mulesoft.org/schema/mule/microsoftservicebus"
+	xmlns:vm="http://www.mulesoft.org/schema/mule/vm" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns:objectstore="http://www.mulesoft.org/schema/mule/objectstore"
+	xmlns:apikit="http://www.mulesoft.org/schema/mule/apikit"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/secure-property-placeholder http://www.mulesoft.org/schema/mule/secure-property-placeholder/current/mule-secure-property-placeholder.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/objectstore http://www.mulesoft.org/schema/mule/objectstore/current/mule-objectstore.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/sfdc http://www.mulesoft.org/schema/mule/sfdc/current/mule-sfdc.xsd
+http://www.mulesoft.org/schema/mule/microsoftservicebus http://www.mulesoft.org/schema/mule/microsoftservicebus/current/mule-microsoftservicebus.xsd
+http://www.mulesoft.org/schema/mule/api-platform-gw http://www.mulesoft.org/schema/mule/api-platform-gw/current/mule-api-platform-gw.xsd
+http://www.mulesoft.org/schema/mule/tls http://www.mulesoft.org/schema/mule/tls/current/mule-tls.xsd
+http://www.mulesoft.org/schema/mule/apikit http://www.mulesoft.org/schema/mule/apikit/current/mule-apikit.xsd
+http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/current/mule-vm.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
+
+
+	<microsoftservicebus:azureConfig name="Microsoft_Service_Bus__Azure_Service_Bus" namespace="${azure.sb.namespace}" userName="${azure.sb.sharedAccessKeyName}" password="${azure.sb.sharedAccessKey}" doc:name="Microsoft Service Bus: Azure Service Bus">
+        <reconnect-forever/>
+    </microsoftservicebus:azureConfig>    
+<!--     <vm:connector name="VM_IN_MEMORY_AZ" validateConnections="true" doc:name="VM_AZ">
+        <vm:queue-profile>
+            <default-in-memory-queue-store/>
+        </vm:queue-profile>
+    </vm:connector>
+    -->
+    <http:request-config name="HTTP_Aria_Html_Request_Configuration" protocol="HTTPS" host="${aria.htmlhost}" port="${aria.htmlport}" basePath="/" doc:name="HTTP Request Configuration"/> 
+	
+	<http:request-config name="HTTP_MDR_Configuration"
+		host="${mdr.system.host}" port="${mdr.system.port}" basePath="/"
+		doc:name="HTTP Request Configuration">
+
+		    
+	
+
+	 <!--  <http:ntlm-proxy host="inetproxy" port="80" username="jsuhary" password="@Chantik78" 
+		ntlmDomain="adminsys"/> --> 
+	</http:request-config>
+
+
+
+	<http:request-config name="HTTP_Aria_Configuration"
+		host="${aria.host}" port="${aria.port}" basePath="/"
+		doc:name="HTTP Request Configuration" protocol="HTTPS">
+	</http:request-config>
+
+	<http:request-config name="HTTP_AriaAdmin_Request_Configuration"
+		protocol="HTTPS" host="${aria.admintools.host}" port="${aria.admintools.port}"
+		basePath="/" doc:name="HTTP Request Configuration" />
+
+	<http:listener-config name="q2c-invoice-httpListenerConfig"
+		host="0.0.0.0" port="${https.port}" doc:name="HTTP Listener Configuration" protocol="HTTPS">
+        <tls:context>
+            <tls:key-store path="${mule.env}-keystore.jks" keyPassword="password" password="password"/>
+        </tls:context>
+    </http:listener-config>
+
+	<apikit:config name="q2c-invoice-config" raml="q2c-invoice.raml"
+		consoleEnabled="false" doc:name="Router" consolePath="console"
+		keepRamlBaseUri="false" />
+
+
+	<ee:object-store-caching-strategy
+		entryTTL="5000000" name="ExpirableCachingStrategy" doc:name="Caching Strategy" />
+
+	<ee:object-store-caching-strategy
+		entryTTL="5000000" name="CachingStrategyForSalesInfo" doc:name="CachingStrategyForSalesInfo" />
+
+	<secure-property-placeholder:config name="Secure_Property_Placeholder" key="${runtime.key}" location="common.properties,hc-${mule.env}.properties,${mule.env}.properties" doc:name="Secure Property Placeholder"/>
+  	<objectstore:config 
+		partition="expenditurePartition" name="nonPersistentObjectStoreConfig"
+		doc:name="ObjectStore: Connector">
+	</objectstore:config>
+
+	<configuration doc:name="Configuration">
+		<expression-language>
+			<import name="srm"
+				class="com.merrillcorp.integration.salesrep.SalesRepMapper" />
+			<global-functions>
+
+				def convertFromAriaDateToOracle(date){
+				return
+				com.merrillcorp.integration.util.DateUtil.convertFromAriatoOracle(date);
+				}
+
+				def
+				getSalesRepresentativeInformationMap(salesRepInformationString,operationUnitName){
+				return
+				srm.getSalesRepresentativeInformationMap(salesRepInformationString,operationUnitName)
+				}
+				def getOperationId(operationUnitName){
+				return
+				srm.getOperationId(operationUnitName)
+				}
+				def
+				getSalesRepresentativeInformationList(map,list){
+				return
+				srm.getSalesRepresentativeInformationList(map,list)
+				}
+			</global-functions>
+		</expression-language>
+	</configuration>
+    <api-platform-gw:api apiName="mrll-${mule.env}-q2c-invoice" version="1.0" flowRef="q2c-invoice-main" create="true" apikitRef="q2c-invoice-config" doc:name="API Autodiscovery"/>
+    <sfdc:config name="Salesforce__Basic_Authentication" username="${sfdc.username}" password="${sfdc.password}" securityToken="${sfdc.securityToken}" url="${sfdc.url}"  disableSessionInvalidation="true"  doc:name="Salesforce: Basic Authentication">
+        <reconnect frequency="10000" count="3"/>
+    </sfdc:config>
+    <configuration defaultExceptionStrategy-ref="global-exception-strategy" doc:name="Configuration">
+        <http:config useTransportForUris="false"/>
+    </configuration>
+    <http:request-config name="oracleSysHttpRequestConfiguration" protocol="HTTPS" host="${oracle.sys.host}" port="${oracle.sys.port}" basePath="/" responseTimeout="${response.timeout}" doc:name="HTTP Request Configuration"/>
+
+</mule>

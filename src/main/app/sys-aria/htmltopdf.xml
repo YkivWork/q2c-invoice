@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mule xmlns:metadata="http://www.mulesoft.org/schema/mule/metadata" xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:vm="http://www.mulesoft.org/schema/mule/vm" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:spring="http://www.springframework.org/schema/beans" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/current/mule-vm.xsd
+http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd">
+
+    <sub-flow name="htmltopdfSub_Flow">
+        <set-payload value="&amp;lt;html&amp;gt;
+&amp;lt;head&amp;gt;
+&amp;lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=ISO-8859-1&quot;&amp;gt;
+&amp;lt;title&amp;gt;Merrill&amp;lt;/title&amp;gt;
+
+&amp;lt;style media=&quot;all&quot; type=&quot;text/css&quot;&amp;gt;
+ #content { width: 700px; 
+    margin: 0 auto;
+    border: solid 0px;
+    border-color: #000000;
+ }
+    
+ body { font-family: &quot;Times New Roman&quot;, Times, serif;
+    font-size: 12px; 
+    margin:0; 
+    padding:0; 
+ }
+
+ table.logo { border-collapse: collapse;
+    border-top: 0px solid #000;
+    border-bottom: 0px solid #000000;
+    width: 700px;
+ }
+ 
+ table.address { border-collapse: collapse;
+    width: 700px;
+ }
+
+ table.details { border-collapse: collapse;
+    width: 700px;
+ }
+
+ table.terms { border-collapse: collapse;
+    width: 700px;
+ }
+
+ tr[add2 = &quot;&quot;] {
+    display: none;
+ }
+ 
+ tr[add3 = &quot;&quot;] {
+    display: none;
+ }
+ 
+ tr[cnty = &quot;&quot;] {
+    display: none;
+ } 
+ 
+ tr[spino *= &quot;1&quot;] {
+    display: none;
+ } 
+ 
+ tr[zero = &quot;0.00&quot;] {
+    display: none;
+ }
+ 
+ td[orderno *= &quot;order&quot;] {
+    display: none;
+ }
+
+ br[novalue= &quot;&quot;] {
+    display: none;
+ }
+
+ #footer{ display: block;
+    margin: 0 auto;
+    padding-left: 15px;
+    width: 700px;
+    position: running(footer);
+    bottom:0;  
+ } 
+&amp;lt;/style&amp;gt;
+
+&amp;lt;style media=&quot;print&quot; type=&quot;text/css&quot;&amp;gt;    
+ @page { size: 8.5in 11in;
+    margin-top: .2in;
+    margin-left: .35in;
+    margin-right: .5in;
+    margin-bottom: 2.1in;
+    
+    @bottom-left{ width: 100%;
+    vertical-align: top;
+    text-align: middle;
+    content: flow(footer);
+    bottom: 0px;
+    }    
+
+    @bottom-center { width: 75px;
+    font-weight: bold;
+    font-size: 10px; 
+    vertical-align: bottom; 
+    content: &quot;Page &quot; counter(page) &quot; of &quot; counter(pages);  
+    }
+ }
+&amp;lt;/style&amp;gt;
+
+&amp;lt;/head&amp;gt;
+
+&amp;lt;body&amp;gt;
+&amp;lt;!-- 60002281 Merrill Template --&amp;gt;
+
+&amp;lt;div id=&quot;content&quot;&amp;gt;
+  &amp;lt;div&amp;gt;&amp;lt;span style=&quot;width: 700px;&quot;&amp;gt;&amp;amp;nbsp;&amp;lt;/span&amp;gt;&amp;lt;/div&amp;gt;
+
+&amp;lt;!-- Logo table --&amp;gt;   
+  &amp;lt;table class=&quot;logo&quot; align=&quot;center&quot; cellpadding=&quot;4&quot; cellspacing=&quot;2&quot; border=&quot;0&quot;&amp;gt;
+     &amp;lt;tr&amp;gt;
+        &amp;lt;th style=&quot;line-height: 0px; width: 450px;&quot;&amp;gt;&amp;amp;nbsp;&amp;lt;/th&amp;gt;
+        &amp;lt;th style=&quot;line-height: 0px; width: 180px;&quot;&amp;gt;&amp;amp;nbsp;&amp;lt;/th&amp;gt;
+        &amp;lt;th style=&quot;line-height: 0px; width: 70px;&quot;&amp;gt;&amp;amp;nbsp;&amp;lt;/th&amp;gt;
+     &amp;lt;/tr&amp;gt;
+     &amp;lt;tr&amp;gt;
+        &amp;lt;td valign=&quot;middle&quot; style=&quot;border-top: 3px solid #000;&quot;&amp;gt;&amp;lt;img src=&quot;http://www.merrillcorp.com/images/logo.png&quot; style=&quot;display:block&quot; alt=&quot;logo&quot; height=&quot;26&quot; width=&quot;221&quot;&amp;gt;&amp;lt;/td&amp;gt;
+        &amp;lt;td valign=&quot;middle&quot; style=&quot;border-top: 3px solid #000;&quot;&amp;gt;&amp;amp;nbsp;&amp;lt;/td&amp;gt;
+        &amp;lt;td valign=&quot;middle&quot; style=&quot;font-weight: bold; text-align: left; font-size: 14px; border-top: 3px solid #000;&quot;&amp;gt;INVOICE&amp;lt;/td&amp;gt;
+     &amp;lt;/tr&amp;gt;
+     &amp;lt;tr&amp;gt;
+        &amp;lt;td style=&quot;font-weight: normal; text-align: left; padding-left: 10px; border-top: 3px solid #000; border-bottom: 3px solid #000000;&quot; valign=&quot;top&quot;&amp;gt;
+        &amp;lt;null&amp;gt;
+        &amp;lt;/td&amp;gt;
+        &amp;lt;td colspan=&quot;2&quot; style=&quot;font-weight: normal; text-align: right; border-top: 3px solid #000; border-bottom: 3px solid #000000;&quot; valign=&quot;top&quot;&amp;gt;
+        &amp;lt;null&amp;gt;
+        &amp;lt;/td&amp;gt;
+     &amp;lt;/tr&amp;gt;
+     &amp;lt;tr&amp;gt;
+        &amp;lt;td valign=&quot;top&quot;&amp;gt;
+           &amp;lt;table style=&quot;border-collapse: collapse; width: 440px;&quot; border=&quot;0&quot;&amp;gt;
+              &amp;lt;tr&amp;gt;
+                 &amp;lt;th style=&quot;line-height: 0px; width: 20px;&quot;&amp;gt;&amp;amp;nbsp;&amp;lt;/th&amp;gt;
+                 &amp;lt;th style=&quot;line-height: 0px; width: 420px;&quot;&amp;gt;&amp;amp;nbsp;&amp;lt;/th&amp;gt;
+              &amp;lt;/tr&amp;gt;
+              &amp;lt;tr&amp;gt;
+                 &amp;lt;td&amp;gt;&amp;amp;nbsp;&amp;lt;/td&amp;gt;    
+                 &amp;lt;td&amp;gt;Bully Dog Technologies&amp;lt;/td&amp;gt;
+              &amp;lt;/tr&amp;gt;
+              &amp;lt;tr&amp;gt;
+                 &amp;lt;td&amp;gt;&amp;amp;nbsp;&amp;lt;/td&amp;gt;
+                 &amp;lt;td&amp;gt;Attn: Test Test&amp;lt;/td&amp;gt;
+              &amp;lt;/tr&amp;gt;
+              &amp;lt;tr&amp;gt;
+                 &amp;lt;td&amp;gt;&amp;amp;nbsp;&amp;lt;/td&amp;gt;
+                 &amp;lt;td&amp;gt;2839 Highway 39x&amp;lt;/td&amp;gt;
+              &amp;lt;/tr&amp;gt;
+              &amp;lt;tr add2=&quot;Test&quot;&amp;gt;
+                 &amp;lt;td&amp;gt;&amp;amp;nbsp;&amp;lt;/td&amp;gt;
+                 &amp;lt;td&amp;gt;Test&amp;lt;/td&amp;gt;
+              &amp;lt;/tr&amp;gt;
+              &amp;lt;tr add3=&quot;&quot;&amp;gt;
+                 &amp;lt;td&amp;gt;&amp;amp;nbsp;&amp;lt;/td&amp;gt;
+                 &amp;lt;td&amp;gt;&amp;lt;/td&amp;gt;
+              &amp;lt;/tr&amp;gt;
+              &amp;lt;tr&amp;gt;
+                 &amp;lt;td&amp;gt;&amp;amp;nbsp;&amp;lt;/td&amp;gt;
+                 &amp;lt;td&amp;gt;American Falls  ID 83211&amp;lt;/td&amp;gt;
+              &amp;lt;/tr&amp;gt;
+              &amp;lt;tr cnty=&quot;&quot;&amp;gt;
+                 &amp;lt;td&amp;gt;&amp;amp;nbsp;&amp;lt;/td&amp;gt;
+                 &amp;lt;td&amp;gt;&amp;lt;/td&amp;gt;
+              &amp;lt;/tr&amp;gt;
+           &amp;lt;/table&amp;gt;
+        &amp;lt;/td&amp;gt;
+        &amp;lt;td colspan=&quot;2&quot; valign=&quot;top&quot;&amp;gt;
+           &amp;lt;table style=&quot;border-collapse: collapse; width: 240px;&quot; border=&quot;0&quot;&amp;gt;
+              &amp;lt;tr&amp;gt;
+                 &amp;lt;th style=&quot;line-height: 0px; width: 100px;&quot;&amp;gt;&amp;amp;nbsp;&amp;lt;/th&amp;gt;
+                 &amp;lt;th style=&quot;line-height: 0px; width: 140px;&quot;&amp;gt;&amp;amp;nbsp;&amp;lt;/th&amp;gt;
+              &amp;lt;/tr&amp;gt;
+              &amp;lt;tr&amp;gt;
+                 &amp;lt;td style=&quot;font-weight: bold; text-align: right;&quot;&amp;gt;Invoice #:&amp;lt;/td&amp;gt;
+                 &amp;lt;td style=&quot;padding-left: 6px;&quot;&amp;gt;9934450&amp;lt;/td&amp;gt;
+              &amp;lt;/tr&amp;gt;
+              &amp;lt;tr&amp;gt;
+                 &amp;lt;td style=&quot;font-weight: bold; text-align: right;&quot;&amp;gt;Invoice Date:&amp;lt;/td&amp;gt;
+                 &amp;lt;td style=&quot;padding-left: 6px;&quot;&amp;gt;14-Sep-2017&amp;lt;/td&amp;gt;
+              &amp;lt;/tr&amp;gt;
+              &amp;lt;tr&amp;gt;
+                 &amp;lt;td style=&quot;font-weight: bold; text-align: right;&quot;&amp;gt;Customer Vat #:&amp;lt;/td&amp;gt;
+                 &amp;lt;td style=&quot;padding-left: 6px;&quot;&amp;gt;&amp;lt;/td&amp;gt;
+              &amp;lt;/tr&amp;gt;
+              &amp;lt;tr&amp;gt;
+                 &amp;lt;td style=&quot;font-weight: bold; text-align: right;&quot;&amp;gt;Tax IDs #:&amp;lt;/td&amp;gt;
+                 &amp;lt;td style=&quot;padding-left: 6px;&quot;&amp;gt;&amp;lt;/td&amp;gt;
+              &amp;lt;/tr&amp;gt;
+           &amp;lt;/table&amp;gt;
+        &amp;lt;/td&amp;gt;
+     &amp;lt;/tr&amp;gt;
+  &amp;lt;/table&amp;gt;
+
+&amp;lt;!-- Details table --&amp;gt;
+  &amp;lt;table class=&quot;details&quot; align=&quot;center&quot; cellpadding=&quot;4&quot; cellspacing=&quot;2&quot; border=&quot;0&quot;&amp;gt;
+     &amp;lt;tr&amp;gt;
+        &amp;lt;th style=&quot;line-height: 1px; width: 20px;&quot;&amp;gt;&amp;amp;nbsp;&amp;lt;/th&amp;gt;
+        &amp;lt;th style=&quot;line-height: 1px; width: 75px;&quot;&amp;gt;&amp;amp;nbsp;&amp;lt;/th&amp;gt;
+        &amp;lt;th style=&quot;line-height: 1px; width: 5px;&quot;&amp;gt;&amp;amp;nbsp;&amp;lt;/th&amp;gt;
+        &amp;lt;th style=&quot;line-height: 1px; width: 380px;&quot;&amp;gt;&amp;amp;nbsp;&amp;lt;/th&amp;gt;
+        &amp;lt;th style=&quot;line-height: 1px; width: 115px;&quot;&amp;gt;&amp;amp;nbsp;&amp;lt;/th&amp;gt;
+        &amp;lt;th style=&quot;line-height: 1px; width: 105px;&quot;&amp;gt;&amp;amp;nbsp;&amp;lt;/th&amp;gt;
+     &amp;lt;/tr&amp;gt;
+&amp;lt;!-- Loops --&amp;gt;
+&amp;lt;!-- begin__LoopPlanInstanceFields --&amp;gt;     
+&amp;lt;!-- begin__LoopAcctAllTxnsLoop --&amp;gt;
+&amp;lt;!-- begin__LoopUsgRecsGrp=1 --&amp;gt;
+&amp;lt;!-- begin__LoopMPIUsgTxns --&amp;gt;
+&amp;lt;!-- begin__LoopPlanInstanceInvoiceTxns --&amp;gt;
+     &amp;lt;tr spino=&quot;&quot;&amp;gt;&amp;#13;
+        &amp;lt;td orderno=&quot;Data Site&quot; colspan=&quot;6&quot; style=&quot;font-weight: normal; text-align: left;&quot;&amp;gt;&amp;amp;nbsp;&amp;lt;/td&amp;gt;&amp;#13;
+     &amp;lt;/tr&amp;gt;&amp;#13;
+     &amp;lt;tr spino=&quot;&quot;&amp;gt;&amp;#13;
+        &amp;lt;td orderno=&quot;Data Site&quot; colspan=&quot;4&quot; style=&quot;font-weight: normal; text-align: left;&quot;&amp;gt;&amp;amp;nbsp;&amp;lt;/td&amp;gt;&amp;#13;
+        &amp;lt;td orderno=&quot;Data Site&quot; colspan=&quot;2&quot; style=&quot;font-weight: normal; text-align: left;&quot;&amp;gt;&amp;lt;b&amp;gt;Merrill Order #:&amp;lt;/b&amp;gt; a270U0000004DDkQAM&amp;lt;/td&amp;gt;&amp;#13;
+     &amp;lt;/tr&amp;gt;&amp;#13;
+     &amp;lt;tr spino=&quot;&quot;&amp;gt;&amp;#13;
+        &amp;lt;td orderno=&quot;Data Site&quot; style=&quot;font-weight: normal; text-align: left; border-bottom: 3px solid #000;&quot;&amp;gt;&amp;amp;nbsp;&amp;lt;/td&amp;gt;&amp;#13;
+        &amp;lt;td orderno=&quot;Data Site&quot; colspan=&quot;3&quot; style=&quot;font-weight: normal; text-align: left; border-bottom: 3px solid #000;&quot;&amp;gt;&amp;lt;b&amp;gt;Customer Order #:&amp;lt;/b&amp;gt; po &amp;lt;!--  -  --&amp;gt;&amp;lt;/td&amp;gt;&amp;#13;
+        &amp;lt;td orderno=&quot;Data Site&quot; colspan=&quot;2&quot; style=&quot;font-weight: normal; text-align: left; border-bottom: 3px solid #000;&quot;&amp;gt;&amp;lt;b&amp;gt;Salesperson:&amp;lt;/b&amp;gt; Scott Haugen&amp;lt;/td&amp;gt;&amp;#13;
+     &amp;lt;/tr&amp;gt;&amp;#13;
+     &amp;lt;tr spino=&quot;&quot;&amp;gt;&amp;#13;
+        &amp;lt;td orderno=&quot;Data Site&quot; colspan=&quot;6&quot; style=&quot;font-weight: bold; text-align: center;&quot;&amp;gt;&amp;#13;
+        MS Test Sept 11 Create 1 &amp;lt;br novalue=&quot;MS Test Sept 11 Create 1&quot;&amp;gt;&amp;#13;
+         14-Sep-2017 &amp;lt;br novalue=&quot;&quot;&amp;gt;&amp;#13;
+        Initial Term 3.0 Months&amp;lt;br novalue=&quot;3.0&quot;&amp;gt;&amp;#13;
+        Invoice for services 14-Sep-2017 - 13-Oct-2017&amp;lt;br&amp;gt;&amp;#13;
+         &amp;lt;br novalue=&quot;&quot;&amp;gt;&amp;#13;
+         &amp;#13;
+        &amp;lt;/td&amp;gt;&amp;#13;
+     &amp;lt;/tr&amp;gt;&amp;#13;
+     &amp;lt;tr spino=&quot;&quot;&amp;gt;&amp;#13;
+        &amp;lt;td orderno=&quot;Data Site&quot; style=&quot;font-weight: bold; text-align: left;&quot;&amp;gt;&amp;amp;nbsp;&amp;lt;/td&amp;gt;&amp;#13;
+        &amp;lt;td orderno=&quot;Data Site&quot; style=&quot;font-weight: bold; text-align: right; text-decoration: underline;&quot;&amp;gt;QTY&amp;lt;/td&amp;gt;&amp;#13;
+        &amp;lt;td orderno=&quot;Data Site&quot; style=&quot;font-weight: bold; text-align: center;&quot;&amp;gt;&amp;amp;nbsp;&amp;lt;/td&amp;gt;&amp;#13;
+        &amp;lt;td orderno=&quot;Data Site&quot; style=&quot;font-weight: bold; text-align: left; text-decoration: underline;&quot;&amp;gt;DESCRIPTION&amp;lt;/td&amp;gt;&amp;#13;
+        &amp;lt;td orderno=&quot;Data Site&quot; style=&quot;font-weight: bold; text-align: right; text-decoration: underline;&quot;&amp;gt;UNIT PRICE&amp;lt;/td&amp;gt;&amp;#13;
+        &amp;lt;td orderno=&quot;Data Site&quot; style=&quot;font-weight: bold; text-align: right; text-decoration: underline;&quot;&amp;gt;TOTAL&amp;lt;/td&amp;gt;&amp;#13;
+     &amp;lt;/tr&amp;gt;&amp;#13;
+     &amp;lt;tr zero=&quot;0.00&quot;&amp;gt;&amp;#13;
+        &amp;lt;td orderno=&quot;Data Site&quot; style=&quot;font-weight: normal; text-align: left;&quot;&amp;gt;&amp;amp;nbsp;&amp;lt;/td&amp;gt;&amp;#13;
+        &amp;lt;td orderno=&quot;Data Site&quot; style=&quot;font-weight: normal; text-align: right;&quot;&amp;gt;1&amp;lt;/td&amp;gt;&amp;#13;
+        &amp;lt;td orderno=&quot;Data Site&quot; style=&quot;font-weight: normal; text-align: right;&quot;&amp;gt;&amp;amp;nbsp;&amp;lt;/td&amp;gt;&amp;#13;
+        &amp;lt;td orderno=&quot;Data Site&quot; style=&quot;font-weight: normal; text-align: left;&quot;&amp;gt;Data Site &amp;#13;
+        &amp;lt;!-- &amp;#13;
+        1. ItemComments:  Data Site &amp;#13;
+        2. PlanComments:  DataSite Data Site&amp;#13;
+        3. Simple: Data Site&amp;#13;
+        4. ItemPlanName: DataSite&amp;#13;
+        6. MPITxDesc: Invoice charge line item&amp;#13;
+        15. MPINo: 2929403&amp;#13;
+        16. SPINo: &amp;#13;
+        17. PIUnits:  &amp;#13;
+        18: ClientSPIId: &amp;#13;
+        19. SPIStatus: &amp;#13;
+        20. PIDescription: &amp;#13;
+        22. MPITxnAmt: 0.00&amp;#13;
+        23. TaxTotal: 0.00&amp;#13;
+        24. GrossTotal: 0.00&amp;#13;
+        25. NetPrice: 0 &amp;#13;
+        --&amp;gt;        &amp;#13;
+        &amp;lt;/td&amp;gt;&amp;#13;
+        &amp;lt;td orderno=&quot;Data Site&quot; style=&quot;font-weight: normal; text-align: right;&quot;&amp;gt;$0.00&amp;lt;/td&amp;gt;&amp;#13;
+        &amp;lt;td orderno=&quot;Data Site&quot; style=&quot;font-weight: normal; text-align: right;&quot;&amp;gt;$0.00&amp;lt;/td&amp;gt;&amp;#13;
+     &amp;lt;/tr&amp;gt;
+     &amp;lt;tr spino=&quot;1&quot;&amp;gt;&amp;#13;
+        &amp;lt;td orderno=&quot;Monthly Minimum Fee&quot; colspan=&quot;6&quot; style=&quot;font-weight: normal; text-align: left;&quot;&amp;gt;&amp;amp;nbsp;&amp;lt;/td&amp;gt;&amp;#13;
+     &amp;lt;/tr&amp;gt;&amp;#13;
+     &amp;lt;tr spino=&quot;1&quot;&amp;gt;&amp;#13;
+        &amp;lt;td orderno=&quot;Monthly Minimum Fee&quot; colspan=&quot;4&quot; style=&quot;font-weight: normal; text-align: left;&quot;&amp;gt;&amp;amp;nbsp;&amp;lt;/td&amp;gt;&amp;#13;
+        &amp;lt;td orderno=&quot;Monthly Minimum Fee&quot; colspan=&quot;2&quot; style=&quot;font-weight: normal; text-align: left;&quot;&amp;gt;&amp;lt;b&amp;gt;Merrill Order #:&amp;lt;/b&amp;gt; &amp;lt;/td&amp;gt;&amp;#13;
+     &amp;lt;/tr&amp;gt;&amp;#13;
+     &amp;lt;tr spino=&quot;1&quot;&amp;gt;&amp;#13;
+        &amp;lt;td orderno=&quot;Monthly Minimum Fee&quot; style=&quot;font-weight: normal; text-align: left; border-bottom: 3px solid #000;&quot;&amp;gt;&amp;amp;nbsp;&amp;lt;/td&amp;gt;&amp;#13;
+        &amp;lt;td orderno=&quot;Monthly Minimum Fee&quot; colspan=&quot;3&quot; style=&quot;font-weight: normal; text-align: left; border-bottom: 3px solid #000;&quot;&amp;gt;&amp;lt;b&amp;gt;Customer Order #:&amp;lt;/b&amp;gt;  &amp;lt;!--  -  --&amp;gt;&amp;lt;/td&amp;gt;&amp;#13;
+        &amp;lt;td orderno=&quot;Monthly Minimum Fee&quot; colspan=&quot;2&quot; style=&quot;font-weight: normal; text-align: left; border-bottom: 3px solid #000;&quot;&amp;gt;&amp;lt;b&amp;gt;Salesperson:&amp;lt;/b&amp;gt; &amp;lt;/td&amp;gt;&amp;#13;
+     &amp;lt;/tr&amp;gt;&amp;#13;
+     &amp;lt;tr spino=&quot;1&quot;&amp;gt;&amp;#13;
+        &amp;lt;td orderno=&quot;Monthly Minimum Fee&quot; colspan=&quot;6&quot; style=&quot;font-weight: bold; text-align: center;&quot;&amp;gt;&amp;#13;
+         &amp;lt;br novalue=&quot;&quot;&amp;gt;&amp;#13;
+          &amp;lt;br novalue=&quot;&quot;&amp;gt;&amp;#13;
+        Initial Term  Months&amp;lt;br novalue=&quot;&quot;&amp;gt;&amp;#13;
+        Invoice for services 14-Sep-2017 - 13-Oct-2017&amp;lt;br&amp;gt;&amp;#13;
+         &amp;lt;br novalue=&quot;&quot;&amp;gt;&amp;#13;
+         &amp;#13;
+        &amp;lt;/td&amp;gt;&amp;#13;
+     &amp;lt;/tr&amp;gt;&amp;#13;
+     &amp;lt;tr spino=&quot;1&quot;&amp;gt;&amp;#13;
+        &amp;lt;td orderno=&quot;Monthly Minimum Fee&quot; style=&quot;font-weight: bold; text-align: left;&quot;&amp;gt;&amp;amp;nbsp;&amp;lt;/td&amp;gt;&amp;#13;
+        &amp;lt;td orderno=&quot;Monthly Minimum Fee&quot; style=&quot;font-weight: bold; text-align: right; text-decoration: underline;&quot;&amp;gt;QTY&amp;lt;/td&amp;gt;&amp;#13;
+        &amp;lt;td orderno=&quot;Monthly Minimum Fee&quot; style=&quot;font-weight: bold; text-align: center;&quot;&amp;gt;&amp;amp;nbsp;&amp;lt;/td&amp;gt;&amp;#13;
+        &amp;lt;td orderno=&quot;Monthly Minimum Fee&quot; style=&quot;font-weight: bold; text-align: left; text-decoration: underline;&quot;&amp;gt;DESCRIPTION&amp;lt;/td&amp;gt;&amp;#13;
+        &amp;lt;td orderno=&quot;Monthly Minimum Fee&quot; style=&quot;font-weight: bold; text-align: right; text-decoration: underline;&quot;&amp;gt;UNIT PRICE&amp;lt;/td&amp;gt;&amp;#13;
+        &amp;lt;td orderno=&quot;Monthly Minimum Fee&quot; style=&quot;font-weight: bold; text-align: right; text-decoration: underline;&quot;&amp;gt;TOTAL&amp;lt;/td&amp;gt;&amp;#13;
+     &amp;lt;/tr&amp;gt;&amp;#13;
+     &amp;lt;tr zero=&quot;849.00&quot;&amp;gt;&amp;#13;
+        &amp;lt;td orderno=&quot;Monthly Minimum Fee&quot; style=&quot;font-weight: normal; text-align: left;&quot;&amp;gt;&amp;amp;nbsp;&amp;lt;/td&amp;gt;&amp;#13;
+        &amp;lt;td orderno=&quot;Monthly Minimum Fee&quot; style=&quot;font-weight: normal; text-align: right;&quot;&amp;gt;1&amp;lt;/td&amp;gt;&amp;#13;
+        &amp;lt;td orderno=&quot;Monthly Minimum Fee&quot; style=&quot;font-weight: normal; text-align: right;&quot;&amp;gt;&amp;amp;nbsp;&amp;lt;/td&amp;gt;&amp;#13;
+        &amp;lt;td orderno=&quot;Monthly Minimum Fee&quot; style=&quot;font-weight: normal; text-align: left;&quot;&amp;gt;PgMinimumFee &amp;#13;
+        &amp;lt;!-- &amp;#13;
+        1. ItemComments:  Monthly Minimum Fee &amp;#13;
+        2. PlanComments:  Pages Uploaded Monthly Minimum Fee&amp;#13;
+        3. Simple: PgMinimumFee&amp;#13;
+        4. ItemPlanName: Pages Uploaded&amp;#13;
+        6. MPITxDesc: Invoice charge line item&amp;#13;
+        15. MPINo: 2929403&amp;#13;
+        16. SPINo: 2929405&amp;#13;
+        17. PIUnits:  &amp;#13;
+        18: ClientSPIId: 2929405&amp;#13;
+        19. SPIStatus: 1&amp;#13;
+        20. PIDescription: &amp;#13;
+        22. MPITxnAmt: 849.00&amp;#13;
+        23. TaxTotal: 0.00&amp;#13;
+        24. GrossTotal: 849.00&amp;#13;
+        25. NetPrice: 849 &amp;#13;
+        --&amp;gt;        &amp;#13;
+        &amp;lt;/td&amp;gt;&amp;#13;
+        &amp;lt;td orderno=&quot;Monthly Minimum Fee&quot; style=&quot;font-weight: normal; text-align: right;&quot;&amp;gt;$849.00&amp;lt;/td&amp;gt;&amp;#13;
+        &amp;lt;td orderno=&quot;Monthly Minimum Fee&quot; style=&quot;font-weight: normal; text-align: right;&quot;&amp;gt;$849.00&amp;lt;/td&amp;gt;&amp;#13;
+     &amp;lt;/tr&amp;gt;
+&amp;lt;!-- Order Loop --&amp;gt;
+     &amp;lt;tr&amp;gt;
+        &amp;lt;td colspan=&quot;6&quot; style=&quot;font-weight: normal; text-align: left;&quot;&amp;gt;&amp;amp;nbsp;&amp;lt;/td&amp;gt;
+     &amp;lt;/tr&amp;gt;
+     &amp;lt;tr&amp;gt;
+        &amp;lt;td colspan=&quot;4&quot; style=&quot;font-weight: normal; text-align: left;&quot;&amp;gt;&amp;amp;nbsp;&amp;lt;/td&amp;gt;
+        &amp;lt;td style=&quot;font-weight: bold; text-align: right;&quot;&amp;gt;Subtotal:&amp;lt;/td&amp;gt;
+        &amp;lt;td style=&quot;font-weight: bold; text-align: right;&quot;&amp;gt;$849.00&amp;lt;/td&amp;gt;
+     &amp;lt;/tr&amp;gt;
+     &amp;lt;tr&amp;gt;
+        &amp;lt;td colspan=&quot;4&quot; style=&quot;font-weight: normal; text-align: left;&quot;&amp;gt;&amp;amp;nbsp;&amp;lt;/td&amp;gt;
+        &amp;lt;td style=&quot;font-weight: bold; text-align: right;&quot;&amp;gt;Tax:&amp;lt;/td&amp;gt;
+        &amp;lt;td style=&quot;font-weight: bold; text-align: right; border-bottom: 2px solid #000000;&quot;&amp;gt;$0.00&amp;lt;/td&amp;gt;
+     &amp;lt;/tr&amp;gt;
+     &amp;lt;tr&amp;gt;
+        &amp;lt;td colspan=&quot;4&quot; style=&quot;font-weight: normal; text-align: left;&quot;&amp;gt;&amp;amp;nbsp;&amp;lt;/td&amp;gt;
+        &amp;lt;td style=&quot;font-weight: bold; text-align: right;&quot;&amp;gt;Total Invoice USD:&amp;lt;/td&amp;gt;
+        &amp;lt;td style=&quot;font-weight: bold; text-align: right;&quot;&amp;gt;$849.00&amp;lt;/td&amp;gt;
+     &amp;lt;/tr&amp;gt;
+  &amp;lt;/table&amp;gt;
+&amp;lt;br&amp;gt;
+
+&amp;lt;/div&amp;gt;
+
+&amp;lt;!-- Footer Table --&amp;gt;
+&amp;lt;div id=&quot;footer&quot;&amp;gt; 
+  &amp;lt;table class=&quot;terms&quot; align=&quot;center&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; border=&quot;0&quot;&amp;gt;
+     &amp;lt;tr&amp;gt;
+        &amp;lt;th style=&quot;line-height: 6px; width: 345px; border-top: 3px solid #000;&quot;&amp;gt;&amp;amp;nbsp;&amp;lt;/th&amp;gt;
+        &amp;lt;th style=&quot;line-height: 6px; width: 10px; border-top: 3px solid #000;&quot;&amp;gt;&amp;amp;nbsp;&amp;lt;/th&amp;gt;
+        &amp;lt;th style=&quot;line-height: 6px; width: 345px; border-top: 3px solid #000;&quot;&amp;gt;&amp;amp;nbsp;&amp;lt;/th&amp;gt;
+     &amp;lt;/tr&amp;gt;
+     &amp;lt;tr&amp;gt;
+        &amp;lt;td colspan=&quot;3&quot; style=&quot;font-weight: normal; text-align: left; padding-left: 10px;&quot;&amp;gt;
+        Terms: Due upon receipt
+        &amp;lt;/td&amp;gt;
+     &amp;lt;/tr&amp;gt;
+     &amp;lt;tr&amp;gt;
+        &amp;lt;td colspan=&quot;3&quot; style=&quot;line-height: 6px; width: 400px; border-bottom: 3px solid #000;&quot;&amp;gt;&amp;amp;nbsp;&amp;lt;/td&amp;gt;
+     &amp;lt;/tr&amp;gt;
+     &amp;lt;tr&amp;gt;
+        &amp;lt;td colspan=&quot;3&quot; style=&quot;line-height: 6px; width: 400px;&quot;&amp;gt;&amp;amp;nbsp;&amp;lt;/td&amp;gt;
+     &amp;lt;/tr&amp;gt;
+     &amp;lt;tr&amp;gt;
+        &amp;lt;td style=&quot;font-weight: bold; text-align: left; padding-left: 10px;&quot; valign=&quot;top&quot;&amp;gt;
+        Remit Check Payment to:&amp;lt;br&amp;gt;Merrill Communications LLC&amp;lt;br&amp;gt;CM-9638&amp;lt;br&amp;gt;St. Paul, MN 55170-9638&amp;lt;br&amp;gt;&amp;lt;br&amp;gt;PLEASE PAY FROM THIS INVOICE&amp;lt;br&amp;gt; (1.5% SERVICE CHARGE PER MONTH ADDED TO PAST DUE ACCOUNTS)&amp;lt;br
+        &amp;lt;/td&amp;gt;
+        &amp;lt;td&amp;gt;&amp;amp;nbsp;&amp;lt;/td&amp;gt;
+        &amp;lt;td style=&quot;font-weight: bold; text-align: right; padding-right: 10px;&quot; valign=&quot;top&quot;&amp;gt;
+        Remit ACH/Fed Wire Payment to:&amp;lt;br&amp;gt;Merrill Communications LLC&amp;lt;br&amp;gt;Account # : 1702-2502-6310&amp;lt;br&amp;gt;USBank, N.A.&amp;lt;br&amp;gt;601 Second Avenue South&amp;lt;br&amp;gt;Minneapolis, MN 55402&amp;lt;br&amp;gt;ABA Routing # : 091 000 022&amp;lt;br&amp;gt;SWIFT CODE USBKUS44IMT&amp;lt;br&amp;gt;Please reference Merrill invoice number on your payment.&amp;lt;br
+        &amp;lt;/td&amp;gt;
+     &amp;lt;/tr&amp;gt;
+  &amp;lt;/table&amp;gt;
+
+
+&amp;lt;/div&amp;gt;
+
+&amp;lt;!-- GLDebit: 849.00 --&amp;gt;
+&amp;lt;!-- GLAndXferTotalDue: 849.00 --&amp;gt;
+&amp;lt;!-- GLBaseDebit: 849.00 --&amp;gt;
+&amp;lt;!-- GLTaxDebit: 0.00 --&amp;gt;
+&amp;lt;!-- GLTotalTaxAfterCredits: 0.00 --&amp;gt;
+&amp;lt;!-- GLOnlyBaseDebit:  849.00 --&amp;gt;
+&amp;lt;!-- GLOnlyDebit: 849.00 --&amp;gt;
+&amp;lt;!-- GLOnlyTaxDebit: 0.00 --&amp;gt;
+&amp;lt;!-- GLTotalDue: 849.00 --&amp;gt;
+&amp;lt;!-- GLBalDue: 849.00 --&amp;gt;
+&amp;lt;!-- GLTotalRecurringCharges: 0.00 --&amp;gt;
+&amp;lt;!-- GLTotalUsageCharges: 0.00 --&amp;gt;
+&amp;lt;!-- GLBalFwd: 0.00 --&amp;gt;
+&amp;lt;!-- AmountOwed: 849.00 --&amp;gt;
+&amp;lt;!-- AcctTotalBilled:  --&amp;gt;
+&amp;lt;!-- AcctTotalOwed: 849.00 --&amp;gt;
+&amp;lt;!-- HTMLAcctTotalOwed: 849.00 --&amp;gt;
+&amp;lt;!-- AcctTotalNewCharges: 849.00  --&amp;gt;
+&amp;lt;!-- AcctTotalNewEndBalance: 849.00  --&amp;gt;
+&amp;lt;!-- ExtendedAltRate:     --&amp;gt;
+&amp;lt;!-- UsageUnitsTotal: 0   --&amp;gt;
+&amp;lt;!-- UsageUnitsSubtotal: 0  --&amp;gt;
+&amp;lt;!-- UsageAltAmountSubtotal: 0.0000  --&amp;gt;
+&amp;lt;!-- UsageAltAmountTotal: 0.0000  --&amp;gt;
+&amp;lt;!-- UsageGrpAlt_Rate:  --&amp;gt;
+&amp;lt;!-- usageExtendedGrpAlt_Rate:  --&amp;gt;
+&amp;lt;!-- OverdueStmtAmountOwed: 0.00 --&amp;gt;
+&amp;lt;!-- StmtAmountOwed: 849.00 --&amp;gt;
+&amp;lt;!-- CurrentStmtTotalWOs: 0.00 --&amp;gt;
+&amp;lt;!-- MPIAllTotal: 849.00 --&amp;gt;
+&amp;lt;!-- MPIAllChrgTotal : 849.00 --&amp;gt;
+&amp;lt;!-- MPIAppliedTotal : 0.00 --&amp;gt;
+&amp;lt;!-- MPIBGXferTotal  : 0.00 --&amp;gt;
+&amp;lt;!-- TotalTaxesFeesSurcharges  : 0.00  --&amp;gt;
+
+&amp;lt;!-- Balance --&amp;gt;
+&amp;lt;!-- RawAcctTotalOwed: 849.00 --&amp;gt;
+&amp;lt;!-- RawAcctCurrBalOwed: 849.00 --&amp;gt;
+
+&amp;lt;!-- Credits --&amp;gt;
+&amp;lt;!-- AcctTotalCollected: 0.00 --&amp;gt;
+&amp;lt;!-- AcctTotalNewPayments: 0.00  --&amp;gt;
+&amp;lt;!-- GLTotalCredits: 0.00  --&amp;gt;
+&amp;lt;!-- GLCredit: 0.00  --&amp;gt;
+&amp;lt;!-- GLTotalSvcCredits: 0.00  --&amp;gt;
+&amp;lt;!-- CurrentStmtTotalPymts: 0.00  --&amp;gt;
+&amp;lt;!-- CurrentStmtTotalRefunds: 0.00 --&amp;gt;
+&amp;lt;!-- CurrentStmtTotalCredits: 0.00 --&amp;gt;
+&amp;lt;!-- CreditActivityUnappliedAmount :   --&amp;gt;
+&amp;lt;!-- CurrStmtUnappSvcCredBal: 0.00 --&amp;gt;
+&amp;lt;!-- PrevStmtUnappSvcCredBal: 0.00 --&amp;gt;
+&amp;lt;!-- TotalCashandSvcCredits: 0.00  --&amp;gt;
+&amp;lt;!-- MPIAllCrdtTotal : 0.00   --&amp;gt;
+
+&amp;lt;!-- New Strings Per DEV-2905  --&amp;gt;
+&amp;lt;!-- XtaxSrvTaxTypeDesc: taxSrvTaxTypeDesc  --&amp;gt;
+&amp;lt;!-- XtaxSrvTaxAmount: taxSrvTaxAmount  --&amp;gt;
+
+&amp;lt;!-- New Strings Per DEV-2969  --&amp;gt;
+&amp;lt;!-- GLTotalRecurringCharges: 0.00  --&amp;gt;
+&amp;lt;!-- GLTotalUsageCharges: 0.00   --&amp;gt;
+&amp;lt;!-- GLTotalRecurAfterCredits: 0.00  --&amp;gt;
+&amp;lt;!-- GLTotalUsageAfterCredits: 0.00  --&amp;gt;
+&amp;lt;!-- GLRecurDiscountCredits: 0.00   --&amp;gt;
+
+&amp;lt;!-- New Strings Per DEV-3153  --&amp;gt;
+&amp;lt;!-- CashAndServiceCrdts: 0.00  --&amp;gt;
+
+&amp;lt;!-- New Strings Per DEV-4972 --&amp;gt;
+&amp;lt;!-- TotalCashCredits: 0.00 --&amp;gt;
+&amp;lt;!-- TotalServiceCredits: 0.00 --&amp;gt;
+&amp;lt;!-- StmtTotalWOPmtBefTax: 849.00 --&amp;gt;
+&amp;lt;!-- StmtTotalWOPmt: 849.00 --&amp;gt;
+
+
+&amp;lt;/body&amp;gt;
+
+&amp;lt;/html&amp;gt;
+" doc:name="Set PayloadG"/>
+    </sub-flow>
+</mule>

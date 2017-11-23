@@ -1,0 +1,3189 @@
+{
+  "OutputParameters": {
+    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+    "@xmlns": "http://xmlns.oracle.com/apps/pa/rest/xxsp_mapping_svc/salesreps/",
+    "X_SALESREPS": {
+      "X_SALESREPS_ITEM": [
+        {
+          "SALESREP_ID": "-3",
+          "EMPLOYEE_NUMBER": "999999",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000023",
+          "EMPLOYEE_NUMBER": "4417",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000025",
+          "EMPLOYEE_NUMBER": "6803",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000026",
+          "EMPLOYEE_NUMBER": "6703",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000030",
+          "EMPLOYEE_NUMBER": "4943",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000031",
+          "EMPLOYEE_NUMBER": "4577",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000032",
+          "EMPLOYEE_NUMBER": "9857",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000034",
+          "EMPLOYEE_NUMBER": "6832",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000037",
+          "EMPLOYEE_NUMBER": "4959",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000038",
+          "EMPLOYEE_NUMBER": "9640",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000040",
+          "EMPLOYEE_NUMBER": "5200",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000042",
+          "EMPLOYEE_NUMBER": "6552",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000043",
+          "EMPLOYEE_NUMBER": "5273",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000048",
+          "EMPLOYEE_NUMBER": "6639",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000049",
+          "EMPLOYEE_NUMBER": "6668",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000050",
+          "EMPLOYEE_NUMBER": "11058",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000054",
+          "EMPLOYEE_NUMBER": "8657",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000055",
+          "EMPLOYEE_NUMBER": "5040",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000058",
+          "EMPLOYEE_NUMBER": "6594",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000059",
+          "EMPLOYEE_NUMBER": "9165",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000062",
+          "EMPLOYEE_NUMBER": "4578",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000063",
+          "EMPLOYEE_NUMBER": "4533",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000064",
+          "EMPLOYEE_NUMBER": "5516",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000066",
+          "EMPLOYEE_NUMBER": "6671",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000067",
+          "EMPLOYEE_NUMBER": "6825",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000068",
+          "EMPLOYEE_NUMBER": "6848",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000074",
+          "EMPLOYEE_NUMBER": "4397",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000075",
+          "EMPLOYEE_NUMBER": "6566",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000081",
+          "EMPLOYEE_NUMBER": "5259",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000082",
+          "EMPLOYEE_NUMBER": "6602",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000084",
+          "EMPLOYEE_NUMBER": "6741",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000085",
+          "EMPLOYEE_NUMBER": "6543",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000087",
+          "EMPLOYEE_NUMBER": "5294",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000553",
+          "EMPLOYEE_NUMBER": "11850",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000577",
+          "EMPLOYEE_NUMBER": "900003",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000585",
+          "EMPLOYEE_NUMBER": "100039",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000589",
+          "EMPLOYEE_NUMBER": "100109",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000595",
+          "EMPLOYEE_NUMBER": "100111",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000076",
+          "EMPLOYEE_NUMBER": "6828",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000098",
+          "EMPLOYEE_NUMBER": "5554",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000100",
+          "EMPLOYEE_NUMBER": "5535",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000126",
+          "EMPLOYEE_NUMBER": "4335",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000132",
+          "EMPLOYEE_NUMBER": "9392",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000141",
+          "EMPLOYEE_NUMBER": "5454",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000144",
+          "EMPLOYEE_NUMBER": "6844",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000147",
+          "EMPLOYEE_NUMBER": "9331",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000149",
+          "EMPLOYEE_NUMBER": "4811",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000155",
+          "EMPLOYEE_NUMBER": "6527",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000157",
+          "EMPLOYEE_NUMBER": "9862",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000159",
+          "EMPLOYEE_NUMBER": "4451",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000178",
+          "EMPLOYEE_NUMBER": "4564",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000181",
+          "EMPLOYEE_NUMBER": "4846",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000184",
+          "EMPLOYEE_NUMBER": "4580",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000188",
+          "EMPLOYEE_NUMBER": "5075",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000190",
+          "EMPLOYEE_NUMBER": "8337",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000191",
+          "EMPLOYEE_NUMBER": "6584",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000193",
+          "EMPLOYEE_NUMBER": "4349",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000094",
+          "EMPLOYEE_NUMBER": "8712",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000105",
+          "EMPLOYEE_NUMBER": "4956",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000108",
+          "EMPLOYEE_NUMBER": "6814",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000110",
+          "EMPLOYEE_NUMBER": "6795",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000115",
+          "EMPLOYEE_NUMBER": "6560",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000118",
+          "EMPLOYEE_NUMBER": "4351",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000120",
+          "EMPLOYEE_NUMBER": "6826",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000124",
+          "EMPLOYEE_NUMBER": "8720",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000125",
+          "EMPLOYEE_NUMBER": "4641",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000131",
+          "EMPLOYEE_NUMBER": "4484",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000139",
+          "EMPLOYEE_NUMBER": "4647",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000140",
+          "EMPLOYEE_NUMBER": "5518",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000142",
+          "EMPLOYEE_NUMBER": "4409",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000145",
+          "EMPLOYEE_NUMBER": "4845",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000146",
+          "EMPLOYEE_NUMBER": "6554",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000151",
+          "EMPLOYEE_NUMBER": "8655",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000153",
+          "EMPLOYEE_NUMBER": "5564",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000160",
+          "EMPLOYEE_NUMBER": "4893",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000167",
+          "EMPLOYEE_NUMBER": "6843",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000169",
+          "EMPLOYEE_NUMBER": "5161",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000171",
+          "EMPLOYEE_NUMBER": "6840",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000654",
+          "EMPLOYEE_NUMBER": "999999",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000658",
+          "EMPLOYEE_NUMBER": "004545",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000674",
+          "EMPLOYEE_NUMBER": "900014",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000699",
+          "EMPLOYEE_NUMBER": "999999",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000701",
+          "EMPLOYEE_NUMBER": "999999",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000738",
+          "EMPLOYEE_NUMBER": "4883",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000768",
+          "EMPLOYEE_NUMBER": "11604",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100001226",
+          "EMPLOYEE_NUMBER": "12491",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100001566",
+          "EMPLOYEE_NUMBER": "6861",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100001929",
+          "EMPLOYEE_NUMBER": "100381",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100001931",
+          "EMPLOYEE_NUMBER": "100310",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100001932",
+          "EMPLOYEE_NUMBER": "100308",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100001934",
+          "EMPLOYEE_NUMBER": "100307",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100002509",
+          "EMPLOYEE_NUMBER": "999999",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100002666",
+          "EMPLOYEE_NUMBER": "13901",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100002806",
+          "EMPLOYEE_NUMBER": "100130",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100002809",
+          "EMPLOYEE_NUMBER": "100131",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100003472",
+          "EMPLOYEE_NUMBER": "999999",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100003678",
+          "EMPLOYEE_NUMBER": "15219",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100003681",
+          "EMPLOYEE_NUMBER": "15218",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100001526",
+          "EMPLOYEE_NUMBER": "4494",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100002226",
+          "EMPLOYEE_NUMBER": "13487",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100002227",
+          "EMPLOYEE_NUMBER": "10030",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100002408",
+          "EMPLOYEE_NUMBER": "13624",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100002746",
+          "EMPLOYEE_NUMBER": "13973",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100002866",
+          "EMPLOYEE_NUMBER": "14078",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100003612",
+          "EMPLOYEE_NUMBER": "5207",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100003732",
+          "EMPLOYEE_NUMBER": "100167",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100003772",
+          "EMPLOYEE_NUMBER": "15500",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100003775",
+          "EMPLOYEE_NUMBER": "15489",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100003852",
+          "EMPLOYEE_NUMBER": "15697",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100004227",
+          "EMPLOYEE_NUMBER": "100302",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100004352",
+          "EMPLOYEE_NUMBER": "16938",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100004355",
+          "EMPLOYEE_NUMBER": "17234",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100004487",
+          "EMPLOYEE_NUMBER": "100399",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100004488",
+          "EMPLOYEE_NUMBER": "100320",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100005041",
+          "EMPLOYEE_NUMBER": "16958",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100005042",
+          "EMPLOYEE_NUMBER": "16905",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100005043",
+          "EMPLOYEE_NUMBER": "16959",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100005093",
+          "EMPLOYEE_NUMBER": "8411",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100000847",
+          "EMPLOYEE_NUMBER": "4609",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100001206",
+          "EMPLOYEE_NUMBER": "109383",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100003975",
+          "EMPLOYEE_NUMBER": "16113",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100003992",
+          "EMPLOYEE_NUMBER": "16118",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100004032",
+          "EMPLOYEE_NUMBER": "16192",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100004155",
+          "EMPLOYEE_NUMBER": "16489",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100004329",
+          "EMPLOYEE_NUMBER": "17224",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100004478",
+          "EMPLOYEE_NUMBER": "17692",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100005022",
+          "EMPLOYEE_NUMBER": "17829",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100005081",
+          "EMPLOYEE_NUMBER": "16872",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100005082",
+          "EMPLOYEE_NUMBER": "17998",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100005608",
+          "EMPLOYEE_NUMBER": "11179",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100005861",
+          "EMPLOYEE_NUMBER": "17182",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100005901",
+          "EMPLOYEE_NUMBER": "18517",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100005946",
+          "EMPLOYEE_NUMBER": "18571",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100005947",
+          "EMPLOYEE_NUMBER": "18570",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100006191",
+          "EMPLOYEE_NUMBER": "100847",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100002326",
+          "EMPLOYEE_NUMBER": "4534",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100002629",
+          "EMPLOYEE_NUMBER": "13857",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100002686",
+          "EMPLOYEE_NUMBER": "100128",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100003812",
+          "EMPLOYEE_NUMBER": "15574",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100003832",
+          "EMPLOYEE_NUMBER": "20887",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100003835",
+          "EMPLOYEE_NUMBER": "100213",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100003855",
+          "EMPLOYEE_NUMBER": "5155",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100004232",
+          "EMPLOYEE_NUMBER": "16939",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100004239",
+          "EMPLOYEE_NUMBER": "17117",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100004245",
+          "EMPLOYEE_NUMBER": "17108",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100004246",
+          "EMPLOYEE_NUMBER": "17109",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100004301",
+          "EMPLOYEE_NUMBER": "17104",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100004302",
+          "EMPLOYEE_NUMBER": "16937",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100004303",
+          "EMPLOYEE_NUMBER": "16885",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100004418",
+          "EMPLOYEE_NUMBER": "16977",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100003912",
+          "EMPLOYEE_NUMBER": "6733",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100004490",
+          "EMPLOYEE_NUMBER": "100382",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100005661",
+          "EMPLOYEE_NUMBER": "13690",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100005663",
+          "EMPLOYEE_NUMBER": "11270",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100005706",
+          "EMPLOYEE_NUMBER": "12412",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100005741",
+          "EMPLOYEE_NUMBER": "8681",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100005743",
+          "EMPLOYEE_NUMBER": "13444",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100005821",
+          "EMPLOYEE_NUMBER": "18399",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100005971",
+          "EMPLOYEE_NUMBER": "18573",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100006011",
+          "EMPLOYEE_NUMBER": "16373",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100006791",
+          "EMPLOYEE_NUMBER": "19610",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100007852",
+          "EMPLOYEE_NUMBER": "304",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100007853",
+          "EMPLOYEE_NUMBER": "16819",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100007855",
+          "EMPLOYEE_NUMBER": "9785",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100007072",
+          "EMPLOYEE_NUMBER": "100470",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100007073",
+          "EMPLOYEE_NUMBER": "100803",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100007074",
+          "EMPLOYEE_NUMBER": "100418",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100007075",
+          "EMPLOYEE_NUMBER": "100436",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100007078",
+          "EMPLOYEE_NUMBER": "100444",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100007079",
+          "EMPLOYEE_NUMBER": "100464",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100007084",
+          "EMPLOYEE_NUMBER": "100676",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100007086",
+          "EMPLOYEE_NUMBER": "17456",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100007494",
+          "EMPLOYEE_NUMBER": "15362",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100007551",
+          "EMPLOYEE_NUMBER": "19166",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100007571",
+          "EMPLOYEE_NUMBER": "100534",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100007731",
+          "EMPLOYEE_NUMBER": "17018",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100008171",
+          "EMPLOYEE_NUMBER": "105860",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100008331",
+          "EMPLOYEE_NUMBER": "999999",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100007253",
+          "EMPLOYEE_NUMBER": "14969",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100007331",
+          "EMPLOYEE_NUMBER": "20130",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100007433",
+          "EMPLOYEE_NUMBER": "100726",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100007822",
+          "EMPLOYEE_NUMBER": "20581",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100007823",
+          "EMPLOYEE_NUMBER": "20582",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100007891",
+          "EMPLOYEE_NUMBER": "105859",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100007934",
+          "EMPLOYEE_NUMBER": "310",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100007936",
+          "EMPLOYEE_NUMBER": "9786",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100006651",
+          "EMPLOYEE_NUMBER": "900059",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100006652",
+          "EMPLOYEE_NUMBER": "900060",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100006653",
+          "EMPLOYEE_NUMBER": "900061",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100006654",
+          "EMPLOYEE_NUMBER": "900062",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100006832",
+          "EMPLOYEE_NUMBER": "19678",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100007087",
+          "EMPLOYEE_NUMBER": "6600",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100007089",
+          "EMPLOYEE_NUMBER": "17870",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100007092",
+          "EMPLOYEE_NUMBER": "4868",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100007095",
+          "EMPLOYEE_NUMBER": "5713",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100007096",
+          "EMPLOYEE_NUMBER": "6502",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100007196",
+          "EMPLOYEE_NUMBER": "999999",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100007451",
+          "EMPLOYEE_NUMBER": "100978",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100008051",
+          "EMPLOYEE_NUMBER": "900079",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100008052",
+          "EMPLOYEE_NUMBER": "900080",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100008312",
+          "EMPLOYEE_NUMBER": "20375",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100008931",
+          "EMPLOYEE_NUMBER": "14141",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100012991",
+          "EMPLOYEE_NUMBER": "23135",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013011",
+          "EMPLOYEE_NUMBER": "999999",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100008792",
+          "EMPLOYEE_NUMBER": "106012",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100010097",
+          "EMPLOYEE_NUMBER": "21784",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100007591",
+          "EMPLOYEE_NUMBER": "105757",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100007592",
+          "EMPLOYEE_NUMBER": "900075",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100007593",
+          "EMPLOYEE_NUMBER": "105767",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100008651",
+          "EMPLOYEE_NUMBER": "20886",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100009871",
+          "EMPLOYEE_NUMBER": "21631",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100010151",
+          "EMPLOYEE_NUMBER": "21822",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100010671",
+          "EMPLOYEE_NUMBER": "106475",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100012171",
+          "EMPLOYEE_NUMBER": "22531",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100012172",
+          "EMPLOYEE_NUMBER": "22535",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100012891",
+          "EMPLOYEE_NUMBER": "23060",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013091",
+          "EMPLOYEE_NUMBER": "100868",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013099",
+          "EMPLOYEE_NUMBER": "107769",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013111",
+          "EMPLOYEE_NUMBER": "23157",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013171",
+          "EMPLOYEE_NUMBER": "22047",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013179",
+          "EMPLOYEE_NUMBER": "23206",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013191",
+          "EMPLOYEE_NUMBER": "107692",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100008431",
+          "EMPLOYEE_NUMBER": "19520",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100009711",
+          "EMPLOYEE_NUMBER": "900101",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100011911",
+          "EMPLOYEE_NUMBER": "106412",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100011991",
+          "EMPLOYEE_NUMBER": "22405",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100012851",
+          "EMPLOYEE_NUMBER": "900140",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013199",
+          "EMPLOYEE_NUMBER": "107795",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013211",
+          "EMPLOYEE_NUMBER": "23221",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013219",
+          "EMPLOYEE_NUMBER": "6943",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013231",
+          "EMPLOYEE_NUMBER": "18256",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013251",
+          "EMPLOYEE_NUMBER": "23244",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013271",
+          "EMPLOYEE_NUMBER": "23232",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100006352",
+          "EMPLOYEE_NUMBER": "4848",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100006631",
+          "EMPLOYEE_NUMBER": "900055",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100006632",
+          "EMPLOYEE_NUMBER": "900057",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100006633",
+          "EMPLOYEE_NUMBER": "900056",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100006691",
+          "EMPLOYEE_NUMBER": "900063A",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100007211",
+          "EMPLOYEE_NUMBER": "20065",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100008811",
+          "EMPLOYEE_NUMBER": "900090",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100009771",
+          "EMPLOYEE_NUMBER": "100886",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100010391",
+          "EMPLOYEE_NUMBER": "106442",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013279",
+          "EMPLOYEE_NUMBER": "23231",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013287",
+          "EMPLOYEE_NUMBER": "23233",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013311",
+          "EMPLOYEE_NUMBER": "106120",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100009491",
+          "EMPLOYEE_NUMBER": "21420",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100009751",
+          "EMPLOYEE_NUMBER": "21636",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100009997",
+          "EMPLOYEE_NUMBER": "106320",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100012651",
+          "EMPLOYEE_NUMBER": "22926",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013651",
+          "EMPLOYEE_NUMBER": "23432",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013652",
+          "EMPLOYEE_NUMBER": "23416",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013731",
+          "EMPLOYEE_NUMBER": "23439",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100010631",
+          "EMPLOYEE_NUMBER": "22017",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100010657",
+          "EMPLOYEE_NUMBER": "21983",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100010771",
+          "EMPLOYEE_NUMBER": "22210",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100008531",
+          "EMPLOYEE_NUMBER": "100117",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100010371",
+          "EMPLOYEE_NUMBER": "21885",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100010811",
+          "EMPLOYEE_NUMBER": "22289",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100012899",
+          "EMPLOYEE_NUMBER": "107262",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013411",
+          "EMPLOYEE_NUMBER": "23302",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013591",
+          "EMPLOYEE_NUMBER": "23378",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013611",
+          "EMPLOYEE_NUMBER": "17694",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013746",
+          "EMPLOYEE_NUMBER": "23413",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100007051",
+          "EMPLOYEE_NUMBER": "20054",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100010311",
+          "EMPLOYEE_NUMBER": "21865",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100011951",
+          "EMPLOYEE_NUMBER": "4325",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100012011",
+          "EMPLOYEE_NUMBER": "22427",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100012052",
+          "EMPLOYEE_NUMBER": "22290",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100010171",
+          "EMPLOYEE_NUMBER": "21807",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013047",
+          "EMPLOYEE_NUMBER": "23145",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100009614",
+          "EMPLOYEE_NUMBER": "900094",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100009616",
+          "EMPLOYEE_NUMBER": "106185",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100009617",
+          "EMPLOYEE_NUMBER": "21534",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100009911",
+          "EMPLOYEE_NUMBER": "100136",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100006257",
+          "EMPLOYEE_NUMBER": "18902",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100006258",
+          "EMPLOYEE_NUMBER": "18903",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100006992",
+          "EMPLOYEE_NUMBER": "19995",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100009731",
+          "EMPLOYEE_NUMBER": "21635",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100010611",
+          "EMPLOYEE_NUMBER": "22021",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100012071",
+          "EMPLOYEE_NUMBER": "22441",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100012072",
+          "EMPLOYEE_NUMBER": "107166",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100012091",
+          "EMPLOYEE_NUMBER": "22445",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100012111",
+          "EMPLOYEE_NUMBER": "22460",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100012131",
+          "EMPLOYEE_NUMBER": "22534",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013391",
+          "EMPLOYEE_NUMBER": "23308",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100006591",
+          "EMPLOYEE_NUMBER": "900054",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100007771",
+          "EMPLOYEE_NUMBER": "19356",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100008351",
+          "EMPLOYEE_NUMBER": "900086",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100008356",
+          "EMPLOYEE_NUMBER": "20842",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100009831",
+          "EMPLOYEE_NUMBER": "21710",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100012151",
+          "EMPLOYEE_NUMBER": "107210",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100012159",
+          "EMPLOYEE_NUMBER": "22523",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100012231",
+          "EMPLOYEE_NUMBER": "21984",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100012251",
+          "EMPLOYEE_NUMBER": "107338",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013146",
+          "EMPLOYEE_NUMBER": "107751",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013371",
+          "EMPLOYEE_NUMBER": "23251",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013451",
+          "EMPLOYEE_NUMBER": "23322",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013691",
+          "EMPLOYEE_NUMBER": "23437",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100007011",
+          "EMPLOYEE_NUMBER": "105551",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100007631",
+          "EMPLOYEE_NUMBER": "20357",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100008071",
+          "EMPLOYEE_NUMBER": "20713",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100009452",
+          "EMPLOYEE_NUMBER": "106174",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100010551",
+          "EMPLOYEE_NUMBER": "21848",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100008852",
+          "EMPLOYEE_NUMBER": "21119",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100009971",
+          "EMPLOYEE_NUMBER": "21734",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100006291",
+          "EMPLOYEE_NUMBER": "18971",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100006751",
+          "EMPLOYEE_NUMBER": "100884",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100008291",
+          "EMPLOYEE_NUMBER": "17609",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100011931",
+          "EMPLOYEE_NUMBER": "22345",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100012311",
+          "EMPLOYEE_NUMBER": "999999",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100012318",
+          "EMPLOYEE_NUMBER": "21348",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100012331",
+          "EMPLOYEE_NUMBER": "107400",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100012351",
+          "EMPLOYEE_NUMBER": "22697",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100008591",
+          "EMPLOYEE_NUMBER": "20974",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013351",
+          "EMPLOYEE_NUMBER": "107824",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013431",
+          "EMPLOYEE_NUMBER": "23301",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013631",
+          "EMPLOYEE_NUMBER": "107971",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100009691",
+          "EMPLOYEE_NUMBER": "21610",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100010291",
+          "EMPLOYEE_NUMBER": "21863",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100010591",
+          "EMPLOYEE_NUMBER": "106454",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100008131",
+          "EMPLOYEE_NUMBER": "900082",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100009951",
+          "EMPLOYEE_NUMBER": "21732",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100012391",
+          "EMPLOYEE_NUMBER": "107442",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100012399",
+          "EMPLOYEE_NUMBER": "7183",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100012431",
+          "EMPLOYEE_NUMBER": "18271",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100012439",
+          "EMPLOYEE_NUMBER": "108156",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100012440",
+          "EMPLOYEE_NUMBER": "22710",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100012471",
+          "EMPLOYEE_NUMBER": "22761",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100010251",
+          "EMPLOYEE_NUMBER": "21840",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100010257",
+          "EMPLOYEE_NUMBER": "21839",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100010751",
+          "EMPLOYEE_NUMBER": "22231",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100012611",
+          "EMPLOYEE_NUMBER": "107513",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013531",
+          "EMPLOYEE_NUMBER": "107839",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013532",
+          "EMPLOYEE_NUMBER": "107889",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013533",
+          "EMPLOYEE_NUMBER": "107935",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013754",
+          "EMPLOYEE_NUMBER": "107819",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100007031",
+          "EMPLOYEE_NUMBER": "20040",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100007041",
+          "EMPLOYEE_NUMBER": "100977",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100008611",
+          "EMPLOYEE_NUMBER": "21000",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100010471",
+          "EMPLOYEE_NUMBER": "106550",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100010691",
+          "EMPLOYEE_NUMBER": "22085",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100012271",
+          "EMPLOYEE_NUMBER": "22615",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100012511",
+          "EMPLOYEE_NUMBER": "22258",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100012551",
+          "EMPLOYEE_NUMBER": "21014",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100012591",
+          "EMPLOYEE_NUMBER": "22870",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100008491",
+          "EMPLOYEE_NUMBER": "20885",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100009571",
+          "EMPLOYEE_NUMBER": "106163",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100012292",
+          "EMPLOYEE_NUMBER": "22624",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100007511",
+          "EMPLOYEE_NUMBER": "100272",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100008771",
+          "EMPLOYEE_NUMBER": "21074",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100008891",
+          "EMPLOYEE_NUMBER": "21132",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100009931",
+          "EMPLOYEE_NUMBER": "6679",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100010137",
+          "EMPLOYEE_NUMBER": "19858",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100008991",
+          "EMPLOYEE_NUMBER": "21304",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100010411",
+          "EMPLOYEE_NUMBER": "21895",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100010412",
+          "EMPLOYEE_NUMBER": "21894",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100010414",
+          "EMPLOYEE_NUMBER": "21910",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100006712",
+          "EMPLOYEE_NUMBER": "19453",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100007991",
+          "EMPLOYEE_NUMBER": "20667",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100006251",
+          "EMPLOYEE_NUMBER": "18942",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100008013",
+          "EMPLOYEE_NUMBER": "20701",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100010511",
+          "EMPLOYEE_NUMBER": "21962",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100010512",
+          "EMPLOYEE_NUMBER": "21961",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100009792",
+          "EMPLOYEE_NUMBER": "6683",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100010491",
+          "EMPLOYEE_NUMBER": "16428",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100012419",
+          "EMPLOYEE_NUMBER": "107209",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013571",
+          "EMPLOYEE_NUMBER": "23365",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013670",
+          "EMPLOYEE_NUMBER": "9922",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100012671",
+          "EMPLOYEE_NUMBER": "22948",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100012691",
+          "EMPLOYEE_NUMBER": "22922",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100012699",
+          "EMPLOYEE_NUMBER": "22959",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100012711",
+          "EMPLOYEE_NUMBER": "22977",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100012731",
+          "EMPLOYEE_NUMBER": "107522",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100012751",
+          "EMPLOYEE_NUMBER": "22987",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013031",
+          "EMPLOYEE_NUMBER": "23162",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013039",
+          "EMPLOYEE_NUMBER": "21956",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013471",
+          "EMPLOYEE_NUMBER": "23329",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013472",
+          "EMPLOYEE_NUMBER": "23330",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013491",
+          "EMPLOYEE_NUMBER": "23335",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013492",
+          "EMPLOYEE_NUMBER": "23355",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013493",
+          "EMPLOYEE_NUMBER": "17187",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013711",
+          "EMPLOYEE_NUMBER": "100363",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100006731",
+          "EMPLOYEE_NUMBER": "100896",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100006732",
+          "EMPLOYEE_NUMBER": "19509",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100007691",
+          "EMPLOYEE_NUMBER": "20407",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100008596",
+          "EMPLOYEE_NUMBER": "20976",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100012771",
+          "EMPLOYEE_NUMBER": "22979",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100012819",
+          "EMPLOYEE_NUMBER": "107608",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100012827",
+          "EMPLOYEE_NUMBER": "107629",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100010131",
+          "EMPLOYEE_NUMBER": "21811",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100006697",
+          "EMPLOYEE_NUMBER": "900064",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100007796",
+          "EMPLOYEE_NUMBER": "20500",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100008691",
+          "EMPLOYEE_NUMBER": "20979",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100010191",
+          "EMPLOYEE_NUMBER": "21817",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100008273",
+          "EMPLOYEE_NUMBER": "20757",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100008274",
+          "EMPLOYEE_NUMBER": "19598",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100012911",
+          "EMPLOYEE_NUMBER": "17819",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100012931",
+          "EMPLOYEE_NUMBER": "22695",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100012932",
+          "EMPLOYEE_NUMBER": "23102",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100012951",
+          "EMPLOYEE_NUMBER": "21778",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100012953",
+          "EMPLOYEE_NUMBER": "23132",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013794",
+          "EMPLOYEE_NUMBER": "23460",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013796",
+          "EMPLOYEE_NUMBER": "23481",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100016062",
+          "EMPLOYEE_NUMBER": "108846",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100016132",
+          "EMPLOYEE_NUMBER": "23684",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100016133",
+          "EMPLOYEE_NUMBER": "23045",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100016282",
+          "EMPLOYEE_NUMBER": "24948",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100016283",
+          "EMPLOYEE_NUMBER": "24942",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100042331",
+          "EMPLOYEE_NUMBER": "999999",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100048340",
+          "EMPLOYEE_NUMBER": "21809",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100048349",
+          "EMPLOYEE_NUMBER": "25312",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100048358",
+          "EMPLOYEE_NUMBER": "109641",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100048359",
+          "EMPLOYEE_NUMBER": "23826",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100048376",
+          "EMPLOYEE_NUMBER": "109610",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100014333",
+          "EMPLOYEE_NUMBER": "23776",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100016172",
+          "EMPLOYEE_NUMBER": "24860",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100016242",
+          "EMPLOYEE_NUMBER": "24919",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100016243",
+          "EMPLOYEE_NUMBER": "24934",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100014134",
+          "EMPLOYEE_NUMBER": "23641",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100014501",
+          "EMPLOYEE_NUMBER": "23968",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100031322",
+          "EMPLOYEE_NUMBER": "109420",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100050340",
+          "EMPLOYEE_NUMBER": "25332",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100014493",
+          "EMPLOYEE_NUMBER": "108663",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100014609",
+          "EMPLOYEE_NUMBER": "20678",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100014617",
+          "EMPLOYEE_NUMBER": "108831",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100038322",
+          "EMPLOYEE_NUMBER": "109469",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013854",
+          "EMPLOYEE_NUMBER": "23496",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100051340",
+          "EMPLOYEE_NUMBER": "24543",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100051341",
+          "EMPLOYEE_NUMBER": "25339",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100014042",
+          "EMPLOYEE_NUMBER": "23576",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100014043",
+          "EMPLOYEE_NUMBER": "23575",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100014044",
+          "EMPLOYEE_NUMBER": "23567",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100040322",
+          "EMPLOYEE_NUMBER": "999999",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100052340",
+          "EMPLOYEE_NUMBER": "24707",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100052341",
+          "EMPLOYEE_NUMBER": "100392",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100052358",
+          "EMPLOYEE_NUMBER": "25010",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100052359",
+          "EMPLOYEE_NUMBER": "25271",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100052360",
+          "EMPLOYEE_NUMBER": "25197",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100052386",
+          "EMPLOYEE_NUMBER": "15507",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100052395",
+          "EMPLOYEE_NUMBER": "24975",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100052404",
+          "EMPLOYEE_NUMBER": "25345",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100014154",
+          "EMPLOYEE_NUMBER": "999999",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100014589",
+          "EMPLOYEE_NUMBER": "108755",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100015655",
+          "EMPLOYEE_NUMBER": "24324",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100015665",
+          "EMPLOYEE_NUMBER": "24319",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100015675",
+          "EMPLOYEE_NUMBER": "23472",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100015755",
+          "EMPLOYEE_NUMBER": "108893",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100015765",
+          "EMPLOYEE_NUMBER": "108931",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100015972",
+          "EMPLOYEE_NUMBER": "109063",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100015982",
+          "EMPLOYEE_NUMBER": "24590",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100015983",
+          "EMPLOYEE_NUMBER": "24625",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100015984",
+          "EMPLOYEE_NUMBER": "109087",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100025324",
+          "EMPLOYEE_NUMBER": "25106",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100025325",
+          "EMPLOYEE_NUMBER": "109419",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100026322",
+          "EMPLOYEE_NUMBER": "107955",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100015645",
+          "EMPLOYEE_NUMBER": "24328",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100015952",
+          "EMPLOYEE_NUMBER": "23778",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100016032",
+          "EMPLOYEE_NUMBER": "24647",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100016082",
+          "EMPLOYEE_NUMBER": "24703",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100014034",
+          "EMPLOYEE_NUMBER": "23574",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100040323",
+          "EMPLOYEE_NUMBER": "999999",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013874",
+          "EMPLOYEE_NUMBER": "23487",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100014469",
+          "EMPLOYEE_NUMBER": "108551",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100014581",
+          "EMPLOYEE_NUMBER": "24158",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100040324",
+          "EMPLOYEE_NUMBER": "999999",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100014234",
+          "EMPLOYEE_NUMBER": "23717",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100014242",
+          "EMPLOYEE_NUMBER": "23734",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100024322",
+          "EMPLOYEE_NUMBER": "109285",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100052413",
+          "EMPLOYEE_NUMBER": "25173",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100056394",
+          "EMPLOYEE_NUMBER": "109759",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100056412",
+          "EMPLOYEE_NUMBER": "109745",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100058376",
+          "EMPLOYEE_NUMBER": "2850",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100058385",
+          "EMPLOYEE_NUMBER": "109592",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100014625",
+          "EMPLOYEE_NUMBER": "108820",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100015887",
+          "EMPLOYEE_NUMBER": "105782",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100015897",
+          "EMPLOYEE_NUMBER": "24508",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100019322",
+          "EMPLOYEE_NUMBER": "24661",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100019337",
+          "EMPLOYEE_NUMBER": "25003",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100019338",
+          "EMPLOYEE_NUMBER": "25041",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100019339",
+          "EMPLOYEE_NUMBER": "25052",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100019340",
+          "EMPLOYEE_NUMBER": "25058",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100019341",
+          "EMPLOYEE_NUMBER": "109370",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100014381",
+          "EMPLOYEE_NUMBER": "108409",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100014382",
+          "EMPLOYEE_NUMBER": "108400",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100014383",
+          "EMPLOYEE_NUMBER": "108403",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100014384",
+          "EMPLOYEE_NUMBER": "108404",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100014385",
+          "EMPLOYEE_NUMBER": "108405",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100014386",
+          "EMPLOYEE_NUMBER": "108406",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100014387",
+          "EMPLOYEE_NUMBER": "108408",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100014388",
+          "EMPLOYEE_NUMBER": "108410",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100014557",
+          "EMPLOYEE_NUMBER": "22532",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100056385",
+          "EMPLOYEE_NUMBER": "109750",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100014661",
+          "EMPLOYEE_NUMBER": "24280",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100014094",
+          "EMPLOYEE_NUMBER": "23612",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100014174",
+          "EMPLOYEE_NUMBER": "23711",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100016322",
+          "EMPLOYEE_NUMBER": "109311",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100024330",
+          "EMPLOYEE_NUMBER": "24855",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100025322",
+          "EMPLOYEE_NUMBER": "25085",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100025323",
+          "EMPLOYEE_NUMBER": "25093",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100027322",
+          "EMPLOYEE_NUMBER": "109369",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100040325",
+          "EMPLOYEE_NUMBER": "999999",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100014461",
+          "EMPLOYEE_NUMBER": "23823",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100048385",
+          "EMPLOYEE_NUMBER": "109411",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100048386",
+          "EMPLOYEE_NUMBER": "108273",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100048387",
+          "EMPLOYEE_NUMBER": "109345",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100049340",
+          "EMPLOYEE_NUMBER": "108383",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100051358",
+          "EMPLOYEE_NUMBER": "109683",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100053376",
+          "EMPLOYEE_NUMBER": "109446",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100054376",
+          "EMPLOYEE_NUMBER": "109687",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100054377",
+          "EMPLOYEE_NUMBER": "25368",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100054378",
+          "EMPLOYEE_NUMBER": "109686",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100054379",
+          "EMPLOYEE_NUMBER": "109708",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100056403",
+          "EMPLOYEE_NUMBER": "24444",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013772",
+          "EMPLOYEE_NUMBER": "22711",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100014014",
+          "EMPLOYEE_NUMBER": "107820",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100014214",
+          "EMPLOYEE_NUMBER": "108189",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013882",
+          "EMPLOYEE_NUMBER": "17706",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100014342",
+          "EMPLOYEE_NUMBER": "23706",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100015775",
+          "EMPLOYEE_NUMBER": "16679",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100015776",
+          "EMPLOYEE_NUMBER": "24454",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100015777",
+          "EMPLOYEE_NUMBER": "24387",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100015778",
+          "EMPLOYEE_NUMBER": "24474",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100015781",
+          "EMPLOYEE_NUMBER": "16848",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100015782",
+          "EMPLOYEE_NUMBER": "23493",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100015783",
+          "EMPLOYEE_NUMBER": "24475",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100015784",
+          "EMPLOYEE_NUMBER": "9145",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100015785",
+          "EMPLOYEE_NUMBER": "105756",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100028322",
+          "EMPLOYEE_NUMBER": "25137",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100029322",
+          "EMPLOYEE_NUMBER": "25150",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100032322",
+          "EMPLOYEE_NUMBER": "25175",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100033322",
+          "EMPLOYEE_NUMBER": "109435",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100035322",
+          "EMPLOYEE_NUMBER": "109376",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100035331",
+          "EMPLOYEE_NUMBER": "100235",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100035332",
+          "EMPLOYEE_NUMBER": "109428",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100014262",
+          "EMPLOYEE_NUMBER": "23750",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100015953",
+          "EMPLOYEE_NUMBER": "24536",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100016111",
+          "EMPLOYEE_NUMBER": "109136",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013934",
+          "EMPLOYEE_NUMBER": "18523",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013942",
+          "EMPLOYEE_NUMBER": "23492",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013943",
+          "EMPLOYEE_NUMBER": "23482",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013944",
+          "EMPLOYEE_NUMBER": "23503",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013945",
+          "EMPLOYEE_NUMBER": "23441",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100014565",
+          "EMPLOYEE_NUMBER": "24085",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100053340",
+          "EMPLOYEE_NUMBER": "25098",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100053341",
+          "EMPLOYEE_NUMBER": "25370",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100053342",
+          "EMPLOYEE_NUMBER": "109454",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100053367",
+          "EMPLOYEE_NUMBER": "109648",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100014102",
+          "EMPLOYEE_NUMBER": "108129",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100014103",
+          "EMPLOYEE_NUMBER": "108111",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100014074",
+          "EMPLOYEE_NUMBER": "23591",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100014365",
+          "EMPLOYEE_NUMBER": "23740",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100014366",
+          "EMPLOYEE_NUMBER": "108569",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100016122",
+          "EMPLOYEE_NUMBER": "23895",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100022322",
+          "EMPLOYEE_NUMBER": "109382",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100037322",
+          "EMPLOYEE_NUMBER": "109519",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100037323",
+          "EMPLOYEE_NUMBER": "109516",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100014357",
+          "EMPLOYEE_NUMBER": "900158",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100015907",
+          "EMPLOYEE_NUMBER": "24564",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100015917",
+          "EMPLOYEE_NUMBER": "24551",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100015927",
+          "EMPLOYEE_NUMBER": "24563",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100015937",
+          "EMPLOYEE_NUMBER": "24559",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100016152",
+          "EMPLOYEE_NUMBER": "999999",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100016262",
+          "EMPLOYEE_NUMBER": "24893",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100018322",
+          "EMPLOYEE_NUMBER": "24657",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100030322",
+          "EMPLOYEE_NUMBER": "109353",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100016182",
+          "EMPLOYEE_NUMBER": "109241",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100016183",
+          "EMPLOYEE_NUMBER": "109246",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100016184",
+          "EMPLOYEE_NUMBER": "109245",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100016185",
+          "EMPLOYEE_NUMBER": "24914",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100016186",
+          "EMPLOYEE_NUMBER": "24890",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100016187",
+          "EMPLOYEE_NUMBER": "24854",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100020322",
+          "EMPLOYEE_NUMBER": "25068",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100020323",
+          "EMPLOYEE_NUMBER": "25067",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100039322",
+          "EMPLOYEE_NUMBER": "109538",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100047322",
+          "EMPLOYEE_NUMBER": "25099",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100015635",
+          "EMPLOYEE_NUMBER": "24310",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100016330",
+          "EMPLOYEE_NUMBER": "24978",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100016331",
+          "EMPLOYEE_NUMBER": "24990",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100021322",
+          "EMPLOYEE_NUMBER": "107813",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100021323",
+          "EMPLOYEE_NUMBER": "109371",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100021324",
+          "EMPLOYEE_NUMBER": "109076",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100034322",
+          "EMPLOYEE_NUMBER": "25190",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100034331",
+          "EMPLOYEE_NUMBER": "25189",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100040326",
+          "EMPLOYEE_NUMBER": "999999",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100040327",
+          "EMPLOYEE_NUMBER": "999999",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100040328",
+          "EMPLOYEE_NUMBER": "999999",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100040329",
+          "EMPLOYEE_NUMBER": "999999",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100040330",
+          "EMPLOYEE_NUMBER": "999999",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100040331",
+          "EMPLOYEE_NUMBER": "999999",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013834",
+          "EMPLOYEE_NUMBER": "23470",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100014601",
+          "EMPLOYEE_NUMBER": "108826",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100015695",
+          "EMPLOYEE_NUMBER": "24340",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100015705",
+          "EMPLOYEE_NUMBER": "108902",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100015706",
+          "EMPLOYEE_NUMBER": "108894",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100014573",
+          "EMPLOYEE_NUMBER": "24056",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100014277",
+          "EMPLOYEE_NUMBER": "23755",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100014278",
+          "EMPLOYEE_NUMBER": "19426",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100014641",
+          "EMPLOYEE_NUMBER": "24259",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100016042",
+          "EMPLOYEE_NUMBER": "24694",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013771",
+          "EMPLOYEE_NUMBER": "107680",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100015735",
+          "EMPLOYEE_NUMBER": "24366",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100036322",
+          "EMPLOYEE_NUMBER": "24892",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100041322",
+          "EMPLOYEE_NUMBER": "999999",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013914",
+          "EMPLOYEE_NUMBER": "23474",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013915",
+          "EMPLOYEE_NUMBER": "23501",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100014066",
+          "EMPLOYEE_NUMBER": "23572",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100023322",
+          "EMPLOYEE_NUMBER": "109398",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100023323",
+          "EMPLOYEE_NUMBER": "25107",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100014322",
+          "EMPLOYEE_NUMBER": "23756",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100014517",
+          "EMPLOYEE_NUMBER": "24027",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100014518",
+          "EMPLOYEE_NUMBER": "108746",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100014519",
+          "EMPLOYEE_NUMBER": "108752",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100013994",
+          "EMPLOYEE_NUMBER": "23534",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100014341",
+          "EMPLOYEE_NUMBER": "18015",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100014477",
+          "EMPLOYEE_NUMBER": "23870",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100027330",
+          "EMPLOYEE_NUMBER": "108130",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100027338",
+          "EMPLOYEE_NUMBER": "109425",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100014485",
+          "EMPLOYEE_NUMBER": "23969",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100014633",
+          "EMPLOYEE_NUMBER": "24210",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100014669",
+          "EMPLOYEE_NUMBER": "24302",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100016012",
+          "EMPLOYEE_NUMBER": "24663",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100014509",
+          "EMPLOYEE_NUMBER": "108717",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100019330",
+          "EMPLOYEE_NUMBER": "107746",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100043322",
+          "EMPLOYEE_NUMBER": "25252",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100044322",
+          "EMPLOYEE_NUMBER": "25267",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100045322",
+          "EMPLOYEE_NUMBER": "24974",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100046322",
+          "EMPLOYEE_NUMBER": "25269",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100046331",
+          "EMPLOYEE_NUMBER": "25277",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100047331",
+          "EMPLOYEE_NUMBER": "25073",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100047340",
+          "EMPLOYEE_NUMBER": "4868",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100015625",
+          "EMPLOYEE_NUMBER": "24297",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100042322",
+          "EMPLOYEE_NUMBER": "999999",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100055376",
+          "EMPLOYEE_NUMBER": "109721",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100056376",
+          "EMPLOYEE_NUMBER": "109199",
+          "OPERATING_UNIT_ID": "21"
+        },
+        {
+          "SALESREP_ID": "100057376",
+          "EMPLOYEE_NUMBER": "25199",
+          "OPERATING_UNIT_ID": "21"
+        }
+      ]
+    },
+    "X_RESULTS": {
+      "STATUS": "S",
+      "MESSAGE": "635 Rows Returned."
+    }
+  }
+}

@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:spring="http://www.springframework.org/schema/beans" xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw" xmlns:core="http://www.mulesoft.org/schema/mule/core" xmlns:mock="http://www.mulesoft.org/schema/mule/mock" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/mock http://www.mulesoft.org/schema/mule/mock/current/mule-mock.xsd">
+    <munit:config name="munit" doc:name="MUnit configuration" mock-connectors="false" mock-inbounds="false"/>
+    <spring:beans>
+        <spring:import resource="classpath:sys-aria/*.xml"/>
+        <spring:import resource="classpath:proc-merrillcorp-invoice/*.xml"/>
+        <spring:import resource="classpath:sys-azure/*.xml"/>
+        <spring:import resource="classpath:ux-aria-event/*.xml"/>
+        <spring:import resource="classpath:credit-memo.xml"/>
+        <spring:import resource="classpath:expenditure.xml"/>
+        <spring:import resource="classpath:get-aria.xml"/>
+        <spring:import resource="classpath:get-mdr.xml"/>
+        <spring:import resource="classpath:globals.xml"/>
+        <spring:import resource="classpath:invoice-creation.xml"/>
+        <spring:import resource="classpath:oracle.xml"/>
+        <spring:import resource="classpath:process-event.xml"/>
+        <spring:import resource="classpath:salesforce.xml"/>        
+        <spring:import resource="classpath:sales-rep.xml"/>
+        <spring:import resource="classpath:error-handling.xml"/>
+        <spring:import resource="classpath:html-generate.xml"/>
+        <spring:import resource="classpath:html-process.xml"/>
+        <spring:import resource="classpath:pdf-process.xml"/>
+        <spring:import resource="classpath:pdf-store.xml"/>
+    </spring:beans>
+    <munit:test name="oracle-test-suite-PrepareInvoice_Sub_FlowTest" description="Test" ignore="true">
+        <mock:when messageProcessor="mule:sub-flow" doc:name="Mock call to processSalesRepoInfo">
+            <mock:with-attributes>
+                <mock:with-attribute name="name" whereValue="#[matchContains('processSalesRepoInfo')]"/>
+            </mock:with-attributes>
+            <mock:then-return payload="#[getResource('salesrep-result-example.json').asString()]" mimeType="application/json"/>
+        </mock:when>
+        <dw:transform-message doc:name="oracleAuth">
+            <dw:set-variable variableName="oracleAuth"><![CDATA[%dw 1.0
+%output application/java
+---
+{
+  accessToken: "test",
+  tokenName: "token"
+}]]></dw:set-variable>
+        </dw:transform-message>
+        <flow-ref name="oracle-test-suite_SetUpVariablesForPrepareInvoiceTest_Sub_Flow" doc:name="oracle-test-suite_SetUpVariablesForPrepareInvoiceTest_Sub_Flow"/>
+        <flow-ref name="PrepareInvoiceForOracle_Sub_Flow" doc:name="PrepareInvoiceForOracle_Sub_Flow"/>
+        <flow-ref name="oracle-test-suite_AssertsForPrepareInvoiceTest_Sub_Flow" doc:name="oracle-test-suite_AssertsForPrepareInvoiceTest_Sub_Flow"/>
+    </munit:test>
+    <sub-flow name="oracle-test-suite_SetUpVariablesForPrepareInvoiceTest_Sub_Flow">
+        <dw:transform-message doc:name="set ariaAccountContacts">
+            <dw:set-variable resource="classpath:ariaAccountContacts.dwl" variableName="ariaAccountContacts"/>
+        </dw:transform-message>
+        <dw:transform-message doc:name="set salesRepInfo">
+            <dw:set-variable resource="classpath:salesRep.dwl" variableName="SalesRepInfo"/>
+        </dw:transform-message>
+        <dw:transform-message doc:name="Set event">
+            <dw:set-variable resource="classpath:event.dwl" variableName="event"/>
+        </dw:transform-message>
+        <set-variable variableName="OraSite" value="OraSite" doc:name="Set OraSite"/>
+        <set-variable variableName="SFProjectNumber" value="SFProjectNumber" doc:name="Set SFProjectNumber"/>
+        <dw:transform-message doc:name="Set ariaAccountDetails">
+            <dw:set-variable resource="classpath:ariaAccountDetails.dwl" variableName="ariaAccountDetails"/>
+        </dw:transform-message>
+        <dw:transform-message doc:name="Set ariaServiceDetails">
+            <dw:set-variable resource="classpath:ariaServiceDetails.dwl" variableName="ariaServiceDetails"/>
+        </dw:transform-message>
+        <dw:transform-message doc:name="Set invoiceDetailsSummary">
+            <dw:set-variable resource="classpath:invoiceDetailsSummary.dwl" variableName="invoiceDetailsSummary"/>
+        </dw:transform-message>
+        <dw:transform-message doc:name="Set taxes">
+            <dw:set-variable resource="classpath:taxes.dwl" variableName="taxes"/>
+        </dw:transform-message>
+    </sub-flow>
+    <sub-flow name="oracle-test-suite_AssertsForPrepareInvoiceTest_Sub_Flow">
+        <dw:transform-message doc:name="Transform payload to Java">
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/java
+---
+payload]]></dw:set-payload>
+        </dw:transform-message>
+        <munit:assert-on-equals message="jurisdictionTable is not good on CreateInvoiceInOracle" expectedValue="#[6]" actualValue="#[flowVars.jurisdictionTable.size()]" doc:name="Assert Equals on Jurisdiction Table"/>
+        <munit:assert-on-equals message="failed on SFProjectNumber in PrepareInvoice" expectedValue="#[flowVars.SFProjectNumber]" actualValue="#[payload.CREATE_INVOICE_Input.InputParameters.P_INVOICE.SOURCE_PROJECT_NUMBER]" doc:name="Assert Equals on SFProjectNumber"/>
+        <munit:assert-on-equals message="failed on Source_Invoice_Number in PrepareInvoice" expectedValue="#[flowVars.event.financialTransaction.financialTransGranularId]" actualValue="#[payload.CREATE_INVOICE_Input.InputParameters.P_INVOICE.SOURCE_INVOICE_NUMBER]" doc:name="Assert Equals on InvoiceNumber"/>
+        <munit:assert-on-equals message="failed on Invoice_Description in PrepareInvoice" expectedValue="#[flowVars.ariaAccountDetails.sfdcProjectName]" actualValue="#[payload.CREATE_INVOICE_Input.InputParameters.P_INVOICE.INVOICE_DESCRIPTION]" doc:name="Assert Equals on InvoiceDescription"/>
+        <munit:assert-on-equals message="failed on InvoiceSellTotal in PrepareInvoice" expectedValue="#[flowVars.invoiceDetailsSummary.invoiceLineCount]" actualValue="#[Integer.parseInt(payload.CREATE_INVOICE_Input.InputParameters.P_INVOICE.INVOICE_LINE_COUNT)]" doc:name="Assert Equals on InvoiceSellTotal"/>
+        <munit:assert-on-equals message="failed on OraSite in PrepareInvoice" expectedValue="#[flowVars.OraSite]" actualValue="#[payload.CREATE_INVOICE_Input.InputParameters.P_INVOICE.CUSTOMER_ADDRESS_ID]" doc:name="Assert Equals on OraSite"/>
+    </sub-flow>
+    <munit:test name="oracle-test-suite-CreateInvoiceInOracle-Error-Sub_FlowTest" description="Test" ignore="true">
+        <mock:when messageProcessor="mule:sub-flow" doc:name="Mock call to PrepareInvoice">
+            <mock:with-attributes>
+                <mock:with-attribute name="name" whereValue="#[matchContains('PrepareInvoiceForOracle_Sub_Flow')]"/>
+            </mock:with-attributes>
+            <mock:then-return payload="{}" mimeType="application/json"/>
+        </mock:when>
+        <mock:when messageProcessor="http:request" doc:name="Mock http to oracle">
+            <mock:then-return payload="#[getResource('oracleInvoiceCreation-ErrorResponse.json').asString()]" mimeType="application/json"/>
+        </mock:when>
+        <dw:transform-message doc:name="oracleAuth">
+            <dw:set-variable variableName="oracleAuth"><![CDATA[%dw 1.0
+%output application/java
+---
+{
+  accessToken: "test",
+  tokenName: "token"
+}]]></dw:set-variable>
+        </dw:transform-message>
+        <munit:set payload="#[]" doc:name="Set Message to nothing"/>
+        <flow-ref name="CreateInvoiceInOracle_Flow" doc:name="CreateInvoiceInOracle_Flow"/>
+        <dw:transform-message doc:name="Transform to Java">
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/java
+---
+payload]]></dw:set-payload>
+        </dw:transform-message>
+        <munit:assert-on-equals message="failed on Error Code in CreatInvoiceInOracle" expectedValue="ISG_SERVICE_EXECUTION_ERROR" actualValue="#[payload.ISGServiceFault.Code]" doc:name="Assert Equals on Error Code"/>
+    </munit:test>
+    <munit:test name="oracle-test-suite-Void_Invoice_In_Oracle_Sub_FlowTest" description="Test" ignore="true">
+        <mock:when messageProcessor="mule:sub-flow" doc:name="Mock call to getAuth">
+            <mock:with-attributes>
+                <mock:with-attribute name="name" whereValue="#[matchContains('getAuth')]"/>
+            </mock:with-attributes>
+            <mock:then-return payload="{}" mimeType="application/json"/>
+        </mock:when>
+        <mock:when messageProcessor="http:request" doc:name="Mock http to oracle">
+            <mock:then-return payload="#[getResource('examples/oracle-successful-response-example.json').asString()]" mimeType="application/json"/>
+        </mock:when>
+         <mock:spy doc:name="Spy" messageProcessor="http:request">
+            <mock:with-attributes>
+                <mock:with-attribute name="path" whereValue="${oracle.reverseInvoice.path}"/>
+            </mock:with-attributes>
+
+            <mock:assertions-before-call>
+                <set-variable variableName="payloadAsMap" value="#[dw(payload, 'application/java')]" doc:name="payloadAsMap" />
+                <munit:assert-on-equals message="SOURCE_SYSTEM is invalid" expectedValue="XXARIA" actualValue="#[flowVars.payloadAsMap.REVERSE_INVOICE_Input.InputParameters.P_SOURCE_SYSTEM]" doc:name="Assert Equals SOURCE_SYSTEM"/>                
+                <munit:assert-on-equals message="P_PARENT_SOURCE_INVOICE_NUMBER is invalid" expectedValue="#[flowVars.event.financialTransaction.financialTransGranularId]" actualValue="#[flowVars.payloadAsMap.REVERSE_INVOICE_Input.InputParameters.P_PARENT_SOURCE_INVOICE_NUMBER]" doc:name="Assert Equals P_PARENT_SOURCE_INVOICE_NUMBER"/>                
+                <munit:assert-on-equals message="P_SOURCE_PROJECT_NUMBER is invalid" expectedValue="#[&quot;&quot;]" actualValue="#[flowVars.payloadAsMap.REVERSE_INVOICE_Input.InputParameters.P_SOURCE_PROJECT_NUMBER]" doc:name="Assert Equals on P_SOURCE_PROJECT_NUMBER"/>                
+
+            </mock:assertions-before-call>
+        </mock:spy>
+        <dw:transform-message doc:name="oracleAuth">
+            <dw:set-variable variableName="oracleAuth"><![CDATA[%dw 1.0
+%output application/java
+---
+{
+  accessToken: "test",
+  tokenName: "token"
+}]]></dw:set-variable>
+        </dw:transform-message>
+        <munit:set payload="#[getResource('examples/event-902-example.xml').asString()]" mimeType="application/xml" doc:name="Set Message To event"/>
+        <dw:transform-message doc:name="extractEvent">
+            <dw:set-variable resource="classpath:dataweave/extractAriaEvent.dwl" variableName="event"/>
+        </dw:transform-message>
+        <flow-ref name="Void_Invoice_In_Oracle_Flow" doc:name="Void_Invoice_In_Oracle_Flow"/>
+    </munit:test>
+    
+        <munit:test name="oracle-test-suite-Create_Credit_Memo_In_Oracle_Sub_FlowTest" description="Test" ignore="true">
+        <mock:when messageProcessor="http:request" doc:name="Mock http to oracle">
+            <mock:then-return payload="#[getResource('examples/oracle-successful-response-example.json').asString()]" mimeType="application/json"/>
+        </mock:when>
+         <mock:spy doc:name="Spy" messageProcessor="http:request">
+            <mock:with-attributes>
+                <mock:with-attribute name="path" whereValue="${oracle.reverseInvoice.path}"/>
+            </mock:with-attributes>
+
+            <mock:assertions-before-call>
+                <set-variable variableName="payloadAsMap" value="#[dw(payload, 'application/java')]" doc:name="payloadAsMap" />
+                <munit:assert-on-equals message="SOURCE_SYSTEM is invalid" expectedValue="XXARIA" actualValue="#[flowVars.payloadAsMap.REVERSE_INVOICE_Input.InputParameters.P_SOURCE_SYSTEM]" doc:name="Assert Equals SOURCE_SYSTEM"/>                
+                <munit:assert-on-equals message="P_PARENT_SOURCE_INVOICE_NUMBER is invalid" expectedValue="#[flowVars.ariaCreditMemoDetails.originalInvoiceNumber]" actualValue="#[flowVars.payloadAsMap.REVERSE_INVOICE_Input.InputParameters.P_PARENT_SOURCE_INVOICE_NUMBER]" doc:name="Assert Equals P_PARENT_SOURCE_INVOICE_NUMBER"/>                
+                <munit:assert-on-equals message="P_SOURCE_INVOICE_NUMBER is invalid" expectedValue="#[flowVars.event.financialTransaction.financialTransGranularId	]" actualValue="#[flowVars.payloadAsMap.REVERSE_INVOICE_Input.InputParameters.P_SOURCE_INVOICE_NUMBER]" doc:name="Assert Equals on P_SOURCE_INVOICE_NUMBER"/>                
+
+            </mock:assertions-before-call>
+        </mock:spy>
+        <dw:transform-message doc:name="oracleAuth">
+            <dw:set-variable variableName="oracleAuth"><![CDATA[%dw 1.0
+%output application/java
+---
+{
+  accessToken: "test",
+  tokenName: "token"
+}]]></dw:set-variable>
+        </dw:transform-message>
+        <munit:set payload="#[getResource('examples/event-902-example.xml').asString()]" mimeType="application/xml" doc:name="Set Message To event 902"/>
+        <dw:transform-message doc:name="extractEvent">
+            <dw:set-variable resource="classpath:dataweave/extractAriaEvent.dwl" variableName="event"/>
+        </dw:transform-message>
+         <munit:set payload="#[getResource('examples/aria-get_cm_details_response-example.xml').asString()]" mimeType="application/xml" doc:name="Set Message To aria response"/>
+        <dw:transform-message doc:name="extract Aria Response">
+            <dw:set-variable resource="classpath:dataweave/extractAriaCreditMemoDetails.dwl" variableName="ariaCreditMemoDetails"/>
+        </dw:transform-message>
+        <flow-ref name="Create_Credit_Memo_In_Oracle_Flow" doc:name="Create_Credit_Memo_In_Oracle_Flow"/>
+    </munit:test>
+    
+    <munit:test name="oracle-test-suite-Void_Credit_Memo_In_Oracle_Sub_FlowTest" description="Test" ignore="true">
+        <mock:when messageProcessor="http:request" doc:name="Mock http to oracle">
+            <mock:then-return payload="#[getResource('examples/oracle-successful-response-example.json').asString()]" mimeType="application/json"/>
+        </mock:when>
+         <mock:spy doc:name="Spy" messageProcessor="http:request">
+            <mock:with-attributes>
+                <mock:with-attribute name="path" whereValue="${oracle.reverseInvoice.path}"/>
+            </mock:with-attributes>
+
+            <mock:assertions-before-call>
+                <set-variable variableName="payloadAsMap" value="#[dw(payload, 'application/java')]" doc:name="payloadAsMap" />
+                <munit:assert-on-equals message="SOURCE_SYSTEM is invalid" expectedValue="XXARIA" actualValue="#[flowVars.payloadAsMap.REVERSE_INVOICE_Input.InputParameters.P_SOURCE_SYSTEM]" doc:name="Assert Equals SOURCE_SYSTEM"/>                
+                <munit:assert-on-equals message="P_PARENT_SOURCE_INVOICE_NUMBER is invalid" expectedValue="#[flowVars.ariaCreditMemoDetails.originalInvoiceNumber]" actualValue="#[flowVars.payloadAsMap.REVERSE_INVOICE_Input.InputParameters.P_PARENT_SOURCE_INVOICE_NUMBER]" doc:name="Assert Equals P_PARENT_SOURCE_INVOICE_NUMBER"/>                
+                <munit:assert-on-equals message="P_SOURCE_INVOICE_NUMBER is invalid" expectedValue="#[&quot;&quot;]" actualValue="#[flowVars.payloadAsMap.REVERSE_INVOICE_Input.InputParameters.P_SOURCE_INVOICE_NUMBER]" doc:name="Assert Equals on P_SOURCE_INVOICE_NUMBER"/>                
+
+            </mock:assertions-before-call>
+        </mock:spy>
+        <dw:transform-message doc:name="oracleAuth">
+            <dw:set-variable variableName="oracleAuth"><![CDATA[%dw 1.0
+%output application/java
+---
+{
+  accessToken: "test",
+  tokenName: "token"
+}]]></dw:set-variable>
+        </dw:transform-message>
+        <munit:set payload="#[getResource('examples/event-902-example.xml').asString()]" mimeType="application/xml" doc:name="Set Message To event 902"/>
+        <dw:transform-message doc:name="extractEvent">
+            <dw:set-variable resource="classpath:dataweave/extractAriaEvent.dwl" variableName="event"/>
+        </dw:transform-message>
+         <munit:set payload="#[getResource('examples/aria-get_cm_details_response-example.xml').asString()]" mimeType="application/xml" doc:name="Set Message To aria response"/>
+        <dw:transform-message doc:name="extract Aria Response">
+            <dw:set-variable resource="classpath:dataweave/extractAriaCreditMemoDetails.dwl" variableName="ariaCreditMemoDetails"/>
+        </dw:transform-message>
+        <flow-ref name="Void_Credit_Memo_In_Oracle_Flow" doc:name="Void_Credit_Memo_In_Oracle_Flow"/>
+    </munit:test>
+</mule>

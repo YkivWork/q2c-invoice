@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:metadata="http://www.mulesoft.org/schema/mule/metadata" xmlns:microsoftservicebus="http://www.mulesoft.org/schema/mule/microsoftservicebus" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns:vm="http://www.mulesoft.org/schema/mule/vm"
+	xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/current/mule-vm.xsd
+http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
+http://www.mulesoft.org/schema/mule/microsoftservicebus http://www.mulesoft.org/schema/mule/microsoftservicebus/current/mule-microsoftservicebus.xsd">
+
+	<flow name="processTestEventFlow" processingStrategy="synchronous">
+		<logger message="#[payload]" level="DEBUG" doc:name="Logger" category="com.merrillcorp.event"/>
+        <dw:transform-message doc:name="extractEvent">
+            <dw:set-variable variableName="eventId"><![CDATA[%dw 1.0
+%output application/java
+---
+
+payload.apf2doc.event_data.event.event_id]]></dw:set-variable>
+           
+        </dw:transform-message>
+        <choice doc:name="Choice">
+
+            <when expression="#[flowVars.eventId == &quot;902&quot;]">
+                <flow-ref name="processEvent902_Flow" doc:name="processEvent902_Flow"/>
+
+
+            </when>
+            <when expression="#[flowVars.eventId == &quot;948&quot;]">
+                <flow-ref name="processEvent948_Flow" doc:name="processEvent948_Flow"/>
+
+            </when>
+            <when expression="#[flowVars.eventId == &quot;949&quot;]">
+                <flow-ref name="processEvent949_Flow" doc:name="processEvent949_Flow"/>
+
+            </when>
+            <when expression="#[flowVars.eventId == &quot;901&quot;]">
+
+                <flow-ref name="invoice-creation_Flow" doc:name="invoice-creation_Flow"/>
+            </when>
+            <otherwise>
+                <logger level="INFO" doc:name="Logger"/>
+
+            </otherwise>
+        </choice>
+
+        <logger message="payload: #[message.payloadAs(java.lang.String)]" level="INFO" doc:name="Logger" category="com.merrillcorp.event"/>
+		
+	</flow>
+	
+		<flow name="processEventFlow" processingStrategy="synchronous">
+		<logger message="Event Payload:  #[message.payloadAs(java.lang.String)]" level="INFO" doc:name="Logger" />
+        <dw:transform-message doc:name="extractEvent">
+            <dw:set-variable variableName="eventId"><![CDATA[%dw 1.0
+%output application/java
+---
+
+payload.apf2doc.event_data.event.event_id]]></dw:set-variable>
+           
+        </dw:transform-message>
+        <choice doc:name="Choice">
+
+            <when expression="#[flowVars.eventId == &quot;902&quot;]">
+                <flow-ref name="processEvent902_Flow" doc:name="processEvent902_Flow"/>
+
+
+            </when>
+            <when expression="#[flowVars.eventId == &quot;948&quot;]">
+                <flow-ref name="processEvent948_Flow" doc:name="processEvent948_Flow"/>
+
+            </when>
+            <when expression="#[flowVars.eventId == &quot;949&quot;]">
+                <flow-ref name="processEvent949_Flow" doc:name="processEvent949_Flow"/>
+
+            </when>
+            <when expression="#[flowVars.eventId == &quot;901&quot;]">
+                <flow-ref name="processEvent901_Flow" doc:name="processEvent901_Flow"/>
+
+
+            </when>
+            <otherwise>
+                <logger level="INFO" doc:name="Logger"/>
+
+            </otherwise>
+        </choice>
+
+        <logger message="Finished processEventFlow" level="INFO" doc:name="Logger" category="com.merrillcorp.event"/>
+		
+	</flow>
+
+    
+    <flow name="processEvent901_Flow" processingStrategy="synchronous">
+
+
+		<object-to-string-transformer doc:name="Object to String"/>
+		<async doc:name="Async">
+			<flow-ref name="invoice-creation_Flow" doc:name="invoice-creation_Flow" />
+		</async>
+        <response>
+            <set-property propertyName="http.status" value="#[201]" doc:name="201"/>
+            <set-payload value="OK4" doc:name="Set Payload to OK4"/>
+            <logger message="{&quot;received-event-id&quot;: &quot;901&quot;}" level="INFO" category="com.merrillcorp.invoice" doc:name="Logger"/>
+        </response>
+
+
+
+
+
+
+
+
+
+
+
+
+	</flow>
+
+    <flow name="processEvent902_Flow" processingStrategy="synchronous">
+
+
+		<object-to-string-transformer doc:name="Object to String"/>
+		<async doc:name="Async">
+			<flow-ref name="Void_Invoice_Flow" doc:name="Void_Invoice_Flow" />
+		</async>
+        <response>
+            <set-property propertyName="http.status" value="#[201]" doc:name="201"/>
+            <set-payload value="OK4" doc:name="Set Payload to OK4"/>
+            <logger message="{&quot;received-event-id&quot;: &quot;902&quot;}" level="INFO" category="com.merrillcorp.voidInvoice" doc:name="Logger"/>
+        </response>
+
+
+
+
+
+
+
+
+
+
+
+
+	</flow>
+	<flow name="processEvent948_Flow" processingStrategy="synchronous">
+
+
+		<object-to-string-transformer doc:name="Object to String"/>
+		<async doc:name="Async">
+			<flow-ref name="Create_Credit_Memo_Flow" doc:name="Create_Credit_Memo_Flow" />
+		</async>
+        <response>
+            <set-property propertyName="http.status" value="#[201]" doc:name="201"/>
+            <set-payload value="OK4" doc:name="Set Payload to OK4"/>
+            <logger message="{&quot;received-event-id&quot;: &quot;948&quot;}" level="INFO" category="com.merrillcorp.creditMemo" doc:name="Logger"/>
+        </response>
+
+
+
+
+
+
+
+
+
+
+
+
+	</flow>
+	
+	<flow name="processEvent949_Flow" processingStrategy="synchronous">
+
+
+		<object-to-string-transformer doc:name="Object to String"/>
+		<async doc:name="Async">
+			<flow-ref name="Void_Credit_Memo_Flow" doc:name="Void_Credit_Memo_Flow" />
+		</async>
+        <response>
+            <set-property propertyName="http.status" value="#[201]" doc:name="201"/>
+            <set-payload value="OK4" doc:name="Set Payload to OK4"/>
+            <logger message="{&quot;received-event-id&quot;: &quot;949&quot;}" level="INFO" category="com.merrillcorp.voidCreditMemo" doc:name="Logger"/>
+        </response>
+
+
+
+
+
+
+
+
+
+
+
+
+	</flow>
+    <flow name="Extract_Event_Flow" processingStrategy="synchronous">
+        <dw:transform-message doc:name="extractEvent">
+            <dw:input-payload doc:sample="sample_data\empty.xml"/>
+            <dw:set-variable resource="classpath:dataweave/extractAriaEvent.dwl" variableName="event"/>
+        </dw:transform-message>
+        <set-variable variableName="originalInvoiceNumber" value="#[flowVars.event.financialTransaction.financialTransGranularId]" doc:name="originalInvoiceNumber"/>
+        <catch-exception-strategy doc:name="Catch Exception Strategy">
+            <logger message="Extract_Event_Flow:  Error in dataweave   (convertFromAriaDateToOracle method)" level="INFO" category="com.merrillcorp.errorHandling" doc:name="Logger"/>
+        </catch-exception-strategy>
+
+    </flow>
+    <flow name="Extract_Void_Event_Flow" processingStrategy="synchronous">
+        <dw:transform-message doc:name="extractVoidEvent">
+            <dw:set-variable resource="classpath:dataweave/extractAriaEvent.dwl" variableName="voidEvent"/>
+        </dw:transform-message>
+        <set-variable variableName="originalVoidNumber" value="#[flowVars.voidEvent.financialTransaction.financialTransGranularId]" doc:name="originalVoidNumber"/>
+        <catch-exception-strategy doc:name="Catch Exception Strategy">
+            <logger message="Extract_Void_Event_Flow:  Error in dataweave   (convertFromAriaDateToOracle method)" level="INFO" category="com.merrillcorp.errorHandling" doc:name="Logger"/>
+        </catch-exception-strategy>
+    </flow>
+    <flow name="Extract_CM_Event_Flow" processingStrategy="synchronous">
+        <dw:transform-message doc:name="extractCMEvent">
+            <dw:set-variable resource="classpath:dataweave/extractAriaEvent.dwl" variableName="cmEvent"/>
+        </dw:transform-message>
+        <set-variable variableName="originalCMNumber" value="#[flowVars.cmEvent.financialTransaction.financialTransGranularId]" doc:name="originalCMNumber"/>
+        <catch-exception-strategy doc:name="Catch Exception Strategy">
+            <logger message="Extract_CM_Event_Flow:  Error in dataweave   (convertFromAriaDateToOracle method)" level="INFO" category="com.merrillcorp.errorHandling" doc:name="Logger"/>
+        </catch-exception-strategy>
+    </flow>
+		
+</mule>

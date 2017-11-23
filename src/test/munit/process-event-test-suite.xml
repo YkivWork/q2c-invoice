@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw" xmlns:mock="http://www.mulesoft.org/schema/mule/mock" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:spring="http://www.springframework.org/schema/beans" xmlns:core="http://www.mulesoft.org/schema/mule/core" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/mock http://www.mulesoft.org/schema/mule/mock/current/mule-mock.xsd
+http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd">
+    <munit:config name="munit" doc:name="MUnit configuration" mock-connectors="false" mock-inbounds="false"/>
+    <spring:beans>
+        <spring:import resource="classpath:sys-aria/*.xml"/>
+        <spring:import resource="classpath:proc-merrillcorp-invoice/*.xml"/>
+        <spring:import resource="classpath:sys-azure/*.xml"/>
+        <spring:import resource="classpath:ux-aria-event/*.xml"/>
+        <spring:import resource="classpath:credit-memo.xml"/>
+        <spring:import resource="classpath:expenditure.xml"/>
+        <spring:import resource="classpath:get-aria.xml"/>
+        <spring:import resource="classpath:get-mdr.xml"/>
+        <spring:import resource="classpath:globals.xml"/>
+        <spring:import resource="classpath:invoice-creation.xml"/>
+        <spring:import resource="classpath:oracle.xml"/>
+        <spring:import resource="classpath:process-event.xml"/>
+        <spring:import resource="classpath:salesforce.xml"/>        
+        <spring:import resource="classpath:sales-rep.xml"/>
+        <spring:import resource="classpath:error-handling.xml"/>
+        <spring:import resource="classpath:html-generate.xml"/>
+        <spring:import resource="classpath:html-process.xml"/>
+        <spring:import resource="classpath:pdf-process.xml"/>
+        <spring:import resource="classpath:pdf-store.xml"/>
+    </spring:beans>
+    <munit:test name="processeventflow-test-suite-processEvent901FlowTest" description="Test" ignore="true">
+        <mock:when messageProcessor="vm:outbound-endpoint" doc:name="Mock VM">
+            <mock:then-return payload="#[samePayload()]"/>
+        </mock:when>
+
+        <set-payload value="#[getResource('examples/event-901-example.xml').asString()]" doc:name="Set Payload" mimeType="application/xml"/>
+        <flow-ref name="processEventFlow" doc:name="processEventFlow"/>
+
+        <munit:assert-on-equals message="failed on event id" expectedValue="#[&quot;901&quot;]" actualValue="#[flowVars.eventId]" doc:name="Assert Equals"/>
+    </munit:test>
+        <munit:test name="processeventflow-test-suite-processEvent902FlowTest" description="Test" ignore="true">
+        <mock:when messageProcessor="vm:outbound-endpoint" doc:name="Mock VM">
+            <mock:then-return payload="#[samePayload()]"/>
+        </mock:when>
+
+        <set-payload value="#[getResource('examples/event-902-example.xml').asString()]" doc:name="Set Payload" mimeType="application/xml"/>
+        <flow-ref name="processEventFlow" doc:name="processEventFlow"/>
+        <munit:assert-on-equals message="failed on event id" expectedValue="#[&quot;902&quot;]" actualValue="#[flowVars.eventId]" doc:name="Assert Equals"/>
+
+    </munit:test>
+        <munit:test name="processeventflow-test-suite-processEvent948FlowTest" description="Test" ignore="true">
+
+        <set-payload value="#[getResource('examples/event-948-Credit-Memo-Created-Example.xml').asString()]" doc:name="Set Payload" mimeType="application/xml"/>
+        <flow-ref name="processEventFlow" doc:name="processEventFlow"/>
+        <munit:assert-on-equals message="failed on event id" expectedValue="#[&quot;948&quot;]" actualValue="#[flowVars.eventId]" doc:name="Assert Equals"/>
+
+    </munit:test>
+        <munit:test name="processeventflow-test-suite-processEvent949FlowTest" description="Test" ignore="true">
+
+        <set-payload value="#[getResource('examples/event-949-Credit-Memo-Void-Example.xml').asString()]" doc:name="Set Payload" mimeType="application/xml"/>
+        <flow-ref name="processEventFlow" doc:name="processEventFlow"/>
+        <munit:assert-on-equals message="failed on event id" expectedValue="#[&quot;949&quot;]" actualValue="#[flowVars.eventId]" doc:name="Assert Equals"/>
+
+    </munit:test>
+        <munit:test name="processeventflow-test-suite-processEventDefault905FlowTest" description="Test" ignore="true">
+
+        <set-payload value="#[getResource('examples/event-905-example.xml').asString()]" doc:name="Set Payload" mimeType="application/xml"/>
+        <flow-ref name="processEventFlow" doc:name="processEventFlow"/>
+        <munit:assert-on-equals message="failed on event id" expectedValue="#[&quot;905&quot;]" actualValue="#[flowVars.eventId]" doc:name="Assert Equals"/>
+
+    </munit:test>
+    
+</mule>

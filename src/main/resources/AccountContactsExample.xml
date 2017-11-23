@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="urn:client:api:wsdl:document/literal_wrapped:vers:11.0:aria_complete_m_api" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<SOAP-ENV:Body>
+		<ns1:get_acct_contacts_mResponseElement>
+			<ns1:account_contact>
+				<ns1:contact_no>3248852</ns1:contact_no>
+				<ns1:first_name>Jesse</ns1:first_name>
+				<ns1:middle_initial xsi:nil="true"/>
+				<ns1:last_name>Fulcher</ns1:last_name>
+				<ns1:company_name>Advanced Technology Group</ns1:company_name>
+				<ns1:address1>1900 Avenue of the Stars</ns1:address1>
+				<ns1:address2>Suite 1200</ns1:address2>
+				<ns1:address3 xsi:nil="true"/>
+				<ns1:city>Los Angeles</ns1:city>
+				<ns1:locality xsi:nil="true"/>
+				<ns1:state_prov>CA</ns1:state_prov>
+				<ns1:country_cd>US</ns1:country_cd>
+				<ns1:postal_cd>90067</ns1:postal_cd>
+				<ns1:phone>406-240-9700</ns1:phone>
+				<ns1:phone_ext xsi:nil="true"/>
+				<ns1:cell_phone xsi:nil="true"/>
+				<ns1:work_phone xsi:nil="true"/>
+				<ns1:work_phone_ext xsi:nil="true"/>
+				<ns1:fax xsi:nil="true"/>
+				<ns1:email>test@test.com</ns1:email>
+				<ns1:birthdate xsi:nil="true"/>
+				<ns1:address_verification_code xsi:nil="true"/>
+				<ns1:address_match_score xsi:nil="true"/>
+			</ns1:account_contact>
+			<ns1:billing_contacts xsi:nil="true"/>
+			<ns1:backup_contacts xsi:nil="true"/>
+			<ns1:statement_contacts>
+				<ns1:stat_contact_no>3254673</ns1:stat_contact_no>
+				<ns1:stat_first_name>Alan</ns1:stat_first_name>
+				<ns1:stat_middle_initial xsi:nil="true"/>
+				<ns1:stat_last_name>Auerbach</ns1:stat_last_name>
+				<ns1:stat_company_name>Puma Biotechnology, Inc.</ns1:stat_company_name>
+				<ns1:stat_address1>123 Main Street</ns1:stat_address1>
+				<ns1:stat_address2 xsi:nil="true"/>
+				<ns1:stat_address3 xsi:nil="true"/>
+				<ns1:stat_city>Missoula</ns1:stat_city>
+				<ns1:stat_locality xsi:nil="true"/>
+				<ns1:stat_state_prov>MT</ns1:stat_state_prov>
+				<ns1:stat_country>US</ns1:stat_country>
+				<ns1:stat_postal_cd>59801</ns1:stat_postal_cd>
+				<ns1:stat_phone xsi:nil="true"/>
+				<ns1:stat_phone_ext xsi:nil="true"/>
+				<ns1:stat_cell_phone xsi:nil="true"/>
+				<ns1:stat_work_phone xsi:nil="true"/>
+				<ns1:stat_work_phone_ext xsi:nil="true"/>
+				<ns1:stat_fax xsi:nil="true"/>
+				<ns1:stat_email>ahauerbach@pumabiotechnology.com</ns1:stat_email>
+				<ns1:stat_birthdate xsi:nil="true"/>
+				<ns1:stat_address_verification_code xsi:nil="true"/>
+				<ns1:stat_address_match_score xsi:nil="true"/>
+				<ns1:stat_billing_group_no>753618</ns1:stat_billing_group_no>
+				<ns1:stat_client_billing_group_id>753618</ns1:stat_client_billing_group_id>
+			</ns1:statement_contacts>
+			<ns1:other_contacts xsi:nil="true"/>
+			<ns1:error_code>0</ns1:error_code>
+			<ns1:error_msg>OK</ns1:error_msg>
+		</ns1:get_acct_contacts_mResponseElement>
+	</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
